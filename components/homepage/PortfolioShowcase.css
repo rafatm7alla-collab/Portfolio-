@@ -1,0 +1,394 @@
+.portfolio-showcase {
+  width: 100%;
+  position: relative;
+  overflow-anchor: none;
+}
+
+/* Each project gets its own scroll "slot". The item inside is sticky, so it
+   stays pinned in view while its slot scrolls past, then the next project's
+   slot (with a higher z-index) rises up and covers/pushes it away. The slot
+   height sits right at 100vh so there is no dwell/pause at all — the next
+   project starts covering the current one the instant you keep scrolling. */
+.portfolio-stack-wrapper {
+  position: relative;
+  height: 100.3vh;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   WIDE LAYOUT (DubaIraq) — a wide banner centered on the page, not
+   edge-to-edge like the full-width projects. Sized to the source
+   photo's own ~2:1 ratio (2800×1399).
+   ───────────────────────────────────────────────────────────────── */
+
+.portfolio-wide-item {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+  background: var(--color-paper, #ffffff);
+  padding: clamp(32px, 5vh, 80px) clamp(24px, 5vw, 64px);
+}
+
+.portfolio-wide-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: clamp(20px, 3vh, 32px);
+  /* Scales with viewport height too, so a tall window fills with the
+     image instead of leaving dead white space above/below it. */
+  max-width: min(1280px, 92vw, calc(80vh * 2800 / 1399));
+  margin: 0 auto;
+  width: 100%;
+}
+
+.portfolio-wide-image-wrapper {
+  width: 100%;
+  aspect-ratio: 2800 / 1399;
+  overflow: hidden;
+  border-radius: clamp(12px, 1.5vw, 24px);
+  background: #0a0a0a;
+}
+
+.portfolio-wide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   CENTERED LAYOUT (Lexus, Praline)
+   ───────────────────────────────────────────────────────────────── */
+
+.portfolio-centered-item {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+  background: var(--color-paper, #ffffff);
+  padding: clamp(32px, 5vh, 80px) 0;
+}
+
+.portfolio-centered-content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: clamp(20px, 3vh, 32px);
+  max-width: 620px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio-centered-image-wrapper {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: clamp(12px, 1.5vw, 24px);
+  background: #0a0a0a;
+}
+
+.portfolio-centered-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.portfolio-centered-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  text-align: left;
+  gap: clamp(10px, 1.6vh, 16px);
+  flex-shrink: 0;
+}
+
+.portfolio-centered-index {
+  font-size: clamp(0.65rem, 0.8vw, 0.72rem);
+  letter-spacing: 0.12em;
+  color: var(--ink-secondary);
+  font-weight: 300;
+}
+
+.portfolio-centered-title {
+  font-size: clamp(3.2rem, 7.2vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.portfolio-centered-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-self: flex-end;
+  gap: clamp(10px, 1.4vh, 14px);
+  text-align: right;
+}
+
+.portfolio-centered-services {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.portfolio-centered-services p {
+  font-size: clamp(0.62rem, 0.75vw, 0.7rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-secondary);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+.portfolio-centered-location {
+  font-size: clamp(0.62rem, 0.75vw, 0.7rem);
+  font-weight: 300;
+  color: var(--ink-secondary);
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.portfolio-placeholder-badge {
+  font-size: clamp(0.55rem, 0.7vw, 0.65rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--ink-secondary);
+  border: 1px solid var(--hairline);
+  padding: clamp(5px, 0.9vh, 8px) clamp(10px, 1.8vw, 16px);
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   SPLIT LAYOUT (Vision House) — wide image left, big bold title right.
+   The --reverse modifier (Praline) mirrors it: image right, text left.
+   ───────────────────────────────────────────────────────────────── */
+
+.portfolio-split-item {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  gap: clamp(40px, 6vw, 90px);
+  text-decoration: none;
+  color: inherit;
+  background: var(--color-paper, #ffffff);
+  padding: clamp(32px, 5vh, 80px) clamp(40px, 8vw, 80px);
+}
+
+.portfolio-split-item--reverse {
+  flex-direction: row-reverse;
+}
+
+/* --stacked (Praline): same image and title sizing as the row layout,
+   just rearranged — banner centered on top, title and info below it. */
+.portfolio-split-item--stacked {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio-split-item--stacked .portfolio-split-image-wrapper {
+  flex: none;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 86vh;
+}
+
+.portfolio-split-item--stacked .portfolio-split-text {
+  flex: none;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.portfolio-split-image-wrapper {
+  flex: 1.2;
+  /* Matches the real cover's own landscape ratio so the full visual shows
+     instead of being cropped by object-fit: cover inside a squarer box. */
+  aspect-ratio: 3906 / 2628;
+  max-height: 86vh;
+  overflow: hidden;
+  border-radius: clamp(12px, 1.5vw, 24px);
+  background: #0a0a0a;
+}
+
+.portfolio-split-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.portfolio-split-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(16px, 2.5vh, 28px);
+}
+
+.portfolio-split-index {
+  font-size: clamp(0.65rem, 0.8vw, 0.72rem);
+  letter-spacing: 0.12em;
+  color: var(--ink-secondary);
+  font-weight: 300;
+}
+
+.portfolio-split-title {
+  font-size: clamp(3.5rem, 7.5vw, 6.2rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.portfolio-split-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(10px, 1.4vh, 14px);
+  text-align: left;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   FULL WIDTH LAYOUT (Toyota Crown, Land Rover Kurdistan, etc.)
+   ───────────────────────────────────────────────────────────────── */
+
+.portfolio-fullwidth-item {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  background: var(--color-paper, #ffffff);
+  padding: clamp(32px, 5vh, 80px) clamp(40px, 8vw, 80px);
+}
+
+.portfolio-fullwidth-header {
+  margin-bottom: clamp(30px, 5vh, 50px);
+}
+
+.portfolio-fullwidth-title {
+  font-size: clamp(3.6rem, 8.5vw, 5.7rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.02;
+  margin: 0;
+  padding: 0;
+}
+
+.portfolio-fullwidth-image-wrapper {
+  width: 100%;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: clamp(12px, 1.5vw, 24px);
+  background: #f5f5f5;
+}
+
+.portfolio-fullwidth-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .portfolio-centered-content {
+    max-width: 100%;
+  }
+
+  /* A true 2:1 landscape banner can't fill a narrow-but-tall frame without
+     being cropped — width is always the bottleneck there. Below this
+     breakpoint, let the image fill the available height instead (like the
+     centered layout), trading the fully-uncropped banner for no dead
+     space; the wide desktop view keeps the uncropped landscape banner. */
+  .portfolio-wide-item {
+    align-items: stretch;
+  }
+
+  .portfolio-wide-content {
+    max-width: 100%;
+    height: 100%;
+  }
+
+  .portfolio-wide-image-wrapper {
+    aspect-ratio: auto;
+    flex: 1;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .portfolio-split-item {
+    flex-direction: column;
+    align-items: stretch;
+    height: 100vh;
+  }
+
+  /* Same tradeoff as the wide layout: a fixed landscape ratio can't fill
+     a narrow-but-tall frame without leaving dead space, so let the image
+     fill the available height here instead of staying width-locked. */
+  .portfolio-split-image-wrapper {
+    flex: 1;
+    width: 100%;
+    aspect-ratio: auto;
+    max-height: none;
+    min-height: 0;
+  }
+
+  .portfolio-split-text {
+    flex: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-stack-wrapper {
+    height: 100.5vh;
+  }
+
+  .portfolio-centered-title {
+    font-size: clamp(1.9rem, 6.5vw, 2.9rem);
+  }
+
+  .portfolio-fullwidth-title {
+    font-size: clamp(1.9rem, 6.5vw, 2.9rem);
+  }
+
+  .portfolio-split-title {
+    font-size: clamp(1.9rem, 6.5vw, 2.9rem);
+  }
+}

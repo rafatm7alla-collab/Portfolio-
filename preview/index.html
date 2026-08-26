@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rafat Mhalla — Creative Director / Art Director</title>
+<style>
+/* ══════════════════════════════════════════════════════════════════
+   STATIC PREVIEW — mirrors app/globals.css exactly.
+   Exists so the design can be reviewed without a Node toolchain.
+   Not part of the build. Delete once `npm run dev` is running.
+   ══════════════════════════════════════════════════════════════════ */
+
+:root{
+  --paper:#fff; --ink:#000; --ink-secondary:#6e6e6e;
+  --ink-tertiary:#b5b5b5; --hairline:#e5e5e5; --surface-invert:#0a0a0a;
+  --page-margin:20px; --grid-cols:4; --grid-gutter:16px; --page-max:1800px;
+  --section-gap:clamp(96px,14vh,224px);
+  --ease:cubic-bezier(0.16,1,0.3,1);
+}
+@media(min-width:768px){:root{--page-margin:40px;--grid-cols:8;--grid-gutter:20px}}
+@media(min-width:1024px){:root{--page-margin:48px;--grid-cols:12;--grid-gutter:20px}}
+@media(min-width:1280px){:root{--page-margin:64px;--grid-gutter:24px}}
+@media(min-width:1600px){:root{--page-margin:clamp(48px,5vw,120px)}}
+
+[data-invert]{--paper:var(--surface-invert);--ink:#fff;--ink-secondary:#9a9a9a;--hairline:#262626;
+  background:var(--paper);color:var(--ink)}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:#fff;color:#000;overflow-x:hidden;
+  font-family:'Helvetica Neue',Helvetica,Arial,'Liberation Sans',sans-serif;
+  font-weight:400;font-synthesis:none;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+h1,h2,h3,p,figure{margin:0}
+ul{margin:0;padding:0;list-style:none}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+::selection{background:#000;color:#fff}
+:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+
+/* ─── TYPE SCALE ─── */
+.t-display-xl{font-size:clamp(3.25rem,12vw,11rem);font-weight:700;letter-spacing:-.045em;line-height:.86}
+.t-display-l {font-size:clamp(2.75rem,9vw,9rem);font-weight:700;letter-spacing:-.038em;line-height:.86}
+.t-display-m {font-size:clamp(2.25rem,5.5vw,5.5rem);font-weight:700;letter-spacing:-.03em;line-height:.9}
+.t-headline  {font-size:clamp(1.75rem,3.4vw,3.25rem);font-weight:300;letter-spacing:-.02em;line-height:1.08}
+.t-lede      {font-size:clamp(1.125rem,1.6vw,1.5rem);font-weight:300;letter-spacing:-.008em;line-height:1.4}
+.t-body      {font-size:1rem;font-weight:400;line-height:1.55}
+@media(min-width:1024px){.t-body{font-size:1.0625rem}}
+.t-meta      {font-size:.6875rem;font-weight:400;letter-spacing:.14em;line-height:1.5;text-transform:uppercase}
+.t-micro     {font-size:.625rem;font-weight:400;letter-spacing:.2em;line-height:1.4;text-transform:uppercase}
+.t-light{font-weight:300}
+.hero-black{font-weight:900}
+.sec{color:var(--ink-secondary)}
+.upper{text-transform:uppercase}
+
+/* ─── GRID ─── */
+.page{width:100%;max-width:var(--page-max);margin-inline:auto;padding-inline:var(--page-margin)}
+.grid{display:grid;grid-template-columns:repeat(var(--grid-cols),minmax(0,1fr));column-gap:var(--grid-gutter)}
+.bleed{width:100vw;margin-inline:calc(50% - 50vw);max-width:100vw}
+.bleed-r{width:calc(100% + var(--page-margin));margin-right:calc(var(--page-margin) * -1)}
+.bleed-l{width:calc(100% + var(--page-margin));margin-left:calc(var(--page-margin) * -1)}
+.rule{height:1px;width:100%;background:var(--hairline);border:0}
+.offset-y{margin-top:0}
+@media(min-width:1024px){.offset-y{margin-top:120px}}
+
+/* ─── LINK ─── */
+.link{position:relative;display:inline-block}
+.link::after{content:'';position:absolute;left:0;bottom:-.15em;width:100%;height:1px;
+  background:currentColor;transform:scaleX(0);transform-origin:left;
+  transition:transform .24s var(--ease)}
+.link:hover::after,.link:focus-visible::after{transform:scaleX(1)}
+.link-active{font-weight:700}
+
+/* ─── MOTION ─── */
+.reveal{opacity:0;transform:translateY(24px);
+  transition:opacity .7s var(--ease),transform .7s var(--ease);
+  transition-delay:var(--d,0ms)}
+.reveal.in{opacity:1;transform:none}
+.mask{position:relative;overflow:hidden;clip-path:inset(100% 0 0 0);
+  transition:clip-path .9s var(--ease);transition-delay:var(--d,0ms)}
+.mask>*{transform:scale(1.06);transition:transform .9s var(--ease);transition-delay:var(--d,0ms)}
+.mask.in{clip-path:inset(0 0 0 0)}
+.mask.in>*{transform:scale(1)}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{transform:none!important;transition:opacity .2s linear;transition-delay:0ms!important}
+  .mask{clip-path:none!important;opacity:0;transition:opacity .2s linear}
+  .mask.in{opacity:1}
+  .mask>*{transform:none!important;transition:none!important}
+}
+
+/* ─── NAV ─── */
+.nav{position:fixed;inset-inline:0;top:0;z-index:50;color:#fff;mix-blend-mode:difference;
+  pointer-events:none}
+.nav .page{display:flex;align-items:center;justify-content:space-between;padding-block:28px}
+@media(min-width:768px){.nav .page{padding-block:32px}}
+.nav a{pointer-events:auto;letter-spacing:.18em}
+.nav nav{display:none;gap:32px}
+@media(min-width:768px){.nav nav{display:flex}}
+@media(min-width:1024px){.nav nav{gap:40px}}
+.nav .menu{display:block;pointer-events:auto;letter-spacing:.18em}
+@media(min-width:768px){.nav .menu{display:none}}
+
+/* ─── PENDING ASSET ─── */
+.pending{display:flex;align-items:center;justify-content:center;height:100%;width:100%;
+  background:#d6d6d6;color:#8a8a8a;text-align:center;padding:0 16px}
+
+/* ─── PLACEHOLDER TAG ─── */
+.tag{display:inline-block;border:1px solid currentColor;padding:3px 6px;
+  font-size:.625rem;letter-spacing:.2em;text-transform:uppercase;line-height:1.4}
+
+/* ─── FEATURE HOVER ─── */
+.feature{display:block}
+.hov{overflow:hidden}
+.hov>*{transition:transform .6s var(--ease)}
+.feature:hover .hov>*{transform:scale(1.02)}
+.feature:hover .ttl{transform:translateX(8px)}
+.ttl{transition:transform .6s var(--ease)}
+
+/* ─── SPECIMEN ─── */
+.spec-row{display:grid;grid-template-columns:1fr;gap:12px;padding:28px 0;border-bottom:1px solid var(--hairline)}
+@media(min-width:900px){.spec-row{grid-template-columns:190px 1fr;gap:32px;align-items:baseline}}
+.swatch{height:96px;border:1px solid var(--hairline)}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ NAV ══════════════ -->
+<header class="nav">
+  <div class="page">
+    <a href="#" class="t-meta link">Rafat Mhalla</a>
+    <nav>
+      <a href="#work" class="t-meta link link-active">Work</a>
+      <a href="#about" class="t-meta link">About</a>
+      <a href="#contact" class="t-meta link">Contact</a>
+    </nav>
+    <span class="menu t-meta">Menu</span>
+  </div>
+</header>
+
+<main>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section style="min-height:92vh;display:flex;flex-direction:column;justify-content:space-between;
+                padding-top:clamp(120px,19vh,220px);padding-bottom:clamp(32px,5vh,64px)">
+  <div class="page">
+    <p class="t-meta reveal" style="letter-spacing:.18em">Creative Director · Art Director</p>
+
+    <!-- The signature pair at maximum scale: BOLD uppercase over LIGHT
+         lowercase. Same move as every section header — this is where it
+         originates. Two 900-weight words stacked would use none of it. -->
+    <h1 class="t-display-xl" style="margin-top:clamp(24px,4vh,56px)">
+      <span class="reveal hero-black upper" style="display:block;--d:80ms">Creative</span>
+      <span class="reveal t-light" style="display:block;padding-left:.06em;--d:160ms">direction</span>
+    </h1>
+
+    <div class="grid" style="margin-top:clamp(40px,6vh,88px)">
+      <div class="reveal hero-sub-col" style="--d:320ms">
+        <p class="t-lede">Branding, visual systems and campaigns for brands that want to be remembered.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page">
+    <div class="reveal" style="--d:420ms;display:flex;align-items:flex-end;justify-content:space-between;
+         padding-top:clamp(40px,8vh,120px)">
+      <p class="t-micro sec">Baghdad · Available 2026</p>
+      <p class="t-micro sec">(12+ Years)</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ SELECTED WORK ══════════════ -->
+<section id="work" style="padding-top:var(--section-gap)">
+  <div class="page">
+    <header style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px">
+      <h2 class="t-display-l">
+        <span class="reveal upper" style="display:block">Selected</span>
+        <span class="reveal t-light" style="display:block;padding-left:.32em;--d:80ms">work</span>
+      </h2>
+      <div class="reveal" style="--d:160ms;flex-shrink:0;padding-top:.6em">
+        <p class="t-micro sec">(06)</p>
+      </div>
+    </header>
+    <hr class="rule" style="margin-top:clamp(40px,6vw,80px)" />
+  </div>
+
+  <div style="padding-top:clamp(48px,8vh,112px)">
+
+    <!-- 01 · BLEED -->
+    <article style="padding-bottom:var(--section-gap)">
+      <a href="#" class="feature">
+        <div class="bleed hov">
+          <div class="mask" style="aspect-ratio:16/9">
+            <div class="pending"><span class="t-micro">Al Zaytouna Terraces — hero image</span></div>
+          </div>
+        </div>
+        <div class="page">
+          <div class="cap">
+            <div>
+              <p class="t-micro sec">01</p>
+              <h3 class="t-display-m ttl" style="margin-top:12px">Al Zaytouna Terraces</h3>
+            </div>
+            <div class="cap-meta">
+              <p class="t-meta">Creative Direction</p>
+              <p class="t-meta">Visual Identity</p>
+              <p class="t-meta sec" style="margin-top:8px">Baghdad · 2026</p>
+              <div style="margin-top:12px"><span class="tag">Placeholder</span></div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 02 · TYPE LEFT / IMAGE BLEEDS RIGHT -->
+    <article style="padding-bottom:var(--section-gap)">
+      <a href="#" class="feature">
+        <div class="page">
+          <div class="grid" style="align-items:center;row-gap:32px">
+            <div class="c-type">
+              <p class="t-micro sec">02</p>
+              <h3 class="t-display-m ttl" style="margin-top:16px">Placeholder Project Two</h3>
+              <div style="margin-top:32px">
+                <p class="t-meta">Creative Direction</p>
+                <p class="t-meta">Campaign Development</p>
+                <p class="t-meta sec" style="margin-top:8px">2025</p>
+                <div style="margin-top:16px"><span class="tag">Placeholder</span></div>
+              </div>
+            </div>
+            <div class="c-img-r bleed-r">
+              <div class="hov">
+                <div class="mask" style="aspect-ratio:3/2">
+                  <div class="pending"><span class="t-micro">Placeholder Project Two — hero image</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 03 · INSET PORTRAIT -->
+    <article style="padding-bottom:var(--section-gap)">
+      <a href="#" class="feature">
+        <div class="page">
+          <div class="grid">
+            <div class="c-inset">
+              <div class="hov">
+                <div class="mask" style="aspect-ratio:4/5">
+                  <div class="pending"><span class="t-micro">Placeholder Project Three — hero image</span></div>
+                </div>
+              </div>
+              <div style="margin-top:24px">
+                <p class="t-micro sec">03</p>
+                <h3 class="t-display-m ttl" style="margin-top:12px">Placeholder Project Three</h3>
+                <div style="margin-top:16px">
+                  <p class="t-meta">Visual Identity</p>
+                  <p class="t-meta sec" style="margin-top:8px">2025</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 04 · BLEED -->
+    <article style="padding-bottom:var(--section-gap)">
+      <a href="#" class="feature">
+        <div class="bleed hov">
+          <div class="mask" style="aspect-ratio:16/9">
+            <div class="pending"><span class="t-micro">Placeholder Project Four — hero image</span></div>
+          </div>
+        </div>
+        <div class="page">
+          <div class="cap">
+            <div>
+              <p class="t-micro sec">04</p>
+              <h3 class="t-display-m ttl" style="margin-top:12px">Placeholder Project Four</h3>
+            </div>
+            <div class="cap-meta">
+              <p class="t-meta">Art Direction</p>
+              <p class="t-meta sec" style="margin-top:8px">2024</p>
+            </div>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 05 · TYPE RIGHT / IMAGE BLEEDS LEFT -->
+    <article style="padding-bottom:var(--section-gap)">
+      <a href="#" class="feature">
+        <div class="page">
+          <div class="grid" style="align-items:center;row-gap:32px">
+            <div class="c-img-l bleed-l">
+              <div class="hov">
+                <div class="mask" style="aspect-ratio:3/2">
+                  <div class="pending"><span class="t-micro">Placeholder Project Five — hero image</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="c-type-r">
+              <p class="t-micro sec">05</p>
+              <h3 class="t-display-m ttl" style="margin-top:16px">Placeholder Project Five</h3>
+              <div style="margin-top:32px">
+                <p class="t-meta">Digital</p>
+                <p class="t-meta">Visual Systems</p>
+                <p class="t-meta sec" style="margin-top:8px">2024</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </article>
+
+    <!-- 06 · PAIR -->
+    <article style="padding-bottom:var(--section-gap)">
+      <a href="#" class="feature">
+        <div class="page">
+          <div class="grid" style="row-gap:32px">
+            <div class="c-pair-a">
+              <div class="hov">
+                <div class="mask" style="aspect-ratio:4/5">
+                  <div class="pending"><span class="t-micro">Placeholder Project Six — hero image</span></div>
+                </div>
+              </div>
+              <div style="margin-top:24px">
+                <p class="t-micro sec">06</p>
+                <h3 class="t-display-m ttl" style="margin-top:12px">Placeholder Project Six</h3>
+                <p class="t-meta sec" style="margin-top:16px">Visual System · 2023</p>
+              </div>
+            </div>
+            <div class="c-pair-b offset-y">
+              <div class="hov">
+                <div class="mask" style="aspect-ratio:3/4;--d:120ms">
+                  <div class="pending"><span class="t-micro">Supporting image</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </article>
+  </div>
+
+  <div class="page">
+    <div style="display:flex;justify-content:flex-end;padding-bottom:var(--section-gap)">
+      <a href="#" class="t-meta link">All work (08) →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ ABOUT — the only inverted block ══════════════ -->
+<section id="about" data-invert style="padding-block:var(--section-gap)">
+  <div class="page">
+    <p class="t-meta sec reveal">(About)</p>
+    <div class="reveal" style="--d:80ms;margin-top:clamp(32px,5vw,64px)">
+      <div class="grid">
+        <p class="t-headline c-about">Twelve years directing brands across identity, campaign and digital.</p>
+      </div>
+    </div>
+    <div class="reveal" style="--d:200ms;margin-top:clamp(48px,8vw,120px);display:flex;justify-content:flex-end">
+      <a href="#" class="t-meta link">Read more →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<section id="contact" style="padding-top:var(--section-gap);padding-bottom:64px">
+  <div class="page">
+    <p class="t-meta sec reveal">(Contact)</p>
+    <!-- Closes on the bold half. Four lines of display-xl bold was tested
+         and rejected — it ended the page with a wall of black, and the
+         overflow:hidden line wrappers clipped every descender. -->
+    <h2 class="t-display-xl" style="margin-top:32px">
+      <span class="reveal t-light" style="display:block;padding-left:.06em">Let's make something</span>
+      <span class="reveal" style="display:block;--d:80ms">worth remembering.</span>
+    </h2>
+    <div class="reveal" style="--d:320ms;margin-top:clamp(40px,6vw,96px)">
+      <a href="#" class="link" style="font-size:clamp(1.25rem,2.4vw,2rem);font-weight:300;letter-spacing:-.015em">
+        hello@rafatmhalla.com
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer style="padding-top:64px;padding-bottom:32px">
+  <div class="page">
+    <hr class="rule" />
+    <div class="foot">
+      <div>
+        <p class="t-micro">Rafat Mhalla</p>
+        <p class="t-micro sec" style="margin-top:4px">Creative Director / Art Director</p>
+      </div>
+      <nav style="display:flex;gap:24px">
+        <a href="#work" class="t-micro link">Work</a>
+        <a href="#about" class="t-micro link">About</a>
+        <a href="#contact" class="t-micro link">Contact</a>
+      </nav>
+      <ul style="display:flex;gap:24px">
+        <li><a href="#" class="t-micro link">BE</a></li>
+        <li><a href="#" class="t-micro link">LI</a></li>
+        <li><a href="#" class="t-micro link">IG</a></li>
+      </ul>
+      <p class="t-micro sec">© 2026</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════ TYPE SPECIMEN ══════════════ -->
+<section data-invert style="padding-block:var(--section-gap)">
+  <div class="page">
+    <h2 class="t-display-l">
+      <span class="upper" style="display:block">Type</span>
+      <span class="t-light" style="display:block;padding-left:.32em">specimen</span>
+    </h2>
+    <p class="t-meta sec" style="margin-top:24px">Reference only — not part of the site</p>
+  </div>
+</section>
+
+<section style="padding-block:var(--section-gap)">
+  <div class="page">
+
+    <div class="spec-row">
+      <p class="t-micro sec">display-xl · 700 · −0.045em · 0.82</p>
+      <p class="t-display-xl upper">Creative</p>
+    </div>
+    <div class="spec-row">
+      <p class="t-micro sec">display-l · 700 · −0.038em · 0.86</p>
+      <p class="t-display-l upper">Al Zaytouna</p>
+    </div>
+    <div class="spec-row">
+      <p class="t-micro sec">display-m · 700 · −0.03em · 0.90</p>
+      <p class="t-display-m">Placeholder Project Two</p>
+    </div>
+    <div class="spec-row">
+      <p class="t-micro sec">headline · 300 · −0.02em · 1.08</p>
+      <p class="t-headline">A residential landmark that needed to feel permanent before a single stone was laid.</p>
+    </div>
+    <div class="spec-row">
+      <p class="t-micro sec">lede · 300 · −0.008em · 1.40</p>
+      <p class="t-lede">Branding, visual systems and campaigns for brands that want to be remembered.</p>
+    </div>
+    <div class="spec-row">
+      <p class="t-micro sec">body · 400 · 0 · 1.55</p>
+      <p class="t-body" style="max-width:62ch">Sixty to ninety words of situation and constraint, written so that it could not be pasted onto a different project. Specifics beat adjectives: the market, the timeline, the competing developments, the thing the client was afraid of.</p>
+    </div>
+    <div class="spec-row">
+      <p class="t-micro sec">meta · 400 · +0.14em · uppercase</p>
+      <p class="t-meta">Creative Direction · Baghdad · 2026</p>
+    </div>
+    <div class="spec-row">
+      <p class="t-micro sec">micro · 400 · +0.20em · uppercase</p>
+      <p class="t-micro">01 / 08 — Selected Work</p>
+    </div>
+
+    <div class="spec-row">
+      <p class="t-micro sec">The contrast law · ≥5:1 size · ≥300 weight</p>
+      <div>
+        <p class="t-meta" style="letter-spacing:.18em">Rafat Mhalla</p>
+        <p class="t-display-xl upper" style="margin-top:8px">Director</p>
+        <p class="t-micro sec" style="margin-top:16px">11px / 400 against 256px / 700 → 23:1 size, 300 weight ✓</p>
+      </div>
+    </div>
+
+    <div class="spec-row">
+      <p class="t-micro sec">Colour · six tokens, no seventh</p>
+      <div class="grid" style="--grid-cols:6;gap:12px">
+        <div><div class="swatch" style="background:#fff"></div><p class="t-micro sec" style="margin-top:8px">#FFFFFF</p></div>
+        <div><div class="swatch" style="background:#000"></div><p class="t-micro sec" style="margin-top:8px">#000000</p></div>
+        <div><div class="swatch" style="background:#6e6e6e"></div><p class="t-micro sec" style="margin-top:8px">#6E6E6E</p></div>
+        <div><div class="swatch" style="background:#b5b5b5"></div><p class="t-micro sec" style="margin-top:8px">#B5B5B5</p></div>
+        <div><div class="swatch" style="background:#e5e5e5"></div><p class="t-micro sec" style="margin-top:8px">#E5E5E5</p></div>
+        <div><div class="swatch" style="background:#0a0a0a"></div><p class="t-micro sec" style="margin-top:8px">#0A0A0A</p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<style>
+/* Column spans — kept together so the grid logic is readable in one place */
+.hero-sub-col{grid-column:1 / -1}
+@media(min-width:768px){
+  .hero-sub-col{grid-column:4 / span 5}
+  .cap{display:flex;justify-content:space-between;align-items:flex-start;gap:40px;margin-top:24px}
+  .cap-meta{flex-shrink:0;text-align:right;padding-top:8px}
+  .c-type{grid-column:1 / span 3;order:1}
+  .c-img-r{grid-column:4 / span 5;order:2}
+  .c-img-l{grid-column:1 / span 5;order:1}
+  .c-type-r{grid-column:6 / span 3;order:2}
+  .c-inset{grid-column:2 / span 6}
+  .c-pair-a{grid-column:1 / span 5}
+  .c-pair-b{grid-column:6 / span 3}
+  .c-about{grid-column:1 / span 7}
+  .foot{display:flex;align-items:baseline;justify-content:space-between;gap:40px;padding-top:20px}
+}
+@media(max-width:767px){
+  .cap{margin-top:24px}
+  .cap-meta{margin-top:16px}
+  .grid > *{grid-column:1 / -1}
+  .foot{display:flex;flex-direction:column;gap:24px;padding-top:20px}
+}
+@media(min-width:1024px){
+  .hero-sub-col{grid-column:8 / span 5}
+  .c-type{grid-column:1 / span 4}
+  .c-img-r{grid-column:6 / span 7}
+  .c-img-l{grid-column:1 / span 7}
+  .c-type-r{grid-column:9 / span 4}
+  .c-inset{grid-column:4 / span 6}
+  .c-pair-a{grid-column:1 / span 6}
+  .c-pair-b{grid-column:9 / span 4}
+  .c-about{grid-column:1 / span 8}
+}
+</style>
+
+<script>
+// REVEAL + MASK — same IntersectionObserver contract as lib/useInView.ts
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target) }
+  })
+}, { threshold: 0.15, rootMargin: '0px 0px -5% 0px' })
+
+document.querySelectorAll('.reveal, .mask').forEach((el) => io.observe(el))
+</script>
+
+</body>
+</html>

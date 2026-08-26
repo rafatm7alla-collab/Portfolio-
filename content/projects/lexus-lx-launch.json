@@ -1,0 +1,263 @@
+{
+  "slug": "lexus-lx-launch",
+  "title": "Lexus Iraq — LX 2024 Launch",
+  "client": "Lexus Iraq",
+  "role": "Creative Direction, Campaign Concept, Art Direction",
+  "year": "2024",
+  "tags": [
+    "Automotive",
+    "Campaign",
+    "Hybrid",
+    "Teaser",
+    "Identity"
+  ],
+  "cover": "lx-cover.jpg",
+  "assetPrefix": "lx-",
+  "noRounding": true,
+  "summary": "Two campaigns in one: launching the LX 700 hybrid to a sceptical market, and an exclusivity offer built on a single Iraqi word.",
+  "blocks": [
+    {
+      "type": "sectionHeader",
+      "title": "Lexus Iraq",
+      "subtitle": "LX 2024 Launch"
+    },
+    {
+      "type": "text",
+      "body": "This campaign combines two key elements. Firstly, we're launching the new Lexus LX 700, a hybrid vehicle that offers numerous benefits to the Iraqi market. This awareness campaign highlights the advantages of hybrid technology — reduced emissions, improved air quality, lower fuel costs, and equivalent or even superior horsepower. We aim to dispel the misconception that hybrid vehicles are less powerful, and to showcase their positive impact on both the environment and consumers' wallets."
+    },
+    {
+      "type": "text",
+      "body": "Secondly, our exclusive \"يمنا\" offer provides significant discounts across various Lexus models. The Arabic word \"يمنا\" translates to \"only by our side\" — emphasising that these special prices are available exclusively through our authorised Lexus dealerships in Iraq."
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-01-hybrid-lockup.jpg",
+      "size": "contained",
+      "widthPercent": 70
+    },
+    {
+      "type": "text",
+      "heading": "Concept",
+      "body": "A stark contrast between two opposing forces — the technological advancement of the hybrid car, and its environmentally conscious design."
+    },
+    {
+      "type": "text",
+      "heading": "Hybrid Technology",
+      "body": "The blue symbolises the car's advanced hybrid technology, suggesting a leap forward in automotive innovation."
+    },
+    {
+      "type": "text",
+      "heading": "Environmental Consciousness",
+      "body": "The green represents the car's commitment to a greener Iraq, emphasising its eco-friendly features and positive impact on the environment. The overall effect is a visually striking teaser that captures a car blending technological advancement with environmental responsibility."
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-02-hybrid-teaser-board.jpg",
+      "size": "contained",
+      "widthPercent": 70
+    },
+    {
+      "type": "text",
+      "heading": "1st Teaser Concept",
+      "body": "The teaser design features a prominent \"H\", intentionally ambiguous to pique curiosity. It could suggest a new model launch, generating excitement and wider audience attention. The reveal unveils the 2025 Lexus LX Hybrid, aligning with the \"Power of H\" tagline — emphasising the vehicle's powerful, innovative hybrid technology and solidifying its position in the luxury market."
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-03-power-of-h.jpg",
+      "size": "contained",
+      "widthPercent": 70
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-04-hybrid-gradient.jpg",
+      "size": "contained",
+      "widthPercent": 70
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-05-posters.jpg",
+      "caption": "Poster series",
+      "size": "contained",
+      "widthPercent": 70
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-06-billboard.jpg",
+      "caption": "Billboard",
+      "size": "contained",
+      "widthPercent": 70
+    },
+    {
+      "type": "grid",
+      "columns": 2,
+      "images": [
+        "lx-07-h-green.jpg",
+        "lx-07-h-blue.jpg"
+      ]
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-08-phone-teaser.jpg",
+      "size": "contained",
+      "widthPercent": 70
+    },
+    {
+      "type": "text",
+      "body": "This teaser design highlights the two key colours — green for sustainability, blue for technology and hybrid innovation. The LX logo is subtly outlined in the background to introduce the new model, while the word 'Soon' is created using a double exposure effect over the car, offering a strong opportunity for animation and 3D mapping to elevate the visual experience."
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-09-soon-kv.jpg",
+      "size": "contained",
+      "widthPercent": 70
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-10-reflect-hybrid-board.jpg",
+      "size": "contained",
+      "widthPercent": 70
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-11-outdoor-lightbox.jpg",
+      "size": "contained",
+      "widthPercent": 70
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-12-outdoor-billboard.jpg",
+      "size": "contained",
+      "widthPercent": 70
+    },
+    {
+      "type": "sectionHeader",
+      "title": "Extra Proposed Artworks"
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-13-lx-aurora.jpg",
+      "size": "contained",
+      "widthPercent": 70
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-14-lx-city.jpg",
+      "size": "contained",
+      "widthPercent": 70
+    },
+    {
+      "type": "sectionHeader",
+      "title": "GX Direction"
+    },
+    {
+      "type": "text",
+      "body": "To showcase the GX model's power and durability, emphasising its suitability for rough roads and off-road adventures."
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-15-gx-title.jpg",
+      "size": "contained",
+      "widthPercent": 70
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-16-gx-film-frame.jpg",
+      "size": "contained",
+      "widthPercent": 70
+    },
+    {
+      "type": "sectionHeader",
+      "title": "يمنا",
+      "subtitle": "Only by our side — the exclusivity campaign"
+    },
+    {
+      "type": "text",
+      "body": "As a continuation of our previous campaign for Lexus Iraq, we launched a distinct yet connected initiative focused on promoting hybrid vehicles. This campaign was strategically designed to raise awareness among the Iraqi public about the environmental benefits of hybrid technology, while also encouraging adoption through a compelling, limited-time offer."
+    },
+    {
+      "type": "text",
+      "body": "As Creative Director, I led the conceptual development and oversaw the execution of this campaign — from strategic messaging to visual storytelling — ensuring it aligned with both brand values and market needs."
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-17-yamna-lockup.jpg",
+      "size": "contained",
+      "widthPercent": 70
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-18-mountain-road.jpg",
+      "size": "contained",
+      "widthPercent": 70
+    },
+    {
+      "type": "text",
+      "body": "Understanding the importance of cultural resonance, we crafted the campaign using colloquial Iraqi Arabic to strengthen local relevance and emotional connection. The core messaging and call-to-action were developed to emphasise exclusivity, using the phrase \"يمنا\" (\"only with us\") to highlight that such an offer is uniquely available through Lexus Iraq."
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-19-yamna-colours.png",
+      "caption": "The offer, across the range's four finishes",
+      "size": "contained",
+      "widthPercent": 70
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-20-es-lx-bw.jpg",
+      "size": "contained",
+      "widthPercent": 70,
+      "noGap": true
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-21-yamna-symbols.jpg",
+      "size": "contained",
+      "widthPercent": 70,
+      "noGap": true
+    },
+    {
+      "type": "video",
+      "file": "lx-yamna-film.mp4",
+      "title": "يمنا — campaign film",
+      "size": "contained",
+      "widthPercent": 70,
+      "aspect": "10 / 3",
+      "noGap": true
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-22-campaign-artworks.jpg",
+      "size": "contained",
+      "widthPercent": 70,
+      "noGap": true
+    },
+    {
+      "type": "fullBleed",
+      "image": "lx-23-colour-gradient-green-iraq.jpg",
+      "size": "contained",
+      "widthPercent": 70,
+      "noGap": true
+    },
+    {
+      "type": "credits",
+      "items": [
+        {
+          "label": "Client",
+          "value": "Lexus Iraq"
+        },
+        {
+          "label": "Role",
+          "value": "Creative Direction, Art Direction"
+        },
+        {
+          "label": "Deliverables",
+          "value": "Campaign concept, Teaser system, OOH, Social, Identity assets"
+        },
+        {
+          "label": "Year",
+          "value": "2024"
+        }
+      ]
+    }
+  ]
+}

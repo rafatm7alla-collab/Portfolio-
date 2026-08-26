@@ -1,0 +1,145 @@
+{
+  "slug": "fm-power",
+  "title": "FM Power",
+  "client": "FM Power (powered by Trokadero)",
+  "role": "[ROLE]",
+  "year": "2022",
+  "location": "Iraq",
+  "cover": "hero.jpg",
+  "assetPrefix": "",
+  "featured": false,
+  "noMasthead": true,
+  "noRounding": true,
+  "theme": "dark",
+  "nextProjectSlug": "toyota-crown",
+
+  "blocks": [
+
+    { "type": "hero",
+      "image": "hero.jpg",
+      "title": "FM Power",
+      "subtitle": "Energy Drink · Packaging & Brand Asset Design" },
+
+    { "type": "metaBar",
+      "items": [
+        { "label": "Client", "value": "FM Power (powered by Trokadero)" },
+        { "label": "Sector", "value": "Beverage · Energy" },
+        { "label": "Year", "value": "2022" },
+        { "label": "Role", "value": "[ROLE]" },
+        { "label": "Deliverables", "value": "Can artwork, brand mark, two design routes" }
+      ] },
+
+    { "type": "text",
+      "heading": "The brief",
+      "body": "A 250ml energy drink, taurine and caffeine, produced under the Trokadero licence for the Iraqi market. The brief was a single deliverable: can artwork. No existing brand system, no guidelines, no audience definition beyond 'young.' Four routes were requested. Three were worth presenting. One of them stopped being a can design." },
+
+    { "type": "text",
+      "heading": "The challenge",
+      "body": "Energy is the loudest shelf in FMCG. Every competitor is already shouting, so volume alone is not a strategy. It is the entry fee. The real constraint sat underneath that one: FM Power had to read as an energy drink within two seconds and still not look borrowed from the category leader. Those two demands pull in opposite directions, and how far apart you hold them is the entire design decision." },
+
+    { "type": "pullQuote",
+      "text": "Belong to the category. Borrow nothing from it." },
+
+    { "type": "principles",
+      "items": [
+        { "title": "Legible at two metres", "body": "Every element on the can was judged at the distance a chiller door is opened. If it does not hold there, it does not make it onto the design." },
+        { "title": "One ownable element", "body": "Colour, gradient and angle are shared property across the entire energy category. The only thing a new brand can truly own is a mark, so the entire design was built around one." },
+        { "title": "Built to leave the can", "body": "Every route was tested off-pack before it was judged on-pack. If an asset only works as a render on a cylinder, it is not a brand asset. It is decoration." }
+      ] },
+
+    { "type": "text",
+      "heading": "The mark, first.",
+      "body": "The bolt was drawn before any can artwork existed. The angle system, proportional relationships and clear-space rules were all locked at the outset, so every route that followed inherited the same object rather than redrawing it." },
+
+    { "type": "fullBleed", "image": "construction.jpg",
+      "size": "contained",
+      "widthPercent": 70,
+      "caption": "Bolt construction — angle system, proportions, clear-space rule." },
+
+    { "type": "route",
+      "number": "01",
+      "name": "The Bolt",
+      "subheadline": "One element, built to be owned.",
+      "descriptor": "Flat solid ground · one dimensional element · nothing else rendered",
+      "intro": "Every other element on an energy can is rented. Gradients, diagonals, chrome, halftone fields. The category shares all of it, and a design assembled from shared parts can be reproduced by the next brand within a season.",
+      "body": "So this route was built in the opposite order. One proprietary object, drawn first. A flat ground that exists only to hold it. The can became the smallest unit of the brand rather than the whole of it, and once the mark carried the design, the design stopped needing the can. It holds at 40mm on a chilled 250ml body, in one colour on a corrugated carton, in three threads on black twill, and as a reflection small enough to sit inside a lens. None of those applications required a new design. Only a new size.",
+      "leadImage": "route-01-lead.jpg",
+      "pairImages": ["route-01-pair-01.jpg", "route-01-pair-02.jpg"] },
+
+    { "type": "text",
+      "heading": "Blue is the ground, not the subject.",
+      "body": "The palette runs deep navy to cyan and stops there. No secondary accent, no warm contrast, no third colour introduced for variety. The restriction is the mechanism: with nothing else competing, the bolt is the only thing the eye can land on. Every application obeys the same rule, which is why they read as one brand rather than six executions." },
+
+    { "type": "fullBleed", "image": "album-01-1.jpg",
+      "caption": "" },
+
+    { "type": "text",
+      "heading": "Sip into summer.",
+      "body": "FM Power was positioned as the drink you reach for when the temperature rises. On the beach, by the pool, at a rooftop gathering. The kind of can that sits in a cooler next to ice and limes, that gets mixed into cocktails or cracked open between swims. The summer campaign leaned into that energy: sand, sunlight, sunglasses, and a bolt of blue against a wide open sky. Not a gym drink. Not a late night study aid. The friend you bring to the shore." },
+
+    { "type": "fullBleed", "image": "colour-rule.jpg",
+      "caption": "" },
+
+    { "type": "twoUp",
+      "images": ["album-01-2.jpg", "album-01-3.jpg"] },
+
+    { "type": "fullBleed", "image": "album-01-4.jpg",
+      "caption": "" },
+
+    { "type": "twoUp",
+      "images": ["album-01-5.jpg", "album-01-6.jpg"] },
+
+    { "type": "fullBleed", "image": "album-01-7.jpg",
+      "caption": "" },
+
+    { "type": "divider",
+      "label": "The alternatives",
+      "text": "The route it was measured against." },
+
+    { "type": "route",
+      "number": "02",
+      "name": "Challenger",
+      "subheadline": "Built for the people who earn the drink.",
+      "descriptor": "High-chroma green on black · halftone field · clawed lockup",
+      "body": "The Bolt was designed for the shelf. This route was designed for the person already sweating — the daily gym member, the boxer, the athlete who buys energy as fuel rather than as a treat. That audience doesn't discover a can in a supermarket aisle. They meet it in a gym fridge, a locker room, a training bag, at the end of a session, in bad light.\n\nEverything here follows from where the can is actually held. High-chroma green on black is the highest-contrast pairing available under fluorescent gym lighting and after dark — it holds when the surface is wet, when a hand covers two-thirds of the label, and when the can sits on a rubber floor beside black equipment. Green reads as charged, chemical, go; black drops the surround to zero so nothing competes with it. The halftone field builds density toward the base, keeping the lockup clear at the point the hand covers least.\n\nThe letterforms are drawn with deliberate aggression: split, torn, claw-cut, weight-heavy. That vocabulary is already fluent in this market — consumers read those forms as energy before they read the name. Borrowing a category's grammar is a decision with a cost, and it was made knowingly and at the client's direction: recognition arrives faster, ownership arrives later or not at all. The route was presented on exactly those terms.",
+      "leadImage": "route-02-lead.jpg",
+      "pairImages": ["route-02-pair-01.jpg", "route-02-pair-02.jpg"] },
+
+    { "type": "fullBleed", "image": "album-02-1.jpg",
+      "caption": "" },
+
+    { "type": "twoUp",
+      "images": ["album-02-2.jpg", "album-02-3.jpg"] },
+
+    { "type": "fullBleed", "image": "album-02-4.jpg",
+      "caption": "" },
+
+    { "type": "twoUp",
+      "images": ["album-02-5.jpg", "album-02-6.jpg"] },
+
+    { "type": "fullBleed", "image": "album-02-7.jpg",
+      "caption": "" },
+
+    { "type": "text",
+      "heading": "Where it landed.",
+      "body": "The Bolt was the recommended direction. It was the only route whose central element belonged to the brand rather than to the category, and the only one with anywhere to go after the can. [CLIENT DECISION]" },
+
+    { "type": "divider",
+      "label": "In closing",
+      "text": "Two answers, two costs." },
+
+    { "type": "text",
+      "body": "Challenger buys recognition. It speaks a vocabulary the market already knows, so it is understood before it is read — and it can never be exclusively owned. The Bolt buys ownership. It asks for a moment of attention first, and returns a mark that works at every size, on every surface, for as long as the brand wants it.\n\nBoth were correct answers to the brief. Only one of them was still an asset a year later." },
+
+    { "type": "pullQuote",
+      "text": "Design the asset. The pack follows." },
+
+    { "type": "credits",
+      "items": [
+        { "label": "Design and art direction", "value": "Rafat Mhalla" },
+        { "label": "Client", "value": "FM Power (powered by Trokadero)" },
+        { "label": "Visualisation", "value": "3D rendering and AI-assisted imaging" },
+        { "label": "Year", "value": "2022" }
+      ] }
+  ]
+}

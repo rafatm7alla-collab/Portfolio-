@@ -1,0 +1,166 @@
+{
+  "slug": "dubiraq",
+  "title": "DUBIRAQ — Brand Identity",
+  "client": "DUBIRAQ",
+  "role": "Creative Direction, Brand Identity, Visual System",
+  "year": "2024",
+  "tags": ["Branding", "Identity", "Real Estate", "Luxury", "Digital"],
+  "cover": "dubiraq-cover.jpg",
+  "assetPrefix": "dubiraq-",
+  "nextProjectSlug": "toyota-crown",
+  "summary": "A complete brand identity for a real estate company bridging Dubai's dynamism with Iraq's heritage — built from a single typographic idea.",
+
+  "blocks": [
+
+    { "type": "sectionHeader",
+      "title": "DUBIRAQ",
+      "subtitle": "Real Estate Company" },
+
+    { "type": "text",
+      "body": "DUBIRAQ is a luxury real estate company operating across Dubai and Iraq, founded on the belief that property investment should bridge borders, not be confined by them. The brand needed an identity that carried the ambition and modernity of Dubai alongside the deep-rooted heritage of Iraq — and spoke to buyers in both markets with equal authority." },
+
+    { "type": "text",
+      "body": "As Creative Director, I led the full identity build from concept through to a 360-degree brand system: logo, visual language, typography, colour palette, stationery, packaging, digital platforms, out-of-home, merchandise, and lifestyle collateral. The result is a premium brand that feels native to both cities — credible enough for Dubai's competitive real estate market, and culturally resonant enough to connect with Iraqi buyers looking to invest abroad." },
+
+    { "type": "fullBleed", "image": "dubiraq-01-hero-title.gif",
+      "caption": "Dubai × Iraq — Real Estate Company", "size": "contained", "widthPercent": 70 },
+
+    { "type": "sectionHeader",
+      "title": "Logo & Mark" },
+
+    { "type": "text",
+      "body": "The branding challenge involved crafting a logo that seamlessly unifies the unique identities of Dubai and Iraq. We achieved this by incorporating the iconic \"D\" of Dubai and the culturally significant Arabic letter \"ع\" (Ain), the first letter of Iraq. This innovative design leverages negative space to create a visually cohesive representation of both cities, while celebrating the rich Arabic typography shared by both regions." },
+
+    { "type": "fullBleed", "image": "dubiraq-02-logo-hero.jpg", "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-03-logo-grid.jpg",
+      "caption": "Logo system — all lockup and colour variants", "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-04-logo-concept.jpg",
+      "caption": "Logo construction — D + ع in negative space", "size": "contained", "widthPercent": 70 },
+
+    { "type": "sectionHeader",
+      "title": "Typography & Colour" },
+
+    { "type": "twoUp",
+      "images": ["dubiraq-05-packaging-bubble.jpg", "dubiraq-05-typography-palette.jpg"],
+      "size": "contained", "widthPercent": 70 },
+
+    { "type": "sectionHeader",
+      "title": "Editorial & Print" },
+
+    { "type": "threeUp",
+      "images": [
+        "dubiraq-06-poster-a.jpg",
+        "dubiraq-06-poster-b.jpg",
+        "dubiraq-06-poster-c.jpg"
+      ], "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-07-connecting-countries.jpg",
+      "caption": "Connecting Two Countries — Dubai's Dynamism, Iraq's Heritage",
+      "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-08-brochure-spread.jpg", "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-09-social-mosaic.jpg", "size": "contained", "widthPercent": 70 },
+
+    { "type": "sectionHeader",
+      "title": "Digital" },
+
+    { "type": "fullBleed", "image": "dubiraq-10-mobile-app.jpg", "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-11-app-icons.jpg", "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-12-browser-tab.jpg", "size": "contained", "widthPercent": 70 },
+
+    { "type": "twoUp",
+      "images": ["dubiraq-13-ipad-mockup.jpg", "dubiraq-13-website-desktop.jpg"],
+      "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-14-instagram-grid.jpg",
+      "caption": "Instagram — post system", "size": "contained", "widthPercent": 70 },
+
+    { "type": "sectionHeader",
+      "title": "Stationery & Collateral" },
+
+    { "type": "twoUp",
+      "images": ["dubiraq-15-folder-purple.jpg", "dubiraq-15-folder-black.jpg"],
+      "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-16-billboard.jpg",
+      "caption": "Building Bridges — a new era in real estate, bridging two nations",
+      "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-17-business-cards.jpg", "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-18-tote-bags.jpg", "size": "contained", "widthPercent": 70 },
+
+    { "type": "sectionHeader",
+      "title": "Branded Materials" },
+
+    { "type": "fullBleed", "image": "dubiraq-19-embossed-logo.jpg", "size": "contained", "widthPercent": 70 },
+
+    { "type": "twoUp",
+      "images": ["dubiraq-20-colour-strips.jpg", "dubiraq-20-calendar.jpg"],
+      "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-21-water-bottles.jpg", "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-22-branded-tape.jpg", "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-22-tape-rolls.jpg", "size": "contained", "widthPercent": 70 },
+
+    { "type": "sectionHeader",
+      "title": "Environment & Signage" },
+
+    { "type": "twoUp",
+      "images": ["dubiraq-23-brochure-lifestyle.jpg", "dubiraq-23-outdoor-sign.jpg"],
+      "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-24-website-laptop.jpg", "size": "contained", "widthPercent": 70 },
+
+    { "type": "threeUp",
+      "images": [
+        "dubiraq-25-social-post-a.jpg",
+        "dubiraq-25-social-post-b.jpg",
+        "dubiraq-25-social-post-c.jpg"
+      ], "size": "contained", "widthPercent": 70 },
+
+    { "type": "sectionHeader",
+      "title": "Lifestyle" },
+
+    { "type": "fullBleed", "image": "dubiraq-26-tennis-lifestyle.jpg", "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-27-logo-centred.jpg", "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-28-tennis-luxury-kv.jpg",
+      "caption": "We Assure Your Luxury", "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-29-tennis-court-aerial.jpg", "size": "contained", "widthPercent": 70 },
+
+    { "type": "sectionHeader",
+      "title": "Extended Merchandise" },
+
+    { "type": "twoUp",
+      "images": ["dubiraq-30-newspaper.jpg", "dubiraq-30-gym-bag.jpg"],
+      "size": "contained", "widthPercent": 70 },
+
+    { "type": "twoUp",
+      "images": ["dubiraq-31-leather-emboss.jpg", "dubiraq-31-packaging-duo.jpg"],
+      "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-32-windbreaker.jpg", "size": "contained", "widthPercent": 70 },
+
+    { "type": "fullBleed", "image": "dubiraq-33-building-final.jpg", "size": "contained", "widthPercent": 70 },
+
+    { "type": "credits",
+      "items": [
+        { "label": "Client",       "value": "DUBIRAQ" },
+        { "label": "Sector",       "value": "Real Estate" },
+        { "label": "Role",         "value": "Creative Direction, Brand Identity, Visual System" },
+        { "label": "Deliverables", "value": "Logo, Identity system, Stationery, Digital, OOH, Merchandise, Lifestyle" },
+        { "label": "Year",         "value": "2024" }
+      ] }
+
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "slug": "vision-house",
+  "title": "Vision House — Brand Identity",
+  "client": "Vision House",
+  "role": "Creative Direction, Brand Identity, Visual System",
+  "year": "2024",
+  "tags": ["Branding", "Identity", "Agency", "Production", "TVC"],
+  "cover": "cover.jpg",
+  "assetPrefix": "",
+  "summary": "Building a brand identity for a marketing agency and TVC production house — from strategic positioning through to a complete visual system.",
+  "noMasthead": true,
+  "noRounding": true,
+
+  "blocks": [
+
+    { "type": "sectionHeader",
+      "title": "Vision House",
+      "subtitle": "Brand Identity" },
+
+    { "type": "text",
+      "body": "Vision House is a marketing agency and TVC production house operating across Iraq and the region. The brand needed an identity that carries the weight of a production company — cinematic, bold, premium — while staying flexible enough for the strategic side of the business. The result is a visual system that works equally on a film slate, a pitch deck, and a social feed." },
+
+    { "type": "fullBleed", "image": "1-hero.jpg" },
+
+
+    { "type": "sectionHeader",
+      "title": "The Brief",
+      "subtitle": "Strategy & Positioning" },
+
+    { "type": "text",
+      "body": "REPLACE — What was the business challenge? What did Vision House need to communicate? Who are they competing against? What perception did they want to own in the market? One paragraph that proves you understood the problem before you designed anything." },
+
+
+    { "type": "sectionHeader",
+      "title": "Logo Concept",
+      "subtitle": "Rationale & Construction" },
+
+    { "type": "text",
+      "body": "REPLACE — The idea behind the mark. What does the symbol represent? What letters, shapes, or metaphors are embedded in it? How does it connect to the name 'Vision House' and the dual nature of the business (agency + production)?" },
+
+    { "type": "fullBleed", "image": "2-logo-concept.jpg",
+      "caption": "Logo construction — concept breakdown" },
+
+    { "type": "fullBleed", "image": "3-logo-rationale.jpg",
+      "caption": "Symbol rationale and grid" },
+
+
+    { "type": "sectionHeader",
+      "title": "Logo System",
+      "subtitle": "Primary mark, variants & clear space" },
+
+    { "type": "fullBleed", "image": "4-logo-primary.jpg",
+      "caption": "Primary logo lockup" },
+
+    { "type": "fullBleed", "image": "5-logo-variants.jpg",
+      "caption": "Logo variants — horizontal, stacked, icon-only" },
+
+    { "type": "fullBleed", "image": "6-logo-clearspace.jpg",
+      "caption": "Clear space and minimum size rules" },
+
+    { "type": "twoUp",
+      "images": ["7-logo-dark.jpg", "7-logo-light.jpg"] },
+
+
+    { "type": "sectionHeader",
+      "title": "Colour Palette" },
+
+    { "type": "text",
+      "body": "REPLACE — Why these colours? What do they signal in the production/agency world? How do the primary and secondary palettes work across screen and print?" },
+
+    { "type": "fullBleed", "image": "8-colour-palette.jpg" },
+
+
+    { "type": "sectionHeader",
+      "title": "Typography" },
+
+    { "type": "text",
+      "body": "REPLACE — The typeface pairing and why it was chosen. How the display face carries the brand's personality, how the body face supports readability across proposals, decks, and digital." },
+
+    { "type": "fullBleed", "image": "9-typography.jpg" },
+
+
+    { "type": "sectionHeader",
+      "title": "Visual Language",
+      "subtitle": "Patterns, textures & graphic devices" },
+
+    { "type": "text",
+      "body": "REPLACE — The supporting graphic system: patterns derived from the logo, texture choices, photographic direction, any signature graphic devices that make the brand recognisable even without the logo." },
+
+    { "type": "fullBleed", "image": "10-visual-language.jpg" },
+
+
+    { "type": "sectionHeader",
+      "title": "Stationery" },
+
+    { "type": "fullBleed", "image": "11-business-cards.jpg" },
+
+    { "type": "fullBleed", "image": "12-letterhead.jpg" },
+
+    { "type": "fullBleed", "image": "13-envelope-folder.jpg" },
+
+
+    { "type": "sectionHeader",
+      "title": "Collateral & Print" },
+
+    { "type": "fullBleed", "image": "14-brochure.jpg" },
+
+    { "type": "fullBleed", "image": "15-notebook.jpg" },
+
+    { "type": "fullBleed", "image": "16-id-badge.jpg" },
+
+
+    { "type": "sectionHeader",
+      "title": "Digital Presence" },
+
+    { "type": "fullBleed", "image": "17-website.jpg" },
+
+    { "type": "fullBleed", "image": "18-social-templates.jpg" },
+
+    { "type": "fullBleed", "image": "19-email-signature.jpg" },
+
+
+    { "type": "sectionHeader",
+      "title": "Production Touchpoints",
+      "subtitle": "Film & TVC applications" },
+
+    { "type": "text",
+      "body": "REPLACE — How the brand shows up in production contexts: slate/clapboard design, end-card, crew apparel, equipment labels, showreel intro. This is the section that separates Vision House from a generic agency identity — these are the touchpoints only a production house needs." },
+
+    { "type": "fullBleed", "image": "20-film-slate.jpg" },
+
+    { "type": "fullBleed", "image": "21-end-card.jpg" },
+
+    { "type": "fullBleed", "image": "22-crew-apparel.jpg" },
+
+
+    { "type": "sectionHeader",
+      "title": "Signage & Environment" },
+
+    { "type": "fullBleed", "image": "23-office-signage.jpg" },
+
+    { "type": "fullBleed", "image": "24-vehicle.jpg" },
+
+
+    { "type": "sectionHeader",
+      "title": "Merchandise" },
+
+    { "type": "fullBleed", "image": "25-merch.jpg" },
+
+
+    { "type": "sectionHeader",
+      "title": "Brand in Use" },
+
+    { "type": "text",
+      "body": "REPLACE — The system alive in real application. How it looks when everything comes together: a pitch meeting, a production set, a social feed, a client handover." },
+
+    { "type": "fullBleed", "image": "26-brand-in-use.jpg" },
+
+    { "type": "fullBleed", "image": "27-closing.jpg" },
+
+
+    { "type": "credits",
+      "items": [
+        { "label": "Client",       "value": "Vision House" },
+        { "label": "Sector",       "value": "Marketing Agency & TVC Production" },
+        { "label": "Role",         "value": "Creative Direction, Brand Identity" },
+        { "label": "Deliverables", "value": "Logo, Visual system, Stationery, Digital, Production assets, Signage, Merchandise" },
+        { "label": "Year",         "value": "2024" }
+      ] }
+
+  ]
+}

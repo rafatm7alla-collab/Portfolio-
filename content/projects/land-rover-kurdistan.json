@@ -1,0 +1,52 @@
+{
+  "slug": "land-rover-kurdistan",
+  "title": "Land Rover — Iraq Kurdistan",
+  "client": "Land Rover Iraq",
+  "role": "Creative Direction, Art Direction, Automotive Photography",
+  "year": "2024",
+  "tags": ["Automotive", "Photography", "Art Direction", "Luxury"],
+  "cover": "cover.jpg",
+  "assetPrefix": "",
+  "featured": true,
+  "nextProjectSlug": "vision-house",
+  "summary": "Art directing a multi-location automotive photoshoot across Iraqi Kurdistan — turning ancient ruins, mountain passes, and raw terrain into a visual language for Land Rover.",
+
+  "nextCover": "3.jpg",
+  "blocks": [
+
+    { "type": "sectionHeader",
+      "title": "Land Rover — Iraq Kurdistan",
+      "subtitle": "Automotive Photography" },
+
+    { "type": "text",
+      "body": "Land Rover Iraq needed a photoshoot that would do more than show the cars. It needed to prove the vehicles belong here — in this landscape, in this culture, on these roads. We art directed a multi-day, multi-location shoot across Iraqi Kurdistan, capturing the Range Rover Sport and the full Defender lineup against the region's most dramatic backdrops: ancient amphitheatres, high mountain passes, off-road desert terrain, and tunnels carved through rock." },
+
+    { "type": "text",
+      "body": "The goal was to create a library of premium imagery that felt unmistakably local — not a generic desert backdrop that could be anywhere in the Gulf, but a landscape with texture, history, and altitude that only Kurdistan can deliver. Every location was scouted to pair architectural heritage with the vehicles' design language, and every colour decision — from the special-edition finishes to the earth-tone grading — was made to root these cars in the cultural and geographical identity of Iraq." },
+
+    { "type": "fullBleed", "image": "1.jpg",
+      "caption": "Location 1 — Historical ruins, Range Rover Sport exteriors & interior details" },
+
+    { "type": "fullBleed", "image": "2.jpg",
+      "caption": "Location 2 — Mountain roads & off-road, full Defender lineup" },
+
+    { "type": "fullBleed", "image": "3.jpg",
+      "caption": "Location 3 — Mountain passes, Defender 90 / 110 / 130" },
+
+    { "type": "fullBleed", "image": "4.jpg",
+      "caption": "The Tunnel — Defender convoy, night run" },
+
+    { "type": "text",
+      "body": "What started as a product photoshoot became something closer to a portrait of a place. The cars gave us the reason to be there — but the locations, the light, and the terrain told the real story. Every frame was directed to feel like it could only have been shot here: not a studio, not a stock landscape, but Iraq at its most cinematic." },
+
+    { "type": "credits",
+      "items": [
+        { "label": "Client",       "value": "Land Rover Iraq" },
+        { "label": "Role",         "value": "Creative Direction, Art Direction" },
+        { "label": "Deliverables", "value": "Multi-location automotive photoshoot, Image library" },
+        { "label": "Vehicles",     "value": "Range Rover Sport, Defender 90, 110, 130" },
+        { "label": "Year",         "value": "2024" }
+      ] }
+
+  ]
+}

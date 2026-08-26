@@ -1,0 +1,43 @@
+{
+  "slug": "state-of-chaos",
+  "title": "State of Chaos",
+  "role": "Artwork / Poster Design",
+  "year": "2017",
+  "location": "Turkey",
+  "cover": "hero.jpg",
+  "assetPrefix": "",
+  "featured": false,
+
+  "blocks": [
+    { "type": "sectionHeader",
+      "title": "State of Chaos",
+      "subtitle": "Artwork / Poster Design" },
+
+    { "type": "fullBleed", "image": "hero.jpg",
+      "caption": "State of Chaos — key artwork" },
+
+    { "type": "text",
+      "light": true,
+      "body": "after 6 years of war and being far from home!\nI sense all the suffering vibrating within me, while fair winds of the storm's convulsions on the deep cradle me.\n\nVast mirror there of my despair reflected in this ethnic/middle eastern/deep-set." },
+
+    { "type": "audioEmbed",
+      "soundcloudUrl": "https://soundcloud.com/zarakonstantin/state-of-chaos-harmony",
+      "title": "State Of Chaos \"Harmony\"",
+      "artist": "ZaraKonstantin" },
+
+    { "type": "fullBleed", "image": "mockup-01.jpg",
+      "caption": "Application — 01" },
+
+    { "type": "fullBleed", "image": "mockup-02.jpg",
+      "size": "contained",
+      "widthPercent": 82,
+      "caption": "Application — 02" },
+
+    { "type": "credits",
+      "items": [
+        { "label": "Role",   "value": "Artwork / Poster Design" },
+        { "label": "Track",  "value": "State Of Chaos \"Harmony\" — ZaraKonstantin" },
+        { "label": "Date",   "value": "2017" }
+      ] }
+  ]
+}

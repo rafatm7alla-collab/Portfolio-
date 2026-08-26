@@ -1,0 +1,280 @@
+{
+  "slug": "toyota-crown-launch",
+  "title": "Toyota Crown \u2014 Launch Campaign",
+  "client": "Toyota Iraq \u2014 Sardar Group",
+  "role": "Creative Direction, Campaign, Art Direction",
+  "year": "2023",
+  "tags": [
+    "Automotive",
+    "Campaign",
+    "Launch",
+    "Documentary",
+    "Heritage"
+  ],
+  "cover": "crown-cover.jpg",
+  "summary": "A national launch built on 40 years of emotional memory \u2014 reintroducing the Crown to Iraq through its own street language.",
+  "assetPrefix": "crown-",
+  "blocks": [
+    {
+      "type": "sectionHeader",
+      "title": "Iraq | Toyota Crown",
+      "subtitle": "Launching Campaign"
+    },
+    {
+      "type": "text",
+      "body": "This car model is known for its cultural connection with Iraqi society, and its sentimental meaning to many generations. It has been known as the long-life car in the country for the last 40 years in Iraq, and has been called several affectionate names \u2014 names that come from the deep side of the street, and from the relationship between the user's emotion, their memories, and the stability of the car across all those decades."
+    },
+    {
+      "type": "fullBleed",
+      "image": "crown-01-iraq-architecture.jpg",
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "text",
+      "body": "Iraq is a land rich in religious diversity and historical roots. The country is a testament to the coexistence and intermingling of various faiths throughout its history \u2014 home to ancient communities such as Christians, Yazidis, Mandaeans and Sabians, who have preserved their distinct beliefs and traditions for centuries. This variety made the challenge big in our brainstorming: to find a mutual point between all these parts, and relate it to an automotive campaign."
+    },
+    {
+      "type": "fullBleed",
+      "image": "crown-02-heritage-reborn.jpg",
+      "caption": "Heritage Reborn \u2014 campaign concept board",
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "fullBleed",
+      "image": "crown-03-deq-arabian-tattoos.jpg",
+      "caption": "DEQ \u2014 ancient Arabian tattoos, the visual root of the campaign",
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "sectionHeader",
+      "title": "Teaser"
+    },
+    {
+      "type": "text",
+      "body": "We shot historical locations without the Crown, and wrote sentimental phrases in a vintage typographic style, taken as snippets from the documentary. For the reveal, we shot the same locations with the all-new Toyota Crown centering them, using the campaign slogan and the old DEQ language.",
+      "list": [
+        "\u0641\u062e\u0627\u0645\u0629\u064c \u0625\u0633\u062a\u0645\u0631\u0651\u062a \u0644\u0623\u062c\u064a\u0627\u0644\u064d",
+        "\u0647\u064a \u0625\u0631\u062b\u064c \u0645\u0646 \u0627\u0644\u0630\u0643\u0631\u064a\u0627\u062a",
+        "\u0639\u0631\u0627\u0642\u0629 \u062a\u0638\u0647\u0631 \u0628\u0623\u062f\u0642 \u062a\u0641\u0627\u0635\u064a\u0644\u0647\u0627",
+        "\u0623\u0633\u0637\u0648\u0631\u0629\u064c \u062a\u0639\u0648\u062f\u064f \u0645\u0646 \u062c\u062f\u064a\u062f"
+      ]
+    },
+    {
+      "type": "fullBleed",
+      "image": "crown-04-deq-kurdish-language.jpg",
+      "caption": "DEQ \u2014 Kurdish alphabet research",
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "videoEmbed",
+      "provider": "vimeo",
+      "id": "855980160",
+      "title": "Toyota Crown Cinemagraph",
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "fullBleed",
+      "image": "crown-05-teaser-composite.jpg",
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "sectionHeader",
+      "title": "Teaser Cinemagraph"
+    },
+    {
+      "type": "text",
+      "body": "Adding old music, motion and a cinemagraph effect brought more flashback feeling to the campaign \u2014 reaching people emotionally across the Middle East."
+    },
+    {
+      "type": "videoEmbed",
+      "provider": "vimeo",
+      "id": "855979221",
+      "title": "Toyota Crown History",
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "sectionHeader",
+      "title": "Documentary",
+      "subtitle": "Short movies | Stories"
+    },
+    {
+      "type": "text",
+      "body": "We shot three documentaries showing the car's history through its real users, past and present. We gave them full freedom to tell their own stories in the beautiful, emotional language of the street \u2014 making them factual documentaries straight from the Iraqi street."
+    },
+    {
+      "type": "fullBleed",
+      "image": "crown-06-kak-ihsan-ali.jpg",
+      "caption": "Kak Ihsan Ali \u2014 Old User | Storyteller",
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "videoEmbed",
+      "provider": "youtube",
+      "id": "6050rxeB9LE",
+      "title": "\u0642\u0635\u0635 \u0627\u0644\u0643\u0631\u0627\u0648\u0646 \u0648\u0630\u0643\u0631\u064a\u0627\u062a\u0647\u0627 \u0645\u0627 \u0627\u0644\u0647\u0627 \u0646\u0647\u0627\u064a\u0629",
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "fullBleed",
+      "image": "crown-07-taxi-man.jpg",
+      "caption": "Taxi Man \u2014 Um Al Khair | Storyteller",
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "videoEmbed",
+      "provider": "youtube",
+      "id": "TbH8LwXTdAE",
+      "title": "\u0645\u0646 \u0628\u063a\u062f\u0627\u062f\u060c \u0646\u0634\u0627\u0631\u0643\u0643\u0645 \u0642\u0635\u0629 \u0645\u0646 \u0642\u0635\u0635 \u0623\u0645 \u0627\u0644\u062e\u064a\u0631",
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "fullBleed",
+      "image": "crown-08-station-cargo-man.jpg",
+      "caption": "Station Cargo Man \u2014 Never Fails | Storyteller",
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "videoEmbed",
+      "provider": "youtube",
+      "id": "wUqPNoQIzHY",
+      "title": "\u0628\u0647\u0648\u0627\u064a\u0629 \u0642\u0635\u0635 \u0627\u0644\u0643\u0631\u0648\u0627\u0646 \u0647\u064a \u0627\u0644\u0628\u0637\u0644\u0629",
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "mosaic",
+      "layout": "launch-posts",
+      "images": [
+        "crown-09-social-a.jpg",
+        "crown-09-social-b.jpg",
+        "crown-09-social-c.jpg",
+        "crown-09-social-d.jpg",
+        "crown-09-social-e.jpg",
+        "crown-09-social-f.jpg"
+      ]
+    },
+    {
+      "type": "sectionHeader",
+      "title": "Launching Event",
+      "subtitle": "Invitation card design"
+    },
+    {
+      "type": "text",
+      "body": "The invited guests were almost all VIPs, so we pushed for classy materials and a specific, unique colour that hints at the car's new finish. We used the same DEQ language to carry the SUV's identity \u2014 turning these details into a language for the complete campaign, one that speaks of the old decades."
+    },
+    {
+      "type": "fullBleed",
+      "image": "crown-10-invitation-hero.jpg",
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "threeUp",
+      "images": [
+        "crown-11-invite-b.jpg",
+        "crown-11-invite-c.jpg",
+        "crown-11-invite-d.jpg"
+      ],
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "videoEmbed",
+      "provider": "youtube",
+      "id": "yMkZiErL8hk",
+      "title": "\u062d\u0641\u0644 \u0627\u0644\u062a\u0631\u062d\u064a\u0628 \u0628\u0639\u0648\u062f\u0629 \u062a\u0648\u064a\u0648\u062a\u0627 \u0643\u0631\u0627\u0648\u0646 \u2014 \u0628\u063a\u062f\u0627\u062f \u0648 \u0623\u0631\u0628\u064a\u0644",
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "sectionHeader",
+      "title": "Outdoor Photo-Session",
+      "subtitle": "Iraq | Erbil | Grand Majidi Mall"
+    },
+    {
+      "type": "fullBleed",
+      "image": "crown-12-outdoor-hero.jpg",
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "fullBleed",
+      "image": "crown-13-outdoor-front.jpg",
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "mosaic",
+      "layout": "outdoor-details",
+      "images": [
+        "crown-14-outdoor-a.jpg",
+        "crown-14-outdoor-b.jpg",
+        "crown-14-outdoor-c.jpg",
+        "crown-14-outdoor-d.jpg",
+        "crown-14-outdoor-e.jpg"
+      ]
+    },
+    {
+      "type": "sectionHeader",
+      "title": "Studio Shooting",
+      "subtitle": "USPs | Focusing details"
+    },
+    {
+      "type": "fullBleed",
+      "image": "crown-15-interior.jpg",
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "grid",
+      "columns": 3,
+      "images": [
+        "crown-16-studio-a.jpg",
+        "crown-16-studio-b.jpg",
+        "crown-16-studio-c.jpg",
+        "crown-16-studio-d.jpg",
+        "crown-16-studio-e.jpg",
+        "crown-16-studio-f.jpg"
+      ]
+    },
+    {
+      "type": "fullBleed",
+      "image": "crown-17-studio-profile.jpg",
+      "size": "contained",
+      "widthPercent": 80
+    },
+    {
+      "type": "credits",
+      "items": [
+        {
+          "label": "Client",
+          "value": "Toyota Iraq \u2014 Sardar Group"
+        },
+        {
+          "label": "Role",
+          "value": "Creative Direction, Art Direction"
+        },
+        {
+          "label": "Deliverables",
+          "value": "Campaign concept, Teasers, Documentary, Event, Photography, Social"
+        },
+        {
+          "label": "Year",
+          "value": "2023"
+        }
+      ]
+    }
+  ]
+}

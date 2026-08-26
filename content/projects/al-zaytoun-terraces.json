@@ -1,0 +1,399 @@
+{
+  "slug": "al-zaytoun-terraces",
+  "title": "Al Zaytoun Terraces",
+  "client": "International Free Company (IFC)",
+  "role": "Brand Identity & Guidelines",
+  "year": "[YEAR]",
+  "location": "Baghdad, Iraq",
+  "cover": "hero.jpg",
+  "assetPrefix": "",
+  "featured": false,
+  "noMasthead": true,
+  "noRounding": false,
+  "nextProjectSlug": "[NEXT]",
+
+  "blocks": [
+
+
+    { "type": "hero",
+      "image": "hero.jpg",
+      "title": "Al Zaytoun Terraces",
+      "subtitle": "Where Contemporary Design Meets Heritage" },
+
+    { "type": "metaBar",
+      "items": [
+        { "label": "Client", "value": "International Free Company (IFC)" },
+        { "label": "Sector", "value": "Real Estate · Luxury Residential" },
+        { "label": "Year", "value": "[YEAR]" },
+        { "label": "Role", "value": "Brand Identity & Guidelines" },
+        { "label": "Deliverables", "value": "Brand identity, guidelines, brochure, applications" }
+      ] },
+
+    { "type": "text",
+      "heading": "The project",
+      "body": "Welcome to Alzaytoun Residences, where contemporary design meets refined execution to offer a complete living experience. More than a residence, a thriving community offering comfort, privacy, and quality living in Baghdad's green zone.\n\nReviving the relationship between humans and nature in Baghdad's heart. Inspired by the Hanging Gardens of Babylon, Alzaytoun reinterprets this historical symbol with contemporary vision, merging green spaces with modern architecture." },
+
+    { "type": "pullQuote",
+      "text": "Reviving the Hanging Gardens of Babylon in modern Baghdad." },
+
+
+
+    { "type": "divider",
+      "label": "The story",
+      "text": "How an idea became reality." },
+
+    { "type": "text",
+      "body": "Every exceptional project begins with a question worth answering. For Alzaytoun, that question was simple: How can we revive the spirit of the Hanging Gardens in modern Baghdad?\n\nFor millennia, gardens have symbolized Iraqi civilization. Spaces where humans meet nature, where beauty and life converge. Rather than surrounding buildings with green space, we asked: What if green space is the building?\n\nAlzaytoun Residences is not a residential complex with landscaping. It is a vision where nature is integrated into architecture itself. Every terrace, every pathway, every shared space is designed so that residents do not visit gardens. They live in them.\n\nDrawing on 5,000 years of Mesopotamian heritage while embracing contemporary design excellence, Alzaytoun bridges past and future. It is a project that respects history, celebrates nature, and redefines what luxury living in Baghdad can be." },
+
+    { "type": "fullBleed", "image": "video-teaser-poster.jpg",
+      "caption": "Project teaser" },
+
+
+
+    { "type": "divider",
+      "label": "Brand identity",
+      "text": "A design language rooted in purpose." },
+
+
+
+    { "type": "text",
+      "heading": "A vision rooted in heritage",
+      "body": "Nature is not added as decoration. Architecture is built around it. Every green space is designed as a daily-life extension. Natural light, clean air, and greenery become standard amenities, creating an environment that is tranquil, balanced, and sustainable." },
+
+    { "type": "pullQuote",
+      "text": "Life at Alzaytoun is measured by what you feel, not by square meters." },
+
+    { "type": "text",
+      "body": "Living begins between gardens, extends through green pathways, continues in shared community spaces. Nature becomes part of every day." },
+
+    { "type": "fullBleed", "image": "brand-vision.jpg",
+      "caption": "" },
+
+
+
+    { "type": "sectionHeader",
+      "title": "The logo",
+      "subtitle": "System, variations, and rules" },
+
+    { "type": "text",
+      "body": "The tree and circular emblem is a botanical illustration representing heritage, permanence, and natural integration. It carries the brand across signage, collateral, and environmental design." },
+
+    { "type": "fullBleed", "image": "logo-main.jpg",
+      "caption": "Primary logo — full lockup" },
+
+    { "type": "twoUp",
+      "images": ["logo-variation-01.jpg", "logo-variation-02.jpg"] },
+
+    { "type": "twoUp",
+      "images": ["logo-variation-03.jpg", "logo-variation-04.jpg"] },
+
+    { "type": "fullBleed", "image": "logo-usage-rules.jpg",
+      "caption": "Logo usage — do's and don'ts" },
+
+    { "type": "fullBleed", "image": "logo-clear-space.jpg",
+      "caption": "Clear space and minimum sizes" },
+
+    { "type": "twoUp",
+      "images": ["logo-application-01.jpg", "logo-application-02.jpg"] },
+
+
+
+    { "type": "sectionHeader",
+      "title": "Colour palette",
+      "subtitle": "Primary, secondary, and supporting colours" },
+
+    { "type": "text",
+      "body": "Dark Forest Green (#2D4A3E) is the foundation: heritage, nature, permanence, and the literal landscape strategy. Gold and warm metallics (#C9A876) mark the luxury details and premium moments. Cream and off-white provide breathing room and readability. Neutrals support flexibility across all applications." },
+
+    { "type": "fullBleed", "image": "colour-primary.jpg",
+      "caption": "Primary — Dark Forest Green (#2D4A3E)" },
+
+    { "type": "fullBleed", "image": "colour-secondary.jpg",
+      "caption": "Secondary — Gold / Warm Metallics (#C9A876)" },
+
+    { "type": "fullBleed", "image": "colour-supporting.jpg",
+      "caption": "Supporting — Neutrals, Cream, Off-white" },
+
+    { "type": "fullBleed", "image": "colour-usage.jpg",
+      "caption": "Colour usage guidelines and combinations" },
+
+
+
+    { "type": "sectionHeader",
+      "title": "Typography",
+      "subtitle": "Type system and hierarchy" },
+
+    { "type": "text",
+      "body": "Playfair Display carries the headlines, premium moments, and heritage connection. Inter handles body copy, UI, and supporting text for accessibility. The hierarchy runs from H1 at 56-64px Playfair through to body text at 16-18px Inter. Usage extends to signage, unit naming (The Avenue Suite, The Panorama, The Crown Penthouse), and marketing materials." },
+
+    { "type": "fullBleed", "image": "type-primary.jpg",
+      "caption": "Primary — Playfair Display" },
+
+    { "type": "fullBleed", "image": "type-secondary.jpg",
+      "caption": "Secondary — Inter" },
+
+    { "type": "fullBleed", "image": "type-hierarchy.jpg",
+      "caption": "Typography scales and hierarchy" },
+
+
+
+    { "type": "divider",
+      "label": "Visual system",
+      "text": "Imagery, patterns, and composition." },
+
+    { "type": "sectionHeader",
+      "title": "Photography",
+      "subtitle": "Style, treatment, and context" },
+
+    { "type": "fullBleed", "image": "photo-style-guide.jpg",
+      "caption": "Photography style guide" },
+
+    { "type": "twoUp",
+      "images": ["photo-example-01.jpg", "photo-example-02.jpg"] },
+
+    { "type": "fullBleed", "image": "photo-treatment.jpg",
+      "caption": "Image treatment and filters" },
+
+    { "type": "sectionHeader",
+      "title": "Graphic elements",
+      "subtitle": "Patterns, icons, and ornaments" },
+
+    { "type": "fullBleed", "image": "pattern-textures.jpg",
+      "caption": "Patterns and textures" },
+
+    { "type": "threeUp",
+      "images": ["icon-01.jpg", "icon-02.jpg", "icon-03.jpg"] },
+
+    { "type": "fullBleed", "image": "dividers-ornaments.jpg",
+      "caption": "Dividers and ornamental elements" },
+
+    { "type": "sectionHeader",
+      "title": "Layout and composition",
+      "subtitle": "Grid, spacing, and hierarchy" },
+
+    { "type": "fullBleed", "image": "grid-system.jpg",
+      "caption": "Grid system" },
+
+    { "type": "fullBleed", "image": "spacing-proportions.jpg",
+      "caption": "Spacing and proportions" },
+
+
+
+    { "type": "divider",
+      "label": "The project",
+      "text": "Twin towers, connected vision." },
+
+    { "type": "text",
+      "heading": "Architectural overview",
+      "body": "Two residential towers form an integrated architectural identity, connected by bridges that are both functional and sculptural. Vertical lines create a strong skyline presence, while cascading terraces and green spaces suggest movement and lightness, evoking the Hanging Gardens aesthetic with contemporary refinement.\n\nGround-level design prioritizes comfort and elegance: carefully planned entrances, open community spaces, and a balance between privacy and social connection." },
+
+    { "type": "fullBleed", "image": "arch-towers.jpg",
+      "caption": "Twin towers with connecting bridges" },
+
+    { "type": "twoUp",
+      "images": ["arch-ground-plan.jpg", "arch-section.jpg"] },
+
+    { "type": "fullBleed", "image": "arch-bridge.jpg",
+      "caption": "Bridge connection — architectural and functional" },
+
+
+
+    { "type": "sectionHeader",
+      "title": "Six expressions of luxury",
+      "subtitle": "The unit portfolio" },
+
+    { "type": "text",
+      "heading": "The Avenue Suite",
+      "body": "1-Bedroom Residence · 117.34 m² base · 206.41 m² total\n\nPractical luxury for professionals and couples. Master bedroom with dressing room and en-suite, spacious living and dining flow, functional kitchen, guest powder room, and private terrace overlooking the gardens." },
+
+    { "type": "fullBleed", "image": "unit-avenue.jpg",
+      "caption": "" },
+
+    { "type": "text",
+      "heading": "The Panorama Apartment",
+      "body": "2-Bedroom Residence · 188.81 m² base · 349.55 m² total\n\nFamily elegance integrated seamlessly. Two master bedrooms with dressing rooms and en-suites, generously proportioned living and dining spaces, practical kitchen, guest powder room, storage, laundry room, and a wide terrace capturing garden views." },
+
+    { "type": "fullBleed", "image": "unit-panorama.jpg",
+      "caption": "" },
+
+    { "type": "text",
+      "heading": "The Grand Residence",
+      "body": "3-Bedroom Residence · 188.00 m² base · 358.90 m² total\n\nPremium family living with private indulgence. Master bedroom plus two additional bedrooms, spacious living and dining, practical kitchen, private swimming pool, extensive terraces, and the luxury of personal water retreat." },
+
+    { "type": "fullBleed", "image": "unit-grand.jpg",
+      "caption": "" },
+
+    { "type": "text",
+      "heading": "The Meridian Residence",
+      "body": "4-Bedroom Residence · 323.58 m² base · 601.80 m² total\n\nSpacious luxury for large families. Four master bedrooms, two living and dining areas to accommodate multifaceted family life, cold and hot kitchens for entertaining and daily convenience, dedicated staff accommodations with private en-suite, laundry room, and expansive terraces with open views." },
+
+    { "type": "fullBleed", "image": "unit-meridian.jpg",
+      "caption": "" },
+
+    { "type": "text",
+      "heading": "The Signature Duplex",
+      "body": "5-Bedroom, 2-Floor Residence · 574.06 m² base · 952.04 m² total\n\nPeak luxury and privacy across two thoughtfully designed levels. Five master bedrooms, separate family lounge and living reception, expansive dining, cold and hot kitchens, staff accommodations, private swimming pool, storage, and extensive outdoor living spaces that redefine residential excellence." },
+
+    { "type": "fullBleed", "image": "unit-signature.jpg",
+      "caption": "" },
+
+    { "type": "text",
+      "heading": "The Crown Penthouse",
+      "body": "4+Guest Bedroom, 2-Floor Residence · 700.10 m² base · 1,297.97 m² total\n\nHighest expression of residential luxury. Four master bedrooms plus guest bedroom distributed across two levels, separate receptions, family living areas, expansive dining, cold and hot kitchens, dedicated study room, luxury dressing rooms, staff accommodations, wide terraces, and panoramic sitting areas offering 360-degree Baghdad vistas." },
+
+    { "type": "fullBleed", "image": "unit-crown.jpg",
+      "caption": "" },
+
+
+
+    { "type": "sectionHeader",
+      "title": "Curated experiences",
+      "subtitle": "Premium features and amenities" },
+
+    { "type": "principles",
+      "items": [
+        { "title": "Green Spaces", "body": "Gardens and terraces emphasizing nature as daily lifestyle. Designed to restore balance and connect residents to Baghdad's natural rhythms." },
+        { "title": "Smart Home Technology", "body": "Intelligent control of lighting, security, and home systems. Modern convenience seamlessly integrated into luxury living." },
+        { "title": "Landscape and Views", "body": "Every unit designed for open views on gardens and natural surroundings. Landscape architecture prioritizes beauty and privacy." },
+        { "title": "Swimming Pools", "body": "Luxury residences include private pools. All residents enjoy community aquatic spaces for recreation and wellness." }
+      ] },
+
+    { "type": "principles",
+      "items": [
+        { "title": "Wide Terraces", "body": "Natural extensions of living spaces, designed in the spirit of Hanging Gardens. Places to live, not just look out from." },
+        { "title": "Integrated Community", "body": "Residential units, open spaces, daily services, and recreational facilities form a complete living ecosystem." },
+        { "title": "Privacy and Security", "body": "Organized entrances, controlled circulation, secure family environment. Luxury paired with peace of mind." },
+        { "title": "Strategic Location", "body": "Green Zone prestige. Minutes from Tigris River, University of Baghdad, Al-Zawraa Park, Central Bank, Republican Palace, and principal commercial centres." }
+      ] },
+
+    { "type": "fullBleed", "image": "amenities-overview.jpg",
+      "caption": "" },
+
+
+
+    { "type": "sectionHeader",
+      "title": "Location",
+      "subtitle": "Baghdad's most prestigious address" },
+
+    { "type": "text",
+      "body": "Situated within Baghdad's Green Zone, directly behind the Movenpick Zaitoun Hotel, Alzaytoun Residences occupies a location that balances exclusivity with accessibility. Surrounded by government institutions, cultural landmarks, educational hubs, and commercial centres, residents enjoy proximity to Baghdad's vital infrastructure while maintaining serene, private community life.\n\nUnique balance: city vibrancy and residential tranquility. Investment value meets quality of life." },
+
+    { "type": "fullBleed", "image": "location-map.jpg",
+      "caption": "" },
+
+    { "type": "twoUp",
+      "images": ["location-context-01.jpg", "location-context-02.jpg"] },
+
+
+
+    { "type": "divider",
+      "label": "Behind the project",
+      "text": "Vision delivered by excellence." },
+
+    { "type": "sideBySide",
+      "image": "developer-ifc.jpg",
+      "heading": "International Free Company (IFC)",
+      "body": "A leading Iraqi engineering, supply, and construction firm with extensive experience in infrastructure, energy, and major urban development projects. Track record includes Movenpick Zaitoun Hotel Baghdad, Baghdad Garden Complex, and regional energy sector initiatives. Mission: quality-driven, sustainable projects that elevate Baghdad's urban landscape." },
+
+    { "type": "sideBySide",
+      "image": "architect-manhal.jpg",
+      "heading": "Manhal Habboubi Architectural Office",
+      "body": "Prominent Iraqi architecture firm specializing in contemporary design informed by cultural heritage. Design inspired by Babylon's Hanging Gardens, with modern execution of historical symbolism. Focus on balanced living environments, natural light optimization, and open views. Expertise in large-scale residential, urban planning, and cultural heritage reinterpretation." },
+
+
+
+    { "type": "divider",
+      "label": "Applications",
+      "text": "The identity in use." },
+
+    { "type": "sectionHeader",
+      "title": "Digital",
+      "subtitle": "Website, email, social media" },
+
+    { "type": "fullBleed", "image": "app-website.jpg",
+      "caption": "Website design" },
+
+    { "type": "twoUp",
+      "images": ["app-email-template.jpg", "app-social-instagram.jpg"] },
+
+    { "type": "twoUp",
+      "images": ["app-social-linkedin.jpg", "app-social-facebook.jpg"] },
+
+    { "type": "fullBleed", "image": "app-social-grid.jpg",
+      "caption": "Social media content grid" },
+
+    { "type": "sectionHeader",
+      "title": "Stationery",
+      "subtitle": "Business card, letterhead, collateral" },
+
+    { "type": "fullBleed", "image": "stationery-overview.jpg",
+      "caption": "Stationery suite" },
+
+    { "type": "twoUp",
+      "images": ["stationery-card.jpg", "stationery-letterhead.jpg"] },
+
+    { "type": "twoUp",
+      "images": ["stationery-envelope.jpg", "stationery-notebook.jpg"] },
+
+    { "type": "fullBleed", "image": "stationery-folder.jpg",
+      "caption": "Presentation folder" },
+
+    { "type": "sectionHeader",
+      "title": "Merchandise",
+      "subtitle": "Apparel, accessories, packaging" },
+
+    { "type": "twoUp",
+      "images": ["merch-tshirt.jpg", "merch-cap.jpg"] },
+
+    { "type": "twoUp",
+      "images": ["merch-hoodie.jpg", "merch-accessories.jpg"] },
+
+    { "type": "fullBleed", "image": "merch-packaging.jpg",
+      "caption": "Branded packaging" },
+
+    { "type": "sectionHeader",
+      "title": "Environmental",
+      "subtitle": "Signage, wayfinding, installations" },
+
+    { "type": "fullBleed", "image": "env-signage.jpg",
+      "caption": "Building signage" },
+
+    { "type": "twoUp",
+      "images": ["env-wayfinding-01.jpg", "env-wayfinding-02.jpg"] },
+
+    { "type": "fullBleed", "image": "env-installation.jpg",
+      "caption": "Environmental installation" },
+
+
+
+    { "type": "divider",
+      "label": "Brochure",
+      "text": "The project in print." },
+
+    { "type": "fullBleed", "image": "brochure-cover.jpg",
+      "caption": "Brochure cover" },
+
+    { "type": "twoUp",
+      "images": ["brochure-spread-01.jpg", "brochure-spread-02.jpg"] },
+
+    { "type": "twoUp",
+      "images": ["brochure-spread-03.jpg", "brochure-spread-04.jpg"] },
+
+    { "type": "fullBleed", "image": "brochure-spread-05.jpg",
+      "caption": "" },
+
+
+
+    { "type": "pullQuote",
+      "text": "Nature is not added as decoration. Architecture is built around it." },
+
+    { "type": "credits",
+      "items": [
+        { "label": "Brand identity and art direction", "value": "Rafat Mhalla" },
+        { "label": "Client", "value": "International Free Company (IFC)" },
+        { "label": "Architect", "value": "Manhal Habboubi Architectural Office" },
+        { "label": "Location", "value": "Baghdad Green Zone, Iraq" },
+        { "label": "Year", "value": "[YEAR]" }
+      ] }
+  ]
+}

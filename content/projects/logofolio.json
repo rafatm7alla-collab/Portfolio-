@@ -1,0 +1,168 @@
+{
+  "slug": "logofolio",
+  "title": "Logofolio",
+  "cover": "logofolio-01.jpg",
+  "nextProjectSlug": "toyota-crown",
+  "blocks": [
+    {
+      "type": "text",
+      "heading": "Designed to Be Recognized.",
+      "body": "Every logo starts with an idea.\n\nMy approach is rooted in simplicity, structure, and meaning — transforming concepts into visual marks that feel clear, distinctive, and built to last.\n\nI believe a strong identity doesn't need to explain everything at first glance. It needs to create recognition, hold meaning, and remain relevant beyond trends.\n\nThis folio brings together 30 selected logos and emblems, each exploring a different balance between form, typography, symbolism, and simplicity.\n\nFrom a single gesture to a carefully constructed monogram, the goal remains the same:\n\nCreate less. Mean more."
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-01.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-02.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-03.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-04.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-05.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-06.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-07.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-08.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-09.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-10.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-11.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-12.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-13.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-14.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-15.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-16.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-17.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-18.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-19.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-20.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-21.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-22.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-23.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-24.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-25.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-26.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-27.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-28.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-29.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "fullBleed",
+      "image": "logofolio-30.jpg",
+      "size": "contained"
+    },
+    {
+      "type": "text",
+      "heading": "Thank You for Looking.",
+      "body": "One constant approach, simplicity with intention.\n\nThank you for taking the time to explore my work.\n\nIf you have a brand, an idea, or simply a challenge worth solving, I'd be happy to talk.\n\nLet’s create something worth recognizing."
+    }
+  ]
+}
