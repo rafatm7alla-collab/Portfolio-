@@ -6,6 +6,7 @@ const config: NextConfig = {
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [375, 640, 828, 1080, 1280, 1600, 1920, 2560, 3200],
     imageSizes: [240, 360, 480, 640, 828],
+    qualities: [75, 85, 90],
   },
   experimental: {
     optimizePackageImports: ['motion'],

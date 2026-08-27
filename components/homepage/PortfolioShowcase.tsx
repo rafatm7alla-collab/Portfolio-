@@ -15,9 +15,21 @@ const PROJECT_ORDER = [
   { slug: 'lexus-lx-2024', layout: 'centered', reverse: false, stacked: false },
   { slug: 'al-zaytoun-terraces', layout: 'fullwidth', reverse: false, stacked: false },
   { slug: 'vision-house', layout: 'split', reverse: false, stacked: false },
-  { slug: 'praline', layout: 'split', reverse: false, stacked: true },
+  { slug: 'praline', layout: 'fullwidth', reverse: false, stacked: false },
   { slug: 'land-rover-kurdistan', layout: 'fullwidth', reverse: false, stacked: false },
 ]
+
+function ProjectFooter({ title }: { title: string }) {
+  return (
+    <div className="portfolio-project-footer">
+      <h2 className="portfolio-project-footer-title">{title}</h2>
+      <div className="portfolio-cta">
+        <span className="portfolio-cta-text">View Full Project</span>
+        <span className="portfolio-cta-fold" />
+      </div>
+    </div>
+  )
+}
 
 export function PortfolioShowcase({ projects }: PortfolioShowcaseProps) {
   const orderedProjects = PROJECT_ORDER
@@ -61,23 +73,10 @@ export function PortfolioShowcase({ projects }: PortfolioShowcaseProps) {
                 </div>
 
                 <div className="portfolio-split-text">
-                  <div className="portfolio-split-index">{project.index}</div>
                   <h2 className="portfolio-split-title">{project.title}</h2>
-
-                  <div className="portfolio-split-meta">
-                    {project.services.length > 0 && (
-                      <div className="portfolio-centered-services">
-                        {project.services.map((service) => (
-                          <p key={service}>{service}</p>
-                        ))}
-                      </div>
-                    )}
-                    {project.location && (
-                      <p className="portfolio-centered-location">{project.location}</p>
-                    )}
-                    {project.isPlaceholder && (
-                      <div className="portfolio-placeholder-badge">PLACEHOLDER</div>
-                    )}
+                  <div className="portfolio-cta">
+                    <span className="portfolio-cta-text">View Full Project</span>
+                    <span className="portfolio-cta-fold" />
                   </div>
                 </div>
               </Link>
@@ -106,26 +105,7 @@ export function PortfolioShowcase({ projects }: PortfolioShowcaseProps) {
                     )}
                   </div>
 
-                  <div className="portfolio-centered-footer">
-                    <div className="portfolio-centered-index">{project.index}</div>
-                    <h2 className="portfolio-centered-title">{project.title}</h2>
-
-                    <div className="portfolio-centered-meta">
-                      {project.services.length > 0 && (
-                        <div className="portfolio-centered-services">
-                          {project.services.map((service) => (
-                            <p key={service}>{service}</p>
-                          ))}
-                        </div>
-                      )}
-                      {project.location && (
-                        <p className="portfolio-centered-location">{project.location}</p>
-                      )}
-                      {project.isPlaceholder && (
-                        <div className="portfolio-placeholder-badge">PLACEHOLDER</div>
-                      )}
-                    </div>
-                  </div>
+                  <ProjectFooter title={project.title} />
                 </div>
               </Link>
             </div>
@@ -153,26 +133,7 @@ export function PortfolioShowcase({ projects }: PortfolioShowcaseProps) {
                     )}
                   </div>
 
-                  <div className="portfolio-centered-footer">
-                    <div className="portfolio-centered-index">{project.index}</div>
-                    <h2 className="portfolio-centered-title">{project.title}</h2>
-
-                    <div className="portfolio-centered-meta">
-                      {project.services.length > 0 && (
-                        <div className="portfolio-centered-services">
-                          {project.services.map((service) => (
-                            <p key={service}>{service}</p>
-                          ))}
-                        </div>
-                      )}
-                      {project.location && (
-                        <p className="portfolio-centered-location">{project.location}</p>
-                      )}
-                      {project.isPlaceholder && (
-                        <div className="portfolio-placeholder-badge">PLACEHOLDER</div>
-                      )}
-                    </div>
-                  </div>
+                  <ProjectFooter title={project.title} />
                 </div>
               </Link>
             </div>
@@ -201,6 +162,13 @@ export function PortfolioShowcase({ projects }: PortfolioShowcaseProps) {
                       />
                     </div>
                   )}
+                </div>
+
+                <div className="portfolio-fullwidth-footer">
+                  <div className="portfolio-cta">
+                    <span className="portfolio-cta-text">View Full Project</span>
+                    <span className="portfolio-cta-fold" />
+                  </div>
                 </div>
               </Link>
             </div>

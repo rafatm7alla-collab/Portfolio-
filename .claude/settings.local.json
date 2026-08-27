@@ -75,7 +75,11 @@
       "Bash(tar -czf /Users/rafatm7alla/Desktop/50-percent-backup.tar.gz content/projects/fm-power.json data/work.ts types/blocks.ts lib/manifest.ts components/blocks/ app/projects/[slug]/ public/projects/fm-power/)",
       "Bash(tar -czf ~/Desktop/portfolio-backup-2026-08-25.tar.gz --exclude='node_modules' --exclude='.next' --exclude='.git' .)",
       "Bash(zip -r ~/Desktop/portfolio.zip . -x \"node_modules/*\" \".next/*\" \".git/*\")",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git branch *)",
+      "Bash(git remote *)",
+      "Bash(git push *)"
     ]
   }
 }
