@@ -1,143 +1,74 @@
 .portfolio-showcase {
   width: 100%;
-  position: relative;
-  overflow-anchor: none;
-}
-
-/* Each project gets its own scroll "slot". The item inside is sticky, so it
-   stays pinned in view while its slot scrolls past, then the next project's
-   slot (with a higher z-index) rises up and covers/pushes it away. The slot
-   height sits right at 100vh so there is no dwell/pause at all — the next
-   project starts covering the current one the instant you keep scrolling. */
-.portfolio-stack-wrapper {
-  position: relative;
-  height: 100.3vh;
-}
-
-/* ─────────────────────────────────────────────────────────────────
-   WIDE LAYOUT (DubaIraq) — a wide banner centered on the page, not
-   edge-to-edge like the full-width projects. Sized to the source
-   photo's own ~2:1 ratio (2800×1399).
-   ───────────────────────────────────────────────────────────────── */
-
-.portfolio-wide-item {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  color: inherit;
-  background: var(--color-paper, #ffffff);
+  flex-direction: column;
+  gap: clamp(48px, 8vh, 96px);
   padding: clamp(32px, 5vh, 80px) clamp(24px, 5vw, 64px);
-}
-
-.portfolio-wide-content {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: center;
-  gap: clamp(20px, 3vh, 32px);
-  /* Scales with viewport height too, so a tall window fills with the
-     image instead of leaving dead white space above/below it. */
-  max-width: min(1280px, 92vw, calc(80vh * 2800 / 1399));
+  max-width: 1600px;
   margin: 0 auto;
-  width: 100%;
-}
-
-.portfolio-wide-image-wrapper {
-  width: 100%;
-  aspect-ratio: 2800 / 1399;
-  overflow: hidden;
-  border-radius: clamp(12px, 1.5vw, 24px);
-  background: #0a0a0a;
-}
-
-.portfolio-wide-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   CENTERED LAYOUT (Lexus, Praline)
+   FULLWIDTH CARD — title on top, big image, CTA below
    ───────────────────────────────────────────────────────────────── */
 
-.portfolio-centered-item {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: 100vh;
+.portfolio-card {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
   text-decoration: none;
   color: inherit;
-  background: var(--color-paper, #ffffff);
-  padding: clamp(32px, 5vh, 80px) 0;
 }
 
-.portfolio-centered-content {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: center;
-  gap: clamp(20px, 3vh, 32px);
-  max-width: 620px;
-  margin: 0 auto;
-  width: 100%;
-  height: 100%;
+.portfolio-card--fullwidth {
+  gap: clamp(16px, 2vh, 24px);
 }
 
-.portfolio-centered-image-wrapper {
-  width: 100%;
-  flex: 1;
-  min-height: 0;
-  overflow: hidden;
-  border-radius: clamp(12px, 1.5vw, 24px);
-  background: #0a0a0a;
-}
-
-.portfolio-centered-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-/* ─────────────────────────────────────────────────────────────────
-   UNIFIED PROJECT FOOTER — title + "View Full Project" CTA
-   ───────────────────────────────────────────────────────────────── */
-
-.portfolio-project-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  flex-shrink: 0;
-  gap: clamp(16px, 3vw, 32px);
-}
-
-.portfolio-project-footer-title {
-  font-size: clamp(1.6rem, 4vw, 3rem);
+.portfolio-card-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
   font-weight: 900;
   letter-spacing: -0.02em;
   line-height: 1.05;
   margin: 0;
-  padding: 0;
 }
 
-.portfolio-fullwidth-footer {
+.portfolio-card-image-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: clamp(12px, 1.5vw, 24px);
+  background: #0a0a0a;
+}
+
+.portfolio-card--fullwidth .portfolio-card-image-wrapper {
+  aspect-ratio: 16 / 9;
+}
+
+.portfolio-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.portfolio-card-footer {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
-  margin-top: clamp(12px, 2vh, 20px);
-  flex-shrink: 0;
+  gap: clamp(16px, 3vw, 32px);
 }
 
-/* CTA button — white fill, black stroke, rounded */
+.portfolio-card-footer-title {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0;
+  margin-right: auto;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   CTA BUTTON — white fill, black stroke, rounded, inverts on hover
+   ───────────────────────────────────────────────────────────────── */
+
 .portfolio-cta {
   display: inline-flex;
   align-items: center;
@@ -145,7 +76,7 @@
   color: #000;
   border: 1px solid #000;
   border-radius: 100px;
-  padding: clamp(10px, 1.2vh, 14px) clamp(24px, 3vw, 36px);
+  padding: clamp(8px, 1vh, 12px) clamp(20px, 2.5vw, 32px);
   flex-shrink: 0;
   transition:
     background 300ms ease,
@@ -153,14 +84,10 @@
 }
 
 .portfolio-cta-text {
-  font-size: clamp(0.65rem, 0.8vw, 0.78rem);
+  font-size: clamp(0.6rem, 0.75vw, 0.72rem);
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-}
-
-.portfolio-cta-fold {
-  display: none;
 }
 
 .group:hover .portfolio-cta {
@@ -169,66 +96,48 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   SPLIT LAYOUT (Vision House) — wide image left, big bold title right.
-   The --reverse modifier (Praline) mirrors it: image right, text left.
+   PAIRED ROW — two cards side by side (DubaIraq + Lexus)
+   Left card takes ~60%, right card ~40%
    ───────────────────────────────────────────────────────────────── */
 
-.portfolio-split-item {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
+.portfolio-paired-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: clamp(20px, 3vw, 40px);
+  align-items: start;
+}
+
+.portfolio-card--paired {
+  gap: clamp(12px, 1.5vh, 20px);
+}
+
+.portfolio-card--paired .portfolio-card-image-wrapper {
+  aspect-ratio: 4 / 3;
+}
+
+.portfolio-card--paired-right .portfolio-card-image-wrapper {
+  aspect-ratio: 3 / 4;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   SPLIT CARD — image left, title+CTA right, dark background
+   (Vision House)
+   ───────────────────────────────────────────────────────────────── */
+
+.portfolio-card--split {
+  flex-direction: row;
   align-items: center;
-  gap: clamp(40px, 6vw, 90px);
-  text-decoration: none;
-  color: inherit;
-  background: var(--color-paper, #ffffff);
-  padding: clamp(32px, 5vh, 80px) clamp(40px, 8vw, 80px);
-}
-
-.portfolio-split-item--reverse {
-  flex-direction: row-reverse;
-}
-
-/* --stacked (Praline): same image and title sizing as the row layout,
-   just rearranged — banner centered on top, title and info below it. */
-.portfolio-split-item--stacked {
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.portfolio-split-item--stacked .portfolio-split-image-wrapper {
-  flex: none;
-  width: auto;
-  height: auto;
-  max-width: 100%;
-  max-height: 86vh;
-}
-
-.portfolio-split-item--stacked .portfolio-split-text {
-  flex: none;
-  width: 100%;
-  max-width: 1100px;
-}
-
-.portfolio-split-image-wrapper {
-  flex: 1.2;
-  /* Matches the real cover's own landscape ratio so the full visual shows
-     instead of being cropped by object-fit: cover inside a squarer box. */
-  aspect-ratio: 3906 / 2628;
-  max-height: 86vh;
-  overflow: hidden;
-  border-radius: clamp(12px, 1.5vw, 24px);
+  gap: clamp(32px, 5vw, 80px);
   background: #0a0a0a;
+  color: #fff;
+  border-radius: clamp(12px, 1.5vw, 24px);
+  padding: clamp(24px, 4vw, 64px);
 }
 
-.portfolio-split-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+.portfolio-card--split .portfolio-card-image-wrapper {
+  flex: 1.2;
+  aspect-ratio: 4 / 3;
+  border-radius: clamp(8px, 1vw, 16px);
 }
 
 .portfolio-split-text {
@@ -236,152 +145,59 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: clamp(16px, 2.5vh, 28px);
-}
-
-.portfolio-split-index {
-  font-size: clamp(0.65rem, 0.8vw, 0.72rem);
-  letter-spacing: 0.12em;
-  color: var(--ink-secondary);
-  font-weight: 300;
+  gap: clamp(20px, 3vh, 36px);
 }
 
 .portfolio-split-title {
-  font-size: clamp(3.5rem, 7.5vw, 6.2rem);
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 900;
   letter-spacing: -0.02em;
-  line-height: 0.98;
+  line-height: 1;
   margin: 0;
-  padding: 0;
-  text-align: left;
 }
 
-.portfolio-split-meta {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: clamp(10px, 1.4vh, 14px);
-  text-align: left;
+.portfolio-card--split .portfolio-cta {
+  background: transparent;
+  color: #fff;
+  border-color: #fff;
+}
+
+.portfolio-card--split.group:hover .portfolio-cta {
+  background: #fff;
+  color: #000;
 }
 
 /* ─────────────────────────────────────────────────────────────────
-   FULL WIDTH LAYOUT (Toyota Crown, Land Rover Kurdistan, etc.)
+   RESPONSIVE
    ───────────────────────────────────────────────────────────────── */
 
-.portfolio-fullwidth-item {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  color: inherit;
-  background: var(--color-paper, #ffffff);
-  padding: clamp(32px, 5vh, 80px) clamp(40px, 8vw, 80px);
-}
-
-.portfolio-fullwidth-header {
-  margin-bottom: clamp(30px, 5vh, 50px);
-}
-
-.portfolio-fullwidth-title {
-  font-size: clamp(3.6rem, 8.5vw, 5.7rem);
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  line-height: 1.02;
-  margin: 0;
-  padding: 0;
-}
-
-.portfolio-fullwidth-image-wrapper {
-  width: 100%;
-  flex: 1;
-  min-height: 0;
-  overflow: hidden;
-  border-radius: clamp(12px, 1.5vw, 24px);
-  background: #f5f5f5;
-}
-
-.portfolio-fullwidth-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .portfolio-centered-content {
-    max-width: 100%;
-  }
-
-  /* A true 2:1 landscape banner can't fill a narrow-but-tall frame without
-     being cropped — width is always the bottleneck there. Below this
-     breakpoint, let the image fill the available height instead (like the
-     centered layout), trading the fully-uncropped banner for no dead
-     space; the wide desktop view keeps the uncropped landscape banner. */
-  .portfolio-wide-item {
-    align-items: stretch;
-  }
-
-  .portfolio-wide-content {
-    max-width: 100%;
-    height: 100%;
-  }
-
-  .portfolio-wide-image-wrapper {
-    aspect-ratio: auto;
-    flex: 1;
-    min-height: 0;
-  }
-}
-
-@media (max-width: 1024px) {
-  .portfolio-split-item {
-    flex-direction: column;
-    align-items: stretch;
-    height: 100vh;
-  }
-
-  /* Same tradeoff as the wide layout: a fixed landscape ratio can't fill
-     a narrow-but-tall frame without leaving dead space, so let the image
-     fill the available height here instead of staying width-locked. */
-  .portfolio-split-image-wrapper {
-    flex: 1;
-    width: 100%;
-    aspect-ratio: auto;
-    max-height: none;
-    min-height: 0;
-  }
-
-  .portfolio-split-text {
-    flex: none;
-  }
-}
-
 @media (max-width: 768px) {
-  .portfolio-stack-wrapper {
-    height: 100.5vh;
+  .portfolio-showcase {
+    padding: clamp(20px, 3vh, 40px) clamp(16px, 4vw, 24px);
+    gap: clamp(40px, 6vh, 64px);
   }
 
-  .portfolio-centered-title {
-    font-size: clamp(1.9rem, 6.5vw, 2.9rem);
+  .portfolio-paired-row {
+    grid-template-columns: 1fr;
   }
 
-  .portfolio-fullwidth-title {
-    font-size: clamp(1.9rem, 6.5vw, 2.9rem);
+  .portfolio-card--paired-right .portfolio-card-image-wrapper {
+    aspect-ratio: 4 / 3;
+  }
+
+  .portfolio-card-title {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+  }
+
+  .portfolio-card--split {
+    flex-direction: column;
+  }
+
+  .portfolio-card--split .portfolio-card-image-wrapper {
+    width: 100%;
   }
 
   .portfolio-split-title {
-    font-size: clamp(1.9rem, 6.5vw, 2.9rem);
-  }
-
-  .portfolio-fullwidth-item {
-    padding: clamp(20px, 3vh, 40px) clamp(16px, 4vw, 32px);
-  }
-
-  .portfolio-fullwidth-header {
-    margin-bottom: clamp(16px, 3vh, 30px);
+    font-size: clamp(1.6rem, 6vw, 2.4rem);
   }
 }

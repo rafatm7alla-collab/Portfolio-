@@ -19,6 +19,19 @@ export const metadata: Metadata = {
   twitter: { card: 'summary_large_image' },
   robots: { index: true, follow: true },
   alternates: { canonical: '/' },
+  icons: {
+    icon: [
+      {
+        url: '/favicon-dark.png',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/favicon-light.png',
+        media: '(prefers-color-scheme: dark)',
+      },
+    ],
+    apple: '/favicon-dark.png',
+  },
 }
 
 export const viewport: Viewport = {
