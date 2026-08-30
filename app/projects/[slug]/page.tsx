@@ -54,7 +54,7 @@ export default async function ManifestProjectPage({ params }: Params) {
 
   return (
     <article
-      className={manifest.noMasthead ? '' : 'pt-[24vh]'}
+      className={manifest.noMasthead ? '' : 'pt-[12vh] md:pt-[24vh]'}
       style={{ overflowAnchor: 'none' }}
       {...(dark ? { 'data-invert': 'true', 'data-nav': 'dark' } : {})}
     >
@@ -69,14 +69,14 @@ export default async function ManifestProjectPage({ params }: Params) {
         </Reveal>
 
         {manifest.summary && (
-          <Reveal delay={80} className="mt-8">
+          <Reveal delay={80} className="mt-4 md:mt-8">
             <p className="t-lede max-w-[60ch]" {...directionProps(manifest.summary)}>
               {manifest.summary}
             </p>
           </Reveal>
         )}
 
-        <Reveal delay={140} className="mt-[clamp(40px,6vw,80px)]">
+        <Reveal delay={140} className="mt-[clamp(20px,6vw,80px)]">
           <Rule />
           <dl className="grid-page mt-5 gap-y-6">
             {(

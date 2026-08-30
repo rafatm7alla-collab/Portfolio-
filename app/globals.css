@@ -128,6 +128,29 @@
   :root { --page-margin: clamp(48px, 5vw, 120px); }
 }
 
+/* ─── MOBILE: tighter spacing, bigger images ─────────────────────
+   Desktop layout stays untouched — everything below is max-width gated.
+   ──────────────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  :root {
+    --page-margin: 16px;
+    --block-gap: 20px;
+    --block-gap-lg: 36px;
+    --block-gap-sm: 10px;
+    --section-gap: 40px;
+  }
+
+  /* Smaller corners on mobile */
+  .rounded-2xl { border-radius: 8px; }
+
+  /* Contained blocks: fill the screen on mobile instead of 75vw */
+  .mx-auto[style*="vw"] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+}
+
 /* The inversion switch. One attribute flips an entire section. */
 [data-invert] {
   --paper: var(--color-surface-invert);
