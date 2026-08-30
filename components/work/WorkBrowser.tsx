@@ -1,26 +1,16 @@
 'use client'
 
-import { useCallback, useMemo } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import Link from 'next/link'
 import type { Category, CategoryId, WorkProject } from '@/data/work'
+import { categoryLabel } from '@/data/work'
 import { CategoryStrip } from '@/components/work/CategoryStrip'
 import { ProjectRows } from '@/components/work/ProjectRows'
+import { CategorySymbol } from '@/components/work/CategorySymbol'
 import { Page } from '@/components/primitives/Layout'
-import { Micro } from '@/components/type/Type'
+import { Meta, Micro } from '@/components/type/Type'
 
-/**
- * Owns the filter state, which lives in the URL rather than in React.
- *
- *   /work                          all projects
- *   /work?category=campaigns       filtered, deep-linkable
- *
- * Because the URL is the state, browser back and forward move between
- * filters for free, and a shared link opens pre-filtered. An unknown or
- * missing param falls through to all projects — never an error page.
- *
- * `scroll: false` on navigation: changing a filter is not a new page, and
- * jumping to the top would throw away the reader's position in the strip.
- */
 export function WorkBrowser({
   categories,
   projects,
@@ -31,6 +21,14 @@ export function WorkBrowser({
   const router = useRouter()
   const pathname = usePathname()
   const params = useSearchParams()
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768)
+    check()
+    window.addEventListener('resize', check)
+    return () => window.removeEventListener('resize', check)
+  }, [])
 
   const raw = params.get('category')
   const active: CategoryId | null = useMemo(
@@ -53,7 +51,6 @@ export function WorkBrowser({
     [active, projects],
   )
 
-  // Selecting the active tile clears the filter — that is the way back.
   const onSelect = useCallback(
     (id: CategoryId) => {
       const next = id === active ? pathname : `${pathname}?category=${id}`
@@ -63,6 +60,16 @@ export function WorkBrowser({
   )
 
   const activeLabel = categories.find((c) => c.id === active)?.label
+
+  if (isMobile) {
+    return (
+      <MobileAccordion
+        categories={categories}
+        projects={projects}
+        counts={counts}
+      />
+    )
+  }
 
   return (
     <>
@@ -94,5 +101,149 @@ export function WorkBrowser({
 
       <ProjectRows projects={visible} />
     </>
+  )
+}
+
+/* ─── Mobile accordion ──────────────────────────────────────────── */
+
+function MobileAccordion({
+  categories,
+  projects,
+  counts,
+}: {
+  categories: Category[]
+  projects: WorkProject[]
+  counts: Record<CategoryId, number>
+}) {
+  const [expanded, setExpanded] = useState<CategoryId | null>(null)
+
+  const toggle = (id: CategoryId) => {
+    setExpanded((prev) => (prev === id ? null : id))
+  }
+
+  return (
+    <section data-invert data-nav="dark" className="mt-[clamp(40px,7vh,88px)] pb-8">
+      <div
+        className="page border-t"
+        style={{ borderColor: 'var(--hairline)' }}
+      >
+        {categories.map((category) => {
+          const isOpen = expanded === category.id
+          const count = counts[category.id] ?? 0
+          const categoryProjects = projects.filter((p) =>
+            p.categories.includes(category.id),
+          )
+
+          return (
+            <div
+              key={category.id}
+              className="border-b"
+              style={{ borderColor: 'var(--hairline)' }}
+            >
+              <button
+                type="button"
+                aria-expanded={isOpen}
+                onClick={() => toggle(category.id)}
+                className="flex w-full items-center gap-5 py-6 text-left"
+              >
+                <Micro
+                  as="span"
+                  className="shrink-0 text-xs tabular-nums"
+                  style={{ opacity: 0.5 }}
+                >
+                  {category.index}
+                </Micro>
+
+                <span className="shrink-0 text-current">
+                  <CategorySymbol id={category.id} />
+                </span>
+
+                <span className="min-w-0 flex-1">
+                  <span className="t-body block text-lg font-bold uppercase">
+                    {category.label}
+                  </span>
+                  <Micro
+                    as="span"
+                    className="mt-1 block text-xs tabular-nums"
+                    style={{ opacity: 0.5 }}
+                  >
+                    {String(count).padStart(2, '0')}{' '}
+                    {count === 1 ? 'PROJECT' : 'PROJECTS'}
+                  </Micro>
+                </span>
+
+                <span
+                  className="shrink-0 text-lg transition-transform duration-300"
+                  style={{
+                    transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)',
+                  }}
+                >
+                  +
+                </span>
+              </button>
+
+              {/* Accordion content */}
+              <div
+                className="grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
+                style={{
+                  gridTemplateRows: isOpen ? '1fr' : '0fr',
+                }}
+              >
+                <div className="overflow-hidden">
+                  {categoryProjects.length > 0 ? (
+                    <ul className="pb-4">
+                      {categoryProjects.map((project, i) => (
+                        <li key={project.id}>
+                          <Link
+                            href={project.href}
+                            className="group flex items-baseline gap-4 py-3"
+                          >
+                            <Micro
+                              as="span"
+                              className="shrink-0 text-xs tabular-nums"
+                              style={{ opacity: 0.4 }}
+                            >
+                              {String(i + 1).padStart(2, '0')}
+                            </Micro>
+                            <span className="flex-1">
+                              <span
+                                className="block text-[15px] font-medium leading-snug transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-2"
+                              >
+                                {project.title}
+                              </span>
+                              {project.year && (
+                                <Meta
+                                  as="span"
+                                  className="mt-0.5 block"
+                                  style={{ opacity: 0.5 }}
+                                >
+                                  {project.year}
+                                </Meta>
+                              )}
+                            </span>
+                            <Micro
+                              as="span"
+                              style={{ opacity: 0.5 }}
+                            >
+                              ↗
+                            </Micro>
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <div className="pb-4">
+                      <Micro as="p" style={{ opacity: 0.5 }}>
+                        No projects yet.
+                      </Micro>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    </section>
   )
 }
