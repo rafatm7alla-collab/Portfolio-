@@ -130,7 +130,7 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
       </div>
 
       {/* Lede section below */}
-      <div className="pt-[clamp(28px,4vh,48px)]">
+      <div className="pt-[clamp(36px,5vh,56px)]">
         <Page>
           <div className="grid-page">
             <Reveal delay={320} className="col-span-4 md:col-span-5 lg:col-span-5">
