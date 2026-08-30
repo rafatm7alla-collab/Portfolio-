@@ -1,14 +1,9 @@
 'use client'
 
-import { useCallback, useEffect, useMemo, useState } from 'react'
-import { usePathname, useRouter, useSearchParams } from 'next/navigation'
+import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import type { Category, CategoryId, WorkProject } from '@/data/work'
-import { categoryLabel } from '@/data/work'
-import { CategoryStrip } from '@/components/work/CategoryStrip'
-import { ProjectRows } from '@/components/work/ProjectRows'
 import { CategorySymbol } from '@/components/work/CategorySymbol'
-import { Page } from '@/components/primitives/Layout'
 import { Meta, Micro } from '@/components/type/Type'
 
 export function WorkBrowser({
@@ -18,24 +13,6 @@ export function WorkBrowser({
   categories: Category[]
   projects: WorkProject[]
 }) {
-  const router = useRouter()
-  const pathname = usePathname()
-  const params = useSearchParams()
-  const [isMobile, setIsMobile] = useState(false)
-
-  useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth < 768)
-    check()
-    window.addEventListener('resize', check)
-    return () => window.removeEventListener('resize', check)
-  }, [])
-
-  const raw = params.get('category')
-  const active: CategoryId | null = useMemo(
-    () => (categories.some((c) => c.id === raw) ? (raw as CategoryId) : null),
-    [raw, categories],
-  )
-
   const counts = useMemo(() => {
     const out = {} as Record<CategoryId, number>
     for (const category of categories) {
@@ -46,67 +23,18 @@ export function WorkBrowser({
     return out
   }, [categories, projects])
 
-  const visible = useMemo(
-    () => (active ? projects.filter((p) => p.categories.includes(active)) : projects),
-    [active, projects],
-  )
-
-  const onSelect = useCallback(
-    (id: CategoryId) => {
-      const next = id === active ? pathname : `${pathname}?category=${id}`
-      router.push(next, { scroll: false })
-    },
-    [active, pathname, router],
-  )
-
-  const activeLabel = categories.find((c) => c.id === active)?.label
-
-  if (isMobile) {
-    return (
-      <MobileAccordion
-        categories={categories}
-        projects={projects}
-        counts={counts}
-      />
-    )
-  }
-
   return (
-    <>
-      <section data-invert data-nav="dark" className="pb-[clamp(24px,4vh,48px)]">
-        <div className="mt-[clamp(40px,7vh,88px)]">
-          <CategoryStrip
-            categories={categories}
-            counts={counts}
-            active={active}
-            onSelect={onSelect}
-          />
-        </div>
-
-        <Page>
-          <div className="flex items-baseline justify-between py-5">
-            <Micro as="p" secondary aria-live="polite">
-              {activeLabel
-                ? `${activeLabel} — ${visible.length} ${visible.length === 1 ? 'project' : 'projects'}`
-                : `All projects — ${visible.length}`}
-            </Micro>
-            {active && (
-              <button type="button" onClick={() => onSelect(active)} className="t-meta link">
-                Clear filter ×
-              </button>
-            )}
-          </div>
-        </Page>
-      </section>
-
-      <ProjectRows projects={visible} />
-    </>
+    <CategoryAccordion
+      categories={categories}
+      projects={projects}
+      counts={counts}
+    />
   )
 }
 
-/* ─── Mobile accordion ──────────────────────────────────────────── */
+/* ─── Accordion ─────────────────────────────────────────────────── */
 
-function MobileAccordion({
+function CategoryAccordion({
   categories,
   projects,
   counts,
@@ -122,7 +50,7 @@ function MobileAccordion({
   }
 
   return (
-    <section data-invert data-nav="dark" className="mt-[clamp(40px,7vh,88px)] pb-8">
+    <section data-invert data-nav="dark" className="mt-[clamp(40px,7vh,88px)] pb-[clamp(24px,4vh,48px)]">
       <div
         className="page border-t"
         style={{ borderColor: 'var(--hairline)' }}
@@ -144,27 +72,27 @@ function MobileAccordion({
                 type="button"
                 aria-expanded={isOpen}
                 onClick={() => toggle(category.id)}
-                className="flex w-full items-center gap-5 py-6 text-left"
+                className="group flex w-full items-center gap-5 py-6 text-left md:gap-8 md:py-10"
               >
                 <Micro
                   as="span"
-                  className="shrink-0 text-xs tabular-nums"
+                  className="shrink-0 text-xs tabular-nums md:text-sm"
                   style={{ opacity: 0.5 }}
                 >
                   {category.index}
                 </Micro>
 
-                <span className="shrink-0 text-current">
+                <span className="shrink-0 text-current md:mt-0">
                   <CategorySymbol id={category.id} />
                 </span>
 
                 <span className="min-w-0 flex-1">
-                  <span className="t-body block text-lg font-bold uppercase">
+                  <span className="t-body block text-lg font-bold uppercase md:text-2xl lg:text-3xl">
                     {category.label}
                   </span>
                   <Micro
                     as="span"
-                    className="mt-1 block text-xs tabular-nums"
+                    className="mt-1 block text-xs tabular-nums md:mt-2 md:text-sm"
                     style={{ opacity: 0.5 }}
                   >
                     {String(count).padStart(2, '0')}{' '}
@@ -173,7 +101,7 @@ function MobileAccordion({
                 </span>
 
                 <span
-                  className="shrink-0 text-lg transition-transform duration-300"
+                  className="shrink-0 text-lg transition-transform duration-300 md:text-2xl"
                   style={{
                     transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)',
                   }}
@@ -191,38 +119,53 @@ function MobileAccordion({
               >
                 <div className="overflow-hidden">
                   {categoryProjects.length > 0 ? (
-                    <ul className="pb-4">
+                    <ul className="pb-4 md:pb-8">
                       {categoryProjects.map((project, i) => (
-                        <li key={project.id}>
+                        <li
+                          key={project.id}
+                          className="border-t"
+                          style={{ borderColor: 'rgba(255,255,255,0.08)' }}
+                        >
                           <Link
                             href={project.href}
-                            className="group flex items-baseline gap-4 py-3"
+                            className="group flex items-baseline gap-4 py-3 md:gap-6 md:py-5"
                           >
                             <Micro
                               as="span"
-                              className="shrink-0 text-xs tabular-nums"
+                              className="shrink-0 text-xs tabular-nums md:text-sm"
                               style={{ opacity: 0.4 }}
                             >
                               {String(i + 1).padStart(2, '0')}
                             </Micro>
                             <span className="flex-1">
                               <span
-                                className="block text-[15px] font-medium leading-snug transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-2"
+                                className="block text-[15px] font-medium leading-snug transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-3 md:text-lg lg:text-xl"
                               >
                                 {project.title}
                               </span>
                               {project.year && (
                                 <Meta
                                   as="span"
-                                  className="mt-0.5 block"
+                                  className="mt-0.5 block md:mt-1"
                                   style={{ opacity: 0.5 }}
                                 >
                                   {project.year}
                                 </Meta>
                               )}
                             </span>
+
+                            {/* Client — desktop only */}
+                            <Meta
+                              as="span"
+                              className="hidden shrink-0 lg:block"
+                              style={{ opacity: 0.5 }}
+                            >
+                              {project.client ?? '—'}
+                            </Meta>
+
                             <Micro
                               as="span"
+                              className="shrink-0 transition-transform duration-300 group-hover:translate-x-[3px] group-hover:-translate-y-[3px]"
                               style={{ opacity: 0.5 }}
                             >
                               ↗
@@ -232,7 +175,7 @@ function MobileAccordion({
                       ))}
                     </ul>
                   ) : (
-                    <div className="pb-4">
+                    <div className="pb-4 md:pb-8">
                       <Micro as="p" style={{ opacity: 0.5 }}>
                         No projects yet.
                       </Micro>
