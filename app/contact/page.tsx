@@ -20,7 +20,7 @@ export const metadata: Metadata = {
  */
 export default function ContactPage() {
   return (
-    <section className="pb-[var(--section-gap)] pt-[24vh]">
+    <section className="pb-[var(--section-gap)] pt-[clamp(100px,24vh,300px)]">
       <Page>
         <div className="grid-page gap-y-[clamp(64px,10vh,128px)]">
           {/* ─── Left ─────────────────────────────────────────────── */}

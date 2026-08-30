@@ -25,7 +25,7 @@ export default function WorkPage() {
         headline. The floor here is above the nav's own height, so the
         headline starts below it at every breakpoint.
       */}
-      <section className="pt-[clamp(148px,26vh,300px)]">
+      <section className="pt-[clamp(100px,26vh,300px)]">
         <Page>
           <SectionHeader
             bold="Project"

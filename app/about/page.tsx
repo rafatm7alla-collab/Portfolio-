@@ -25,7 +25,7 @@ export default function AboutPage() {
           portrait in the right. The biography moves into its own section
           below — it used to occupy columns 6–12, which is precisely where
           the panel now sits. */}
-      <section className="relative flex min-h-[72vh] flex-col justify-between overflow-hidden pb-[clamp(28px,4vh,56px)] pt-[clamp(96px,13vh,150px)]">
+      <section className="relative flex min-h-[50vh] flex-col justify-between overflow-hidden pb-[clamp(16px,4vh,56px)] pt-[clamp(80px,13vh,150px)] md:min-h-[72vh]">
         {hasPortrait && <PortraitPanel portrait={profile.aboutPortrait} priority />}
 
         <Page className="relative z-10">
