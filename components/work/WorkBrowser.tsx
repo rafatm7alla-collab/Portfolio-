@@ -119,12 +119,15 @@ function CategoryAccordion({
               >
                 <div className="overflow-hidden">
                   {categoryProjects.length > 0 ? (
-                    <ul className="pb-4 md:pb-8">
+                    <ul
+                      className="rounded-lg px-5 py-2 md:px-8 md:py-4"
+                      style={{ background: '#fff', color: '#000' }}
+                    >
                       {categoryProjects.map((project, i) => (
                         <li
                           key={project.id}
                           className="border-t"
-                          style={{ borderColor: 'rgba(255,255,255,0.08)' }}
+                          style={{ borderColor: 'rgba(0,0,0,0.1)' }}
                         >
                           <Link
                             href={project.href}
@@ -133,13 +136,14 @@ function CategoryAccordion({
                             <Micro
                               as="span"
                               className="shrink-0 text-xs tabular-nums md:text-sm"
-                              style={{ opacity: 0.4 }}
+                              style={{ opacity: 0.35, color: '#000' }}
                             >
                               {String(i + 1).padStart(2, '0')}
                             </Micro>
                             <span className="flex-1">
                               <span
                                 className="block text-[15px] font-medium leading-snug transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-3 md:text-lg lg:text-xl"
+                                style={{ color: '#000' }}
                               >
                                 {project.title}
                               </span>
@@ -147,7 +151,7 @@ function CategoryAccordion({
                                 <Meta
                                   as="span"
                                   className="mt-0.5 block md:mt-1"
-                                  style={{ opacity: 0.5 }}
+                                  style={{ opacity: 0.5, color: '#000' }}
                                 >
                                   {project.year}
                                 </Meta>
@@ -158,7 +162,7 @@ function CategoryAccordion({
                             <Meta
                               as="span"
                               className="hidden shrink-0 lg:block"
-                              style={{ opacity: 0.5 }}
+                              style={{ opacity: 0.5, color: '#000' }}
                             >
                               {project.client ?? '—'}
                             </Meta>
@@ -166,7 +170,7 @@ function CategoryAccordion({
                             <Micro
                               as="span"
                               className="shrink-0 transition-transform duration-300 group-hover:translate-x-[3px] group-hover:-translate-y-[3px]"
-                              style={{ opacity: 0.5 }}
+                              style={{ opacity: 0.5, color: '#000' }}
                             >
                               ↗
                             </Micro>
