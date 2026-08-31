@@ -1,5 +1,6 @@
 'use client'
 
+import { useState, useEffect, useRef } from 'react'
 import NextImage from 'next/image'
 import { profile } from '@/data/profile'
 import { Page } from '@/components/primitives/Layout'
@@ -7,26 +8,64 @@ import { Reveal } from '@/components/primitives/Reveal'
 import { DisplayStack, Meta, Micro } from '@/components/type/Type'
 
 export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
+  const [isClicked, setIsClicked] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+  const bannerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (isMobile) return
+    e.stopPropagation()
+    setIsClicked(true)
+  }
+
+  const handleClickAway = () => {
+    setIsClicked(false)
+  }
+
+  useEffect(() => {
+    if (isClicked) {
+      document.addEventListener('click', handleClickAway)
+      return () => {
+        document.removeEventListener('click', handleClickAway)
+      }
+    }
+  }, [isClicked])
+
   return (
     <>
       <div
-        className="relative mt-[clamp(72px,9vh,104px)] overflow-hidden"
+        ref={bannerRef}
+        onClick={handleClick}
+        className="relative mt-[clamp(72px,9vh,104px)] overflow-hidden cursor-pointer"
         style={{ minHeight: 'clamp(440px, 62vh, 700px)' }}
       >
-        {/* Portrait — always visible, full color */}
-        <div
-          className="absolute inset-0 z-[1]"
-          style={{
-            backgroundImage: "url('/hero/portrait.jpg')",
-            backgroundPosition: 'right center',
-            backgroundSize: 'cover',
-          }}
-        />
+        {/* Portrait layer — always behind */}
+        {!isMobile && (
+          <div
+            className="absolute inset-0 z-[1]"
+            style={{
+              backgroundImage: "url('/hero/portrait.jpg')",
+              backgroundPosition: 'right center',
+              backgroundSize: 'cover',
+            }}
+          />
+        )}
 
-        {/* Content overlay */}
+        {/* Banner layer — shows black by default, transparent when clicked */}
         <section
-          data-nav="light"
-          className="absolute inset-0 z-[2] flex flex-col justify-center overflow-hidden"
+          data-invert={!isClicked}
+          data-nav={isClicked ? "light" : "dark"}
+          className="absolute inset-0 z-[2] flex flex-col justify-center overflow-hidden transition-all duration-300"
+          style={{
+            backgroundColor: isClicked ? 'transparent' : 'black',
+          }}
         >
           <Page className="absolute inset-x-0 top-0 pt-[clamp(28px,4vh,48px)]">
             <Reveal>
@@ -34,7 +73,7 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
                 as="p"
                 style={{
                   letterSpacing: '0.18em',
-                  color: 'black',
+                  color: isClicked ? 'black' : 'white',
                 }}
               >
                 Creative Director · Art Director
@@ -55,11 +94,36 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
                       quality={90}
                       sizes="(max-width: 768px) 40vw, 17vw"
                       className="object-contain"
-                      style={{ filter: 'invert(1)' }}
+                      style={{
+                        filter: isClicked ? 'invert(1)' : 'none',
+                      }}
                     />
                   </div>
                 </Reveal>
               )}
+
+              <div
+                aria-hidden="true"
+                className="w-px shrink-0"
+                style={{
+                  backgroundColor: 'rgba(255,255,255,0.45)',
+                  height: 'clamp(80px, 22vw, 180px)',
+                  alignSelf: 'center',
+                  opacity: isClicked ? 0 : 1,
+                  visibility: isClicked ? 'hidden' : 'visible',
+                }}
+              />
+
+              <Reveal delay={160} className="shrink-0">
+                <div style={{ color: 'white', opacity: isClicked ? 0 : 1, visibility: isClicked ? 'hidden' : 'visible' }}>
+                  <DisplayStack
+                    as="h1"
+                    lines={profile.heroName}
+                    size="l"
+                    delay={160}
+                  />
+                </div>
+              </Reveal>
             </div>
           </Page>
         </section>
