@@ -5,6 +5,19 @@ import NextImage from 'next/image'
 import type { Project } from '@/types/project'
 import './PortfolioShowcase.css'
 
+const manifestHrefs: Record<string, string> = {
+  'toyota-crown': '/projects/toyota-crown-launch',
+  'dubairaq': '/projects/dubiraq',
+  'lexus-lx-2024': '/projects/lexus-lx-launch',
+  'al-zaytoun-terraces': '/projects/al-zaytoun-terraces',
+  'vision-house': '/projects/vision-house',
+  'land-rover-kurdistan': '/projects/land-rover-kurdistan',
+}
+
+function projectHref(slug: string): string {
+  return manifestHrefs[slug] ?? `/work/${slug}`
+}
+
 interface PortfolioShowcaseProps {
   projects: Project[]
 }
@@ -19,7 +32,7 @@ function CTA() {
 
 function FullwidthCard({ project }: { project: Project }) {
   return (
-    <Link href={`/work/${project.slug}`} className="group portfolio-card portfolio-card--fullwidth">
+    <Link href={projectHref(project.slug)} className="group portfolio-card portfolio-card--fullwidth">
       <h2 className="portfolio-card-title">{project.title}</h2>
       <div className="portfolio-card-image-wrapper">
         {project.hero.image?.src && (
@@ -45,7 +58,7 @@ function FullwidthCard({ project }: { project: Project }) {
 function PairedRow({ left, right }: { left: Project; right: Project }) {
   return (
     <div className="portfolio-paired-row">
-      <Link href={`/work/${left.slug}`} className="group portfolio-card portfolio-card--paired portfolio-card--paired-left">
+      <Link href={projectHref(left.slug)} className="group portfolio-card portfolio-card--paired portfolio-card--paired-left">
         <div className="portfolio-card-image-wrapper">
           {left.hero.image?.src && (
             <div className="group-hover:scale-[1.02] h-full w-full transition-transform duration-500">
@@ -66,7 +79,7 @@ function PairedRow({ left, right }: { left: Project; right: Project }) {
         </div>
       </Link>
 
-      <Link href={`/work/${right.slug}`} className="group portfolio-card portfolio-card--paired portfolio-card--paired-right">
+      <Link href={projectHref(right.slug)} className="group portfolio-card portfolio-card--paired portfolio-card--paired-right">
         <div className="portfolio-card-image-wrapper">
           {right.hero.image?.src && (
             <div className="group-hover:scale-[1.02] h-full w-full transition-transform duration-500">
@@ -92,7 +105,7 @@ function PairedRow({ left, right }: { left: Project; right: Project }) {
 
 function SplitCard({ project }: { project: Project }) {
   return (
-    <Link href={`/work/${project.slug}`} className="group portfolio-card portfolio-card--split">
+    <Link href={projectHref(project.slug)} className="group portfolio-card portfolio-card--split">
       <div className="portfolio-card-image-wrapper">
         {project.hero.image?.src && (
           <div className="group-hover:scale-[1.02] h-full w-full transition-transform duration-500">
