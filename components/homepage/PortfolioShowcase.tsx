@@ -23,7 +23,7 @@ function FullwidthCard({ project }: { project: Project }) {
       <h2 className="portfolio-card-title">{project.title}</h2>
       <div className="portfolio-card-image-wrapper">
         {project.hero.image?.src && (
-          <div className="desaturate group-hover:scale-[1.02] h-full w-full">
+          <div className="group-hover:scale-[1.02] h-full w-full transition-transform duration-500">
             <NextImage
               src={project.hero.image.src}
               alt={project.hero.image.alt || project.title}
@@ -48,7 +48,7 @@ function PairedRow({ left, right }: { left: Project; right: Project }) {
       <Link href={`/work/${left.slug}`} className="group portfolio-card portfolio-card--paired portfolio-card--paired-left">
         <div className="portfolio-card-image-wrapper">
           {left.hero.image?.src && (
-            <div className="desaturate group-hover:scale-[1.02] h-full w-full">
+            <div className="group-hover:scale-[1.02] h-full w-full transition-transform duration-500">
               <NextImage
                 src={left.hero.image.src}
                 alt={left.hero.image.alt || left.title}
@@ -69,7 +69,7 @@ function PairedRow({ left, right }: { left: Project; right: Project }) {
       <Link href={`/work/${right.slug}`} className="group portfolio-card portfolio-card--paired portfolio-card--paired-right">
         <div className="portfolio-card-image-wrapper">
           {right.hero.image?.src && (
-            <div className="desaturate group-hover:scale-[1.02] h-full w-full">
+            <div className="group-hover:scale-[1.02] h-full w-full transition-transform duration-500">
               <NextImage
                 src={right.hero.image.src}
                 alt={right.hero.image.alt || right.title}
@@ -95,7 +95,7 @@ function SplitCard({ project }: { project: Project }) {
     <Link href={`/work/${project.slug}`} className="group portfolio-card portfolio-card--split">
       <div className="portfolio-card-image-wrapper">
         {project.hero.image?.src && (
-          <div className="desaturate group-hover:scale-[1.02] h-full w-full">
+          <div className="group-hover:scale-[1.02] h-full w-full transition-transform duration-500">
             <NextImage
               src={project.hero.image.src}
               alt={project.hero.image.alt || project.title}
