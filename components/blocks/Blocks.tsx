@@ -61,13 +61,19 @@ export function Blocks({
         // - `noGap` flag: explicit flush (e.g. runs of banners)
         const noGap = 'noGap' in block && block.noGap
 
+        const mediaGapCollapse = noBlockGaps && isMediaBlock(block) && isMediaBlock(previous)
+
         const spacing = isFirst || noGap
           ? ''
-          : block.type === 'sectionHeader'
-            ? 'pt-[var(--block-gap-lg)]'
-            : previous?.type === 'sectionHeader'
-              ? 'pt-[var(--block-gap-sm)]'
-              : 'pt-[var(--block-gap)]' // Gap between all blocks
+          : mediaGapCollapse
+            ? 'pt-1'
+            : block.type === 'sectionHeader'
+              ? 'pt-[var(--block-gap-lg)]'
+              : previous?.type === 'sectionHeader'
+                ? 'pt-[var(--block-gap-sm)]'
+                : noBlockGaps
+                  ? 'pt-1'
+                  : 'pt-[var(--block-gap)]'
 
         return (
           <section key={i} className={spacing}>

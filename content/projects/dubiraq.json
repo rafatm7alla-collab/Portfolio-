@@ -9,6 +9,8 @@
   "assetPrefix": "dubiraq-",
   "nextProjectSlug": "toyota-crown",
   "summary": "A complete brand identity for a real estate company bridging Dubai's dynamism with Iraq's heritage — built from a single typographic idea.",
+  "noRounding": true,
+  "noBlockGaps": true,
 
   "blocks": [
 
