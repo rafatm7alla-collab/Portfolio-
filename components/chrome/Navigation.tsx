@@ -55,8 +55,23 @@ export function Navigation() {
         ? { color: '#ffffff' }
         : { color: '#000000' }
 
+  const scrimGradient =
+    mode === 'dark'
+      ? 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%)'
+      : mode === 'light'
+        ? 'linear-gradient(to bottom, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0) 100%)'
+        : 'none'
+
   return (
     <>
+      {/* Gradient scrim — separate from header so mix-blend-mode doesn't affect it */}
+      {scrimGradient !== 'none' && (
+        <div
+          className="pointer-events-none fixed inset-x-0 top-0 z-[49] h-[110px]"
+          style={{ background: scrimGradient }}
+        />
+      )}
+
       <header
         className="pointer-events-none fixed inset-x-0 top-0 z-50"
         style={colour}
