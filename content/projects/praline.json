@@ -5,7 +5,7 @@
   "role": "Creative Direction, Brand Identity",
   "year": "2023",
   "tags": ["Branding", "Identity", "F&B", "Bakery"],
-  "cover": "praline-cover.jpg",
+  "cover": "praline-00-hero.jpg",
   "assetPrefix": "praline-",
   "nextProjectSlug": "dubiraq",
   "summary": "A complete brand identity for an Iraqi bakery — from logo and tagline to marketing materials and packaging.",
@@ -37,7 +37,7 @@
     { "type": "fullBleed", "image": "praline-16.jpg" },
     { "type": "fullBleed", "image": "praline-17.jpg" },
     { "type": "fullBleed", "image": "praline-18.jpg" },
-    { "type": "fullBleed", "image": "praline-19.jpg" },
+    { "type": "fullBleed", "image": "praline-20.jpg" },
 
     { "type": "credits",
       "items": [
