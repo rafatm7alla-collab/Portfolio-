@@ -64,8 +64,6 @@
 
     { "type": "fullBleed", "image": "dubiraq-08-brochure-spread.jpg", "size": "contained", "widthPercent": 70 },
 
-    { "type": "fullBleed", "image": "dubiraq-09-social-mosaic.jpg", "size": "contained", "widthPercent": 70 },
-
     { "type": "sectionHeader",
       "title": "Digital" },
 
