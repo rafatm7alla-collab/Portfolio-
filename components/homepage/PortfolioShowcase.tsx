@@ -12,6 +12,7 @@ const manifestHrefs: Record<string, string> = {
   'al-zaytoun-terraces': '/projects/al-zaytoun-terraces',
   'vision-house': '/projects/vision-house',
   'land-rover-kurdistan': '/projects/land-rover-kurdistan',
+  'praline': '/projects/praline',
 }
 
 function projectHref(slug: string): string {

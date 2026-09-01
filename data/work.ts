@@ -154,7 +154,7 @@ export const projects: WorkProject[] = [
     // Branding first (the primary tag), also shown under packaging.
     categories: ['brand-identity-guidelines', 'packaging'],
     cover: null,
-    href: '/work/praline',
+    href: '/projects/praline',
   },
   {
     id: 'logofolio',

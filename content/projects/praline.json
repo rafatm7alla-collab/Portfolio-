@@ -1,0 +1,52 @@
+{
+  "slug": "praline",
+  "title": "Praline — Bakery & More",
+  "client": "Praline",
+  "role": "Creative Direction, Brand Identity",
+  "year": "2023",
+  "tags": ["Branding", "Identity", "F&B", "Bakery"],
+  "cover": "praline-cover.jpg",
+  "assetPrefix": "praline-",
+  "nextProjectSlug": "dubiraq",
+  "summary": "A complete brand identity for an Iraqi bakery — from logo and tagline to marketing materials and packaging.",
+  "noRounding": true,
+  "noBlockGaps": true,
+
+  "blocks": [
+
+    { "type": "fullBleed", "image": "praline-00-hero.jpg" },
+
+    { "type": "text",
+      "body": "Praline — Bakery & More\nBranding\n\n© 2023\n\nI started the project by conducting research on the bakery's target audience and competitors. I also visited the bakery to get a feel for the space and the products. After this research, I developed a creative brief that outlined the goals of the project and the target audience.\n\nOnce I had developed the brand identity, I created the logo, tagline, and marketing materials. The logo is a simple, yet elegant design that reflects the brand's personality. The tagline is \"A Story To Tell\" and it reinforces the brand's promise to its customers.\n\nIraqi bakeries are an important part of the country's culture and cuisine. They are a place where people can gather to socialize, eat delicious food, and enjoy the company of friends and family." },
+
+    { "type": "fullBleed", "image": "praline-01.jpg" },
+    { "type": "fullBleed", "image": "praline-02.jpg" },
+    { "type": "fullBleed", "image": "praline-03.jpg" },
+    { "type": "fullBleed", "image": "praline-04.jpg" },
+    { "type": "fullBleed", "image": "praline-05.jpg" },
+    { "type": "fullBleed", "image": "praline-06.jpg" },
+    { "type": "fullBleed", "image": "praline-07.jpg" },
+    { "type": "fullBleed", "image": "praline-08.jpg" },
+    { "type": "fullBleed", "image": "praline-09.jpg" },
+    { "type": "fullBleed", "image": "praline-10.jpg" },
+    { "type": "fullBleed", "image": "praline-11.jpg" },
+    { "type": "fullBleed", "image": "praline-12.jpg" },
+    { "type": "fullBleed", "image": "praline-13.jpg" },
+    { "type": "fullBleed", "image": "praline-14.jpg" },
+    { "type": "fullBleed", "image": "praline-15.jpg" },
+    { "type": "fullBleed", "image": "praline-16.jpg" },
+    { "type": "fullBleed", "image": "praline-17.jpg" },
+    { "type": "fullBleed", "image": "praline-18.jpg" },
+    { "type": "fullBleed", "image": "praline-19.jpg" },
+
+    { "type": "credits",
+      "items": [
+        { "label": "Client",       "value": "Praline" },
+        { "label": "Sector",       "value": "F&B · Bakery" },
+        { "label": "Role",         "value": "Creative Direction, Brand Identity" },
+        { "label": "Deliverables", "value": "Logo, Tagline, Brand identity, Marketing materials" },
+        { "label": "Year",         "value": "2023" }
+      ] }
+
+  ]
+}
