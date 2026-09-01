@@ -2,79 +2,17 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useState } from 'react'
 import { profile, navigation } from '@/data/profile'
 import { MobileMenu } from './MobileMenu'
 
-/**
- * NAVIGATION
- *
- * Default mechanism is mix-blend-mode: difference with white type — it
- * renders black over white, white over black, and inverts itself across
- * any full-bleed image with no scroll listeners and no colour flashing.
- *
- * The honest caveat (DIRECTION.md §07): over busy mid-tone colour
- * photography, difference-blend produces odd hues. Sections can opt out
- * with data-nav="light" | "dark" and the nav switches to a fixed colour
- * while that section sits under it.
- */
 export function Navigation() {
   const pathname = usePathname()
-  const [mode, setMode] = useState<'blend' | 'light' | 'dark'>('blend')
-
-  useEffect(() => {
-    const sections = document.querySelectorAll<HTMLElement>('[data-nav]')
-    if (sections.length === 0) {
-      setMode('blend')
-      return
-    }
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        // The section currently crossing the nav band wins.
-        const active = entries.find((e) => e.isIntersecting)
-        if (!active) {
-          setMode('blend')
-          return
-        }
-        const declared = active.target.getAttribute('data-nav')
-        setMode(declared === 'light' || declared === 'dark' ? declared : 'blend')
-      },
-      // A thin band at the very top of the viewport, level with the nav.
-      { rootMargin: '0px 0px -100% 0px', threshold: 0 },
-    )
-
-    sections.forEach((s) => observer.observe(s))
-    return () => observer.disconnect()
-  }, [pathname])
-
-  const colour =
-    mode === 'blend'
-      ? { color: '#ffffff', mixBlendMode: 'difference' as const }
-      : mode === 'dark'
-        ? { color: '#ffffff' }
-        : { color: '#000000' }
-
-  const scrimGradient =
-    mode === 'dark'
-      ? 'linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 100%)'
-      : mode === 'light'
-        ? 'linear-gradient(to bottom, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0) 100%)'
-        : 'none'
 
   return (
     <>
-      {/* Gradient scrim — separate from header so mix-blend-mode doesn't affect it */}
-      {scrimGradient !== 'none' && (
-        <div
-          className="pointer-events-none fixed inset-x-0 top-0 z-[49] h-[110px]"
-          style={{ background: scrimGradient }}
-        />
-      )}
-
       <header
         className="pointer-events-none fixed inset-x-0 top-0 z-50"
-        style={colour}
+        style={{ color: '#000', backgroundColor: '#fff' }}
       >
         <div className="page flex items-center justify-between py-[28px] md:py-[32px]">
           <Link
@@ -109,14 +47,13 @@ export function Navigation() {
             })}
           </nav>
 
-          {/* Mobile — the word, not an icon. Icons are UI; words are editorial. */}
+          {/* Mobile */}
           <div className="pointer-events-auto md:hidden">
             <MobileMenu />
           </div>
         </div>
       </header>
 
-      {/* Skip link — keyboard users land here first. */}
       <a
         href="#main"
         className="t-meta sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-black focus:px-4 focus:py-3 focus:text-white"
