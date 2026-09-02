@@ -1,6 +1,6 @@
 import type { Project } from '@/types/project'
 import { toyotaCrown } from './toyota-crown'
-// import { landRoverKurdistan } from './land-rover-kurdistan'
+import { landRoverKurdistan } from './land-rover-kurdistan'
 import { draftProjects } from './drafts'
 
 /**
@@ -9,7 +9,7 @@ import { draftProjects } from './drafts'
  *   1 strongest image · 2 strongest idea · 3 most recognisable client
  *   4 widest scope    · 5 most recent    · 6 most personal
  */
-export const projects: Project[] = [toyotaCrown, ...draftProjects].sort(
+export const projects: Project[] = [toyotaCrown, landRoverKurdistan, ...draftProjects].sort(
   (a, b) => a.order - b.order,
 )
 
