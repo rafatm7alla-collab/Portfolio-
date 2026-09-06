@@ -2,12 +2,10 @@ import Link from 'next/link'
 import NextImage from 'next/image'
 import { publicAssetExists } from '@/lib/asset'
 import { profile } from '@/data/profile'
-import { projects, featuredProjects, getProject, getGalleryImages } from '@/data/projects'
-import { closerLook } from '@/data/homepage'
+import { projects, featuredProjects } from '@/data/projects'
 import { Page, Rule } from '@/components/primitives/Layout'
 import { Reveal } from '@/components/primitives/Reveal'
 import { DisplayStack, Meta, Micro, SectionHeader } from '@/components/type/Type'
-import { CloserLook } from '@/components/work/CloserLook'
 import { ContactBlock } from '@/components/chrome/ContactBlock'
 import { HeroBanner } from '@/components/homepage/HeroBanner'
 import { PortfolioShowcase } from '@/components/homepage/PortfolioShowcase'
@@ -20,7 +18,6 @@ export default function Home() {
     <>
       <HeroBanner hasLogo={hasLogo} />
       <SelectedWork />
-      <CloserLookSection />
       <AboutBlock />
       <ContactBlock />
     </>
@@ -55,26 +52,6 @@ function SelectedWork() {
         </div>
       </Page>
     </section>
-  )
-}
-
-/* ─── CLOSER LOOK ────────────────────────────────────────────────── */
-
-function CloserLookSection() {
-  if (!closerLook.slug) return null
-  const project = getProject(closerLook.slug)
-  if (!project) return null
-
-  const images = getGalleryImages(closerLook.slug, closerLook.count)
-  if (images.length === 0) return null
-
-  return (
-    <CloserLook
-      slug={project.slug}
-      title={project.title}
-      images={images}
-      eyebrow={project.category}
-    />
   )
 }
 

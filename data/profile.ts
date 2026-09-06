@@ -114,8 +114,7 @@ export const profile = {
     bold: 'worth remembering.',
   },
 
-  /** PLACEHOLDER — real address required before launch */
-  email: 'hello@rafatmhalla.com',
+  email: 'creative@rafatmhalla.com',
 
   /**
    * null means the field is omitted from the contact page entirely.
