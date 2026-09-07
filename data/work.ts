@@ -134,7 +134,7 @@ export const projects: WorkProject[] = [
     client: 'Vision House',
     year: '2024',
     categories: ['brand-identity-guidelines'],
-    cover: null,
+    cover: '/work/vision-house/cover.png',
     href: '/projects/vision-house',
   },
   {
