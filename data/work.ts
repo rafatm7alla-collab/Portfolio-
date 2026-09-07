@@ -125,7 +125,7 @@ export const projects: WorkProject[] = [
     client: 'DUBIRAQ',
     year: '2024',
     categories: ['brand-identity-guidelines'],
-    cover: '/projects/dubiraq/dubiraq-cover.jpg',
+    cover: '/projects/dubiraq/dubiraq-cover.gif',
     href: '/projects/dubiraq',
   },
   {
