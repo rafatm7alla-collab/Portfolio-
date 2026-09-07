@@ -1,0 +1,337 @@
+/* ─────────────────────────────────────────────────────────────────
+   WORK BROWSER DRAFT — editorial category accordion
+   Unlayered (not @layer components) per Tailwind v4 rule.
+   ───────────────────────────────────────────────────────────────── */
+
+/* ── Container ─────────────────────────────────────────────────── */
+
+.wbd {
+  --wbd-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --wbd-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --wbd-dur: 650ms;
+  --wbd-dur-fast: 300ms;
+  --wbd-stagger: 50ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wbd {
+    --wbd-dur: 0.01ms;
+    --wbd-dur-fast: 0.01ms;
+    --wbd-stagger: 0ms;
+  }
+}
+
+/* ── Category row ──────────────────────────────────────────────── */
+
+.wbd-row {
+  border-bottom: 1px solid var(--hairline);
+}
+
+.wbd-row-btn {
+  display: grid;
+  grid-template-columns: clamp(32px, 5vw, 64px) clamp(40px, 7vw, 72px) 1fr auto;
+  align-items: center;
+  gap: clamp(12px, 2vw, 24px);
+  width: 100%;
+  padding: clamp(20px, 3.5vh, 40px) 0;
+  text-align: left;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+/* Dim non-hovered rows when any row is hovered */
+.wbd:hover .wbd-row:not(:hover) .wbd-row-btn {
+  opacity: 0.4;
+}
+.wbd-row .wbd-row-btn {
+  transition: opacity var(--wbd-dur-fast) var(--wbd-ease);
+}
+
+/* ── Number column ─────────────────────────────────────────────── */
+
+.wbd-num {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.45;
+}
+
+/* ── Icon column ───────────────────────────────────────────────── */
+
+.wbd-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Content column ────────────────────────────────────────────── */
+
+.wbd-content {
+  min-width: 0;
+}
+
+.wbd-title {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  font-size: clamp(1rem, 2.2vw, 1.75rem);
+  transition: transform var(--wbd-dur-fast) var(--wbd-ease);
+}
+
+.wbd-row:hover .wbd-title {
+  transform: translateX(8px);
+}
+
+.wbd-count {
+  margin-top: 4px;
+  opacity: 0.45;
+}
+
+.wbd-descriptor {
+  margin-top: 4px;
+  opacity: 0.35;
+  font-size: clamp(0.6rem, 0.8vw, 0.72rem);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ── Preview thumbnail ─────────────────────────────────────────── */
+
+.wbd-thumb-wrap {
+  position: relative;
+  width: clamp(100px, 18vw, 240px);
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: clamp(4px, 0.5vw, 8px);
+  background: #1a1a1a;
+}
+
+.wbd-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--wbd-dur-fast) var(--wbd-ease);
+}
+
+/* Clip-path reveal on scroll */
+.wbd-thumb-wrap[data-revealed='false'] .wbd-thumb-img {
+  clip-path: inset(0 100% 0 0);
+}
+.wbd-thumb-wrap[data-revealed='true'] .wbd-thumb-img {
+  clip-path: inset(0 0% 0 0);
+  transition:
+    clip-path var(--wbd-dur) var(--wbd-ease),
+    transform var(--wbd-dur-fast) var(--wbd-ease);
+}
+
+.wbd-row:hover .wbd-thumb-img {
+  transform: scale(1.025);
+}
+
+/* VIEW label on image hover */
+.wbd-thumb-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--wbd-dur-fast) var(--wbd-ease);
+  pointer-events: none;
+  background: rgba(0, 0, 0, 0.25);
+}
+.wbd-thumb-label span {
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 100px;
+  padding: 6px 16px;
+}
+.wbd-row:hover .wbd-thumb-label {
+  opacity: 1;
+}
+
+/* ── Plus / close button ───────────────────────────────────────── */
+
+.wbd-plus {
+  width: clamp(36px, 4vw, 48px);
+  height: clamp(36px, 4vw, 48px);
+  border-radius: 50%;
+  border: 1px solid var(--hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  transition:
+    transform var(--wbd-dur-fast) var(--wbd-ease),
+    border-color var(--wbd-dur-fast) var(--wbd-ease),
+    background var(--wbd-dur-fast) var(--wbd-ease);
+  flex-shrink: 0;
+}
+
+.wbd-plus[data-open='true'] {
+  transform: rotate(45deg);
+}
+
+.wbd-row:hover .wbd-plus {
+  border-color: currentColor;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* ── Accordion panel ───────────────────────────────────────────── */
+
+.wbd-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--wbd-dur) var(--wbd-ease);
+}
+
+.wbd-panel[data-open='true'] {
+  grid-template-rows: 1fr;
+}
+
+.wbd-panel-inner {
+  overflow: hidden;
+}
+
+/* ── Expanded project cards ────────────────────────────────────── */
+
+.wbd-projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+  gap: clamp(16px, 2vw, 28px);
+  padding: clamp(16px, 3vh, 32px) 0 clamp(24px, 4vh, 48px);
+}
+
+.wbd-project-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  border-radius: clamp(6px, 0.8vw, 12px);
+  overflow: hidden;
+}
+
+.wbd-project-card-img-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #1a1a1a;
+  border-radius: clamp(6px, 0.8vw, 12px);
+}
+
+.wbd-project-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--wbd-dur-fast) var(--wbd-ease);
+}
+
+.wbd-project-card:hover .wbd-project-card-img {
+  transform: scale(1.02);
+}
+
+.wbd-project-card-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  padding: clamp(8px, 1.2vh, 14px) 0 0;
+}
+
+.wbd-project-card-title {
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  font-weight: 600;
+  line-height: 1.3;
+  transition: transform var(--wbd-dur-fast) var(--wbd-ease);
+}
+
+.wbd-project-card:hover .wbd-project-card-title {
+  transform: translateX(4px);
+}
+
+.wbd-project-card-arrow {
+  font-size: 0.7rem;
+  opacity: 0.5;
+  transition: transform var(--wbd-dur-fast) var(--wbd-ease);
+  flex-shrink: 0;
+}
+
+.wbd-project-card:hover .wbd-project-card-arrow {
+  transform: translate(2px, -2px);
+}
+
+.wbd-project-card-sub {
+  opacity: 0.4;
+  margin-top: 2px;
+}
+
+/* Empty category placeholder */
+.wbd-empty {
+  padding: clamp(16px, 3vh, 32px) 0 clamp(24px, 4vh, 48px);
+  opacity: 0.4;
+}
+
+/* ── Scroll-reveal stagger ─────────────────────────────────────── */
+
+.wbd-stagger {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity var(--wbd-dur) var(--wbd-ease),
+    transform var(--wbd-dur) var(--wbd-ease);
+  transition-delay: var(--stagger-delay, 0ms);
+}
+
+.wbd-stagger[data-visible='true'] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Sticky number ─────────────────────────────────────────────── */
+
+.wbd-num-sticky {
+  position: sticky;
+  top: clamp(80px, 12vh, 120px);
+  align-self: start;
+}
+
+/* ── Responsive ────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .wbd-row-btn {
+    grid-template-columns: 28px 36px 1fr auto;
+    gap: 10px;
+  }
+
+  .wbd-title {
+    font-size: clamp(0.85rem, 3.5vw, 1.1rem);
+  }
+
+  .wbd-row:hover .wbd-title {
+    transform: none;
+  }
+
+  .wbd-plus {
+    width: 32px;
+    height: 32px;
+  }
+
+  .wbd-projects {
+    grid-template-columns: 1fr;
+  }
+
+  .wbd-num-sticky {
+    position: static;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .wbd-thumb-wrap {
+    width: clamp(80px, 14vw, 160px);
+  }
+}

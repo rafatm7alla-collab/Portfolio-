@@ -3,7 +3,7 @@ import { Suspense } from 'react'
 import { categories, projects } from '@/data/work'
 import { Page } from '@/components/primitives/Layout'
 import { SectionHeader } from '@/components/type/Type'
-import { WorkBrowser } from '@/components/work/WorkBrowser'
+import { WorkBrowserDraft } from '@/components/work/WorkBrowserDraft'
 import { ContactBlock } from '@/components/chrome/ContactBlock'
 
 export const metadata: Metadata = {
@@ -41,7 +41,7 @@ export default function WorkPage() {
         <Suspense
           fallback={<div className="mt-[clamp(40px,7vh,88px)] h-[clamp(340px,46vh,460px)]" />}
         >
-          <WorkBrowser categories={categories} projects={projects} />
+          <WorkBrowserDraft categories={categories} projects={projects} />
         </Suspense>
       </section>
 
