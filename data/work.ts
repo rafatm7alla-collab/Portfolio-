@@ -153,7 +153,7 @@ export const projects: WorkProject[] = [
     year: null, // ⚠️ not supplied
     // Branding first (the primary tag), also shown under packaging.
     categories: ['brand-identity-guidelines', 'packaging'],
-    cover: null,
+    cover: '/projects/praline/praline-01.jpg',
     href: '/projects/praline',
   },
   {
