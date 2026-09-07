@@ -143,7 +143,7 @@ export const projects: WorkProject[] = [
     client: null, // ⚠️ not supplied
     year: null, // ⚠️ not supplied
     categories: ['brand-identity-guidelines'],
-    cover: null,
+    cover: '/projects/al-zaytoun-terraces/cover.jpg',
     href: '/projects/al-zaytoun-terraces',
   },
   {
