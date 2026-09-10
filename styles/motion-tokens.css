@@ -1,0 +1,24 @@
+/* ─────────────────────────────────────────────────────────────────
+   MOTION TOKENS — shared durations and easings for the motion system.
+   Imported in app/layout.tsx so every page inherits them.
+   ───────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Durations */
+  --dur-fast: 180ms;
+  --dur-base: 320ms;
+  --dur-slow: 640ms;
+
+  /* Easings */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in: cubic-bezier(0.64, 0, 0.78, 0);
+  --ease-soft: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+    --dur-slow: 120ms;
+  }
+}

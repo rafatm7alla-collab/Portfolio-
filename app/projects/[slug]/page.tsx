@@ -4,12 +4,12 @@ import { notFound } from 'next/navigation'
 import { getManifest, manifestSlugs, manifestImage } from '@/lib/manifest'
 import { Blocks } from '@/components/blocks/Blocks'
 import { Page, Rule } from '@/components/primitives/Layout'
-import { Reveal } from '@/components/primitives/Reveal'
 import { Meta, Micro } from '@/components/type/Type'
 import { directionProps } from '@/lib/rtl'
 import { getProject } from '@/data/projects'
 import { NextProject } from '@/components/work/NextProject'
 import { projects as workProjects } from '@/data/work'
+import { MastheadEntrance } from '@/components/blocks/MastheadEntrance'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -43,14 +43,20 @@ export default async function ManifestProjectPage({ params }: Params) {
   const cover = manifest.cover ? manifestImage(slug, manifest.cover, manifest.title) : null
   const nextProject = manifest.nextProjectSlug ? getProject(manifest.nextProjectSlug) : undefined
 
-  // The ART category runs inverted (black ground) for every project in it,
-  // not just this one — driven off data/work.ts's category tagging so a
-  // future ART project gets the theme for free instead of needing its own
-  // invert/theme flag repeated in every manifest.
   const isArtSection = workProjects
     .find((p) => p.href === `/projects/${slug}`)
     ?.categories.includes('art') ?? false
   const dark = manifest.invert || manifest.theme === 'dark' || isArtSection
+
+  const metaFields = (
+    [
+      ['Client', manifest.client],
+      ['Role', manifest.role],
+      ['Year', manifest.year],
+      ['Location', manifest.location],
+      ['Tags', manifest.tags?.join(' · ')],
+    ] as const
+  ).filter(([, value]) => Boolean(value))
 
   return (
     <article
@@ -61,36 +67,27 @@ export default async function ManifestProjectPage({ params }: Params) {
       <div className="pb-[var(--section-gap)]">
       {/* ─── Masthead, from the manifest's own fields ─── */}
       {!manifest.noMasthead && (
-      <Page>
-        <Reveal>
-          <h1 className="t-display-l" {...directionProps(manifest.title)}>
-            {manifest.title}
-          </h1>
-        </Reveal>
+      <MastheadEntrance>
+        <Page>
+          <div data-masthead="title">
+            <h1 className="t-display-l" {...directionProps(manifest.title)}>
+              {manifest.title}
+            </h1>
+          </div>
 
-        {manifest.summary && (
-          <Reveal delay={80} className="mt-4 md:mt-8">
-            <p className="t-lede max-w-[60ch]" {...directionProps(manifest.summary)}>
-              {manifest.summary}
-            </p>
-          </Reveal>
-        )}
+          {manifest.summary && (
+            <div data-masthead="summary" className="mt-4 md:mt-8">
+              <p className="t-lede max-w-[60ch]" {...directionProps(manifest.summary)}>
+                {manifest.summary}
+              </p>
+            </div>
+          )}
 
-        <Reveal delay={140} className="mt-[clamp(20px,6vw,80px)]">
-          <Rule />
-          <dl className="grid-page mt-5 gap-y-6">
-            {(
-              [
-                ['Client', manifest.client],
-                ['Role', manifest.role],
-                ['Year', manifest.year],
-                ['Location', manifest.location],
-                ['Tags', manifest.tags?.join(' · ')],
-              ] as const
-            )
-              .filter(([, value]) => Boolean(value))
-              .map(([label, value]) => (
-                <div key={label} className="col-span-2 md:col-span-4 lg:col-span-3">
+          <div data-masthead="meta" className="mt-[clamp(20px,6vw,80px)]">
+            <Rule />
+            <dl className="grid-page mt-5 gap-y-6">
+              {metaFields.map(([label, value]) => (
+                <div key={label} data-masthead="meta-item" className="col-span-2 md:col-span-4 lg:col-span-3">
                   <dt>
                     <Meta secondary as="span">
                       {label}
@@ -99,9 +96,10 @@ export default async function ManifestProjectPage({ params }: Params) {
                   <dd className="mt-2 text-[15px] leading-[1.5]">{value}</dd>
                 </div>
               ))}
-          </dl>
-        </Reveal>
-      </Page>
+            </dl>
+          </div>
+        </Page>
+      </MastheadEntrance>
       )}
 
       {/* ─── The blocks, in manifest order ─── */}
@@ -116,15 +114,13 @@ export default async function ManifestProjectPage({ params }: Params) {
             <Micro as="span" secondary>
               {manifest.blocks.length} blocks
             </Micro>
-            <Link href="/projects" className="t-meta link">
+            <Link href="/projects" className="t-meta link link--back-arrow">
               All projects →
             </Link>
           </div>
         </div>
       </Page>
 
-      {/* Cover is referenced by the index; resolving it here surfaces a
-          missing file on the project page too rather than only in a list. */}
       {cover?.missing && (
         <Page>
           <Micro as="p" secondary className="pt-6">
@@ -134,8 +130,6 @@ export default async function ManifestProjectPage({ params }: Params) {
       )}
       </div>
 
-      {/* Opt-in per manifest — borrows the case-study system's next-project
-          block as-is rather than building a manifest-side equivalent. */}
       {nextProject && <NextProject project={nextProject} />}
     </article>
   )

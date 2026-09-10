@@ -1,16 +1,20 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import NextImage from 'next/image'
 import { profile } from '@/data/profile'
 import { Page } from '@/components/primitives/Layout'
-import { Reveal } from '@/components/primitives/Reveal'
 import { DisplayStack, Meta, Micro } from '@/components/type/Type'
+import { gsap } from '@/lib/gsap'
 
 export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
   const [isClicked, setIsClicked] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
   const bannerRef = useRef<HTMLDivElement>(null)
+  const subtitleRef = useRef<HTMLDivElement>(null)
+  const titleRef = useRef<HTMLDivElement>(null)
+  const ledeRef = useRef<HTMLDivElement>(null)
+  const ledeMetaRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768)
@@ -19,15 +23,89 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
+  // GSAP entrance timeline on mount
+  useEffect(() => {
+    const prefersReduced = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches
+
+    const targets = [
+      subtitleRef.current,
+      titleRef.current,
+      ledeRef.current,
+      ledeMetaRef.current,
+    ].filter(Boolean)
+
+    if (prefersReduced) {
+      // Simple 120ms opacity fade
+      gsap.fromTo(
+        targets,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.12, stagger: 0 },
+      )
+      return
+    }
+
+    const tl = gsap.timeline()
+
+    // Subtitle (Creative Director · Art Director)
+    if (subtitleRef.current) {
+      gsap.set(subtitleRef.current, { opacity: 0, y: 30 })
+      tl.to(subtitleRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.64,
+        ease: 'power3.out',
+      }, 0)
+    }
+
+    // Title block (logo + name)
+    if (titleRef.current) {
+      gsap.set(titleRef.current, { opacity: 0, y: 30 })
+      tl.to(titleRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.64,
+        ease: 'power3.out',
+      }, 0.12)
+    }
+
+    // Lede paragraph
+    if (ledeRef.current) {
+      gsap.set(ledeRef.current, { opacity: 0, y: 30 })
+      tl.to(ledeRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.64,
+        ease: 'power3.out',
+      }, 0.32)
+    }
+
+    // Lede meta info
+    if (ledeMetaRef.current) {
+      gsap.set(ledeMetaRef.current, { opacity: 0, y: 30 })
+      tl.to(ledeMetaRef.current, {
+        opacity: 1,
+        y: 0,
+        duration: 0.64,
+        ease: 'power3.out',
+      }, 0.40)
+    }
+
+    return () => {
+      tl.kill()
+    }
+  }, [])
+
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (isMobile) return
     e.stopPropagation()
     setIsClicked(true)
   }
 
-  const handleClickAway = () => {
+  const handleClickAway = useCallback(() => {
     setIsClicked(false)
-  }
+  }, [])
 
   useEffect(() => {
     if (isClicked) {
@@ -36,7 +114,7 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
         document.removeEventListener('click', handleClickAway)
       }
     }
-  }, [isClicked])
+  }, [isClicked, handleClickAway])
 
   return (
     <>
@@ -68,7 +146,7 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
           }}
         >
           <Page className="absolute inset-x-0 top-0 pt-[clamp(28px,4vh,48px)]">
-            <Reveal>
+            <div ref={subtitleRef}>
               <Meta
                 as="p"
                 style={{
@@ -78,13 +156,16 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
               >
                 Creative Director · Art Director
               </Meta>
-            </Reveal>
+            </div>
           </Page>
 
           <Page>
-            <div className="flex flex-col items-center gap-8 md:flex-row md:items-center md:justify-center md:gap-[clamp(20px,4vw,72px)]">
+            <div
+              ref={titleRef}
+              className="flex flex-col items-center gap-8 md:flex-row md:items-center md:justify-center md:gap-[clamp(20px,4vw,72px)]"
+            >
               {hasLogo && (
-                <Reveal className="shrink-0">
+                <div className="shrink-0">
                   <div className="relative aspect-[3800/2000] w-[clamp(140px,19vw,340px)]">
                     <NextImage
                       src="/hero/RAFAT LOGO white.png"
@@ -99,7 +180,7 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
                       }}
                     />
                   </div>
-                </Reveal>
+                </div>
               )}
 
               <div
@@ -114,16 +195,14 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
                 }}
               />
 
-              <Reveal delay={160} className="shrink-0">
-                <div style={{ color: 'white', opacity: isClicked ? 0 : 1, visibility: isClicked ? 'hidden' : 'visible' }}>
-                  <DisplayStack
-                    as="h1"
-                    lines={profile.heroName}
-                    size="l"
-                    delay={160}
-                  />
-                </div>
-              </Reveal>
+              <div className="shrink-0" style={{ color: 'white', opacity: isClicked ? 0 : 1, visibility: isClicked ? 'hidden' : 'visible' }}>
+                <DisplayStack
+                  as="h1"
+                  lines={profile.heroName}
+                  size="l"
+                  delay={160}
+                />
+              </div>
             </div>
           </Page>
         </section>
@@ -133,11 +212,11 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
       <div className="pt-[clamp(36px,5vh,56px)]">
         <Page>
           <div className="grid-page">
-            <Reveal delay={320} className="col-span-4 md:col-span-5 lg:col-span-5">
+            <div ref={ledeRef} className="col-span-4 md:col-span-5 lg:col-span-5">
               <p className="t-lede">{profile.heroSupporting}</p>
-            </Reveal>
-            <Reveal
-              delay={400}
+            </div>
+            <div
+              ref={ledeMetaRef}
               className="col-span-4 mt-6 md:col-span-3 md:col-start-6 md:mt-0 lg:col-span-4 lg:col-start-9"
             >
               <div className="flex items-baseline justify-between md:justify-end md:gap-10">
@@ -148,7 +227,7 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
                   ({profile.yearsExperience}+ Years)
                 </Micro>
               </div>
-            </Reveal>
+            </div>
           </div>
         </Page>
       </div>

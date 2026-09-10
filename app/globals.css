@@ -378,6 +378,7 @@
   .link {
     position: relative;
     display: inline-block;
+    transition: opacity var(--dur-fast) var(--ease-out);
   }
   .link::after {
     content: '';
@@ -391,10 +392,26 @@
     transform-origin: left;
     transition: transform var(--duration-invert) var(--ease-editorial);
   }
-  .link:hover::after,
+  @media (hover: hover) and (pointer: fine) {
+    .link:hover { opacity: 0.7; }
+    .link:hover::after,
+    .link:focus-visible::after { transform: scaleX(1); }
+    /* Links inside a group card — don't dim, the card handles hover */
+    .group:hover .link { opacity: 1; }
+  }
   .link:focus-visible::after { transform: scaleX(1); }
 
   .link-active { font-weight: 700; }
+
+  /* Arrow shift on hover — for "All projects →" style links */
+  @media (hover: hover) and (pointer: fine) {
+    .link--back-arrow {
+      transition: transform var(--dur-fast) var(--ease-out);
+    }
+    .link--back-arrow:hover {
+      transform: translateX(4px);
+    }
+  }
 
 
   /* ─── MOTION PRIMITIVES ────────────────────────────────────────
@@ -472,14 +489,27 @@
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: 200ms !important;
+    transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 
   .reveal {
     transform: none !important;
-    transition-property: opacity;
+    opacity: 1 !important;
     transition-delay: 0ms !important;
+  }
+
+  /* GSAP-animated elements: ensure visible */
+  .wbd-stagger {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* Disable hover transforms */
+  .portfolio-card,
+  .portfolio-cta,
+  .link--back-arrow {
+    transform: none !important;
   }
 
 }

@@ -1,8 +1,10 @@
 'use client'
 
+import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import NextImage from 'next/image'
 import type { Project } from '@/types/project'
+import { gsap, ScrollTrigger } from '@/lib/gsap'
 import './PortfolioShowcase.css'
 
 const manifestHrefs: Record<string, string> = {
@@ -130,6 +132,70 @@ function SplitCard({ project }: { project: Project }) {
 }
 
 export function PortfolioShowcase({ projects }: PortfolioShowcaseProps) {
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+
+    const prefersReduced = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches
+
+    if (prefersReduced) return
+
+    const cards = el.querySelectorAll<HTMLElement>('.portfolio-card, .portfolio-paired-row')
+    const capped = Array.from(cards).slice(0, 6)
+
+    gsap.set(capped, { opacity: 0, y: 24 })
+
+    const triggers: ScrollTrigger[] = []
+
+    capped.forEach((card, i) => {
+      const trigger = ScrollTrigger.create({
+        trigger: card,
+        start: 'top 85%',
+        once: true,
+        onEnter: () => {
+          gsap.to(card, {
+            opacity: 1,
+            y: 0,
+            duration: 0.64,
+            delay: i * 0.08,
+            ease: 'power3.out',
+            clearProps: 'transform',
+          })
+        },
+      })
+      triggers.push(trigger)
+    })
+
+    // Any cards beyond the cap — reveal as one group
+    const rest = Array.from(cards).slice(6)
+    if (rest.length > 0) {
+      gsap.set(rest, { opacity: 0, y: 24 })
+      const trigger = ScrollTrigger.create({
+        trigger: rest[0],
+        start: 'top 85%',
+        once: true,
+        onEnter: () => {
+          gsap.to(rest, {
+            opacity: 1,
+            y: 0,
+            duration: 0.64,
+            ease: 'power3.out',
+            clearProps: 'transform',
+          })
+        },
+      })
+      triggers.push(trigger)
+    }
+
+    return () => {
+      triggers.forEach((t) => t.kill())
+    }
+  }, [])
+
   const find = (slug: string) => projects.find(p => p.slug === slug)
 
   const toyota = find('toyota-crown')
@@ -141,7 +207,7 @@ export function PortfolioShowcase({ projects }: PortfolioShowcaseProps) {
   const landrover = find('land-rover-kurdistan')
 
   return (
-    <div className="portfolio-showcase">
+    <div ref={containerRef} className="portfolio-showcase">
       {toyota && <FullwidthCard project={toyota} />}
 
       {dubairaq && lexus && <PairedRow left={dubairaq} right={lexus} />}

@@ -1,5 +1,6 @@
-import type { Block, Manifest } from '@/types/blocks'
+import type { Block } from '@/types/blocks'
 import { manifestImage, manifestVideo } from '@/lib/manifest'
+import { BlockReveal } from '@/components/blocks/BlockReveal'
 import { SectionHeaderBlock } from '@/components/blocks/SectionHeaderBlock'
 import { TextBlock } from '@/components/blocks/TextBlock'
 import { FullBleedBlock } from '@/components/blocks/FullBleedBlock'
@@ -75,7 +76,9 @@ export function Blocks({
 
         return (
           <section key={i} className={spacing}>
-            {render(slug, block, i, noRounding)}
+            <BlockReveal>
+              {render(slug, block, i, noRounding)}
+            </BlockReveal>
           </section>
         )
       })}

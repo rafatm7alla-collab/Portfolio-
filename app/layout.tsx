@@ -2,7 +2,10 @@ import type { Metadata, Viewport } from 'next'
 import { profile } from '@/data/profile'
 import { Navigation } from '@/components/chrome/Navigation'
 import { Footer } from '@/components/chrome/Footer'
+import '@/styles/motion-tokens.css'
 import './globals.css'
+import { SmoothScroll } from '@/components/SmoothScroll'
+import { PageTransition } from '@/components/PageTransition'
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),
@@ -42,10 +45,19 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      <head>
+        <noscript>
+          <style>{`.reveal, .wbd-stagger { opacity: 1 !important; transform: none !important; }`}</style>
+        </noscript>
+      </head>
       <body>
-        <Navigation />
-        <main id="main">{children}</main>
-        <Footer />
+        <SmoothScroll>
+          <Navigation />
+          <PageTransition>
+            <main id="main">{children}</main>
+          </PageTransition>
+          <Footer />
+        </SmoothScroll>
       </body>
     </html>
   )

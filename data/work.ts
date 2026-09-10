@@ -98,7 +98,7 @@ export const projects: WorkProject[] = [
     client: 'Toyota Iraq — Sardar Group',
     year: '2023',
     categories: ['campaigns'],
-    cover: '/projects/toyota-crown-launch/crown-cover.jpg',
+    cover: '/projects/toyota-crown-launch/crown-12-outdoor-hero.jpg',
     href: '/projects/toyota-crown-launch',
   },
   {
@@ -180,7 +180,7 @@ export const projects: WorkProject[] = [
     client: 'FM Power (powered by Trokadero)',
     year: '2022',
     categories: ['packaging'],
-    cover: '/projects/fm-power/hero.jpg',
+    cover: '/projects/fm-power/album-01-5.jpg',
     href: '/projects/fm-power',
   },
 ]

@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { profile, navigation } from '@/data/profile'
@@ -7,12 +8,30 @@ import { MobileMenu } from './MobileMenu'
 
 export function Navigation() {
   const pathname = usePathname()
+  const headerRef = useRef<HTMLElement>(null)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 80)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <>
       <header
+        ref={headerRef}
         className="pointer-events-none fixed inset-x-0 top-0 z-50"
-        style={{ color: '#000', backgroundColor: '#fff' }}
+        style={{
+          color: '#000',
+          backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.85)' : '#fff',
+          backdropFilter: scrolled ? 'blur(12px)' : 'none',
+          WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
+          transition: `background-color var(--dur-base) var(--ease-soft), backdrop-filter var(--dur-base) var(--ease-soft)`,
+        }}
       >
         <div className="page flex items-center justify-between py-[28px] md:py-[32px]">
           <Link

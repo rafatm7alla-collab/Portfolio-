@@ -79,8 +79,15 @@
   padding: clamp(8px, 1vh, 12px) clamp(20px, 2.5vw, 32px);
   flex-shrink: 0;
   transition:
-    background 300ms ease,
-    color 300ms ease;
+    background var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out),
+    transform var(--dur-fast) var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .portfolio-cta:active {
+    transform: scale(0.98);
+  }
 }
 
 .portfolio-cta-text {
@@ -170,6 +177,24 @@
 /* ─────────────────────────────────────────────────────────────────
    RESPONSIVE
    ───────────────────────────────────────────────────────────────── */
+
+/* ─────────────────────────────────────────────────────────────────
+   HOVER MICRO-INTERACTIONS — pointer-fine devices only
+   ───────────────────────────────────────────────────────────────── */
+
+@media (pointer: fine) {
+  .portfolio-card {
+    transition: transform var(--dur-fast) var(--ease-out);
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .portfolio-card-image-wrapper {
+    overflow: hidden;
+  }
+}
 
 @media (max-width: 768px) {
   .portfolio-showcase {
