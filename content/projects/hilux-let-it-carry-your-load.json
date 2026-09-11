@@ -1,0 +1,67 @@
+{
+  "slug": "hilux-let-it-carry-your-load",
+  "title": "HILUX — Let It Carry Your Load",
+  "client": "Toyota Iraq",
+  "role": "Creative Director & Co-Director",
+  "year": "2024",
+  "tags": ["TVC", "Creative Direction", "Film Direction", "Photography", "Digital Campaign", "Social Media"],
+  "summary": "A Toyota Iraq campaign presenting the HILUX as a dependable partner, built to carry responsibilities and keep every journey moving forward.",
+
+  "blocks": [
+
+    { "type": "text",
+      "heading": "شيّلها حملك",
+      "body": "A Toyota Iraq campaign presenting the HILUX as a dependable partner, built to carry responsibilities and keep every journey moving forward." },
+
+    { "type": "videoEmbed",
+      "provider": "youtube",
+      "id": "QYHxToKPVlw",
+      "title": "HILUX — Let It Carry Your Load | Toyota Iraq Campaign Film",
+      "size": "full" },
+
+    { "type": "text",
+      "body": "Directed by Rafat Mhalla and Mohammad Jalal",
+      "light": true },
+
+    { "type": "sectionHeader",
+      "title": "Campaign Film" },
+
+    { "type": "text",
+      "body": "The campaign presents the HILUX as more than a powerful pickup. It is a reliable partner that supports people across their work, responsibilities and everyday journeys." },
+
+    { "type": "sectionHeader",
+      "title": "Campaign Extension" },
+
+    { "type": "text",
+      "body": "The campaign was extended across digital and social media through portrait-led visuals connecting HILUX with different people, professions and responsibilities." },
+
+    { "type": "twoUp",
+      "images": ["double-exposure-01.jpg", "double-exposure-02.jpg"],
+      "size": "contained", "widthPercent": 80 },
+
+    { "type": "sectionHeader",
+      "title": "My Role" },
+
+    { "type": "text",
+      "body": "As Creative Director at Fikra, I led the client communication, campaign development and internal creative process. Together with Mohammad Jalal, I coordinated the team's responsibilities and co-directed the campaign film." },
+
+    { "type": "credits",
+      "items": [
+        { "label": "Client", "value": "Toyota Iraq" },
+        { "label": "Agency", "value": "Fikra" },
+        { "label": "Creative Director", "value": "Rafat Mhalla" },
+        { "label": "Directors", "value": "Rafat Mhalla, Mohammad Jalal" },
+        { "label": "Production Company", "value": "Suli Media" },
+        { "label": "Photographer", "value": "Karam Kabbas" },
+        { "label": "Video Editor", "value": "Anas Ismahel" },
+        { "label": "3D Artist", "value": "Alan Rahman" },
+        { "label": "Senior Graphic Designer", "value": "Sabure Samad" },
+        { "label": "Content Writer", "value": "Shayan Hawezy" }
+      ] },
+
+    { "type": "text",
+      "body": "TVC · Creative Direction · Film Direction · Photography · Digital Campaign · Social Media",
+      "light": true }
+
+  ]
+}

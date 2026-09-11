@@ -166,6 +166,15 @@ export const projects: WorkProject[] = [
     href: '/projects/logofolio',
   },
   {
+    id: 'hilux-let-it-carry-your-load',
+    title: 'HILUX — Let It Carry Your Load',
+    client: 'Toyota Iraq',
+    year: '2024',
+    categories: ['tvc'],
+    cover: '',
+    href: '/projects/hilux-let-it-carry-your-load',
+  },
+  {
     id: 'state-of-chaos',
     title: 'State of Chaos',
     client: null,
