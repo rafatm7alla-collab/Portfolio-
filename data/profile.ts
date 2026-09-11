@@ -130,9 +130,9 @@ export const profile = {
 
   /** PLACEHOLDER — real URLs required before launch */
   social: [
-    { label: 'Behance', short: 'BE', href: 'https://www.behance.net/' },
+    { label: 'Behance', short: 'BE', href: 'https://www.behance.net/RafatjMhalla' },
     { label: 'LinkedIn', short: 'LI', href: 'https://www.linkedin.com/' },
-    { label: 'Instagram', short: 'IG', href: 'https://www.instagram.com/' },
+    { label: 'Instagram', short: 'IG', href: 'https://www.instagram.com/rafat.m7.studio' },
   ],
 
   /** PLACEHOLDER — required for metadata, OG tags and sitemap */
