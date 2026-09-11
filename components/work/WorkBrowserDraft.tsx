@@ -96,6 +96,7 @@ function ProjectCard({ project }: { project: WorkProject }) {
             alt={project.title}
             loading="lazy"
             className="wbd-project-card-img"
+            style={project.coverPosition ? { objectPosition: project.coverPosition } : undefined}
             onError={() => setImgErr(true)}
           />
         ) : (

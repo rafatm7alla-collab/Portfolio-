@@ -45,6 +45,7 @@ export type WorkProject = {
   /** categories[0] is the primary — it is the tag shown on the row. */
   categories: CategoryId[]
   cover: string | null
+  coverPosition?: string
   href: string
 }
 
@@ -172,6 +173,7 @@ export const projects: WorkProject[] = [
     year: '2024',
     categories: ['tvc'],
     cover: '/projects/hilux-let-it-carry-your-load/cover.jpg',
+    coverPosition: 'center 30%',
     href: '/projects/hilux-let-it-carry-your-load',
   },
   {
