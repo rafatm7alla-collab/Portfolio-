@@ -167,13 +167,12 @@ function CategoryAccordion({
                               {project.client ?? '—'}
                             </Meta>
 
-                            <Micro
-                              as="span"
-                              className="shrink-0 transition-transform duration-300 group-hover:translate-x-[3px] group-hover:-translate-y-[3px]"
-                              style={{ opacity: 0.5, color: '#000' }}
+                            <span
+                              className="shrink-0 transition-transform duration-300 group-hover:translate-x-[3px] group-hover:-translate-y-[3px] flex items-center"
+                              style={{ opacity: 0.5 }}
                             >
-                              ↗
-                            </Micro>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                            </span>
                           </Link>
                         </li>
                       ))}

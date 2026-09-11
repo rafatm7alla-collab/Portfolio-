@@ -94,7 +94,7 @@ export const categories: Category[] = [
 export const projects: WorkProject[] = [
   {
     id: 'toyota-crown-launch',
-    title: 'Toyota Crown — Launch Campaign',
+    title: 'Toyota Crown Launching Campaign',
     client: 'Toyota Iraq — Sardar Group',
     year: '2023',
     categories: ['campaigns'],
@@ -103,7 +103,7 @@ export const projects: WorkProject[] = [
   },
   {
     id: 'lexus-lx-2024',
-    title: 'Lexus Iraq — LX 2024 Launch',
+    title: 'Lexus IQ — LX 2024 Launch',
     client: 'Lexus Iraq',
     year: '2024',
     categories: ['campaigns'],
@@ -112,7 +112,7 @@ export const projects: WorkProject[] = [
   },
   {
     id: 'land-rover-kurdistan',
-    title: 'Land Rover — Iraq Kurdistan',
+    title: 'Land Rover Middle East | IQ / KUR',
     client: 'Land Rover Iraq',
     year: '2024',
     categories: ['campaigns'],

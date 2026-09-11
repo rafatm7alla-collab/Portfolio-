@@ -95,13 +95,12 @@ export function CategoryStrip({
                       className="h-px flex-1 origin-left scale-x-0 bg-current transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-x-100"
                       style={isActive ? { transform: 'scaleX(1)' } : undefined}
                     />
-                    <Micro
-                      as="span"
-                      className="ml-4 block transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-[3px] group-hover:-translate-y-[3px]"
+                    <span
+                      className="ml-4 flex items-center transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-[3px] group-hover:-translate-y-[3px]"
                       style={{ opacity: isActive ? 1 : 0.5 }}
                     >
-                      ↗
-                    </Micro>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+                    </span>
                   </span>
                 </span>
               </button>

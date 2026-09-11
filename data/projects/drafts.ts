@@ -54,7 +54,7 @@ const drafts: Draft[] = [
   {
     slug: 'lexus-lx-2024',
     index: '03',
-    title: 'Lexus Iraq LX 2024 Launch',
+    title: 'Lexus IQ — LX 2024 Launch',
     category: 'Campaign',
     sector: 'Automotive',
     location: 'Iraq',
