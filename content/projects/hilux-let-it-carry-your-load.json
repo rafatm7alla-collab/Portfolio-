@@ -6,6 +6,7 @@
   "year": "2024",
   "tags": ["TVC", "Creative Direction", "Film Direction", "Photography", "Digital Campaign", "Social Media"],
   "summary": "A Toyota Iraq campaign presenting the HILUX as a dependable partner, built to carry responsibilities and keep every journey moving forward.",
+  "theme": "dark",
 
   "blocks": [
 
@@ -37,7 +38,7 @@
 
     { "type": "twoUp",
       "images": ["double-exposure-01.jpg", "double-exposure-02.jpg"],
-      "size": "contained", "widthPercent": 80 },
+      "size": "contained", "widthPercent": 60 },
 
     { "type": "sectionHeader",
       "title": "My Role" },
