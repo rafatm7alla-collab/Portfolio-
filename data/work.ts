@@ -171,7 +171,7 @@ export const projects: WorkProject[] = [
     client: 'Toyota Iraq',
     year: '2024',
     categories: ['tvc'],
-    cover: '',
+    cover: '/projects/hilux-let-it-carry-your-load/cover.jpg',
     href: '/projects/hilux-let-it-carry-your-load',
   },
   {
