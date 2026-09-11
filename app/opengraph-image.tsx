@@ -33,19 +33,14 @@ export default function OpengraphImage() {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            fontSize: 132,
-            letterSpacing: '-6px',
-            lineHeight: 0.86,
+            fontSize: 120,
+            letterSpacing: '-4px',
+            lineHeight: 0.9,
           }}
         >
-          {profile.heroName.map((line) => (
-            <div
-              key={line.text}
-              style={{ fontWeight: line.weight, textTransform: 'uppercase' }}
-            >
-              {line.text}
-            </div>
-          ))}
+          <div style={{ fontWeight: 700, textTransform: 'uppercase' }}>Rafat</div>
+          <div style={{ fontWeight: 300, textTransform: 'uppercase' }}>Jhd</div>
+          <div style={{ fontWeight: 700, textTransform: 'uppercase' }}>Mhalla</div>
         </div>
 
         <div style={{ fontSize: 20, letterSpacing: '3.6px', textTransform: 'uppercase' }}>
