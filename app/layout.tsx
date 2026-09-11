@@ -6,6 +6,7 @@ import '@/styles/motion-tokens.css'
 import './globals.css'
 import { SmoothScroll } from '@/components/SmoothScroll'
 import { PageTransition } from '@/components/PageTransition'
+import FloatingContact from '@/components/FloatingContact'
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),
@@ -57,6 +58,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <main id="main">{children}</main>
           </PageTransition>
           <Footer />
+          <FloatingContact />
         </SmoothScroll>
       </body>
     </html>

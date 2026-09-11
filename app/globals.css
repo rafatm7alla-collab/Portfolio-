@@ -513,3 +513,138 @@
   }
 
 }
+
+/* Floating contact icon */
+
+.float-contact {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  direction: rtl;
+}
+
+.float-trigger {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #111;
+  border: 1px solid #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: border-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.float-trigger svg {
+  width: 20px;
+  height: 20px;
+}
+
+.float-contact:hover .float-trigger {
+  border-color: #444;
+}
+
+.float-tray {
+  display: flex;
+  align-items: center;
+  direction: ltr;
+  gap: 0;
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 50px;
+  padding: 0;
+  margin-right: -25px;
+  padding-right: 30px;
+  max-width: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.25s ease 0.05s,
+              padding-left 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.3s ease;
+}
+
+.float-contact:hover .float-tray {
+  max-width: 240px;
+  opacity: 1;
+  padding-left: 6px;
+  border-color: #333;
+}
+
+.float-action {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 12px 14px;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 40px;
+  transition: background 0.2s ease;
+}
+
+.float-action:hover {
+  background: #1a1a1a;
+}
+
+.float-action svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  transition: fill 0.2s ease, stroke 0.2s ease;
+}
+
+.float-action:hover svg {
+  fill: #fff;
+  stroke: #fff;
+}
+
+.float-action__label {
+  font-size: 12.5px;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: #999;
+  transition: color 0.2s ease;
+}
+
+.float-action:hover .float-action__label {
+  color: #fff;
+}
+
+.float-divider {
+  width: 1px;
+  height: 20px;
+  background: #222;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .float-contact {
+    bottom: 20px;
+    right: 20px;
+  }
+  .float-trigger {
+    width: 46px;
+    height: 46px;
+  }
+  .float-trigger svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .float-tray,
+  .float-trigger,
+  .float-action,
+  .float-action__label,
+  .float-action svg {
+    transition: none;
+  }
+}
