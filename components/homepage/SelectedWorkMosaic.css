@@ -16,50 +16,65 @@
   gap: 0;
 }
 
-/* Mobile — editorial rhythm, varied tile sizes so the section still
-   feels art-directed on a phone (no repetitive stack). Two 6-col
-   pairs anchor around single full-bleed features. */
-.swm-tile[data-slot="toyota"]    { grid-column: span 12; aspect-ratio: 3 / 2; }
-.swm-tile[data-slot="dubairaq"]  { grid-column: span 6;  aspect-ratio: 3 / 4; }
-.swm-tile[data-slot="lexus"]     { grid-column: span 6;  aspect-ratio: 3 / 4; }
-.swm-tile[data-slot="zaytoun"]   { grid-column: span 12; aspect-ratio: 4 / 3; }
-.swm-tile[data-slot="vision"]    { grid-column: span 6;  aspect-ratio: 1 / 1; }
-.swm-tile[data-slot="praline"]   { grid-column: span 6;  aspect-ratio: 1 / 1; }
-.swm-tile[data-slot="landrover"] { grid-column: span 12; aspect-ratio: 16 / 9; }
+/* Rhythm: full · pair · full · pair · full · pair.
+   Same structure on every breakpoint; only tile heights change. */
+
+/* Full-width rows */
+.swm-tile[data-slot="toyota"],
+.swm-tile[data-slot="zaytoun"],
+.swm-tile[data-slot="landrover"] {
+  grid-column: span 12;
+  aspect-ratio: 16 / 9;
+}
+
+/* Paired rows — two 6-col tiles */
+.swm-tile[data-slot="dubairaq"],
+.swm-tile[data-slot="lexus"],
+.swm-tile[data-slot="vision"],
+.swm-tile[data-slot="praline"],
+.swm-tile[data-slot="placeholder-a"],
+.swm-tile[data-slot="placeholder-b"] {
+  grid-column: span 6;
+  aspect-ratio: 4 / 5;
+}
+
 /* Fallback for any unknown slot */
 .swm-tile { grid-column: span 12; aspect-ratio: 4 / 3; }
 
-/* Tablet — 3-per-row on the top rows, keep visual variation */
+/* Tablet — same rhythm, taller full tiles */
 @media (min-width: 640px) {
-  .swm-tile[data-slot="toyota"]    { grid-column: span 8; aspect-ratio: auto; height: 46vh; }
-  .swm-tile[data-slot="dubairaq"]  { grid-column: span 4; aspect-ratio: auto; height: 46vh; }
-  .swm-tile[data-slot="lexus"]     { grid-column: span 6; aspect-ratio: auto; height: 38vh; }
-  .swm-tile[data-slot="vision"]    { grid-column: span 6; aspect-ratio: auto; height: 38vh; }
-  .swm-tile[data-slot="zaytoun"]   { grid-column: span 7; aspect-ratio: auto; height: 42vh; }
-  .swm-tile[data-slot="praline"]   { grid-column: span 5; aspect-ratio: auto; height: 42vh; }
-  .swm-tile[data-slot="landrover"] { grid-column: span 12; aspect-ratio: auto; height: 54vh; }
+  .swm-tile[data-slot="toyota"],
+  .swm-tile[data-slot="zaytoun"],
+  .swm-tile[data-slot="landrover"] {
+    aspect-ratio: 16 / 8;
+  }
+  .swm-tile[data-slot="dubairaq"],
+  .swm-tile[data-slot="lexus"],
+  .swm-tile[data-slot="vision"],
+  .swm-tile[data-slot="praline"],
+  .swm-tile[data-slot="placeholder-a"],
+  .swm-tile[data-slot="placeholder-b"] {
+    aspect-ratio: 4 / 5;
+  }
 }
 
-/* Desktop — art-directed 3-row composition (no gaps).
-   Row heights are uniform WITHIN each row via fixed vh,
-   which gives the intentional editorial rhythm from the sketch. */
+/* Desktop — full rows are cinematic wide; pairs are shorter squares */
 @media (min-width: 1024px) {
-  .swm-grid {
-    grid-auto-rows: auto;
+  .swm-tile[data-slot="toyota"],
+  .swm-tile[data-slot="zaytoun"],
+  .swm-tile[data-slot="landrover"] {
+    aspect-ratio: auto;
+    height: 78vh;
   }
-
-  /* Row 1 — Toyota (wide) · DubaIraq (square) · Lexus (wide) */
-  .swm-tile[data-slot="toyota"]    { grid-column: span 5; height: 62vh; aspect-ratio: auto; }
-  .swm-tile[data-slot="dubairaq"]  { grid-column: span 3; height: 62vh; aspect-ratio: auto; }
-  .swm-tile[data-slot="lexus"]     { grid-column: span 4; height: 62vh; aspect-ratio: auto; }
-
-  /* Row 2 — Vision · Al Zaytoun · Praline */
-  .swm-tile[data-slot="vision"]    { grid-column: span 3; height: 48vh; aspect-ratio: auto; }
-  .swm-tile[data-slot="zaytoun"]   { grid-column: span 5; height: 48vh; aspect-ratio: auto; }
-  .swm-tile[data-slot="praline"]   { grid-column: span 4; height: 48vh; aspect-ratio: auto; }
-
-  /* Row 3 — Land Rover full-width feature */
-  .swm-tile[data-slot="landrover"] { grid-column: span 12; height: 72vh; aspect-ratio: auto; }
+  .swm-tile[data-slot="dubairaq"],
+  .swm-tile[data-slot="lexus"],
+  .swm-tile[data-slot="vision"],
+  .swm-tile[data-slot="praline"],
+  .swm-tile[data-slot="placeholder-a"],
+  .swm-tile[data-slot="placeholder-b"] {
+    aspect-ratio: auto;
+    height: 62vh;
+  }
 }
 
 .swm-tile {
@@ -70,6 +85,25 @@
   color: #fff;
   text-decoration: none;
   isolation: isolate;
+}
+
+.swm-tile--placeholder {
+  background: #0a0a0a;
+  cursor: default;
+}
+.swm-placeholder-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.swm-placeholder-label {
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  font-weight: 400;
 }
 
 .swm-image-wrap {

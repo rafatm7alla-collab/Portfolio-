@@ -47,18 +47,25 @@ const slotBySlug: Record<string, string> = {
 }
 
 /**
- * Desktop reading order for the mosaic. This is the DOM order too —
- * CSS positions each named slot regardless.
+ * Reading order — drives DOM order on desktop AND mobile.
+ * Rhythm: full · pair · full · pair · full · pair.
  */
 const slotOrder = [
   'toyota-crown',
   'dubairaq',
   'lexus-lx-2024',
+  'al-zaytoun-terraces',
   'vision-house',
   'praline',
-  'al-zaytoun-terraces',
   'land-rover-kurdistan',
 ]
+
+/**
+ * Two empty placeholder tiles appended after Land Rover, ready to hold
+ * the next two projects. Rendered as dark plates with a small caption
+ * so the composition already sits at 9 tiles.
+ */
+const PLACEHOLDER_SLOTS = ['placeholder-a', 'placeholder-b'] as const
 
 function Tile({ project }: { project: Project }) {
   const slot = slotBySlug[project.slug] ?? 'praline'
@@ -103,6 +110,16 @@ function Tile({ project }: { project: Project }) {
   )
 }
 
+function Placeholder({ slot }: { slot: string }) {
+  return (
+    <div className="swm-tile swm-tile--placeholder" data-slot={slot} aria-hidden="true">
+      <div className="swm-placeholder-inner">
+        <span className="swm-placeholder-label">Next project</span>
+      </div>
+    </div>
+  )
+}
+
 export function SelectedWorkMosaic({ projects }: { projects: Project[] }) {
   const bySlug = new Map(projects.map((p) => [p.slug, p]))
   const ordered = slotOrder
@@ -116,6 +133,9 @@ export function SelectedWorkMosaic({ projects }: { projects: Project[] }) {
       <div className="swm-grid">
         {[...ordered, ...extras].map((p) => (
           <Tile key={p.slug} project={p} />
+        ))}
+        {PLACEHOLDER_SLOTS.map((slot) => (
+          <Placeholder key={slot} slot={slot} />
         ))}
       </div>
     </div>
