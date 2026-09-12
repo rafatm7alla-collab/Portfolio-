@@ -68,14 +68,21 @@ export function MobileMenu() {
                   delay: 0.08 + i * 0.06,
                   ease: [0.16, 1, 0.3, 1],
                 }}
+                className={
+                  i < navigation.length - 1
+                    ? 'border-b border-white/15'
+                    : ''
+                }
               >
                 <Link
                   href={item.href}
-                  className="block py-2 font-bold uppercase"
+                  className="block font-bold uppercase"
                   style={{
                     fontSize: 'clamp(3rem, 14vw, 5rem)',
                     letterSpacing: '-0.035em',
                     lineHeight: 1.02,
+                    paddingTop: 'clamp(20px, 4vw, 32px)',
+                    paddingBottom: 'clamp(20px, 4vw, 32px)',
                   }}
                 >
                   {item.label}

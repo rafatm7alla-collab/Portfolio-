@@ -1,0 +1,198 @@
+/* ─────────────────────────────────────────────────────────────
+   EXPERIMENTAL — Editorial Mosaic for Selected Work
+   Isolated stylesheet. Prefixed with .swm- to avoid collisions.
+   Delete this file + SelectedWorkMosaic.tsx to revert.
+   ───────────────────────────────────────────────────────────── */
+
+.swm-root {
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.swm-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0;
+}
+
+/* Mobile — editorial rhythm, varied tile sizes so the section still
+   feels art-directed on a phone (no repetitive stack). Two 6-col
+   pairs anchor around single full-bleed features. */
+.swm-tile[data-slot="toyota"]    { grid-column: span 12; aspect-ratio: 3 / 2; }
+.swm-tile[data-slot="dubairaq"]  { grid-column: span 6;  aspect-ratio: 3 / 4; }
+.swm-tile[data-slot="lexus"]     { grid-column: span 6;  aspect-ratio: 3 / 4; }
+.swm-tile[data-slot="zaytoun"]   { grid-column: span 12; aspect-ratio: 4 / 3; }
+.swm-tile[data-slot="vision"]    { grid-column: span 6;  aspect-ratio: 1 / 1; }
+.swm-tile[data-slot="praline"]   { grid-column: span 6;  aspect-ratio: 1 / 1; }
+.swm-tile[data-slot="landrover"] { grid-column: span 12; aspect-ratio: 16 / 9; }
+/* Fallback for any unknown slot */
+.swm-tile { grid-column: span 12; aspect-ratio: 4 / 3; }
+
+/* Tablet — 3-per-row on the top rows, keep visual variation */
+@media (min-width: 640px) {
+  .swm-tile[data-slot="toyota"]    { grid-column: span 8; aspect-ratio: auto; height: 46vh; }
+  .swm-tile[data-slot="dubairaq"]  { grid-column: span 4; aspect-ratio: auto; height: 46vh; }
+  .swm-tile[data-slot="lexus"]     { grid-column: span 6; aspect-ratio: auto; height: 38vh; }
+  .swm-tile[data-slot="vision"]    { grid-column: span 6; aspect-ratio: auto; height: 38vh; }
+  .swm-tile[data-slot="zaytoun"]   { grid-column: span 7; aspect-ratio: auto; height: 42vh; }
+  .swm-tile[data-slot="praline"]   { grid-column: span 5; aspect-ratio: auto; height: 42vh; }
+  .swm-tile[data-slot="landrover"] { grid-column: span 12; aspect-ratio: auto; height: 54vh; }
+}
+
+/* Desktop — art-directed 3-row composition (no gaps).
+   Row heights are uniform WITHIN each row via fixed vh,
+   which gives the intentional editorial rhythm from the sketch. */
+@media (min-width: 1024px) {
+  .swm-grid {
+    grid-auto-rows: auto;
+  }
+
+  /* Row 1 — Toyota (wide) · DubaIraq (square) · Lexus (wide) */
+  .swm-tile[data-slot="toyota"]    { grid-column: span 5; height: 62vh; aspect-ratio: auto; }
+  .swm-tile[data-slot="dubairaq"]  { grid-column: span 3; height: 62vh; aspect-ratio: auto; }
+  .swm-tile[data-slot="lexus"]     { grid-column: span 4; height: 62vh; aspect-ratio: auto; }
+
+  /* Row 2 — Vision · Al Zaytoun · Praline */
+  .swm-tile[data-slot="vision"]    { grid-column: span 3; height: 48vh; aspect-ratio: auto; }
+  .swm-tile[data-slot="zaytoun"]   { grid-column: span 5; height: 48vh; aspect-ratio: auto; }
+  .swm-tile[data-slot="praline"]   { grid-column: span 4; height: 48vh; aspect-ratio: auto; }
+
+  /* Row 3 — Land Rover full-width feature */
+  .swm-tile[data-slot="landrover"] { grid-column: span 12; height: 72vh; aspect-ratio: auto; }
+}
+
+.swm-tile {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: #ffffff;
+  color: #fff;
+  text-decoration: none;
+  isolation: isolate;
+}
+
+.swm-image-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.swm-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* Semi-transparent overlay — 50% black, image still readable behind */
+.swm-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.swm-info {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(20px, 3vw, 40px);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1) 60ms,
+              transform 600ms cubic-bezier(0.22, 1, 0.36, 1) 60ms;
+  /* Soft bottom shadow keeps text readable even on very light images */
+  background: linear-gradient(to top, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0) 60%);
+}
+
+.swm-info-category {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin-bottom: 14px;
+  font-weight: 400;
+}
+
+.swm-info-title {
+  font-size: clamp(22px, 2.6vw, 40px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+  margin: 0 0 clamp(12px, 1.4vw, 20px);
+  text-transform: uppercase;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.45);
+}
+
+.swm-info-desc {
+  font-size: clamp(12px, 1vw, 15px);
+  line-height: 1.5;
+  max-width: 42ch;
+  opacity: 0.92;
+  font-weight: 300;
+  margin: 0;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.55);
+}
+
+/* Hover / focus reveal — desktop pointer only */
+@media (hover: hover) and (pointer: fine) {
+  .swm-tile:hover .swm-image,
+  .swm-tile:focus-visible .swm-image {
+    transform: scale(1.03);
+  }
+  .swm-tile:hover .swm-overlay,
+  .swm-tile:focus-visible .swm-overlay {
+    opacity: 1;
+  }
+  .swm-tile:hover .swm-info,
+  .swm-tile:focus-visible .swm-info {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.swm-tile:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: -2px;
+}
+
+/* Mobile static caption — no hover, always visible under image */
+.swm-mobile-caption {
+  display: block;
+  padding: 14px 16px 24px;
+}
+.swm-mobile-title {
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: currentColor;
+  margin: 0;
+}
+.swm-mobile-category {
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-top: 4px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .swm-mobile-caption { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .swm-image, .swm-overlay, .swm-info {
+    transition: none !important;
+  }
+}

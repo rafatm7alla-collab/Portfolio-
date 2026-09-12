@@ -9,7 +9,14 @@ import { DisplayStack, Meta, Micro, SectionHeader } from '@/components/type/Type
 import { ContactBlock } from '@/components/chrome/ContactBlock'
 import { HeroBanner } from '@/components/homepage/HeroBanner'
 import { PortfolioShowcase } from '@/components/homepage/PortfolioShowcase'
+import { SelectedWorkMosaic } from '@/components/homepage/SelectedWorkMosaic'
 import '@/components/homepage/SelectedWorkHeader.css'
+
+/**
+ * EXPERIMENT TOGGLE — flip to 'original' to restore the previous
+ * PortfolioShowcase presentation. Both components remain in the repo.
+ */
+const SELECTED_WORK_VARIANT: 'original' | 'mosaic' = 'mosaic'
 
 export default function Home() {
   const hasLogo = publicAssetExists(profile.heroLogo.src)
@@ -34,7 +41,7 @@ function SelectedWork() {
           <Page>
             <SectionHeader
               bold="Selected"
-              light="work"
+              light="projects"
               count={String(featuredProjects.length).padStart(2, '0')}
             />
             <Rule className="mt-[clamp(40px,6vw,80px)]" />
@@ -42,7 +49,11 @@ function SelectedWork() {
         </div>
       </div>
 
-      <PortfolioShowcase projects={featuredProjects} />
+      {SELECTED_WORK_VARIANT === 'mosaic' ? (
+        <SelectedWorkMosaic projects={featuredProjects} />
+      ) : (
+        <PortfolioShowcase projects={featuredProjects} />
+      )}
 
       <Page>
         <div className="flex justify-end pb-[var(--section-gap)]">
