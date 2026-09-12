@@ -55,8 +55,8 @@ const slotOrder = [
   'dubairaq',
   'lexus-lx-2024',
   'vision-house',
-  'al-zaytoun-terraces',
   'praline',
+  'al-zaytoun-terraces',
   'land-rover-kurdistan',
 ]
 
