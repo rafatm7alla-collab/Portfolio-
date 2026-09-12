@@ -182,7 +182,6 @@ export const projects: WorkProject[] = [
     year: '2024',
     categories: ['tvc'],
     cover: '/projects/hilux-let-it-carry-your-load/cover.jpg',
-    coverPosition: 'center 30%',
     href: '/projects/hilux-let-it-carry-your-load',
   },
   {
