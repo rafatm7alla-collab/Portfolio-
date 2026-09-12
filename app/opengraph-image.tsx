@@ -39,7 +39,6 @@ export default function OpengraphImage() {
           }}
         >
           <div style={{ fontWeight: 700, textTransform: 'uppercase' }}>Rafat</div>
-          <div style={{ fontWeight: 300, textTransform: 'uppercase' }}>Jhd</div>
           <div style={{ fontWeight: 700, textTransform: 'uppercase' }}>Mhalla</div>
         </div>
 

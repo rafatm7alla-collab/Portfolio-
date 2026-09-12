@@ -41,8 +41,7 @@ export const profile = {
    */
   heroName: [
     { text: 'Rafat', weight: 700 },
-    { text: 'Jhd', weight: 300 },
-    { text: 'Mhalla', weight: 400 },
+    { text: 'Mhalla', weight: 700 },
   ] as const,
 
   /**
