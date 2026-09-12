@@ -167,6 +167,15 @@ export const projects: WorkProject[] = [
     href: '/projects/logofolio',
   },
   {
+    id: 'nbi-credit-card-campaign',
+    title: 'NBI — Credit Card Campaign',
+    client: 'National Bank of Iraq',
+    year: '2025',
+    categories: ['tvc'],
+    cover: '/projects/nbi-credit-card-campaign/cover.jpg',
+    href: '/projects/nbi-credit-card-campaign',
+  },
+  {
     id: 'hilux-let-it-carry-your-load',
     title: 'HILUX — Let It Carry Your Load',
     client: 'Toyota Iraq',

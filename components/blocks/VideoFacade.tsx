@@ -63,10 +63,10 @@ export function VideoFacade({
     return () => observer.disconnect()
   }, [])
 
+  const sep = id.includes('?') ? '&' : '?'
   const src =
     provider === 'vimeo'
-      ? // dnt=1 — no viewer tracking. Chrome params keep the frame quiet.
-        `https://player.vimeo.com/video/${id}?title=0&byline=0&portrait=0&dnt=1`
+      ? `https://player.vimeo.com/video/${id}${sep}title=0&byline=0&portrait=0&dnt=1`
       : `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1`
 
   return (

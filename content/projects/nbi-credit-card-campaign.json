@@ -1,0 +1,70 @@
+{
+  "slug": "nbi-credit-card-campaign",
+  "title": "NBI — Credit Card Campaign",
+  "client": "National Bank of Iraq",
+  "role": "Creative Director & Film Director",
+  "year": "2025",
+  "tags": ["TVC", "Creative Direction", "Film Direction", "Campaign Concept"],
+  "summary": "A National Bank of Iraq credit card TV commercial creatively directed by Rafat Mhalla and Mohammad Jalal at Vision House.",
+  "theme": "dark",
+
+  "meta": {
+    "title": "National Bank of Iraq — Credit Card Campaign | Rafat Mhalla",
+    "description": "A National Bank of Iraq credit card TV commercial creatively directed by Rafat Mhalla and Mohammad Jalal at Vision House."
+  },
+
+  "blocks": [
+
+    { "type": "text",
+      "heading": "بطاقة تجيب فلوس",
+      "body": "A TV commercial for the National Bank of Iraq's Visa credit card, blending cinematic storytelling with everyday Iraqi life." },
+
+    { "type": "videoEmbed",
+      "provider": "vimeo",
+      "id": "1176540611?h=fe26481ed7",
+      "title": "NBI — Credit Card Campaign | TV Commercial",
+      "size": "full" },
+
+    { "type": "text",
+      "body": "Directed by Rafat Mhalla and Mohammad Jalal",
+      "light": true },
+
+    { "type": "sectionHeader",
+      "title": "Campaign Film" },
+
+    { "type": "text",
+      "body": "The commercial follows three friends playing dominoes. One of them is constantly frustrated by hidden charges and subscriptions draining his money — until the NBI Visa credit card offers a solution that gives back instead of taking away." },
+
+    { "type": "sectionHeader",
+      "title": "Director's Treatment" },
+
+    { "type": "text",
+      "body": "The visual treatment draws on warm, naturalistic lighting and a cinematic colour palette to ground the story in a familiar Iraqi setting. Dutch angles and tight close-ups heighten the character's tension, while the domino motif threads through every frame as a visual metaphor." },
+
+    { "type": "twoUp",
+      "images": ["treatment-01.jpg", "treatment-02.jpg"],
+      "size": "contained", "widthPercent": 70 },
+
+    { "type": "twoUp",
+      "images": ["treatment-03.jpg", "treatment-04.jpg"],
+      "size": "contained", "widthPercent": 70 },
+
+    { "type": "sectionHeader",
+      "title": "My Role" },
+
+    { "type": "text",
+      "body": "As Creative Director at Vision House, I led the campaign concept, visual treatment and film direction alongside Mohammad Jalal. From scripting and storyboarding through to the final cut, we shaped every detail of the commercial's cinematic language." },
+
+    { "type": "credits",
+      "items": [
+        { "label": "Client", "value": "National Bank of Iraq" },
+        { "label": "Agency", "value": "Vision House" },
+        { "label": "Creative Directors", "value": "Rafat Mhalla, Mohammad Jalal" }
+      ] },
+
+    { "type": "text",
+      "body": "TVC · Creative Direction · Film Direction · Campaign Concept",
+      "light": true }
+
+  ]
+}
