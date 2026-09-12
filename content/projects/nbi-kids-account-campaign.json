@@ -1,0 +1,55 @@
+{
+  "slug": "nbi-kids-account-campaign",
+  "title": "National Bank of Iraq — Kids Account Campaign",
+  "client": "National Bank of Iraq",
+  "role": "Creative Director",
+  "year": "2025",
+  "tags": ["TVC", "Campaign Concept", "Creative Direction", "Film Development"],
+  "summary": "A National Bank of Iraq Kids Account TV commercial creatively directed by Rafat Mhalla and Mohammad Jalal at Vision House.",
+  "theme": "dark",
+
+  "meta": {
+    "title": "National Bank of Iraq — Kids Account Campaign | Rafat Mhalla",
+    "description": "A National Bank of Iraq Kids Account TV commercial creatively directed by Rafat Mhalla and Mohammad Jalal at Vision House."
+  },
+
+  "blocks": [
+
+    { "type": "text",
+      "body": "A warm family story about the everyday ways parents care for their children — and the importance of extending that care to their financial future." },
+
+    { "type": "videoEmbed",
+      "provider": "vimeo",
+      "id": "1176540221?h=bcdceb3e94",
+      "title": "National Bank of Iraq Kids Account campaign film",
+      "size": "full" },
+
+    { "type": "text",
+      "body": "Directed by Rafat Mhalla and Mohammad Jalal · 1 min 10 sec",
+      "light": true },
+
+    { "type": "sectionHeader",
+      "title": "About the Film" },
+
+    { "type": "text",
+      "body": "Through a series of everyday family moments, the film connects the care parents provide today with the financial security they can create for tomorrow." },
+
+    { "type": "sectionHeader",
+      "title": "My Role" },
+
+    { "type": "text",
+      "body": "As Creative Director at Vision House, I worked alongside Mohammad Jalal to develop the campaign's emotional direction and shape its storytelling from concept through production." },
+
+    { "type": "credits",
+      "items": [
+        { "label": "Client", "value": "National Bank of Iraq" },
+        { "label": "Agency & Production", "value": "Vision House" },
+        { "label": "Creative Directors", "value": "Rafat Mhalla, Mohammad Jalal" }
+      ] },
+
+    { "type": "text",
+      "body": "TVC · Campaign Concept · Creative Direction · Film Development",
+      "light": true }
+
+  ]
+}
