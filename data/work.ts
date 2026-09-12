@@ -176,6 +176,15 @@ export const projects: WorkProject[] = [
     href: '/projects/nbi-credit-card-campaign',
   },
   {
+    id: 'nbi-kids-account-campaign',
+    title: 'NBI — Kids Account',
+    client: 'National Bank of Iraq',
+    year: '2025',
+    categories: ['tvc'],
+    cover: '/projects/nbi-kids-account-campaign/cover.jpg',
+    href: '/projects/nbi-kids-account-campaign',
+  },
+  {
     id: 'hilux-let-it-carry-your-load',
     title: 'HILUX — Let It Carry Your Load',
     client: 'Toyota Iraq',
