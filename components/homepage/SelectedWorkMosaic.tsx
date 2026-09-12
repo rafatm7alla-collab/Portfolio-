@@ -61,11 +61,35 @@ const slotOrder = [
 ]
 
 /**
- * Two empty placeholder tiles appended after Land Rover, ready to hold
- * the next two projects. Rendered as dark plates with a small caption
- * so the composition already sits at 9 tiles.
+ * Manual tiles appended after Land Rover — projects that live outside
+ * the main `projects` data pipeline (e.g. manifest-only case studies).
+ * Each entry becomes a paired tile in the final row.
  */
-const PLACEHOLDER_SLOTS = ['placeholder-a', 'placeholder-b'] as const
+type ManualTileData = {
+  slot: string
+  href: string
+  title: string
+  category: string
+  description: string
+  image: { src: string; alt: string }
+}
+
+const manualTiles: ManualTileData[] = [
+  {
+    slot: 'placeholder-a',
+    href: '/projects/nbi-credit-card-campaign',
+    title: 'NBI — Credit Card Campaign',
+    category: 'TVC',
+    description:
+      "A National Bank of Iraq credit card TV commercial creatively directed at Vision House.",
+    image: {
+      src: '/projects/nbi-credit-card-campaign/cover.jpg',
+      alt: 'NBI — Credit Card Campaign',
+    },
+  },
+]
+
+const PLACEHOLDER_SLOTS = ['placeholder-b'] as const
 
 function Tile({ project }: { project: Project }) {
   const slot = slotBySlug[project.slug] ?? 'praline'
@@ -110,6 +134,38 @@ function Tile({ project }: { project: Project }) {
   )
 }
 
+function ManualTile({ data }: { data: ManualTileData }) {
+  return (
+    <Link
+      href={data.href}
+      className="swm-tile"
+      data-slot={data.slot}
+      aria-label={`${data.title} — ${data.category}`}
+    >
+      <div className="swm-image-wrap">
+        <NextImage
+          src={data.image.src}
+          alt={data.image.alt}
+          fill
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          quality={85}
+          className="swm-image"
+        />
+      </div>
+      <div className="swm-overlay" aria-hidden="true" />
+      <div className="swm-info">
+        <div className="swm-info-category">{data.category}</div>
+        <h3 className="swm-info-title">{data.title}</h3>
+        <p className="swm-info-desc">{data.description}</p>
+      </div>
+      <div className="swm-mobile-caption">
+        <p className="swm-mobile-title">{data.title}</p>
+        <p className="swm-mobile-category">{data.category}</p>
+      </div>
+    </Link>
+  )
+}
+
 function Placeholder({ slot }: { slot: string }) {
   return (
     <div className="swm-tile swm-tile--placeholder" data-slot={slot} aria-hidden="true">
@@ -133,6 +189,9 @@ export function SelectedWorkMosaic({ projects }: { projects: Project[] }) {
       <div className="swm-grid">
         {[...ordered, ...extras].map((p) => (
           <Tile key={p.slug} project={p} />
+        ))}
+        {manualTiles.map((tile) => (
+          <ManualTile key={tile.slot} data={tile} />
         ))}
         {PLACEHOLDER_SLOTS.map((slot) => (
           <Placeholder key={slot} slot={slot} />
