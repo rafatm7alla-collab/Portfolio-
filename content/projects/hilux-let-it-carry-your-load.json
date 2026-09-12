@@ -50,14 +50,9 @@
       "items": [
         { "label": "Client", "value": "Toyota Iraq" },
         { "label": "Agency", "value": "Fikra" },
-        { "label": "Creative Director", "value": "Rafat Mhalla" },
-        { "label": "Directors", "value": "Rafat Mhalla, Mohammad Jalal" },
-        { "label": "Production Company", "value": "Suli Media" },
-        { "label": "Photographer", "value": "Karam Kabbas" },
-        { "label": "Video Editor", "value": "Anas Ismahel" },
-        { "label": "3D Artist", "value": "Alan Rahman" },
-        { "label": "Senior Graphic Designer", "value": "Sabure Samad" },
-        { "label": "Content Writer", "value": "Shayan Hawezy" }
+        { "label": "Creative Director & Co-Director", "value": "Rafat Mhalla, Mohammad Jalal" },
+        { "label": "Production Director", "value": "Aykut Alp Ersoy" },
+        { "label": "Production Company", "value": "Suli Media" }
       ] },
 
     { "type": "text",
