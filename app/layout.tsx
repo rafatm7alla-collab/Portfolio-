@@ -1,5 +1,19 @@
 import type { Metadata, Viewport } from 'next'
+import { Tajawal } from 'next/font/google'
 import { profile } from '@/data/profile'
+
+/**
+ * Tajawal — used for every Arabic glyph on the site. Loaded with the
+ * `arabic` subset only, so the @font-face unicode-range covers just
+ * Arabic codepoints. Latin text keeps rendering in the site's grotesque
+ * because unicode-range prevents Tajawal from claiming Latin glyphs.
+ */
+const tajawal = Tajawal({
+  subsets: ['arabic'],
+  weight: ['300', '400', '500', '700', '800'],
+  variable: '--font-arabic',
+  display: 'swap',
+})
 import { Navigation } from '@/components/chrome/Navigation'
 import { Footer } from '@/components/chrome/Footer'
 import '@/styles/motion-tokens.css'
@@ -45,7 +59,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className={tajawal.variable}>
       <head>
         <noscript>
           <style>{`.reveal, .wbd-stagger { opacity: 1 !important; transform: none !important; }`}</style>

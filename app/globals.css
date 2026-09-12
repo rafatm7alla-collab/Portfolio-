@@ -52,6 +52,7 @@
   --font-sans:
     /* 'Helvetica Now Display', 'Helvetica Now Text', */
     'Helvetica Neue', Helvetica, Arial, 'Liberation Sans',
+    var(--font-arabic), 'Tajawal',
     'SF Arabic', 'Geeza Pro', 'Noto Sans Arabic', 'Segoe UI', Tahoma,
     sans-serif;
 
