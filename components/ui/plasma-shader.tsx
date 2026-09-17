@@ -287,11 +287,13 @@ export function ShaderBackground({ className }: { className?: string }) {
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
+    const c: HTMLCanvasElement = canvas
     const pendingRelease = pendingContextReleases.get(canvas)
     if (pendingRelease !== undefined) window.clearTimeout(pendingRelease)
     pendingContextReleases.delete(canvas)
-    const gl = canvas.getContext("webgl", { antialias: false })
-    if (!gl) return
+    const glRaw = canvas.getContext("webgl", { antialias: false })
+    if (!glRaw) return
+    const gl: WebGLRenderingContext = glRaw
 
     const compile = (type: number, src: string) => {
       const s = gl.createShader(type)!
@@ -336,7 +338,7 @@ export function ShaderBackground({ className }: { className?: string }) {
     let targetX = 0, targetY = 0, targetPresence = 0
     let mouseX = 0, mouseY = 0, cursorPresence = 0
     let pointerKnown = false, pointerClientX = 0, pointerClientY = 0
-    let bounds = canvas.getBoundingClientRect()
+    let bounds = c.getBoundingClientRect()
     let raf = 0
     let lastNow: number | null = null
     let visible = document.visibilityState === "visible"
@@ -352,9 +354,9 @@ export function ShaderBackground({ className }: { className?: string }) {
       const pixelScale = Math.min(1, Math.sqrt(2_000_000 / Math.max(1, rawWidth * rawHeight)))
       const width = Math.max(1, Math.round(rawWidth * pixelScale))
       const height = Math.max(1, Math.round(rawHeight * pixelScale))
-      if (canvas.width !== width || canvas.height !== height) {
-        canvas.width = width
-        canvas.height = height
+      if (c.width !== width || c.height !== height) {
+        c.width = width
+        c.height = height
         gl.viewport(0, 0, width, height)
       }
     }
@@ -378,10 +380,10 @@ export function ShaderBackground({ className }: { className?: string }) {
     }
     const onPointerMove = (event: PointerEvent) => {
       pointerKnown = true; pointerClientX = event.clientX; pointerClientY = event.clientY
-      bounds = canvas.getBoundingClientRect(); updatePointerTarget()
+      bounds = c.getBoundingClientRect(); updatePointerTarget()
     }
     const onPointerLeave = () => { pointerKnown = false; targetPresence = 0; requestRender() }
-    const updateLayout = () => { bounds = canvas.getBoundingClientRect(); resizeCanvas(); updatePointerTarget(); requestRender() }
+    const updateLayout = () => { bounds = c.getBoundingClientRect(); resizeCanvas(); updatePointerTarget(); requestRender() }
     window.addEventListener("resize", updateLayout)
     if (UNIFORMS.cursorEnabled) {
       window.addEventListener("pointermove", onPointerMove, { passive: true })
@@ -416,7 +418,7 @@ export function ShaderBackground({ className }: { className?: string }) {
       mouseY += (targetY - mouseY) * follow
       cursorPresence += (targetPresence - cursorPresence) * follow
       resizeCanvas()
-      const width = canvas.width, height = canvas.height
+      const width = c.width, height = c.height
       gl.uniform4f(uni.scene, width, height, ((now - start) / 1000) * UNIFORMS.timeScale, UNIFORMS.colorCount)
       gl.uniform4f(uni.space, UNIFORMS.offsetX, UNIFORMS.offsetY, mouseX, mouseY)
       gl.uniform4f(uni.cursor, UNIFORMS.cursorEnabled ? cursorPresence : 0, UNIFORMS.cursorEffect, UNIFORMS.cursorStrength, UNIFORMS.cursorRadius)
@@ -449,8 +451,8 @@ export function ShaderBackground({ className }: { className?: string }) {
         if (pendingContextReleases.get(canvas) !== releaseTimer) return
         pendingContextReleases.delete(canvas)
         gl.getExtension("WEBGL_lose_context")?.loseContext()
-        canvas.width = 1
-        canvas.height = 1
+        c.width = 1
+        c.height = 1
       }, 0)
       pendingContextReleases.set(canvas, releaseTimer)
     }
