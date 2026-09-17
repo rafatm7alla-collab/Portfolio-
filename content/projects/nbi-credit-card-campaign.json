@@ -41,13 +41,14 @@
     { "type": "text",
       "body": "The visual treatment draws on warm, naturalistic lighting and a cinematic colour palette to ground the story in a familiar Iraqi setting. Dutch angles and tight close-ups heighten the character's tension, while the domino motif threads through every frame as a visual metaphor." },
 
-    { "type": "twoUp",
-      "images": ["treatment-01.jpg", "treatment-02.jpg"],
-      "size": "contained", "widthPercent": 70 },
-
-    { "type": "twoUp",
-      "images": ["treatment-03.jpg", "treatment-04.jpg"],
-      "size": "contained", "widthPercent": 70 },
+    { "type": "grid",
+      "columns": 2,
+      "images": [
+        "treatment-01.jpg",
+        "treatment-02.jpg",
+        "treatment-03.jpg",
+        "treatment-04.jpg"
+      ] },
 
     { "type": "sectionHeader",
       "title": "My Role" },

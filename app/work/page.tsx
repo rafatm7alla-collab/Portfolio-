@@ -5,6 +5,7 @@ import { Page } from '@/components/primitives/Layout'
 import { SectionHeader } from '@/components/type/Type'
 import { WorkBrowserDraft } from '@/components/work/WorkBrowserDraft'
 import { ContactBlock } from '@/components/chrome/ContactBlock'
+import { ShaderBackground } from '@/components/ui/plasma-shader'
 
 export const metadata: Metadata = {
   title: 'Work',
@@ -25,27 +26,45 @@ export default function WorkPage() {
         headline. The floor here is above the nav's own height, so the
         headline starts below it at every breakpoint.
       */}
-      <section className="pt-[clamp(100px,26vh,300px)]">
-        <Page>
-          <SectionHeader
-            bold="Project"
-            light="categories"
-            count={String(projects.length).padStart(2, '0')}
-            as="h1"
-          />
-        </Page>
+      {/* HERO — plasma shader behind the "Project categories" header. */}
+      <section
+        data-invert
+        data-nav="dark"
+        className="relative overflow-hidden pt-[clamp(100px,26vh,300px)] pb-[clamp(80px,12vh,160px)]"
+        style={{ background: '#000', color: '#fff' }}
+      >
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{ zIndex: 0 }}
+        >
+          <ShaderBackground className="h-full w-full" />
+        </div>
+        <div className="relative" style={{ zIndex: 1 }}>
+          <Page>
+            <SectionHeader
+              bold="Project"
+              light="categories"
+              count={String(projects.length).padStart(2, '0')}
+              as="h1"
+            />
+          </Page>
+        </div>
+      </section>
 
-        {/* useSearchParams needs a Suspense boundary on a statically
-            rendered route. The fallback holds the strip's height so the
-            page does not jump while it hydrates. */}
+      {/* CATEGORIES — solid white, black text and icons, no shader. */}
+      <section style={{ background: '#fff', color: '#000' }}>
         <Suspense
-          fallback={<div className="mt-[clamp(40px,7vh,88px)] h-[clamp(340px,46vh,460px)]" />}
+          fallback={<div className="h-[clamp(340px,46vh,460px)]" />}
         >
           <WorkBrowserDraft categories={categories} projects={projects} />
         </Suspense>
       </section>
 
-      <ContactBlock />
+      {/* CONTACT — white background, black text, no shader. */}
+      <section style={{ background: '#fff', color: '#000' }}>
+        <ContactBlock />
+      </section>
     </>
   )
 }

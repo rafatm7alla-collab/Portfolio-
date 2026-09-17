@@ -6,7 +6,11 @@ import type { Category, CategoryId, WorkProject } from '@/data/work'
 import { CategorySymbol } from '@/components/work/CategorySymbol'
 import { Micro } from '@/components/type/Type'
 import { useInView } from '@/lib/useInView'
+import { ShaderBackground } from '@/components/ui/plasma-shader'
 import '@/components/work/WorkBrowserDraft.css'
+
+/** Shader now lives on the parent section (see app/work/page.tsx). */
+const SHADER_BG = false
 
 /* ─── Stagger wrapper ──────────────────────────────────────────── */
 
@@ -239,13 +243,21 @@ export function WorkBrowserDraft({
 
   return (
     <section
-      data-invert
-      data-nav="dark"
-      className="wbd mt-[clamp(40px,7vh,88px)] pb-[clamp(24px,4vh,48px)]"
+      className="wbd relative mt-[clamp(40px,7vh,88px)] pb-[clamp(24px,4vh,48px)] overflow-hidden"
+      style={SHADER_BG ? { background: '#000' } : undefined}
     >
+      {SHADER_BG && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0"
+          style={{ zIndex: 0 }}
+        >
+          <ShaderBackground className="h-full w-full" />
+        </div>
+      )}
       <div
-        className="page border-t"
-        style={{ borderColor: 'var(--hairline)' }}
+        className="page border-t relative"
+        style={{ borderColor: 'var(--hairline)', zIndex: 1 }}
       >
         {categories.map((category) => (
           <CategoryRow
