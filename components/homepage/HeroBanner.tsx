@@ -6,6 +6,10 @@ import { profile } from '@/data/profile'
 import { Page } from '@/components/primitives/Layout'
 import { DisplayStack, Meta, Micro } from '@/components/type/Type'
 import { gsap } from '@/lib/gsap'
+import { ShaderBackground } from '@/components/ui/plasma-shader'
+
+/** DRAFT — flip to false to restore the solid-black banner. */
+const SHADER_HERO = true
 
 export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
   const [isClicked, setIsClicked] = useState(false)
@@ -136,13 +140,31 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
           />
         )}
 
-        {/* Banner layer — shows black by default, transparent when clicked */}
+        {/* Plasma veil — dark shader over portrait, mostly opaque with
+            slow "windows" of lighter grey that let the portrait bleed
+            through. Only on desktop, where a portrait layer exists. */}
+        {SHADER_HERO && !isMobile && !isClicked && (
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 z-[2]"
+            style={{
+              mixBlendMode: 'multiply',
+              filter: 'brightness(0.55)',
+            }}
+          >
+            <ShaderBackground className="h-full w-full" />
+          </div>
+        )}
+
+        {/* Banner layer — solid black by default (no shader), transparent
+            when clicked, transparent while the shader is running. */}
         <section
           data-invert={!isClicked}
           data-nav={isClicked ? "light" : "dark"}
-          className="absolute inset-0 z-[2] flex flex-col justify-center overflow-hidden transition-all duration-300"
+          className="absolute inset-0 z-[3] flex flex-col justify-center overflow-hidden transition-all duration-300"
           style={{
-            backgroundColor: isClicked ? 'transparent' : 'black',
+            backgroundColor:
+              isClicked || (SHADER_HERO && !isMobile) ? 'transparent' : 'black',
           }}
         >
           <Page className="absolute inset-x-0 top-0 pt-[clamp(28px,4vh,48px)]">
