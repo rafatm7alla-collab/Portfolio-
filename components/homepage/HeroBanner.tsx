@@ -140,17 +140,20 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
           />
         )}
 
-        {/* Plasma veil — dark shader over portrait, mostly opaque with
-            slow "windows" of lighter grey that let the portrait bleed
-            through. Only on desktop, where a portrait layer exists. */}
-        {SHADER_HERO && !isMobile && !isClicked && (
+        {/* Plasma layer.
+            - Desktop: multiplies over the portrait so lighter plasma
+              swirls reveal the photo underneath.
+            - Mobile: no portrait layer exists, so the plasma runs on
+              solid black as a straight motion background. */}
+        {SHADER_HERO && !isClicked && (
           <div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 z-[2]"
-            style={{
-              mixBlendMode: 'multiply',
-              filter: 'brightness(0.55)',
-            }}
+            style={
+              isMobile
+                ? { background: '#000' }
+                : { mixBlendMode: 'multiply', filter: 'brightness(0.55)' }
+            }
           >
             <ShaderBackground className="h-full w-full" />
           </div>
@@ -164,7 +167,7 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
           className="absolute inset-0 z-[3] flex flex-col justify-center overflow-hidden transition-all duration-300"
           style={{
             backgroundColor:
-              isClicked || (SHADER_HERO && !isMobile) ? 'transparent' : 'black',
+              isClicked || SHADER_HERO ? 'transparent' : 'black',
           }}
         >
           <Page className="absolute inset-x-0 top-0 pt-[clamp(28px,4vh,48px)]">
