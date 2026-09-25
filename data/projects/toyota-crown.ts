@@ -36,7 +36,7 @@ export const toyotaCrown: Project = {
   role: 'Creative Director',
 
   shortDescription:
-    '[DRAFT] Launch campaign for the Toyota Crown in the Iraqi market.',
+    'Full campaign study for the Crown model in the Iraqi market.',
 
   /**
    * Supplied by Rafat, exactly as written. Renders large and light above

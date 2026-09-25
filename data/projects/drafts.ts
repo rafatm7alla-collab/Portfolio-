@@ -36,6 +36,8 @@ type Draft = {
   heroVariant: 'cover' | 'typographic'
   order: number
   next: string
+  /** One-line descriptor rendered under the project title. */
+  shortDescription: string
 }
 
 const drafts: Draft[] = [
@@ -50,6 +52,7 @@ const drafts: Draft[] = [
     heroVariant: 'typographic',
     order: 2,
     next: 'lexus-lx-2024',
+    shortDescription: 'Full brand identity project.',
   },
   {
     slug: 'lexus-lx-2024',
@@ -62,6 +65,7 @@ const drafts: Draft[] = [
     heroVariant: 'cover',
     order: 3,
     next: 'al-zaytoun-terraces',
+    shortDescription: 'Two campaigns in one project.',
   },
   {
     slug: 'al-zaytoun-terraces',
@@ -74,6 +78,7 @@ const drafts: Draft[] = [
     heroVariant: 'cover',
     order: 4,
     next: 'vision-house',
+    shortDescription: 'Where elite belong in Baghdad — full brand identity.',
   },
   {
     slug: 'vision-house',
@@ -86,6 +91,7 @@ const drafts: Draft[] = [
     heroVariant: 'cover',
     order: 5,
     next: 'praline',
+    shortDescription: 'Marketing agency and production house identity.',
   },
   {
     slug: 'praline',
@@ -98,6 +104,7 @@ const drafts: Draft[] = [
     heroVariant: 'typographic',
     order: 6,
     next: 'toyota-crown',
+    shortDescription: 'Brand identity for a daily bakery in Erbil.',
   },
 ]
 
@@ -116,7 +123,7 @@ const build = (d: Draft): Project => ({
   services: d.services,
   role: '[Role]',
 
-  shortDescription: `[DRAFT] One sentence about ${d.title}, maximum twenty words.`,
+  shortDescription: d.shortDescription,
   lede: '[DRAFT] One sentence, maximum twenty words, set in Light.',
   brief:
     '[DRAFT — 60–90 words] Situation and constraint, written so it could not be pasted onto a different project.',
