@@ -11,6 +11,7 @@
   "noMasthead": true,
   "noRounding": false,
   "nextProjectSlug": "[NEXT]",
+  "theme": "dark",
 
   "blocks": [
 
