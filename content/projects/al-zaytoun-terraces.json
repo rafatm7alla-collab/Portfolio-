@@ -1,9 +1,9 @@
 {
   "slug": "al-zaytoun-terraces",
   "title": "Al Zaytoun Terraces",
-  "client": "International Free Company (IFC)",
+  "client": "Al Zaytoun Residences | Powered by Mövenpick Hotels & Resorts",
   "role": "Brand Identity & Guidelines",
-  "year": "[YEAR]",
+  "year": "2026",
   "location": "Baghdad, Iraq",
   "cover": "hero.jpg",
   "assetPrefix": "",
@@ -11,7 +11,6 @@
   "noMasthead": true,
   "noRounding": false,
   "nextProjectSlug": "[NEXT]",
-  "theme": "dark",
 
   "blocks": [
 
