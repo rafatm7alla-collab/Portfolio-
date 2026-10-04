@@ -42,7 +42,6 @@ function SelectedWork() {
             <SectionHeader
               bold="Selected"
               light="projects"
-              count={String(featuredProjects.length).padStart(2, '0')}
             />
             <Rule className="mt-[clamp(40px,6vw,80px)]" />
           </Page>
@@ -81,7 +80,8 @@ function AboutBlock() {
         <Reveal delay={80} className="mt-[clamp(32px,5vw,64px)]">
           <div className="grid-page">
             <p className="t-headline col-span-4 md:col-span-7 lg:col-span-8">
-              {profile.aboutStatement}
+              <span className="hl-accent">Twelve years</span> directing brands
+              across identity, campaign and digital.
             </p>
           </div>
         </Reveal>

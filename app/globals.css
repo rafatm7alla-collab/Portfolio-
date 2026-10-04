@@ -649,3 +649,16 @@
     transition: none;
   }
 }
+
+/* ─── HIGHLIGHT ACCENT ────────────────────────────────────────────
+   Marker-style highlight used sparingly to pull the eye to a key
+   phrase (About statement, selected words). Wraps across lines
+   via box-decoration-break; sits BEHIND the glyphs with a tiny
+   negative inset so it reads as a drawn stripe, not a chip. */
+.hl-accent {
+  background: #00ff41;
+  color: #000;
+  padding: 0.02em 0.12em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}

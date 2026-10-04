@@ -27,7 +27,6 @@ export default function ProjectsIndex() {
         <SectionHeader
           bold="All"
           light="projects"
-          count={String(manifests.length).padStart(2, '0')}
           as="h1"
         />
       </Page>

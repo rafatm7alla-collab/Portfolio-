@@ -45,7 +45,6 @@ export default function WorkPage() {
             <SectionHeader
               bold="Project"
               light="categories"
-              count={String(projects.length).padStart(2, '0')}
               as="h1"
             />
           </Page>
