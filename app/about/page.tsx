@@ -69,7 +69,7 @@ export default function AboutPage() {
       {/* ─── Services ────────────────────────────────────────────── */}
       <section className="pt-[var(--section-gap)]" aria-labelledby="services">
         <Page>
-          <SectionHeader bold="What" light="I do" highlightLight />
+          <SectionHeader bold="What" light="I do" />
           <Rule className="mt-[clamp(40px,6vw,80px)]" />
 
           <ul className="mt-[clamp(40px,6vw,80px)]">
