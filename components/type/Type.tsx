@@ -71,11 +71,14 @@ export function SectionHeader({
   bold,
   light,
   count,
+  highlightLight,
   as: Tag = 'h2',
 }: {
   bold: string
   light: string
   count?: string
+  /** Render the light half on the green marker-highlight stripe. */
+  highlightLight?: boolean
   as?: ElementType
 }) {
   return (
@@ -87,7 +90,7 @@ export function SectionHeader({
         {/* The light half is set as authored — no transform. The weight
             and the indent carry the contrast, not a case change. */}
         <Reveal as="span" delay={80} className="t-light block pl-[0.32em]">
-          {light}
+          {highlightLight ? <span className="hl-accent">{light}</span> : light}
         </Reveal>
       </Tag>
       {count && (
