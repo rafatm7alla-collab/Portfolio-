@@ -658,6 +658,7 @@
 .hl-accent {
   background: #00ff41;
   color: #000;
+  font-weight: 700;
   padding: 0.02em 0.12em;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
