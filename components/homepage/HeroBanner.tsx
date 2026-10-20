@@ -234,7 +234,7 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
       </div>
 
       {/* Lede section below */}
-      <div className="pt-[clamp(36px,5vh,56px)]">
+      <div className="pt-[clamp(20px,3vh,36px)]">
         <Page>
           <div className="grid-page">
             <div ref={ledeRef} className="col-span-4 md:col-span-5 lg:col-span-5">

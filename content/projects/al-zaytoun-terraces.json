@@ -22,9 +22,9 @@
 
     { "type": "metaBar",
       "items": [
-        { "label": "Client", "value": "International Free Company (IFC)" },
+        { "label": "Client", "value": "Al Zaytoun Residences | Powered by Mövenpick Hotels & Resorts" },
         { "label": "Sector", "value": "Real Estate · Luxury Residential" },
-        { "label": "Year", "value": "[YEAR]" },
+        { "label": "Year", "value": "2026" },
         { "label": "Role", "value": "Brand Identity & Guidelines" },
         { "label": "Deliverables", "value": "Brand identity, guidelines, brochure, applications" }
       ] },
@@ -103,19 +103,19 @@
       "subtitle": "Primary, secondary, and supporting colours" },
 
     { "type": "text",
-      "body": "Dark Forest Green (#2D4A3E) is the foundation: heritage, nature, permanence, and the literal landscape strategy. Gold and warm metallics (#C9A876) mark the luxury details and premium moments. Cream and off-white provide breathing room and readability. Neutrals support flexibility across all applications." },
+      "body": "Three primary colours lead the identity. Verde Selva (#2A3B26) draws from ancient olive groves — the living legacy, resilience and peace. Terracotta (#A26E50) carries the memory of Baghdad's ochre-clay architecture, the warmth of weathered gold catching light. Bleu Oxford (#0C1828) anchors the system with quiet authority. A secondary palette — Sable Doux (#CBBDAF), Areia Fina (#F3F2ED) and Perola (#F0E9E1) — provides breathing room and softens the primaries at a 60 / 30 / 10 ratio across all applications." },
 
     { "type": "fullBleed", "image": "colour-primary.jpg",
-      "caption": "Primary — Dark Forest Green (#2D4A3E)" },
+      "caption": "Primary — Verde Selva (#2A3B26) · Terracotta (#A26E50) · Bleu Oxford (#0C1828)" },
 
     { "type": "fullBleed", "image": "colour-secondary.jpg",
-      "caption": "Secondary — Gold / Warm Metallics (#C9A876)" },
+      "caption": "Secondary — Sable Doux (#CBBDAF) · Areia Fina (#F3F2ED) · Perola (#F0E9E1)" },
 
     { "type": "fullBleed", "image": "colour-supporting.jpg",
-      "caption": "Supporting — Neutrals, Cream, Off-white" },
+      "caption": "Tonal range — tints toward white, shades toward black, base outlined in terracotta" },
 
     { "type": "fullBleed", "image": "colour-usage.jpg",
-      "caption": "Colour usage guidelines and combinations" },
+      "caption": "Colour usage — 60 / 30 / 10 proportion across all applications" },
 
 
 
@@ -124,16 +124,16 @@
       "subtitle": "Type system and hierarchy" },
 
     { "type": "text",
-      "body": "Playfair Display carries the headlines, premium moments, and heritage connection. Inter handles body copy, UI, and supporting text for accessibility. The hierarchy runs from H1 at 56-64px Playfair through to body text at 16-18px Inter. Usage extends to signage, unit naming (The Avenue Suite, The Panorama, The Crown Penthouse), and marketing materials." },
+      "body": "Playfair Display is the primary face — a high-contrast serif that carries ultra headlines (Black), headlines (Medium) and the heritage connection. Inter is the secondary face, handling primary sub-headlines (Medium), body copy, UI and supporting text (Regular, SemiBold, Bold) with full accessibility. The type system runs: Ultra Headline (Playfair Display Black) → Headline (Playfair Display Medium) → Primary Sub-Headline (Inter Medium) → Body (Inter Regular). The same pair governs signage, unit naming (The Avenue Suite, The Panorama, The Crown Penthouse) and every marketing surface." },
 
     { "type": "fullBleed", "image": "type-primary.jpg",
-      "caption": "Primary — Playfair Display" },
+      "caption": "Primary — Playfair Display (Regular → Black, Italic weights)" },
 
     { "type": "fullBleed", "image": "type-secondary.jpg",
-      "caption": "Secondary — Inter" },
+      "caption": "Secondary — Inter (Regular · SemiBold · Bold)" },
 
     { "type": "fullBleed", "image": "type-hierarchy.jpg",
-      "caption": "Typography scales and hierarchy" },
+      "caption": "Type system — Ultra Headline · Headline · Sub-Headline · Body" },
 
 
 
@@ -390,10 +390,11 @@
     { "type": "credits",
       "items": [
         { "label": "Brand identity and art direction", "value": "Rafat Mhalla" },
-        { "label": "Client", "value": "International Free Company (IFC)" },
+        { "label": "Client", "value": "Al Zaytoun Residences | Powered by Mövenpick Hotels & Resorts" },
+        { "label": "Developer", "value": "International Free Company (IFC)" },
         { "label": "Architect", "value": "Manhal Habboubi Architectural Office" },
         { "label": "Location", "value": "Baghdad Green Zone, Iraq" },
-        { "label": "Year", "value": "[YEAR]" }
+        { "label": "Year", "value": "2026" }
       ] }
   ]
 }

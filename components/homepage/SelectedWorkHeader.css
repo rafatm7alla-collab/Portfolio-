@@ -4,7 +4,7 @@
    continuous from the hero straight through to the project list. */
 .sw-header-stack-wrapper {
   position: relative;
-  height: 62vh;
+  height: 34vh;
   margin-top: -4vh;
   overflow-anchor: none;
 }
@@ -13,14 +13,14 @@
   position: sticky;
   top: 0;
   background: var(--color-paper, #ffffff);
-  padding-top: clamp(48px, 8vh, 96px);
-  padding-bottom: clamp(24px, 4vh, 48px);
+  padding-top: clamp(24px, 4vh, 48px);
+  padding-bottom: clamp(12px, 2vh, 24px);
   overflow-anchor: none;
 }
 
 @media (max-width: 768px) {
   .sw-header-stack-wrapper {
-    height: 46vh;
+    height: 26vh;
     margin-top: -2vh;
   }
 }

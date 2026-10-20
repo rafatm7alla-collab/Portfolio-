@@ -43,7 +43,7 @@ function SelectedWork() {
               bold="Selected"
               light="projects"
             />
-            <Rule className="mt-[clamp(40px,6vw,80px)]" />
+            <Rule className="mt-[clamp(20px,3vw,40px)]" />
           </Page>
         </div>
       </div>
