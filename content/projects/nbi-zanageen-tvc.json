@@ -1,0 +1,85 @@
+{
+  "slug": "nbi-zanageen-tvc",
+  "title": "NBI — Zanageen TVC",
+  "client": "National Bank of Iraq",
+  "role": "Creative Art Director",
+  "year": "2026",
+  "tags": ["TVC", "Campaign Concept", "Creative Direction", "Film Development"],
+  "summary": "A 60-second National Bank of Iraq commercial following Mr. Jawad as he moves through the everyday struggles of Iraqi business owners and reveals the solutions waiting at each step.",
+  "theme": "dark",
+
+  "meta": {
+    "title": "NBI — Zanageen TVC | Rafat Mhalla",
+    "description": "A 60-second NBI TV commercial creatively directed by Rafat Mhalla at Vision House. Mr. Jawad, an elder of wisdom and trust, walks through the obstacles business owners face and reveals the bank that stands with them."
+  },
+
+  "blocks": [
+
+    { "type": "text",
+      "body": "A 60-second TV commercial built around Mr. Jawad — an elder presence of wisdom, respect and trust. Dressed in a classic suit, he moves through the struggles of business owners with calm authority. His watchful eyes and measured steps tell people he understands, and that change is coming." },
+
+    { "type": "videoEmbed",
+      "provider": "vimeo",
+      "id": "1232567880",
+      "title": "NBI — Zanageen TVC",
+      "size": "full" },
+
+    { "type": "text",
+      "body": "Creative and Art Direction by Mohammed Jalal & Rafat JHD Mhalla · Vision House · 60 sec",
+      "light": true },
+
+    { "type": "sectionHeader",
+      "title": "The Challenge" },
+
+    { "type": "text",
+      "body": "Business owners at every stage face the same obstacles: slow payments that cost time and customers, shipments that stall before deals begin, old processes that slow every result, and projects that wait for funding to move forward. Many don't realise support exists at each step." },
+
+    { "type": "sectionHeader",
+      "title": "The Idea" },
+
+    { "type": "text",
+      "body": "Mr. Jawad is the bridge between people's fears and the solution. He observes each struggle in silence, then steps forward with the answer. The film positions the bank as the partner that stays with a business — from the smallest shop to the biggest deal." },
+
+    { "type": "sectionHeader",
+      "title": "Film Structure" },
+
+    { "type": "text",
+      "heading": "01 · Restaurant",
+      "body": "A busy, cramped restaurant. The cashier is overwhelmed by cash. Mr. Jawad stands still in the crowd.\n\nVO (EN): \"Some struggle to take payments, losing time, losing customers.\"\nVO (AR): [TODO]" },
+
+    { "type": "text",
+      "heading": "02 · Importer / Exporter",
+      "body": "A warehouse with half-empty shelves and a truck waiting outside. Mr. Jawad watches silently at the end of a shelf.\n\nVO (EN): \"Some can't ship their goods. Deals stop before they start.\"\nVO (AR): [TODO]" },
+
+    { "type": "text",
+      "heading": "03 · Old Office",
+      "body": "A finance office buried in paperwork. Mr. Jawad observes from the hall.\n\nVO (EN): \"Some are trapped in old ways. Slow work, slow results.\"\nVO (AR): [TODO]" },
+
+    { "type": "text",
+      "heading": "04 · Government Project",
+      "body": "A construction site frozen, machines silent. Mr. Jawad watches from a distance.\n\nVO (EN): \"Some projects wait for the money to move forward.\"\nVO (AR): [TODO]" },
+
+    { "type": "text",
+      "heading": "05 · Luxury Office",
+      "body": "A high-floor boardroom. The owner stares at unpaid contracts while others leave. Mr. Jawad remains seated, then stands and looks directly at camera.\n\nMr. Jawad (direct, EN): \"Money is the lifeblood of business — from the smallest shop to the biggest deal.\"\nVO (AR): [TODO]" },
+
+    { "type": "sectionHeader",
+      "title": "My Role" },
+
+    { "type": "text",
+      "body": "As a freelance Creative Director with Vision House, I worked alongside Mohammed Jalal to shape the film's visual language — the character of Mr. Jawad, the restraint of each scene, and the shift from struggle to solution — from script and storyboard through to the final cut." },
+
+    { "type": "credits",
+      "items": [
+        { "label": "Client", "value": "National Bank of Iraq" },
+        { "label": "Production House", "value": "Vision House" },
+        { "label": "Creative and Art Director", "value": "Mohammed Jalal & Rafat JHD Mhalla" },
+        { "label": "Deliverables", "value": "TVC script, storyboard, visual direction, AI-assisted stills" }
+      ] },
+
+    { "type": "text",
+      "body": "TVC · Campaign Concept · Creative Direction · Film Development",
+      "light": true }
+
+  ]
+}

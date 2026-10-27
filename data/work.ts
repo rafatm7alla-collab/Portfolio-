@@ -194,6 +194,15 @@ export const projects: WorkProject[] = [
     href: '/projects/hilux-let-it-carry-your-load',
   },
   {
+    id: 'nbi-zanageen-tvc',
+    title: 'NBI — Zanageen',
+    client: 'National Bank of Iraq',
+    year: '2026',
+    categories: ['tvc'],
+    cover: '/projects/nbi-zanageen-tvc/cover.jpg',
+    href: '/projects/nbi-zanageen-tvc',
+  },
+  {
     id: 'state-of-chaos',
     title: 'State of Chaos',
     client: null,
