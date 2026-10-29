@@ -54,13 +54,6 @@ function SelectedWork() {
         <PortfolioShowcase projects={featuredProjects} />
       )}
 
-      <Page>
-        <div className="flex justify-end pb-[var(--section-gap)]">
-          <Link href="/work" className="t-meta link">
-            All work ({String(projects.length).padStart(2, '0')}) →
-          </Link>
-        </div>
-      </Page>
     </section>
   )
 }

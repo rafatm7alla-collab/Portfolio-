@@ -104,6 +104,23 @@
   text-transform: uppercase;
   color: rgba(255,255,255,0.35);
   font-weight: 400;
+  transition: color 300ms cubic-bezier(0.4, 0, 0.2, 1),
+              letter-spacing 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Clickable "All work →" tile — same black plate, but a real link
+   with a cursor, bigger label, and a readable hover state. */
+.swm-tile--allwork {
+  cursor: pointer;
+}
+.swm-tile--allwork .swm-placeholder-label {
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+}
+.swm-tile--allwork:hover .swm-placeholder-label,
+.swm-tile--allwork:focus-visible .swm-placeholder-label {
+  color: #fff;
+  letter-spacing: 0.38em;
 }
 
 .swm-image-wrap {

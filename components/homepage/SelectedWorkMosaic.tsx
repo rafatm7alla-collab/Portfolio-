@@ -166,13 +166,18 @@ function ManualTile({ data }: { data: ManualTileData }) {
   )
 }
 
-function Placeholder({ slot }: { slot: string }) {
+function AllWorkTile({ slot }: { slot: string }) {
   return (
-    <div className="swm-tile swm-tile--placeholder" data-slot={slot} aria-hidden="true">
+    <Link
+      href="/work"
+      className="swm-tile swm-tile--placeholder swm-tile--allwork"
+      data-slot={slot}
+      aria-label="View all work"
+    >
       <div className="swm-placeholder-inner">
-        <span className="swm-placeholder-label">Next project</span>
+        <span className="swm-placeholder-label">All work →</span>
       </div>
-    </div>
+    </Link>
   )
 }
 
@@ -194,7 +199,7 @@ export function SelectedWorkMosaic({ projects }: { projects: Project[] }) {
           <ManualTile key={tile.slot} data={tile} />
         ))}
         {PLACEHOLDER_SLOTS.map((slot) => (
-          <Placeholder key={slot} slot={slot} />
+          <AllWorkTile key={slot} slot={slot} />
         ))}
       </div>
     </div>
