@@ -6,8 +6,6 @@ import { Blocks } from '@/components/blocks/Blocks'
 import { Page, Rule } from '@/components/primitives/Layout'
 import { Meta, Micro } from '@/components/type/Type'
 import { directionProps } from '@/lib/rtl'
-import { getProject } from '@/data/projects'
-import { NextProject } from '@/components/work/NextProject'
 import { projects as workProjects } from '@/data/work'
 import { MastheadEntrance } from '@/components/blocks/MastheadEntrance'
 
@@ -41,7 +39,6 @@ export default async function ManifestProjectPage({ params }: Params) {
   if (!manifest) notFound()
 
   const cover = manifest.cover ? manifestImage(slug, manifest.cover, manifest.title) : null
-  const nextProject = manifest.nextProjectSlug ? getProject(manifest.nextProjectSlug) : undefined
 
   const isArtSection = workProjects
     .find((p) => p.href === `/projects/${slug}`)
@@ -130,7 +127,11 @@ export default async function ManifestProjectPage({ params }: Params) {
       )}
       </div>
 
-      {nextProject && <NextProject project={nextProject} />}
+      <section className="all-projects-cta">
+        <Link href="/work" className="all-projects-cta__link">
+          View all projects →
+        </Link>
+      </section>
     </article>
   )
 }
