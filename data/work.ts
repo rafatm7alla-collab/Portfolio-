@@ -203,6 +203,15 @@ export const projects: WorkProject[] = [
     href: '/projects/nbi-zanageen-tvc',
   },
   {
+    id: 'nbi-bank-account-stories-women',
+    title: 'NBI — Bank Account Stories | Women',
+    client: 'National Bank of Iraq',
+    year: '2026',
+    categories: ['tvc'],
+    cover: '/projects/nbi-bank-account-stories-women/cover.jpg',
+    href: '/projects/nbi-bank-account-stories-women',
+  },
+  {
     id: 'state-of-chaos',
     title: 'State of Chaos',
     client: null,

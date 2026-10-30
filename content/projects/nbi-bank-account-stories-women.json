@@ -1,0 +1,101 @@
+{
+  "slug": "nbi-bank-account-stories-women",
+  "title": "NBI — Bank Account Stories | Women",
+  "client": "National Bank of Iraq",
+  "role": "Creative Director",
+  "year": "2026",
+  "tags": ["TVC", "Documentary", "Creative Direction", "Film Development"],
+  "summary": "A three-film documentary series with a teaser. Each film gives one Iraqi woman space to tell how she opened her account with NBI and what changed for her.",
+  "theme": "dark",
+
+  "meta": {
+    "title": "NBI — Bank Account Stories | Women | Rafat Mhalla",
+    "description": "A three-film NBI documentary series. Each film gives one Iraqi woman space to tell how she opened her account with NBI and what changed for her. Creative direction by Rafat Mhalla and Muhammad Jalal at Vision House."
+  },
+
+  "blocks": [
+
+    { "type": "text",
+      "body": "A three-film documentary series with a teaser. Each film gives one Iraqi woman space to tell how she opened her account with NBI and what changed for her." },
+
+    { "type": "fullBleed", "image": "first-banner.jpg",
+      "caption": "" },
+
+    { "type": "sectionHeader",
+      "title": "Teaser" },
+
+    { "type": "videoEmbed",
+      "provider": "vimeo",
+      "id": "1232565791?h=7a5889b084",
+      "title": "NBI Bank Account Stories | Women — teaser",
+      "size": "full" },
+
+    { "type": "sectionHeader",
+      "title": "Film 1 · The House Wife" },
+
+    { "type": "text",
+      "body": "She has always wanted a home of her own, and this film follows the moment that dream starts to become real." },
+
+    { "type": "videoEmbed",
+      "provider": "vimeo",
+      "id": "1232828696?h=a95bb974f0",
+      "title": "The Key to Your Dream Home | NBI Housing Loan",
+      "size": "full" },
+
+    { "type": "sectionHeader",
+      "title": "Film 2 · The Mother" },
+
+    { "type": "text",
+      "body": "She is building a secure future for her children, one decision at a time, in a home where they can grow." },
+
+    { "type": "videoEmbed",
+      "provider": "vimeo",
+      "id": "1232829103?h=ef188c80e8",
+      "title": "Building Your Child's Future with NBI",
+      "size": "full" },
+
+    { "type": "sectionHeader",
+      "title": "Film 3 · The Employee and Student" },
+
+    { "type": "text",
+      "body": "She is tired of waiting for salary day, and this film shows her imagining a life that moves forward on her own terms." },
+
+    { "type": "videoEmbed",
+      "provider": "vimeo",
+      "id": "1232828862?h=9229ac46da",
+      "title": "Don't Wait for Salary Day | Real Success Stories",
+      "size": "full" },
+
+    { "type": "sectionHeader",
+      "title": "The Approach" },
+
+    { "type": "text",
+      "body": "The films avoid an ad voice. Women speak directly to camera in their own words, so the audience hears a real decision and its outcome." },
+
+    { "type": "sectionHeader",
+      "title": "Tone & Visual Story" },
+
+    { "type": "text",
+      "body": "Intimate, calm, honest. The look starts cool and restrained when the women speak about the past, then warms as they talk about support and change." },
+
+    { "type": "sectionHeader",
+      "title": "Camera, Light & Sound" },
+
+    { "type": "text",
+      "body": "Two cameras per interview, locked-off, close and medium framing. Soft natural light, with gentle shadows in the past and warmer light in the present. Silence or light ambience at the start, then piano or strings as the story turns. The voice stays clear and central." },
+
+    { "type": "credits",
+      "items": [
+        { "label": "Client", "value": "National Bank of Iraq" },
+        { "label": "Production House", "value": "Vision House" },
+        { "label": "Creative Directors", "value": "Rafat Mhalla, Muhammad Jalal" },
+        { "label": "Year", "value": "2026" },
+        { "label": "Deliverables", "value": "Teaser and three documentary TV commercials" }
+      ] },
+
+    { "type": "text",
+      "body": "TVC · Documentary · Creative Direction · Film Development",
+      "light": true }
+
+  ]
+}
