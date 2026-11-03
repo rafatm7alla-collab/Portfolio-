@@ -63,6 +63,11 @@ export function Blocks({
         const noGap = 'noGap' in block && block.noGap
 
         const bothMedia = isMediaBlock(block) && isMediaBlock(previous)
+        const isProseBlock = (b: Block | undefined): boolean =>
+          !!b && ['text', 'pullQuote', 'principles', 'credits'].includes(b.type)
+        const proseMeetsMedia =
+          (isMediaBlock(block) && isProseBlock(previous)) ||
+          (isProseBlock(block) && isMediaBlock(previous))
 
         const spacing = isFirst || noGap
           ? ''
@@ -72,7 +77,9 @@ export function Blocks({
               ? 'pt-[var(--block-gap-lg)]'
               : previous?.type === 'sectionHeader'
                 ? 'pt-[var(--block-gap-sm)]'
-                : 'pt-[var(--block-gap)]'
+                : proseMeetsMedia
+                  ? 'pt-[var(--block-gap-prose-media)]'
+                  : 'pt-[var(--block-gap)]'
 
         return (
           <section key={i} className={spacing}>

@@ -108,6 +108,9 @@
   --block-gap: clamp(56px, 8vh, 112px);
   --block-gap-lg: clamp(96px, 14vh, 200px); /* above a section header */
   --block-gap-sm: clamp(32px, 4vh, 56px); /* below a section header */
+  /* Breathing room when prose meets a banner / video — about three
+     lines of body text, so the copy never touches the frame edge. */
+  --block-gap-prose-media: clamp(72px, 10vh, 144px);
 
   /* Contextual colour — flipped wholesale by [data-invert] */
   --paper: var(--color-paper);
@@ -138,6 +141,7 @@
     --block-gap: 20px;
     --block-gap-lg: 36px;
     --block-gap-sm: 10px;
+    --block-gap-prose-media: 56px;
     --section-gap: 40px;
   }
 
