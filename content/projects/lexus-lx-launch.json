@@ -202,6 +202,15 @@
       "noGap": true
     },
     {
+      "type": "video",
+      "file": "end-of-year-campaign-03-wide.mp4",
+      "title": "",
+      "size": "contained",
+      "widthPercent": 70,
+      "aspect": "16 / 9",
+      "noGap": true
+    },
+    {
       "type": "fullBleed",
       "image": "lx-20-es-lx-bw.jpg",
       "size": "contained",
