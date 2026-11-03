@@ -197,9 +197,9 @@
     {
       "type": "fullBleed",
       "image": "lx-19-yamna-colours.png",
-      "caption": "The offer, across the range's four finishes",
       "size": "contained",
-      "widthPercent": 70
+      "widthPercent": 70,
+      "noGap": true
     },
     {
       "type": "fullBleed",
