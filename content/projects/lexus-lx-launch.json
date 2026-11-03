@@ -182,13 +182,15 @@
       "type": "fullBleed",
       "image": "lx-17-yamna-lockup.jpg",
       "size": "contained",
-      "widthPercent": 70
+      "widthPercent": 70,
+      "noGap": true
     },
     {
       "type": "fullBleed",
       "image": "lx-18-mountain-road.jpg",
       "size": "contained",
-      "widthPercent": 70
+      "widthPercent": 70,
+      "noGap": true
     },
     {
       "type": "text",
