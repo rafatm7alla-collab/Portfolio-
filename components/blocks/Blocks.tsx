@@ -69,7 +69,12 @@ export function Blocks({
           (isMediaBlock(block) && isProseBlock(previous)) ||
           (isProseBlock(block) && isMediaBlock(previous))
 
-        const spacing = isFirst || noGap
+        // noGap is intended for flush runs of media. If the previous
+        // block is prose, we never let noGap starve the hinge — the
+        // text-to-banner breathing room always wins.
+        const effectiveNoGap = noGap && !isProseBlock(previous) && !isProseBlock(block)
+
+        const spacing = isFirst || effectiveNoGap
           ? ''
           : noBlockGaps && bothMedia
             ? 'pt-1'
