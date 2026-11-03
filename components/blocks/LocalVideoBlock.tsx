@@ -113,11 +113,13 @@ export function LocalVideoBlock({
         </MediaReveal>
       </div>
 
-      <Page>
-        <Micro secondary as="figcaption" className="mt-4" {...directionProps(title)}>
-          {title}
-        </Micro>
-      </Page>
+      {title && (
+        <Page>
+          <Micro secondary as="figcaption" className="mt-4" {...directionProps(title)}>
+            {title}
+          </Micro>
+        </Page>
+      )}
     </figure>
   )
 }
