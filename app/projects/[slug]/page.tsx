@@ -55,7 +55,12 @@ export default async function ManifestProjectPage({ params }: Params) {
     ] as const
   ).filter(([, value]) => Boolean(value))
 
-  const wip = manifest.wip === true
+  /**
+   * WIP overlay is only shown to ONLINE visitors — in production
+   * builds (e.g. Vercel). Locally (`next dev`) the flag is ignored so
+   * Rafat can keep working on the page without the overlay in the way.
+   */
+  const wip = manifest.wip === true && process.env.NODE_ENV === 'production'
 
   return (
     <article
@@ -64,53 +69,42 @@ export default async function ManifestProjectPage({ params }: Params) {
       {...(dark ? { 'data-invert': 'true', 'data-nav': 'dark' } : {})}
     >
       {wip && (
-        <>
-          {/* Floating "work in progress" overlay sits above the blurred
-              content. Flip `wip` to false in the manifest when the page
-              is ready to publish. */}
-          <div
-            aria-hidden="true"
-            className="pointer-events-none fixed inset-0 z-[80] flex items-center justify-center"
-          >
+        <div
+          className="fixed inset-0 z-[90] flex items-center justify-center"
+          style={{
+            background: 'rgba(10,10,10,0.92)',
+            backdropFilter: 'blur(28px)',
+            WebkitBackdropFilter: 'blur(28px)',
+          }}
+          role="status"
+          aria-live="polite"
+        >
+          <div className="px-6 text-center">
             <div
-              className="pointer-events-auto rounded-2xl px-10 py-10 text-center shadow-2xl backdrop-blur-xl"
+              className="font-bold uppercase text-white"
               style={{
-                background: 'rgba(10,10,10,0.72)',
-                border: '1px solid rgba(255,255,255,0.08)',
-                maxWidth: 'min(520px, 86vw)',
+                fontSize: 'clamp(72px, 14vw, 220px)',
+                letterSpacing: '-0.05em',
+                lineHeight: 0.92,
               }}
             >
-              <div
-                className="font-bold uppercase text-white"
-                style={{
-                  fontSize: 'clamp(44px, 7vw, 96px)',
-                  letterSpacing: '-0.04em',
-                  lineHeight: 1,
-                }}
-              >
-                Soon
-              </div>
-              <div
-                className="mt-4 uppercase text-white/60"
-                style={{
-                  fontSize: 'clamp(10px, 1vw, 12px)',
-                  letterSpacing: '0.28em',
-                }}
-              >
-                Work in progress · Will be uploaded soon
-              </div>
+              Soon
+            </div>
+            <div
+              className="mt-6 uppercase text-white/65"
+              style={{
+                fontSize: 'clamp(11px, 1.2vw, 14px)',
+                letterSpacing: '0.3em',
+              }}
+            >
+              Work in progress · the project will be live very soon
             </div>
           </div>
-          <div
-            aria-hidden="true"
-            className="pointer-events-none fixed inset-0 z-[70]"
-            style={{ background: 'rgba(0,0,0,0.25)' }}
-          />
-        </>
+        </div>
       )}
       <div
         className="pb-[var(--section-gap)]"
-        style={wip ? { filter: 'blur(14px)', pointerEvents: 'none' } : undefined}
+        style={wip ? { filter: 'blur(10px)' } : undefined}
         aria-hidden={wip || undefined}
       >
       {/* ─── Masthead, from the manifest's own fields ─── */}
