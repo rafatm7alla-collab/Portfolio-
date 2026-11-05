@@ -187,6 +187,11 @@ export type Manifest = {
   /** Suppress the page's own title/summary/dl masthead — for a project
    *  that opens on a `hero` block instead. */
   noMasthead?: boolean
+  /** When true, the page is treated as work-in-progress: the project
+   *  content renders blurred and a floating "Soon · Work in progress"
+   *  overlay sits above it. Flip to false (or delete the field) when
+   *  the project is ready to publish. */
+  wip?: boolean
   blocks: Block[]
 }
 

@@ -55,13 +55,64 @@ export default async function ManifestProjectPage({ params }: Params) {
     ] as const
   ).filter(([, value]) => Boolean(value))
 
+  const wip = manifest.wip === true
+
   return (
     <article
-      className={manifest.noMasthead ? '' : 'pt-[12vh] md:pt-[24vh]'}
+      className={`relative ${manifest.noMasthead ? '' : 'pt-[12vh] md:pt-[24vh]'}`}
       style={{ overflowAnchor: 'none' }}
       {...(dark ? { 'data-invert': 'true', 'data-nav': 'dark' } : {})}
     >
-      <div className="pb-[var(--section-gap)]">
+      {wip && (
+        <>
+          {/* Floating "work in progress" overlay sits above the blurred
+              content. Flip `wip` to false in the manifest when the page
+              is ready to publish. */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none fixed inset-0 z-[80] flex items-center justify-center"
+          >
+            <div
+              className="pointer-events-auto rounded-2xl px-10 py-10 text-center shadow-2xl backdrop-blur-xl"
+              style={{
+                background: 'rgba(10,10,10,0.72)',
+                border: '1px solid rgba(255,255,255,0.08)',
+                maxWidth: 'min(520px, 86vw)',
+              }}
+            >
+              <div
+                className="font-bold uppercase text-white"
+                style={{
+                  fontSize: 'clamp(44px, 7vw, 96px)',
+                  letterSpacing: '-0.04em',
+                  lineHeight: 1,
+                }}
+              >
+                Soon
+              </div>
+              <div
+                className="mt-4 uppercase text-white/60"
+                style={{
+                  fontSize: 'clamp(10px, 1vw, 12px)',
+                  letterSpacing: '0.28em',
+                }}
+              >
+                Work in progress · Will be uploaded soon
+              </div>
+            </div>
+          </div>
+          <div
+            aria-hidden="true"
+            className="pointer-events-none fixed inset-0 z-[70]"
+            style={{ background: 'rgba(0,0,0,0.25)' }}
+          />
+        </>
+      )}
+      <div
+        className="pb-[var(--section-gap)]"
+        style={wip ? { filter: 'blur(14px)', pointerEvents: 'none' } : undefined}
+        aria-hidden={wip || undefined}
+      >
       {/* ─── Masthead, from the manifest's own fields ─── */}
       {!manifest.noMasthead && (
       <MastheadEntrance>

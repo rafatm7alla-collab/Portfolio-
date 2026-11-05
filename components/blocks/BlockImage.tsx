@@ -75,56 +75,15 @@ export function BlockImage({
  * fixable mistake, and the fix is much faster when the page says which file.
  */
 /**
- * A missing asset used to render as a flat grey plate with the raw
- * filename as a reminder. Rafat asked for a public-facing "coming
- * soon" treatment instead: a quiet gradient ground, a large SOON
- * mark, and a short "will be uploaded soon" line below it.
- *
- * The filename is kept as a debug hint but moved to a title tooltip
- * so a reader doesn't see raw slot names in the composition.
+ * Quiet placeholder for a missing asset. The reader-facing
+ * "work in progress" treatment is a page-level overlay (see
+ * app/projects/[slug]/page.tsx), not a per-tile banner.
  */
 function MissingAsset({ filename }: { filename: string }) {
   return (
     <div
       title={filename}
-      className="relative flex h-full w-full items-center justify-center overflow-hidden"
-      style={{
-        background:
-          'radial-gradient(120% 120% at 50% 30%, #1b1b1b 0%, #0a0a0a 70%, #000 100%)',
-      }}
-    >
-      {/* Faint, blurred sheen so the plate reads as a withheld frame,
-          not a dead swatch. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            'radial-gradient(60% 50% at 50% 50%, rgba(255,255,255,0.08), rgba(255,255,255,0) 70%)',
-          filter: 'blur(32px)',
-        }}
-      />
-      <div className="relative z-10 flex flex-col items-center gap-3 px-6 text-center">
-        <span
-          className="font-bold uppercase text-white"
-          style={{
-            fontSize: 'clamp(56px, 10vw, 160px)',
-            letterSpacing: '-0.04em',
-            lineHeight: 1,
-          }}
-        >
-          Soon
-        </span>
-        <span
-          className="uppercase text-white/55"
-          style={{
-            fontSize: 'clamp(10px, 1vw, 12px)',
-            letterSpacing: '0.28em',
-          }}
-        >
-          Will be uploaded soon
-        </span>
-      </div>
-    </div>
+      className="flex h-full w-full items-center justify-center bg-[#d6d6d6]"
+    />
   )
 }
