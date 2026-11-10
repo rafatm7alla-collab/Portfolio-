@@ -25,6 +25,7 @@ export default function Home() {
     <>
       <HeroBanner hasLogo={hasLogo} />
       <SelectedWork />
+      <ClientStrip />
       <AboutBlock />
       <ContactBlock />
     </>
@@ -58,19 +59,54 @@ function SelectedWork() {
   )
 }
 
+/* ─── CLIENTS ────────────────────────────────────────────────────── */
+
+const CLIENTS = [
+  'National Bank of Iraq',
+  'Toyota Iraq',
+  'Lexus Iraq',
+  'Land Rover',
+  'Mövenpick Hotels & Resorts',
+  'Al Zaytoun Residences',
+  'Sardar Group',
+  'International Free Company',
+  'DubaIraq',
+  'Vision House',
+  'Praline',
+  'FM Power',
+] as const
+
+function ClientStrip() {
+  // The list is rendered twice so the loop is seamless: the track moves
+  // left by exactly one copy's width, then restarts.
+  const items = [...CLIENTS, ...CLIENTS]
+  return (
+    <section aria-label="Selected clients" className="py-[clamp(48px,8vh,96px)]">
+      <Page>
+        <Rule />
+        <div className="flex items-center gap-6 pt-8 md:gap-12">
+          <div className="client-ticker">
+            <ul className="client-ticker__track">
+              {items.map((name, i) => (
+                <li key={i} aria-hidden={i >= CLIENTS.length || undefined}>
+                  {name}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </Page>
+    </section>
+  )
+}
+
 /* ─── ABOUT ──────────────────────────────────────────────────────── */
 
 function AboutBlock() {
   return (
     <section data-invert data-nav="dark" className="py-[var(--section-gap)]">
       <Page>
-        <Reveal>
-          <Meta as="p" secondary>
-            (About)
-          </Meta>
-        </Reveal>
-
-        <Reveal delay={80} className="mt-[clamp(32px,5vw,64px)]">
+        <Reveal delay={80}>
           <div className="grid-page">
             <p className="t-headline col-span-4 md:col-span-7 lg:col-span-8">
               <strong className="font-bold">Twelve years</strong> directing

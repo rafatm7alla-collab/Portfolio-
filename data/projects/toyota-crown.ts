@@ -58,8 +58,8 @@ export const toyotaCrown: Project = {
 Iraq is a land rich in religious diversity and historical roots. The country serves as a testament to the coexistence and intermingling of various faiths throughout its history. Additionally, Iraq is home to ancient religious communities, such as Christians, Yazidis, Mandaeans, and Sabians, who have preserved their distinct beliefs and traditions for centuries. this variety made the challenge big in our brainstorming to create a mutual point between all this parts to find mutual thing and relate it with automotive campaign.`,
 
   idea: {
-    headline: '[DRAFT] Idea headline — six words maximum.',
-    body: '[DRAFT — 50–70 words] State the central idea plainly, then explain the mechanism: how it translates into the art direction, the shoot, the edit. Close on what it did for the brand that another idea would not have.',
+    headline: '',
+    body: '',
   },
 
   nextCover: img('next-cover', 1400, 881, 'Toyota Crown — next project cover'),
@@ -80,7 +80,7 @@ Iraq is a land rich in religious diversity and historical roots. The country ser
     {
       type: 'text',
       label: 'The Brief',
-      body: '[DRAFT — see `brief` above.]',
+      body: '',
     },
     {
       type: 'image',

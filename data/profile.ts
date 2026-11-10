@@ -98,7 +98,9 @@ export const profile = {
   /** PLACEHOLDER — Rafat to supply 80–120 words */
   aboutBody: [
     'Rafat Mhalla is a Creative Director and Art Director with more than twelve years of experience across branding, visual identity, advertising, campaigns and digital experiences.',
-    'I build premium brand identities and digital experiences that feel inevitable, not accidental. From strategy to execution, I solve the problems that sit between "what the brand is" and "how people experience it." You get a creative partner who thinks systematically who connects your business goals to visual and narrative strategy, and delivers work that\'s both beautiful and built to convert.',
+    'I build premium brand identities and digital experiences that feel inevitable, not accidental.',
+    'From strategy to execution, I solve the problems that sit between "what the brand is" and "how people experience it."',
+    'You get a creative partner who thinks systematically — who connects your business goals to visual and narrative strategy, and delivers work that\'s both beautiful and built to convert.',
   ],
 
   /**

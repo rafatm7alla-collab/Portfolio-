@@ -28,10 +28,9 @@ export function Navigation() {
         style={{
           color: '#000',
           backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.85)' : '#fff',
-          backdropFilter: scrolled ? 'blur(12px)' : 'none',
-          WebkitBackdropFilter: scrolled ? 'blur(12px)' : 'none',
-          transition: `background-color var(--dur-base) var(--ease-soft), backdrop-filter var(--dur-base) var(--ease-soft)`,
+          transition: `background-color var(--dur-base) var(--ease-soft)`,
         }}
+        data-scrolled={scrolled || undefined}
       >
         <div className="page flex items-center justify-between py-[28px] md:py-[32px]">
           <Link

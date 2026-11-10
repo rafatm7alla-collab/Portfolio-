@@ -47,7 +47,7 @@ const drafts: Draft[] = [
     title: 'DubaIraq',
     category: null,
     sector: 'Real Estate',
-    location: '[Location]',
+    location: '',
     services: ['Creative Direction'],
     heroVariant: 'typographic',
     order: 2,
@@ -85,8 +85,8 @@ const drafts: Draft[] = [
     index: '05',
     title: 'Vision House Agency Identity',
     category: 'Brand Identity',
-    sector: '[Sector]',
-    location: '[Location]',
+    sector: '',
+    location: '',
     services: ['Visual Identity', 'Creative Direction'],
     heroVariant: 'cover',
     order: 5,
@@ -98,8 +98,8 @@ const drafts: Draft[] = [
     index: '06',
     title: 'Praline',
     category: null,
-    sector: '[Sector]',
-    location: '[Location]',
+    sector: '',
+    location: '',
     services: ['Creative Direction'],
     heroVariant: 'typographic',
     order: 6,
@@ -121,15 +121,15 @@ const build = (d: Draft): Project => ({
   sector: d.sector,
   category: d.category,
   services: d.services,
-  role: '[Role]',
+  role: '',
 
   shortDescription: d.shortDescription,
-  lede: '[DRAFT] One sentence, maximum twenty words, set in Light.',
+  lede: '',
   brief:
-    '[DRAFT — 60–90 words] Situation and constraint, written so it could not be pasted onto a different project.',
+    '',
   idea: {
-    headline: '[DRAFT] Idea headline — six words maximum.',
-    body: '[DRAFT — 50–70 words] The central idea and the mechanism by which it works.',
+    headline: '',
+    body: '',
   },
 
   nextCover: img(d.slug, 'next-cover', 1400, 881, `${d.title} — next project cover`),
@@ -140,7 +140,7 @@ const build = (d: Draft): Project => ({
   },
 
   sections: [
-    { type: 'text', label: 'The Brief', body: '[DRAFT — 60–90 words.]' },
+    { type: 'text', label: 'The Brief', body: '' },
     {
       type: 'image',
       layout: 'bleed',
@@ -148,8 +148,8 @@ const build = (d: Draft): Project => ({
     },
     {
       type: 'idea',
-      headline: '[DRAFT] Idea headline',
-      body: '[DRAFT — 50–70 words.]',
+      headline: '',
+      body: '',
     },
     {
       type: 'image',

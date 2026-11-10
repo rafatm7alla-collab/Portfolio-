@@ -89,10 +89,30 @@ function Thumbnail({ src, alt }: { src: string | null; alt: string }) {
 
 function ProjectCard({ project }: { project: WorkProject }) {
   const [imgErr, setImgErr] = useState(false)
+  const [hover, setHover] = useState(false)
 
   return (
-    <Link href={project.href} className="wbd-project-card group">
-      <div className="wbd-project-card-img-wrap">
+    <Link
+      href={project.href}
+      className="wbd-project-card group"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      <div className="wbd-project-card-img-wrap" style={{ position: 'relative' }}>
+        {/* Muted loop that plays only while hovered. Mounted on demand so
+            nothing downloads until someone actually points at the tile. */}
+        {project.previewVideo && hover && (
+          <video
+            src={project.previewVideo}
+            autoPlay
+            muted
+            loop
+            playsInline
+            aria-hidden="true"
+            className="wbd-project-card-img"
+            style={{ position: 'absolute', inset: 0, zIndex: 1 }}
+          />
+        )}
         {project.cover && !imgErr ? (
           /* eslint-disable-next-line @next/next/no-img-element */
           <img

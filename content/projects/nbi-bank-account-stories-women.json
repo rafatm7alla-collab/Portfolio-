@@ -15,9 +15,6 @@
 
   "blocks": [
 
-    { "type": "text",
-      "body": "A three-film documentary series with a teaser. Each film gives one Iraqi woman space to tell how she opened her account with NBI and what changed for her." },
-
     { "type": "fullBleed", "image": "first-banner.jpg",
       "caption": "" },
 

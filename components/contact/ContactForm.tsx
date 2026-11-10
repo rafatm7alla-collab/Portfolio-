@@ -117,10 +117,14 @@ export function ContactForm() {
         <select
           id="subject"
           name="subject"
-          defaultValue={profile.enquiryTypes[0]}
+          defaultValue=""
+          required
           className="mt-4 w-full appearance-none border-0 border-b bg-transparent pb-3 text-[clamp(1rem,1.4vw,1.125rem)] outline-none focus-visible:border-current"
           style={{ borderColor: 'var(--hairline)', borderRadius: 0 }}
         >
+          <option value="" disabled>
+            Choose a subject…
+          </option>
           {profile.enquiryTypes.map((type) => (
             <option key={type} value={type}>
               {type}

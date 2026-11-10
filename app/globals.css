@@ -180,7 +180,10 @@
 
   html {
     -webkit-text-size-adjust: 100%;
-    scroll-behavior: smooth;
+    /* Horizontal overflow is clipped on html AND body with `clip`, not
+       `hidden`: `hidden` turns body into a scroll container, which breaks
+       position: sticky and causes jumpy scrolling on iOS Safari. */
+    overflow-x: clip;
   }
 
   body {
@@ -193,7 +196,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4, p, figure, blockquote { margin: 0; }
@@ -690,4 +693,79 @@
 .all-projects-cta__link:hover,
 .all-projects-cta__link:focus-visible {
   opacity: 0.65;
+}
+
+/* ─── CLIENT TICKER ───────────────────────────────────────────────
+   News-style marquee on the homepage. Two copies of the list scroll
+   left forever; hover pauses it; reduced-motion users get a static row. */
+.client-ticker {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+.client-ticker__track {
+  display: flex;
+  width: max-content;
+  gap: clamp(32px, 4vw, 72px);
+  padding-right: clamp(32px, 4vw, 72px);
+  animation: client-ticker 40s linear infinite;
+}
+.client-ticker__track li {
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(16px, 1.6vw, 22px);
+  letter-spacing: -0.01em;
+}
+.client-ticker:hover .client-ticker__track {
+  animation-play-state: paused;
+}
+@keyframes client-ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+/* Reduce-motion: keep the ticker (it pauses on hover) but run it at
+   half speed so it reads as a gentle drift rather than motion. */
+@media (prefers-reduced-motion: reduce) {
+  .client-ticker .client-ticker__track { animation-duration: 80s !important; animation-iteration-count: infinite !important; }
+}
+
+/* ─── SMOOTH SCROLL (Lenis) ───────────────────────────────────────
+   Lenis owns wheel smoothing on desktop. Native CSS smooth scrolling
+   must stay off while it runs, or the two fight and scrolling stutters. */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+/* Older Safari (< 16) has no overflow: clip — fall back to hidden on body only. */
+@supports not (overflow: clip) {
+  body { overflow-x: hidden; }
+}
+
+/* Frosted nav only where the GPU can afford it. On touch devices a
+   backdrop blur repaints every scroll frame and is a common cause of
+   choppy scrolling, so phones get a near-solid bar instead. */
+@media (hover: hover) and (pointer: fine) {
+  header[data-scrolled] {
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+  }
+}
+@media (hover: none), (pointer: coarse) {
+  header[data-scrolled] {
+    background-color: rgba(255, 255, 255, 0.97) !important;
+  }
 }

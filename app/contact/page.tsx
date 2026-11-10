@@ -25,13 +25,7 @@ export default function ContactPage() {
         <div className="grid-page gap-y-[clamp(64px,10vh,128px)]">
           {/* ─── Left ─────────────────────────────────────────────── */}
           <div className="col-span-4 md:col-span-8 lg:col-span-5">
-            <Reveal>
-              <Meta as="p" secondary>
-                (Contact)
-              </Meta>
-            </Reveal>
-
-            <div className="mt-8">
+            <div>
               <DisplayPair
                 as="h1"
                 bold={profile.contactStatement.bold}

@@ -62,9 +62,28 @@ export default async function ManifestProjectPage({ params }: Params) {
    */
   const wip = manifest.wip === true && process.env.NODE_ENV === 'production'
 
+  // A film within the first two blocks (only intro text before it) is
+  // promoted to sit directly under the title.
+  const filmIndex = manifest.noMasthead
+    ? -1
+    : manifest.blocks.slice(0, 2).findIndex((b) => b.type === 'videoEmbed')
+  const leadFilm =
+    filmIndex >= 0 && manifest.blocks.slice(0, filmIndex).every((b) => b.type === 'text')
+      ? manifest.blocks[filmIndex]
+      : null
+  const restBlocks = leadFilm
+    ? manifest.blocks.filter((_, i) => i !== filmIndex)
+    : manifest.blocks
+
+  const workIndex = workProjects.findIndex((p) => p.href === `/projects/${slug}`)
+  const nextProject =
+    workIndex >= 0 && workProjects.length > 1
+      ? workProjects[(workIndex + 1) % workProjects.length]
+      : null
+
   return (
     <article
-      className={`relative ${manifest.noMasthead ? '' : 'pt-[12vh] md:pt-[24vh]'}`}
+      className={`relative ${manifest.noMasthead ? '' : leadFilm ? 'pt-[12vh] md:pt-[16vh]' : 'pt-[12vh] md:pt-[24vh]'}`}
       style={{ overflowAnchor: 'none' }}
       {...(dark ? { 'data-invert': 'true', 'data-nav': 'dark' } : {})}
     >
@@ -116,7 +135,17 @@ export default async function ManifestProjectPage({ params }: Params) {
               {manifest.title}
             </h1>
           </div>
+        </Page>
 
+        {/* Film-led projects: the film sits directly under the title so
+            the work is on the first screen, ahead of summary and meta. */}
+        {leadFilm && (
+          <div className="pt-[clamp(24px,4vw,56px)]">
+            <Blocks slug={slug} blocks={[leadFilm]} noRounding={manifest.noRounding} />
+          </div>
+        )}
+
+        <Page>
           {manifest.summary && (
             <div data-masthead="summary" className="mt-4 md:mt-8">
               <p className="t-lede max-w-[60ch]" {...directionProps(manifest.summary)}>
@@ -146,37 +175,27 @@ export default async function ManifestProjectPage({ params }: Params) {
 
       {/* ─── The blocks, in manifest order ─── */}
       <div className="pt-[var(--block-gap)]">
-        <Blocks slug={slug} blocks={manifest.blocks} noRounding={manifest.noRounding} noBlockGaps={manifest.noBlockGaps} />
+        <Blocks slug={slug} blocks={restBlocks} noRounding={manifest.noRounding} noBlockGaps={manifest.noBlockGaps} />
+      </div>
       </div>
 
       <Page>
-        <div className="pt-[var(--block-gap-lg)]">
+        <div className="pb-[clamp(64px,10vh,128px)]">
           <Rule />
-          <div className="flex items-baseline justify-between pt-5">
-            <Micro as="span" secondary>
-              {manifest.blocks.length} blocks
-            </Micro>
-            <Link href="/projects" className="t-meta link link--back-arrow">
-              All projects →
+          <div className="flex flex-col gap-4 pt-6 md:flex-row md:items-baseline md:justify-between">
+            {nextProject ? (
+              <Link href={nextProject.href} className="all-projects-cta__link">
+                Next: {nextProject.title} →
+              </Link>
+            ) : (
+              <span />
+            )}
+            <Link href="/work" className="all-projects-cta__link">
+              View all projects →
             </Link>
           </div>
         </div>
       </Page>
-
-      {cover?.missing && (
-        <Page>
-          <Micro as="p" secondary className="pt-6">
-            Cover not found: {cover.filename}
-          </Micro>
-        </Page>
-      )}
-      </div>
-
-      <section className="all-projects-cta">
-        <Link href="/work" className="all-projects-cta__link">
-          View all projects →
-        </Link>
-      </section>
     </article>
   )
 }

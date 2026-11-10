@@ -57,7 +57,12 @@ export default function AboutPage() {
           <div className="grid-page">
             <Reveal className="col-span-4 md:col-span-6 md:col-start-2 lg:col-span-8 lg:col-start-4">
               {profile.aboutBody.map((paragraph, i) => (
-                <p key={i} className={i === 0 ? 't-headline' : 't-body mt-14 font-light'}>
+                <p
+                  key={i}
+                  className={
+                    i === 0 ? 't-headline' : i === 1 ? 't-body mt-14 font-light' : 't-body mt-5 font-light'
+                  }
+                >
                   {paragraph}
                 </p>
               ))}

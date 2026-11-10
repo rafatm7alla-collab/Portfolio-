@@ -5,7 +5,6 @@ import { Page } from '@/components/primitives/Layout'
 import { SectionHeader } from '@/components/type/Type'
 import { WorkBrowserDraft } from '@/components/work/WorkBrowserDraft'
 import { ContactBlock } from '@/components/chrome/ContactBlock'
-import { ShaderBackground } from '@/components/ui/plasma-shader'
 
 export const metadata: Metadata = {
   title: 'Work',
@@ -26,21 +25,9 @@ export default function WorkPage() {
         headline. The floor here is above the nav's own height, so the
         headline starts below it at every breakpoint.
       */}
-      {/* HERO — plasma shader behind the "Project categories" header. */}
-      <section
-        data-invert
-        data-nav="dark"
-        className="relative overflow-hidden pt-[clamp(100px,26vh,300px)] pb-[clamp(80px,12vh,160px)]"
-        style={{ background: '#000', color: '#fff' }}
-      >
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
-          style={{ zIndex: 0 }}
-        >
-          <ShaderBackground className="h-full w-full" />
-        </div>
-        <div className="relative" style={{ zIndex: 1 }}>
+      {/* HERO — plain white; the plasma is reserved for the homepage banner. */}
+      <section className="relative pt-[clamp(100px,26vh,300px)] pb-[clamp(40px,6vh,80px)]">
+        <div className="relative">
           <Page>
             <SectionHeader
               bold="Project"

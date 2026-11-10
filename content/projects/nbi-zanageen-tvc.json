@@ -5,7 +5,7 @@
   "role": "Creative Art Director",
   "year": "2026",
   "tags": ["TVC", "Campaign Concept", "Creative Direction", "Film Development"],
-  "summary": "A 60-second National Bank of Iraq commercial following Mr. Jawad as he moves through the everyday struggles of Iraqi business owners and reveals the solutions waiting at each step.",
+  "summary": "A 60-second TV commercial built around Mr. Jawad — an elder presence of wisdom, respect and trust — who moves through the struggles of Iraqi business owners with calm authority, and shows them that change is coming.",
   "theme": "dark",
 
   "meta": {
@@ -14,9 +14,6 @@
   },
 
   "blocks": [
-
-    { "type": "text",
-      "body": "A 60-second TV commercial built around Mr. Jawad — an elder presence of wisdom, respect and trust. Dressed in a classic suit, he moves through the struggles of business owners with calm authority. His watchful eyes and measured steps tell people he understands, and that change is coming." },
 
     { "type": "videoEmbed",
       "provider": "vimeo",
@@ -45,23 +42,23 @@
 
     { "type": "text",
       "heading": "01 · Restaurant",
-      "body": "A busy, cramped restaurant. The cashier is overwhelmed by cash. Mr. Jawad stands still in the crowd.\n\nVO (EN): \"Some struggle to take payments, losing time, losing customers.\"\nVO (AR): [TODO]" },
+      "body": "A busy, cramped restaurant. The cashier is overwhelmed by cash. Mr. Jawad stands still in the crowd.\n\nVO (EN): \"Some struggle to take payments, losing time, losing customers.\"" },
 
     { "type": "text",
       "heading": "02 · Importer / Exporter",
-      "body": "A warehouse with half-empty shelves and a truck waiting outside. Mr. Jawad watches silently at the end of a shelf.\n\nVO (EN): \"Some can't ship their goods. Deals stop before they start.\"\nVO (AR): [TODO]" },
+      "body": "A warehouse with half-empty shelves and a truck waiting outside. Mr. Jawad watches silently at the end of a shelf.\n\nVO (EN): \"Some can't ship their goods. Deals stop before they start.\"" },
 
     { "type": "text",
       "heading": "03 · Old Office",
-      "body": "A finance office buried in paperwork. Mr. Jawad observes from the hall.\n\nVO (EN): \"Some are trapped in old ways. Slow work, slow results.\"\nVO (AR): [TODO]" },
+      "body": "A finance office buried in paperwork. Mr. Jawad observes from the hall.\n\nVO (EN): \"Some are trapped in old ways. Slow work, slow results.\"" },
 
     { "type": "text",
       "heading": "04 · Government Project",
-      "body": "A construction site frozen, machines silent. Mr. Jawad watches from a distance.\n\nVO (EN): \"Some projects wait for the money to move forward.\"\nVO (AR): [TODO]" },
+      "body": "A construction site frozen, machines silent. Mr. Jawad watches from a distance.\n\nVO (EN): \"Some projects wait for the money to move forward.\"" },
 
     { "type": "text",
       "heading": "05 · Luxury Office",
-      "body": "A high-floor boardroom. The owner stares at unpaid contracts while others leave. Mr. Jawad remains seated, then stands and looks directly at camera.\n\nMr. Jawad (direct, EN): \"Money is the lifeblood of business — from the smallest shop to the biggest deal.\"\nVO (AR): [TODO]" },
+      "body": "A high-floor boardroom. The owner stares at unpaid contracts while others leave. Mr. Jawad remains seated, then stands and looks directly at camera.\n\nMr. Jawad (direct, EN): \"Money is the lifeblood of business — from the smallest shop to the biggest deal.\"" },
 
     { "type": "sectionHeader",
       "title": "My Role" },

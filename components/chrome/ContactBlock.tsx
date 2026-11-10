@@ -14,14 +14,8 @@ export function ContactBlock({ label = 'Contact' }: { label?: string }) {
   return (
     <section className="pb-[64px] pt-[var(--section-gap)]">
       <Page>
-        <Reveal>
-          <Meta secondary as="p">
-            ({label})
-          </Meta>
-        </Reveal>
-
         {/* Closes on the bold half — the light line sets it up. */}
-        <div className="mt-8">
+        <div>
           <DisplayPair
             bold={profile.contactStatement.bold}
             light={profile.contactStatement.light}

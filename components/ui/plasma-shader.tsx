@@ -348,10 +348,13 @@ export function ShaderBackground({ className }: { className?: string }) {
     const timeAnimated = Math.abs(UNIFORMS.timeScale) > 0.0001
 
     const resizeCanvas = () => {
-      const dpr = Math.min(window.devicePixelRatio || 1, 2)
+      // Phones/tablets render at 1x and a smaller pixel budget — the plasma
+      // is soft by design, so the extra resolution only costs battery/scroll.
+      const isTouch = window.matchMedia('(pointer: coarse)').matches
+      const dpr = isTouch ? 1 : Math.min(window.devicePixelRatio || 1, 2)
       const rawWidth = Math.max(1, Math.round(bounds.width * dpr))
       const rawHeight = Math.max(1, Math.round(bounds.height * dpr))
-      const pixelScale = Math.min(1, Math.sqrt(2_000_000 / Math.max(1, rawWidth * rawHeight)))
+      const pixelScale = Math.min(1, Math.sqrt((isTouch ? 600_000 : 2_000_000) / Math.max(1, rawWidth * rawHeight)))
       const width = Math.max(1, Math.round(rawWidth * pixelScale))
       const height = Math.max(1, Math.round(rawHeight * pixelScale))
       if (c.width !== width || c.height !== height) {
@@ -384,11 +387,23 @@ export function ShaderBackground({ className }: { className?: string }) {
     }
     const onPointerLeave = () => { pointerKnown = false; targetPresence = 0; requestRender() }
     const updateLayout = () => { bounds = c.getBoundingClientRect(); resizeCanvas(); updatePointerTarget(); requestRender() }
+    // Scroll re-measures at most once per frame, and only while a pointer
+    // is over the page. Measuring on every scroll event forced a layout per
+    // event and made scrolling heavy on mid-range devices.
+    let scrollRaf = 0
+    const onScroll = () => {
+      if (scrollRaf || !pointerKnown) return
+      scrollRaf = requestAnimationFrame(() => {
+        scrollRaf = 0
+        bounds = c.getBoundingClientRect()
+        updatePointerTarget()
+      })
+    }
     window.addEventListener("resize", updateLayout)
     if (UNIFORMS.cursorEnabled) {
       window.addEventListener("pointermove", onPointerMove, { passive: true })
       window.addEventListener("pointercancel", onPointerLeave)
-      window.addEventListener("scroll", updateLayout, true)
+      window.addEventListener("scroll", onScroll, { passive: true })
       window.addEventListener("blur", onPointerLeave)
       document.documentElement.addEventListener("pointerleave", onPointerLeave)
     }
@@ -441,7 +456,8 @@ export function ShaderBackground({ className }: { className?: string }) {
       if (UNIFORMS.cursorEnabled) {
         window.removeEventListener("pointermove", onPointerMove)
         window.removeEventListener("pointercancel", onPointerLeave)
-        window.removeEventListener("scroll", updateLayout, true)
+        window.removeEventListener("scroll", onScroll)
+        cancelAnimationFrame(scrollRaf)
         window.removeEventListener("blur", onPointerLeave)
         document.documentElement.removeEventListener("pointerleave", onPointerLeave)
       }

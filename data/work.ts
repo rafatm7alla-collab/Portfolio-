@@ -46,6 +46,8 @@ export type WorkProject = {
   categories: CategoryId[]
   cover: string | null
   coverPosition?: string
+  /** Optional short muted loop (mp4) that plays on the Work tile on hover. */
+  previewVideo?: string
   href: string
 }
 
@@ -56,37 +58,37 @@ export const categories: Category[] = [
     id: 'brand-identity-guidelines',
     label: 'Brand Identity & Guidelines',
     index: '01',
-    descriptor: '[DRAFT] Marks, systems, and the rules that keep them intact.',
+    descriptor: 'Marks, systems, and the rules that keep them intact.',
   },
   {
     id: 'campaigns',
     label: 'Campaigns',
     index: '02',
-    descriptor: '[DRAFT] One idea, carried across every place it has to live.',
+    descriptor: 'One idea, carried across every place it has to live.',
   },
   {
     id: 'logofolio',
     label: 'Logofolio',
     index: '03',
-    descriptor: '[DRAFT] Marks, collected.',
+    descriptor: 'Marks, collected.',
   },
   {
     id: 'packaging',
     label: 'Product Design & Packaging',
     index: '04',
-    descriptor: '[DRAFT] Identity where it is held in the hand.',
+    descriptor: 'Identity where it is held in the hand.',
   },
   {
     id: 'tvc',
     label: 'TVC',
     index: '05',
-    descriptor: '[DRAFT] Film, direction, and the cut.',
+    descriptor: 'Film, direction, and the cut.',
   },
   {
     id: 'art',
     label: 'Art',
     index: '06',
-    descriptor: '[DRAFT] Work made for its own sake.',
+    descriptor: 'Work made for its own sake.',
   },
 ]
 
@@ -109,6 +111,7 @@ export const projects: WorkProject[] = [
     year: '2024',
     categories: ['campaigns'],
     cover: '/projects/lexus-lx-launch/lx-cover.jpg',
+    previewVideo: '/projects/lexus-lx-launch/end-of-year-campaign-03-wide.mp4',
     href: '/projects/lexus-lx-launch',
   },
   {
