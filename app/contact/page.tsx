@@ -105,9 +105,26 @@ export default function ContactPage() {
 
           {/* ─── Right ────────────────────────────────────────────── */}
           <div className="col-span-4 md:col-span-8 lg:col-span-6 lg:col-start-7">
-            <Reveal delay={120}>
-              <ContactForm />
-            </Reveal>
+            {/* The form floats as a black card on the white page — the one
+                dark object on screen, so the eye lands on it first. Sticky on
+                desktop so it stays in view beside the details column. */}
+            <div className="lg:sticky lg:top-[120px]">
+              <Reveal delay={120}>
+                <div
+                  data-invert
+                  className="contact-card rounded-2xl p-[clamp(28px,4vw,56px)]"
+                  style={{ ['--hairline' as string]: '#3d3d3d' }}
+                >
+                  <p
+                    className="mb-[clamp(28px,4vw,48px)] font-bold"
+                    style={{ fontSize: 'clamp(24px,2.4vw,34px)', letterSpacing: '-0.02em', lineHeight: 1.1 }}
+                  >
+                    Start a project.
+                  </p>
+                  <ContactForm />
+                </div>
+              </Reveal>
+            </div>
           </div>
         </div>
 
