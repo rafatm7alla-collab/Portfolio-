@@ -10,6 +10,7 @@ import { ContactBlock } from '@/components/chrome/ContactBlock'
 import { HeroBanner } from '@/components/homepage/HeroBanner'
 import { PortfolioShowcase } from '@/components/homepage/PortfolioShowcase'
 import { SelectedWorkMosaic } from '@/components/homepage/SelectedWorkMosaic'
+import { ClientTicker } from '@/components/homepage/ClientTicker'
 import '@/components/homepage/SelectedWorkHeader.css'
 
 /**
@@ -77,25 +78,9 @@ const CLIENTS = [
 ] as const
 
 function ClientStrip() {
-  // The list is rendered twice so the loop is seamless: the track moves
-  // left by exactly one copy's width, then restarts.
-  const items = [...CLIENTS, ...CLIENTS]
   return (
-    <section aria-label="Selected clients" className="py-[clamp(48px,8vh,96px)]">
-      <Page>
-        <Rule />
-        <div className="flex items-center gap-6 pt-8 md:gap-12">
-          <div className="client-ticker">
-            <ul className="client-ticker__track">
-              {items.map((name, i) => (
-                <li key={i} aria-hidden={i >= CLIENTS.length || undefined}>
-                  {name}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </Page>
+    <section aria-label="Selected clients" className="py-[clamp(14px,2.2vh,24px)]">
+      <ClientTicker names={CLIENTS} />
     </section>
   )
 }

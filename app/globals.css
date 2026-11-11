@@ -696,42 +696,36 @@
 }
 
 /* ─── CLIENT TICKER ───────────────────────────────────────────────
-   News-style marquee on the homepage. Two copies of the list scroll
-   left forever; hover pauses it; reduced-motion users get a static row. */
+   Slim draggable marquee. Motion is driven by ClientTicker.tsx (idle
+   drift + drag/swipe with momentum); CSS only handles layout. */
 .client-ticker {
   position: relative;
-  flex: 1;
-  min-width: 0;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
-  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y; /* vertical page scroll still works on phones */
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  padding: clamp(12px, 1.8vh, 18px) 0;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
 }
+.client-ticker:active { cursor: grabbing; }
 .client-ticker__track {
   display: flex;
   width: max-content;
-  gap: clamp(32px, 4vw, 72px);
-  padding-right: clamp(32px, 4vw, 72px);
-  animation: client-ticker 40s linear infinite;
+  gap: clamp(28px, 3.5vw, 56px);
+  padding-right: clamp(28px, 3.5vw, 56px);
+  will-change: transform;
 }
 .client-ticker__track li {
   flex-shrink: 0;
   white-space: nowrap;
   font-weight: 700;
   text-transform: uppercase;
-  font-size: clamp(16px, 1.6vw, 22px);
-  letter-spacing: -0.01em;
-}
-.client-ticker:hover .client-ticker__track {
-  animation-play-state: paused;
-}
-@keyframes client-ticker {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
-/* Reduce-motion: keep the ticker (it pauses on hover) but run it at
-   half speed so it reads as a gentle drift rather than motion. */
-@media (prefers-reduced-motion: reduce) {
-  .client-ticker .client-ticker__track { animation-duration: 80s !important; animation-iteration-count: infinite !important; }
+  font-size: clamp(13px, 1.15vw, 16px);
+  letter-spacing: 0.02em;
 }
 
 /* ─── SMOOTH SCROLL (Lenis) ───────────────────────────────────────
