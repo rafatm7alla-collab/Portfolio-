@@ -72,7 +72,7 @@ export function RouteBlock({
         />
       </div>
 
-      <div className="bleed mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+      <div className="bleed mt-4 grid grid-cols-1 gap-0 md:grid-cols-2">
         {pairImages.map((image, i) => (
           <BlockImage
             key={image.filename + i}

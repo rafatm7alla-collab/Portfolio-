@@ -16,9 +16,9 @@ export function AlbumBlock({
 
   const row = (imgs: ManifestImage[], cols: 1 | 2, delay: number) => (
     <div
-      className={`mt-4 grid grid-cols-1 gap-4 md:mt-6 ${
+      className={`mt-4 grid grid-cols-1 gap-0 md:mt-6 ${
         cols === 2 ? 'md:grid-cols-2' : ''
-      } md:gap-6`}
+      }`}
     >
       {imgs.map((image, i) => (
         <BlockImage
@@ -50,7 +50,7 @@ export function AlbumBlock({
       {rows.map((imgs, i) => (
         <div key={i} className={i === 0 ? '' : undefined}>
           {i === 0 ? (
-            <div className="grid grid-cols-1 gap-4 md:gap-6">
+            <div className="grid grid-cols-1 gap-0">
               {imgs.map((image, j) => (
                 <BlockImage
                   key={image.filename + j}
