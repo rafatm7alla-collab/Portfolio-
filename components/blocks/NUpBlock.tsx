@@ -40,7 +40,7 @@ export function NUpBlock({
       style={size === 'contained' ? { width: vw, maxWidth: vw } : undefined}
     >
       <div
-        className={`grid grid-cols-1 items-start gap-4 md:gap-6 ${
+        className={`grid grid-cols-1 items-start gap-0 ${
           cols === 4
             ? 'md:grid-cols-4'
             : cols === 3

@@ -74,7 +74,9 @@ export function Blocks({
         // text-to-banner breathing room always wins.
         const effectiveNoGap = noGap && !isProseBlock(previous) && !isProseBlock(block)
 
-        const spacing = isFirst || effectiveNoGap
+        // Media next to media always sits flush — banners and image pairs
+        // read as one continuous run, never separated by white bands.
+        const spacing = isFirst || effectiveNoGap || bothMedia
           ? ''
           : noBlockGaps && bothMedia
             ? 'pt-1'

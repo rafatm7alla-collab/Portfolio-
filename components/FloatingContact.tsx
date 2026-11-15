@@ -19,7 +19,7 @@ export default function FloatingContact() {
 
       <div className="float-tray">
         <a
-          href="mailto:creativity@rafatmhalla.com"
+          href="mailto:creative@rafatmhalla.com"
           className="float-action"
           aria-label="Send Email"
         >

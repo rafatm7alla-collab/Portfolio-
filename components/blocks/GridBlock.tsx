@@ -28,7 +28,7 @@ export function GridBlock({
 
   return (
     <Page>
-      <div className={`grid grid-cols-2 gap-4 ${isThree ? 'md:grid-cols-3' : ''}`}>
+      <div className={`grid grid-cols-2 gap-0 ${isThree ? 'md:grid-cols-3' : ''}`}>
         {images.map((image, i) => (
           <BlockImage
             key={image.filename + i}

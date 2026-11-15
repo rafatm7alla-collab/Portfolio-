@@ -2,7 +2,6 @@
   "slug": "fm-power",
   "title": "FM Power",
   "client": "FM Power (powered by Trokadero)",
-  "role": "[ROLE]",
   "year": "2022",
   "location": "Iraq",
   "cover": "hero.jpg",
@@ -25,7 +24,6 @@
         { "label": "Client", "value": "FM Power (powered by Trokadero)" },
         { "label": "Sector", "value": "Beverage · Energy" },
         { "label": "Year", "value": "2022" },
-        { "label": "Role", "value": "[ROLE]" },
         { "label": "Deliverables", "value": "Can artwork, brand mark, two design routes" }
       ] },
 
@@ -122,7 +120,7 @@
 
     { "type": "text",
       "heading": "Where it landed.",
-      "body": "The Bolt was the recommended direction. It was the only route whose central element belonged to the brand rather than to the category, and the only one with anywhere to go after the can. [CLIENT DECISION]" },
+      "body": "The Bolt was the recommended direction. It was the only route whose central element belonged to the brand rather than to the category, and the only one with anywhere to go after the can." },
 
     { "type": "divider",
       "label": "In closing",

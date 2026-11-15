@@ -124,7 +124,7 @@ export const profile = {
   phone: null as string | null,
 
   /** PLACEHOLDER — Rafat to confirm or replace */
-  availableFor: ['Creative Direction', 'Art Direction', 'Brand Identity', 'Remote'],
+  availableFor: ['Creative Direction', 'Art Direction', 'Brand Identity', 'Remote collaboration'],
 
   /** The subject options offered in the contact form. */
   enquiryTypes: ['Commission', 'Collaboration', 'General'],
@@ -132,12 +132,12 @@ export const profile = {
   /** PLACEHOLDER — real URLs required before launch */
   social: [
     { label: 'Behance', short: 'BE', href: 'https://www.behance.net/RafatjMhalla' },
-    { label: 'LinkedIn', short: 'LI', href: 'https://www.linkedin.com/in/rafat-mhalla-875277a2/' },
+    { label: 'LinkedIn', short: 'LI', href: 'https://www.linkedin.com/in/rafat-mhalla-875277a2' },
     { label: 'Instagram', short: 'IG', href: 'https://www.instagram.com/rafat.m7.studio/' },
   ],
 
   /** PLACEHOLDER — required for metadata, OG tags and sitemap */
-  siteUrl: 'https://rafatmhalla.com',
+  siteUrl: 'https://www.rafatmhalla.com',
 } as const
 
 export const navigation = [

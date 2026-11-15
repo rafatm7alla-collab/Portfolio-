@@ -6,10 +6,11 @@ import { Page } from '@/components/primitives/Layout'
 import { Reveal } from '@/components/primitives/Reveal'
 import { Meta, Micro, SectionHeader } from '@/components/type/Type'
 import { directionProps } from '@/lib/rtl'
+import { profile } from '@/data/profile'
 
 export const metadata: Metadata = {
   title: 'Projects',
-  description: 'Case studies generated from project manifests.',
+  description: `Selected case studies by ${profile.name} — ${profile.title}.`,
   alternates: { canonical: '/projects' },
 }
 

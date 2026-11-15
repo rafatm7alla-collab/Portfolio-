@@ -28,10 +28,14 @@ export const metadata: Metadata = {
     default: `${profile.name} — ${profile.title}`,
     template: `%s — ${profile.name}`,
   },
-  description: profile.heroSupporting,
+  description:
+    'Rafat Mhalla is a Creative Director and Art Director working across branding, visual systems, campaigns and digital experiences.',
   openGraph: {
     type: 'website',
     siteName: profile.name,
+    title: `${profile.name} — ${profile.title}`,
+    description:
+      'Rafat Mhalla is a Creative Director and Art Director working across branding, visual systems, campaigns and digital experiences.',
     locale: 'en_GB',
   },
   twitter: { card: 'summary_large_image' },

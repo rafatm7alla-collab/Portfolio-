@@ -22,7 +22,7 @@
       "size": "full" },
 
     { "type": "text",
-      "body": "Creative and Art Direction by Mohammed Jalal & Rafat JHD Mhalla · Vision House · 60 sec",
+      "body": "Creative and Art Direction by Mohammed Jalal & Rafat Mhalla · Vision House · 60 sec",
       "light": true },
 
     { "type": "sectionHeader",
@@ -70,7 +70,7 @@
       "items": [
         { "label": "Client", "value": "National Bank of Iraq" },
         { "label": "Production House", "value": "Vision House" },
-        { "label": "Creative and Art Director", "value": "Mohammed Jalal & Rafat JHD Mhalla" },
+        { "label": "Creative and Art Director", "value": "Mohammed Jalal & Rafat Mhalla" },
         { "label": "Deliverables", "value": "TVC script, storyboard, visual direction, AI-assisted stills" }
       ] },
 

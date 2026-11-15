@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { profile } from '@/data/profile'
-import { projects } from '@/data/projects'
+import { projects } from '@/data/work'
+import { getManifest } from '@/lib/manifest'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = profile.siteUrl
@@ -12,11 +13,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1 : 0.8,
   }))
 
-  // Unapproved placeholder projects stay out of the sitemap entirely.
+  // Every project listed on the Work page, at its live URL. Projects marked
+  // work-in-progress (`wip: true`) stay out until they are published.
   const projectRoutes = projects
-    .filter((p) => !p.isPlaceholder)
+    .filter((p) => {
+      const slug = p.href.replace('/projects/', '')
+      return !getManifest(slug)?.wip
+    })
     .map((p) => ({
-      url: `${base}/work/${p.slug}`,
+      url: `${base}${p.href}`,
       lastModified: new Date(),
       changeFrequency: 'yearly' as const,
       priority: 0.9,
