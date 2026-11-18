@@ -1,7 +1,7 @@
 {
   "slug": "al-zaytoun-terraces",
   "title": "Al Zaytoun Terraces",
-  "client": "Al Zaytoun Residences | Powered by Mövenpick Hotels & Resorts",
+  "client": "Al Zaytoon Residences | Powered by Mövenpick Hotels & Resorts",
   "role": "Brand Identity & Guidelines",
   "year": "2026",
   "location": "Baghdad, Iraq",
@@ -21,7 +21,7 @@
 
     { "type": "metaBar",
       "items": [
-        { "label": "Client", "value": "Al Zaytoun Residences | Powered by Mövenpick Hotels & Resorts" },
+        { "label": "Client", "value": "Al Zaytoon Residences | Powered by Mövenpick Hotels & Resorts" },
         { "label": "Sector", "value": "Real Estate · Luxury Residential" },
         { "label": "Year", "value": "2026" },
         { "label": "Role", "value": "Brand Identity & Guidelines" },
@@ -30,7 +30,7 @@
 
     { "type": "text",
       "heading": "The project",
-      "body": "Welcome to Alzaytoun Residences, where contemporary design meets refined execution to offer a complete living experience. More than a residence, a thriving community offering comfort, privacy, and quality living in Baghdad's green zone.\n\nReviving the relationship between humans and nature in Baghdad's heart. Inspired by the Hanging Gardens of Babylon, Alzaytoun reinterprets this historical symbol with contemporary vision, merging green spaces with modern architecture." },
+      "body": "Al Zaytoon Residences is a luxury residential development in Baghdad's Green Zone, envisioned around a close relationship between contemporary architecture, natural landscapes, and refined urban living.\n\nThe brand identity needed to express this vision while connecting the development to Baghdad's cultural and architectural heritage.\n\nInspired by the idea of the Hanging Gardens of Babylon, the creative direction explored the relationship between nature, structure, and modern residential luxury.\n\nThis concept informed a cohesive visual identity designed to extend across the brand's communication and applications." },
 
     { "type": "pullQuote",
       "text": "Reviving the Hanging Gardens of Babylon in modern Baghdad." },
@@ -42,7 +42,7 @@
       "text": "How an idea became reality." },
 
     { "type": "text",
-      "body": "Every exceptional project begins with a question worth answering. For Alzaytoun, that question was simple: How can we revive the spirit of the Hanging Gardens in modern Baghdad?\n\nFor millennia, gardens have symbolized Iraqi civilization. Spaces where humans meet nature, where beauty and life converge. Rather than surrounding buildings with green space, we asked: What if green space is the building?\n\nAlzaytoun Residences is not a residential complex with landscaping. It is a vision where nature is integrated into architecture itself. Every terrace, every pathway, every shared space is designed so that residents do not visit gardens. They live in them.\n\nDrawing on 5,000 years of Mesopotamian heritage while embracing contemporary design excellence, Alzaytoun bridges past and future. It is a project that respects history, celebrates nature, and redefines what luxury living in Baghdad can be." },
+      "body": "The creative idea began with a question:\n\nHow can the relationship between architecture and nature become the defining character of a residential brand?\n\nFor Al Zaytoon, the answer came through the imagery and cultural memory of the Hanging Gardens of Babylon.\n\nRather than presenting greenery as an added feature, the brand narrative positions nature as an integral part of the residential experience.\n\nThe visual direction brings together heritage references, architectural forms, botanical elements, and a restrained premium aesthetic.\n\nThe result is a brand story that connects Baghdad's history with a contemporary vision of residential living." },
 
     { "type": "video", "file": "alzaytoon-teaser.mp4",
       "title": "Project teaser", "aspect": "16 / 9", "size": "contained", "widthPercent": 80 },
@@ -57,10 +57,10 @@
 
     { "type": "text",
       "heading": "A vision rooted in heritage",
-      "body": "Nature is not added as decoration. Architecture is built around it. Every green space is designed as a daily-life extension. Natural light, clean air, and greenery become standard amenities, creating an environment that is tranquil, balanced, and sustainable." },
+      "body": "The identity was developed to communicate permanence, refinement, and a close relationship with nature.\n\nIts visual elements work together to establish a consistent character across printed communication, brand guidelines, environmental applications, and promotional materials.\n\nThe system balances heritage-inspired details with contemporary typography, colour, and composition." },
 
     { "type": "pullQuote",
-      "text": "Life at Alzaytoun is measured by what you feel, not by square meters." },
+      "text": "Life at Al Zaytoon is measured by what you feel, not by square meters." },
 
     { "type": "text",
       "body": "Living begins between gardens, extends through green pathways, continues in shared community spaces. Nature becomes part of every day." },
@@ -275,7 +275,7 @@
       "subtitle": "Baghdad's most prestigious address" },
 
     { "type": "text",
-      "body": "Situated within Baghdad's Green Zone, directly behind the Movenpick Zaitoun Hotel, Alzaytoun Residences occupies a location that balances exclusivity with accessibility. Surrounded by government institutions, cultural landmarks, educational hubs, and commercial centres, residents enjoy proximity to Baghdad's vital infrastructure while maintaining serene, private community life.\n\nUnique balance: city vibrancy and residential tranquility. Investment value meets quality of life." },
+      "body": "Situated within Baghdad's Green Zone, directly behind the Movenpick Zaitoun Hotel, Al Zaytoon Residences occupies a location that balances exclusivity with accessibility. Surrounded by government institutions, cultural landmarks, educational hubs, and commercial centres, residents enjoy proximity to Baghdad's vital infrastructure while maintaining serene, private community life.\n\nUnique balance: city vibrancy and residential tranquility. Investment value meets quality of life." },
 
     { "type": "fullBleed", "image": "location-map.jpg",
       "caption": "" },
@@ -389,7 +389,7 @@
     { "type": "credits",
       "items": [
         { "label": "Brand identity and art direction", "value": "Rafat Mhalla" },
-        { "label": "Client", "value": "Al Zaytoun Residences | Powered by Mövenpick Hotels & Resorts" },
+        { "label": "Client", "value": "Al Zaytoon Residences | Powered by Mövenpick Hotels & Resorts" },
         { "label": "Developer", "value": "International Free Company (IFC)" },
         { "label": "Architect", "value": "Manhal Habboubi Architectural Office" },
         { "label": "Location", "value": "Baghdad Green Zone, Iraq" },

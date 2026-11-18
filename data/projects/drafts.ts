@@ -104,7 +104,7 @@ const drafts: Draft[] = [
     heroVariant: 'typographic',
     order: 6,
     next: 'toyota-crown',
-    shortDescription: 'Brand identity for a daily bakery in Erbil.',
+    shortDescription: 'A complete brand identity for an Erbil bakery, connecting its products and personality through a cohesive visual language.',
   },
 ]
 

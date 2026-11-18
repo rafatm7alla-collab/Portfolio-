@@ -19,7 +19,7 @@
       "subtitle": "Brand Identity" },
 
     { "type": "text",
-      "body": "Vision House is a marketing agency and TVC production house operating across Iraq and the region. The brand needed an identity that carries the weight of a production company — cinematic, bold, premium — while staying flexible enough for the strategic side of the business. The result is a visual system that works equally on a film slate, a pitch deck, and a social feed." },
+      "body": "Vision House is a creative agency and production house working across advertising, brand communication, and film production.\n\nThe identity was developed to bring these disciplines together under one distinctive visual presence — balancing the strategic confidence of a creative agency with the visual character of a production company.\n\nThe result is a flexible identity system designed to communicate consistently across presentations, digital platforms, branded materials, and production-related applications." },
 
     { "type": "fullBleed", "image": "1-hero.jpg" },
 
@@ -29,15 +29,13 @@
       "subtitle": "Strategy & Positioning" },
 
     { "type": "text",
-      "body": "REPLACE — What was the business challenge? What did Vision House need to communicate? Who are they competing against? What perception did they want to own in the market? One paragraph that proves you understood the problem before you designed anything." },
+      "body": "Vision House operates at the intersection of creative thinking and visual production.\n\nThe brand needed to communicate both sides of its business: developing ideas and bringing them to life.\n\nThe identity direction therefore focused on clarity, recognition, and adaptability — creating a coherent presence across different communication formats while supporting the company's creative positioning." },
 
 
     { "type": "sectionHeader",
       "title": "Logo Concept",
       "subtitle": "Rationale & Construction" },
 
-    { "type": "text",
-      "body": "REPLACE — The idea behind the mark. What does the symbol represent? What letters, shapes, or metaphors are embedded in it? How does it connect to the name 'Vision House' and the dual nature of the business (agency + production)?" },
 
     { "type": "fullBleed", "image": "2-logo-concept.jpg",
       "caption": "Logo construction — concept breakdown" },
@@ -66,8 +64,6 @@
     { "type": "sectionHeader",
       "title": "Colour Palette" },
 
-    { "type": "text",
-      "body": "REPLACE — Why these colours? What do they signal in the production/agency world? How do the primary and secondary palettes work across screen and print?" },
 
     { "type": "fullBleed", "image": "8-colour-palette.jpg" },
 
@@ -75,8 +71,6 @@
     { "type": "sectionHeader",
       "title": "Typography" },
 
-    { "type": "text",
-      "body": "REPLACE — The typeface pairing and why it was chosen. How the display face carries the brand's personality, how the body face supports readability across proposals, decks, and digital." },
 
     { "type": "fullBleed", "image": "9-typography.jpg" },
 
@@ -85,8 +79,6 @@
       "title": "Visual Language",
       "subtitle": "Patterns, textures & graphic devices" },
 
-    { "type": "text",
-      "body": "REPLACE — The supporting graphic system: patterns derived from the logo, texture choices, photographic direction, any signature graphic devices that make the brand recognisable even without the logo." },
 
     { "type": "fullBleed", "image": "10-visual-language.jpg" },
 
@@ -126,7 +118,7 @@
       "subtitle": "Film & TVC applications" },
 
     { "type": "text",
-      "body": "REPLACE — How the brand shows up in production contexts: slate/clapboard design, end-card, crew apparel, equipment labels, showreel intro. This is the section that separates Vision House from a generic agency identity — these are the touchpoints only a production house needs." },
+      "body": "The visual system extends beyond conventional agency communication, supporting applications across creative presentations and production-related touchpoints.\n\nIts consistent use allows Vision House to maintain a recognizable identity across different formats and environments." },
 
     { "type": "fullBleed", "image": "20-film-slate.jpg" },
 
@@ -152,8 +144,6 @@
     { "type": "sectionHeader",
       "title": "Brand in Use" },
 
-    { "type": "text",
-      "body": "REPLACE — The system alive in real application. How it looks when everything comes together: a pitch meeting, a production set, a social feed, a client handover." },
 
     { "type": "fullBleed", "image": "26-brand-in-use.jpg" },
 

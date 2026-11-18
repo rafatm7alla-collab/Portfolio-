@@ -68,7 +68,7 @@ const CLIENTS = [
   'Lexus Iraq',
   'Land Rover',
   'Mövenpick Hotels & Resorts',
-  'Al Zaytoun Residences',
+  'Al Zaytoon Residences',
   'Sardar Group',
   'International Free Company',
   'DubaIraq',
