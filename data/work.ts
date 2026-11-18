@@ -97,7 +97,7 @@ export const categories: Category[] = [
 export const projects: WorkProject[] = [
   {
     id: 'toyota-crown-launch',
-    title: 'Toyota Crown Launching Campaign',
+    title: 'Toyota Crown — Launch Campaign',
     client: 'Toyota Iraq — Sardar Group',
     year: '2023',
     categories: ['campaigns'],

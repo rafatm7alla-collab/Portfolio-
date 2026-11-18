@@ -89,18 +89,19 @@ export const profile = {
 
   /** PLACEHOLDER — Rafat to supply or approve */
   heroSupporting:
-    'Branding, visual systems and campaigns for brands that want to be remembered.',
+    'I shape brands, campaigns, and visual systems — connecting ambitious ideas with thoughtful creative execution.',
 
   /** PLACEHOLDER — Rafat to supply or approve */
   aboutStatement:
-    'Twelve years directing brands across identity, campaign and digital.',
+    'Over twelve years of shaping brand identities, integrated campaigns, and digital experiences.',
 
   /** PLACEHOLDER — Rafat to supply 80–120 words */
   aboutBody: [
-    'Rafat Mhalla is a Creative Director and Art Director with more than twelve years of experience across branding, visual identity, advertising, campaigns and digital experiences.',
-    'I build premium brand identities and digital experiences that feel inevitable, not accidental.',
-    'From strategy to execution, I solve the problems that sit between "what the brand is" and "how people experience it."',
-    'You get a creative partner who thinks systematically — who connects your business goals to visual and narrative strategy, and delivers work that\'s both beautiful and built to convert.',
+    "I'm Rafat Mhalla, a Creative Director and Art Director based in Belgrade, Serbia, with over twelve years of experience in branding, visual identity, advertising, campaigns, and digital experiences.",
+    "My work connects strategic thinking with distinctive visual execution. From the first concept to the final production detail, I develop creative ideas and visual systems that give brands a clear identity and a memorable presence.",
+    "Throughout my career, I've collaborated with leading brands across automotive, finance, real estate, hospitality, and consumer industries. I've also led multidisciplinary creative teams across graphic design, motion, and digital production, combining creative direction with hands-on art direction.",
+    "I believe strong creative work comes from a balance of strategic clarity, thoughtful design, and meticulous execution.",
+    "Today, I collaborate with brands, agencies, and creative teams across international markets.",
   ],
 
   /**

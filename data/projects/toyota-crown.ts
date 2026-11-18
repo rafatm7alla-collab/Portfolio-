@@ -25,7 +25,7 @@ const img = (slot: string, w: number, h: number, alt: string) =>
 export const toyotaCrown: Project = {
   slug: 'toyota-crown',
   index: '01',
-  title: 'Toyota Crown Launching Campaign',
+  title: 'Toyota Crown — Launch Campaign',
   client: null, // ⚠️ not supplied — omitted rather than assumed
   year: null, // ⚠️ not supplied — omitted rather than assumed
   location: 'Iraq',
@@ -36,7 +36,7 @@ export const toyotaCrown: Project = {
   role: 'Creative Director',
 
   shortDescription:
-    'Full campaign study for the Crown model in the Iraqi market.',
+    'Reintroducing an automotive icon to Iraq through heritage, memory, and the stories of generations.',
 
   /**
    * Supplied by Rafat, exactly as written. Renders large and light above

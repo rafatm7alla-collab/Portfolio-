@@ -94,8 +94,8 @@ function AboutBlock() {
         <Reveal delay={80}>
           <div className="grid-page">
             <p className="t-headline col-span-4 md:col-span-7 lg:col-span-8">
-              <strong className="font-bold">Twelve years</strong> directing
-              brands across identity, campaign and digital.
+              <strong className="font-bold">Over twelve years</strong> of shaping
+              brand identities, integrated campaigns, and digital experiences.
             </p>
           </div>
         </Reveal>

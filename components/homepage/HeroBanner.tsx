@@ -246,7 +246,7 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
             >
               <div className="flex items-baseline justify-between md:justify-end md:gap-10">
                 <Micro as="p" secondary>
-                  {profile.location} · Available {new Date().getFullYear()}
+                  BASED IN BELGRADE · WORKING INTERNATIONALLY · OPEN FOR COLLABORATIONS
                 </Micro>
                 <Micro as="p" secondary>
                   ({profile.yearsExperience}+ Years)

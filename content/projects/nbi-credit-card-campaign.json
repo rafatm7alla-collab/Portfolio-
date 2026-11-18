@@ -17,7 +17,7 @@
 
     { "type": "text",
       "heading": "بطاقة تجيب فلوس",
-      "body": "A TV commercial for the National Bank of Iraq's Visa credit card, blending cinematic storytelling with everyday Iraqi life." },
+      "body": "A cinematic television commercial for the National Bank of Iraq, bringing an everyday financial frustration to life through humour, relatable characters, and visual storytelling." },
 
     { "type": "videoEmbed",
       "provider": "vimeo",
@@ -33,7 +33,7 @@
       "title": "Campaign Film" },
 
     { "type": "text",
-      "body": "The commercial follows three friends playing dominoes. One of them is constantly frustrated by hidden charges and subscriptions draining his money — until the NBI Visa credit card offers a solution that gives back instead of taking away." },
+      "body": "The story follows three friends gathered around a game of dominoes. As one character becomes increasingly frustrated by unexpected charges and recurring payments, the conversation introduces the NBI Visa credit card as an alternative.\n\nThe film uses familiar Iraqi settings, natural dialogue, and humour to communicate the campaign message in a relatable way." },
 
     { "type": "sectionHeader",
       "title": "Director's Treatment" },
