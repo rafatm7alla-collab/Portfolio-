@@ -39,7 +39,7 @@ export default function WorkPage() {
       </section>
 
       {/* CATEGORIES — solid white, black text and icons, no shader. */}
-      <section style={{ background: '#fff', color: '#000' }}>
+      <section style={{ background: 'var(--color-paper)', color: 'var(--color-ink)' }}>
         <Suspense
           fallback={<div className="h-[clamp(340px,46vh,460px)]" />}
         >
@@ -48,7 +48,7 @@ export default function WorkPage() {
       </section>
 
       {/* CONTACT — white background, black text, no shader. */}
-      <section style={{ background: '#fff', color: '#000' }}>
+      <section style={{ background: 'var(--color-paper)', color: 'var(--color-ink)' }}>
         <ContactBlock />
       </section>
     </>

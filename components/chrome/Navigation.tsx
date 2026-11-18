@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { profile, navigation } from '@/data/profile'
 import { MobileMenu } from './MobileMenu'
+import { ThemeToggle } from './ThemeToggle'
 
 export function Navigation() {
   const pathname = usePathname()
@@ -26,8 +27,10 @@ export function Navigation() {
         ref={headerRef}
         className="pointer-events-none fixed inset-x-0 top-0 z-50"
         style={{
-          color: '#000',
-          backgroundColor: scrolled ? 'rgba(255, 255, 255, 0.85)' : '#fff',
+          color: 'var(--color-ink)',
+          backgroundColor: scrolled
+            ? 'color-mix(in srgb, var(--color-paper) 85%, transparent)'
+            : 'var(--color-paper)',
           transition: `background-color var(--dur-base) var(--ease-soft)`,
         }}
         data-scrolled={scrolled || undefined}
@@ -63,10 +66,12 @@ export function Navigation() {
                 </Link>
               )
             })}
+            <ThemeToggle className="ml-2" />
           </nav>
 
           {/* Mobile */}
-          <div className="pointer-events-auto md:hidden">
+          <div className="pointer-events-auto flex items-center gap-4 md:hidden">
+            <ThemeToggle />
             <MobileMenu />
           </div>
         </div>

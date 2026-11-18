@@ -56,7 +56,8 @@
     'SF Arabic', 'Geeza Pro', 'Noto Sans Arabic', 'Segoe UI', Tahoma,
     sans-serif;
 
-  /* COLOUR — six tokens. There is no seventh. ────────────────────── */
+  /* COLOUR — six tokens. There is no seventh.
+     These are the LIGHT-THEME values. They swap under [data-theme="dark"]. */
   --color-paper: #ffffff;
   --color-ink: #000000;
   --color-ink-secondary: #6e6e6e;   /* 5.1:1 on paper — AA */
@@ -164,6 +165,34 @@
   --hairline: #262626;
   background-color: var(--paper);
   color: var(--ink);
+}
+
+/* ─── THEME TOGGLE ────────────────────────────────────────────────
+   One attribute on <html> flips every colour token. Sections that use
+   [data-invert] still work; they just mean "force the inverted
+   palette relative to the current theme". */
+html[data-theme="dark"] {
+  --color-paper: #0a0a0a;
+  --color-ink: #ffffff;
+  --color-ink-secondary: #9a9a9a;
+  --color-ink-tertiary: #4a4a4a;
+  --color-hairline: #262626;
+  --color-surface-invert: #ffffff;
+}
+html[data-theme="dark"] [data-invert] {
+  --paper: #ffffff;
+  --ink: #000000;
+  --ink-secondary: #6e6e6e;
+  --hairline: #e5e5e5;
+}
+
+/* Skip the colour transition on first paint; apply it only once the
+   user has clicked the toggle (we add .theme-ready when the hook mounts). */
+html.theme-ready,
+html.theme-ready body,
+html.theme-ready [data-invert] {
+  transition: background-color 300ms ease, color 300ms ease,
+              border-color 300ms ease;
 }
 
 
@@ -843,4 +872,40 @@ html.lenis body {
       0 40px 80px -24px rgba(0,0,0,0.5),
       0 16px 32px -14px rgba(0,0,0,0.34);
   }
+}
+
+/* ─── THEME TOGGLE BUTTON ───────────────────────────────────────── */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--color-hairline);
+  border-radius: 999px;
+  color: var(--color-ink);
+  background: transparent;
+  transition: border-color 240ms ease, color 240ms ease, background-color 240ms ease;
+}
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: var(--color-ink);
+}
+.theme-toggle__sun,
+.theme-toggle__moon { transform-origin: center; transition: opacity 200ms ease, transform 200ms ease; }
+.theme-toggle[data-theme="light"] .theme-toggle__moon,
+.theme-toggle[data-theme="dark"]  .theme-toggle__sun  { opacity: 1; transform: scale(1); }
+.theme-toggle[data-theme="light"] .theme-toggle__sun,
+.theme-toggle[data-theme="dark"]  .theme-toggle__moon { opacity: 0; transform: scale(0.6); }
+.theme-toggle-placeholder {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+}
+
+/* Hero banner default background should also follow the theme so the
+   plasma composite doesn't fight the chrome. */
+html[data-theme="dark"] body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
 }

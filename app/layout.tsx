@@ -57,14 +57,29 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#ffffff',
-  colorScheme: 'light',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+  ],
 }
+
+/**
+ * Runs BEFORE first paint so the theme attribute is already on <html> when
+ * the page renders. Prevents a white flash when a dark-theme visitor reloads.
+ */
+const themeBootScript = `
+  try {
+    var saved = localStorage.getItem('theme');
+    var theme = (saved === 'light' || saved === 'dark') ? saved : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch (e) {}
+`
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={tajawal.variable}>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
         <noscript>
           <style>{`.reveal, .wbd-stagger { opacity: 1 !important; transform: none !important; }`}</style>
         </noscript>
