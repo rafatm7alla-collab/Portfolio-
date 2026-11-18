@@ -26,7 +26,7 @@ export function ThemeToggle({ className = '' }: { className?: string }) {
   function toggle() {
     const next: Theme = theme === 'dark' ? 'light' : 'dark'
     document.documentElement.setAttribute('data-theme', next)
-    try { localStorage.setItem('theme', next) } catch {}
+    try { localStorage.setItem('theme-pref', next) } catch {}
     setTheme(next)
   }
 

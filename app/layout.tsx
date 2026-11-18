@@ -69,7 +69,7 @@ export const viewport: Viewport = {
  */
 const themeBootScript = `
   try {
-    var saved = localStorage.getItem('theme');
+    var saved = localStorage.getItem('theme-pref');
     var theme = (saved === 'light' || saved === 'dark') ? saved : 'light';
     document.documentElement.setAttribute('data-theme', theme);
   } catch (e) {}
