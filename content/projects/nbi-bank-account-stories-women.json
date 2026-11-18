@@ -5,7 +5,7 @@
   "role": "Creative Director",
   "year": "2026",
   "tags": ["TVC", "Documentary", "Creative Direction", "Film Development"],
-  "summary": "A three-film documentary series with a teaser. Each film gives one Iraqi woman space to tell how she opened her account with NBI and what changed for her.",
+  "summary": "A documentary-style campaign series for the National Bank of Iraq, exploring financial aspirations through the personal experiences of Iraqi women. Comprising three individual stories and a teaser, the campaign approaches banking through everyday ambitions, personal decisions, and the desire for a more secure future.",
   "theme": "dark",
 
   "meta": {
@@ -31,7 +31,7 @@
       "title": "Film 1 · The House Wife" },
 
     { "type": "text",
-      "body": "She has always wanted a home of her own, and this film follows the moment that dream starts to become real." },
+      "body": "A story centred on the aspiration of owning a home and creating a personal space for the future.\n\nThe film connects this ambition with the possibilities of home financing, focusing on the emotional significance of reaching a long-held goal." },
 
     { "type": "videoEmbed",
       "provider": "vimeo",
@@ -43,7 +43,7 @@
       "title": "Film 2 · The Mother" },
 
     { "type": "text",
-      "body": "She is building a secure future for her children, one decision at a time, in a home where they can grow." },
+      "body": "A story about planning for the next generation.\n\nThe narrative explores the decisions a mother makes while thinking about her children's security, opportunities, and future." },
 
     { "type": "videoEmbed",
       "provider": "vimeo",
@@ -55,7 +55,7 @@
       "title": "Film 3 · The Employee and Student" },
 
     { "type": "text",
-      "body": "She is tired of waiting for salary day, and this film shows her imagining a life that moves forward on her own terms." },
+      "body": "A story about independence, ambition, and the desire to move forward without allowing financial limitations to define personal progress." },
 
     { "type": "videoEmbed",
       "provider": "vimeo",
@@ -64,22 +64,22 @@
       "size": "full" },
 
     { "type": "sectionHeader",
-      "title": "The Approach" },
+      "title": "Campaign Approach" },
 
     { "type": "text",
-      "body": "The films avoid an ad voice. Women speak directly to camera in their own words, so the audience hears a real decision and its outcome." },
+      "body": "The creative approach places each woman's experience at the centre of the narrative.\n\nRather than relying on conventional advertising language, the films are structured around personal stories and relatable financial goals.\n\nEach film explores a different perspective, allowing the campaign to connect banking services with moments that carry genuine personal meaning." },
 
     { "type": "sectionHeader",
       "title": "Tone & Visual Story" },
 
     { "type": "text",
-      "body": "Intimate, calm, honest. The look starts cool and restrained when the women speak about the past, then warms as they talk about support and change." },
+      "body": "The visual direction is intimate, restrained, and human.\n\nCarefully considered framing, natural performances, and subtle lighting transitions support the emotional development of each story.\n\nThe creative approach allows the individual voices and experiences to remain central to the films." },
 
     { "type": "sectionHeader",
       "title": "Camera, Light & Sound" },
 
     { "type": "text",
-      "body": "Two cameras per interview, locked-off, close and medium framing. Soft natural light, with gentle shadows in the past and warmer light in the present. Silence or light ambience at the start, then piano or strings as the story turns. The voice stays clear and central." },
+      "body": "The planned treatment uses two locked-off cameras per interview, with close and medium framing, soft natural light, and gentle shadows in the past that warm in the present. Silence or light ambience opens each story, with piano or strings as the story turns, keeping the voice clear and central.\n\nThese describe the planned treatment." },
 
     { "type": "credits",
       "items": [
