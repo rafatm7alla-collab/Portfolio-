@@ -9,7 +9,7 @@ const img = (slot: string, w: number, h: number, alt: string) =>
 export const landRoverKurdistan: Project = {
   slug: 'land-rover-kurdistan',
   index: '07',
-  title: 'Land Rover Middle East | IQ / KUR',
+  title: 'Land Rover — Iraqi Kurdistan',
   client: 'Land Rover Iraq',
   year: 2024,
   location: 'Iraq Kurdistan',
@@ -35,7 +35,7 @@ The goal was to create a library of premium imagery that felt unmistakably local
   nextCover: img('next-cover', 1400, 881, 'Land Rover — next project cover'),
 
   hero: {
-    image: img('cover', 2400, 1600, 'Land Rover Middle East | IQ / KUR'),
+    image: img('cover', 2400, 1600, 'Land Rover — Iraqi Kurdistan'),
     variant: 'cover',
   },
 

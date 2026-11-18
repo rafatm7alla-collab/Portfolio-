@@ -10,7 +10,7 @@
 
   "meta": {
     "title": "NBI — Bank Account Stories | Women | Rafat Mhalla",
-    "description": "A three-film NBI documentary series. Each film gives one Iraqi woman space to tell how she opened her account with NBI and what changed for her. Creative direction by Rafat Mhalla and Muhammad Jalal at Vision House."
+    "description": "A three-film NBI documentary series. Each film gives one Iraqi woman space to tell how she opened her account with NBI and what changed for her. Creative direction by Rafat Mhalla and Mohammad Jalal at Vision House."
   },
 
   "blocks": [
@@ -79,13 +79,13 @@
       "title": "Camera, Light & Sound" },
 
     { "type": "text",
-      "body": "The planned treatment uses two locked-off cameras per interview, with close and medium framing, soft natural light, and gentle shadows in the past that warm in the present. Silence or light ambience opens each story, with piano or strings as the story turns, keeping the voice clear and central.\n\nThese describe the planned treatment." },
+      "body": "The planned approach favours locked-off framing, close and medium shots, soft natural light, and gentle shadows in the past that warm in the present. Silence or light ambience opens each story, with piano or strings as the story turns, keeping the voice clear and central." },
 
     { "type": "credits",
       "items": [
         { "label": "Client", "value": "National Bank of Iraq" },
         { "label": "Production House", "value": "Vision House" },
-        { "label": "Creative Directors", "value": "Rafat Mhalla, Muhammad Jalal" },
+        { "label": "Creative Directors", "value": "Rafat Mhalla, Mohammad Jalal" },
         { "label": "Year", "value": "2026" },
         { "label": "Deliverables", "value": "Teaser and three documentary TV commercials" }
       ] },

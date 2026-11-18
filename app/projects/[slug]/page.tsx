@@ -116,7 +116,7 @@ export default async function ManifestProjectPage({ params }: Params) {
                 letterSpacing: '0.3em',
               }}
             >
-              Work in progress · the project will be live very soon
+              Full case study coming soon.
             </div>
           </div>
         </div>

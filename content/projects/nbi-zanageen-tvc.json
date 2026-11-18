@@ -1,16 +1,16 @@
 {
   "slug": "nbi-zanageen-tvc",
-  "title": "NBI — Zanageen TVC",
+  "title": "NBI — Zanageen | TVC Concept & Treatment",
   "client": "National Bank of Iraq",
-  "role": "Creative Art Director",
+  "role": "Creative Direction, Art Direction",
   "year": "2026",
-  "tags": ["TVC", "Campaign Concept", "Creative Direction", "Film Development"],
-  "summary": "A 60-second television commercial concept developed for the National Bank of Iraq, exploring the challenges faced by Iraqi business owners through a central character: Mr. Jawad. Representing experience, wisdom, and reassurance, Mr. Jawad moves through a series of business situations, connecting individual challenges with the importance of having a dependable financial partner.",
+  "tags": ["TVC Concept", "Creative Direction", "Art Direction", "Film Treatment"],
+  "summary": "A proposed 60-second television commercial developed for the National Bank of Iraq. The concept centres on Mr. Jawad, a character representing experience, wisdom, and reassurance. Through a series of business situations, the narrative explores the challenges faced by Iraqi entrepreneurs and the importance of having a dependable financial partner. The creative treatment establishes the narrative structure, character direction, visual approach, and intended cinematic language of the proposed film.",
   "theme": "dark",
 
   "meta": {
-    "title": "NBI — Zanageen TVC | Rafat Mhalla",
-    "description": "A 60-second NBI TV commercial creatively directed by Rafat Mhalla at Vision House. Mr. Jawad, an elder of wisdom and trust, walks through the obstacles business owners face and reveals the bank that stands with them."
+    "title": "NBI — Zanageen | TVC Concept & Treatment | Rafat Mhalla",
+    "description": "A proposed 60-second NBI television commercial: a concept and creative treatment developed by Rafat Mhalla and Mohammad Jalal through Vision House."
   },
 
   "blocks": [
@@ -18,11 +18,11 @@
     { "type": "videoEmbed",
       "provider": "vimeo",
       "id": "1232567880",
-      "title": "NBI — Zanageen TVC",
+      "title": "NBI — Zanageen | TVC Concept & Treatment",
       "size": "full" },
 
     { "type": "text",
-      "body": "Creative and Art Direction by Mohammed Jalal & Rafat Mhalla · Vision House · 60 sec",
+      "body": "Creative and Art Direction by Mohammad Jalal & Rafat Mhalla · Creative Development — Vision House · 60 sec · Proposed",
       "light": true },
 
     { "type": "sectionHeader",
@@ -38,7 +38,7 @@
       "body": "Mr. Jawad serves as the connecting character throughout the film.\n\nHis calm presence contrasts with the tension experienced by the business owners around him.\n\nAs the narrative progresses, the character becomes a symbol of reassurance, helping connect the individual stories to the campaign's central message." },
 
     { "type": "sectionHeader",
-      "title": "Film Structure" },
+      "title": "Proposed Film Structure" },
 
     { "type": "text",
       "heading": "01 · Restaurant",
@@ -64,18 +64,18 @@
       "title": "My Role" },
 
     { "type": "text",
-      "body": "Working alongside Mohammad Jalal through Vision House, I contributed to the creative and art direction of the campaign, developing the narrative approach, character presentation, and visual treatment.\n\nThe creative process included script development, storyboarding, and defining the visual language of the individual scenes." },
+      "body": "Working alongside Mohammad Jalal through Vision House, I contributed to the creative and art direction of the proposed commercial.\n\nOur work focused on developing the central idea, character, narrative structure, and visual treatment.\n\nThe creative development included scriptwriting, storyboarding, and establishing the intended cinematic language for the individual scenes." },
 
     { "type": "credits",
       "items": [
         { "label": "Client", "value": "National Bank of Iraq" },
-        { "label": "Production House", "value": "Vision House" },
-        { "label": "Creative and Art Director", "value": "Mohammed Jalal & Rafat Mhalla" },
+        { "label": "Creative Development", "value": "Vision House" },
+        { "label": "Creative and Art Director", "value": "Mohammad Jalal & Rafat Mhalla" },
         { "label": "Deliverables", "value": "TVC script, storyboard, visual direction, AI-assisted stills" }
       ] },
 
     { "type": "text",
-      "body": "TVC · Campaign Concept · Creative Direction · Film Development",
+      "body": "TVC Concept · Creative Direction · Art Direction · Film Treatment",
       "light": true }
 
   ]

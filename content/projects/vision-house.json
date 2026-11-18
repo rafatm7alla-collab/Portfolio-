@@ -38,10 +38,10 @@
 
 
     { "type": "fullBleed", "image": "2-logo-concept.jpg",
-      "caption": "Logo construction — concept breakdown" },
+      "caption": "Logo construction" },
 
     { "type": "fullBleed", "image": "3-logo-rationale.jpg",
-      "caption": "Symbol rationale and grid" },
+      "caption": "Symbol grid" },
 
 
     { "type": "sectionHeader",

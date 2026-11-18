@@ -116,7 +116,7 @@ export const projects: WorkProject[] = [
   },
   {
     id: 'land-rover-kurdistan',
-    title: 'Land Rover Middle East | IQ / KUR',
+    title: 'Land Rover — Iraqi Kurdistan',
     client: 'Land Rover Iraq',
     year: '2024',
     categories: ['campaigns'],
@@ -198,7 +198,7 @@ export const projects: WorkProject[] = [
   },
   {
     id: 'nbi-zanageen-tvc',
-    title: 'NBI — Zanageen',
+    title: 'NBI — Zanageen | TVC Concept & Treatment',
     client: 'National Bank of Iraq',
     year: '2026',
     categories: ['tvc'],

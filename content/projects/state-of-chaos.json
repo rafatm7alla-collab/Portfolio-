@@ -13,17 +13,20 @@
       "title": "State of Chaos",
       "subtitle": "Artwork / Poster Design" },
 
+    { "type": "text",
+      "body": "State of Chaos is a personal artwork and poster-design exploration created in 2017.\n\nDeveloped during a period marked by distance from home and the ongoing conflict in Syria, the work reflects on displacement, memory, and the emotional experience of living through uncertainty.\n\nThe project uses visual expression to explore the tension between personal turmoil and the search for harmony." },
+
     { "type": "fullBleed", "image": "hero.jpg",
       "caption": "State of Chaos — key artwork" },
 
     { "type": "text",
       "light": true,
-      "body": "after 6 years of war and being far from home!\nI sense all the suffering vibrating within me, while fair winds of the storm's convulsions on the deep cradle me.\n\nVast mirror there of my despair reflected in this ethnic/middle eastern/deep-set." },
+      "body": "After six years of war and distance from home, I carried the emotional weight of the conflict within me.\n\nState of Chaos became a personal expression of that experience — a reflection on uncertainty, memory, and the tension between chaos and harmony." },
 
     { "type": "audioEmbed",
       "soundcloudUrl": "https://soundcloud.com/zarakonstantin/state-of-chaos-harmony",
       "title": "State Of Chaos \"Harmony\"",
-      "artist": "ZaraKonstantin" },
+      "artist": "Zara Konstantin" },
 
     { "type": "fullBleed", "image": "mockup-01.jpg",
       "caption": "Application — 01" },
@@ -35,8 +38,9 @@
 
     { "type": "credits",
       "items": [
-        { "label": "Role",   "value": "Artwork / Poster Design" },
-        { "label": "Track",  "value": "State Of Chaos \"Harmony\" — ZaraKonstantin" },
+        { "label": "Cover Artwork & Design", "value": "Rafat Mhalla" },
+        { "label": "DJ & Music Production", "value": "Zara Konstantin" },
+        { "label": "Track",  "value": "State Of Chaos \"Harmony\" — Zara Konstantin" },
         { "label": "Date",   "value": "2017" }
       ] }
   ]
