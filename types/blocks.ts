@@ -51,6 +51,8 @@ export type Block =
       size?: 'full' | 'contained'
       widthPercent?: number
       captions?: string[]
+      /** Space between the frames. Omitted = flush, as a single run. */
+      gap?: 'none' | 'md'
     }
   | { type: 'mosaic'; layout: MosaicLayout; images: string[] }
   | {

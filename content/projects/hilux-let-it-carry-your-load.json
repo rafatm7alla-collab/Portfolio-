@@ -38,7 +38,7 @@
 
     { "type": "twoUp",
       "images": ["double-exposure-01.jpg", "double-exposure-02.jpg"],
-      "size": "contained", "widthPercent": 60 },
+      "size": "contained", "widthPercent": 60, "gap": "md" },
 
     { "type": "sectionHeader",
       "title": "My Role" },

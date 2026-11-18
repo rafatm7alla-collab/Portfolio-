@@ -144,6 +144,7 @@ function render(slug: string, block: Block, index: number, noRounding?: boolean)
           widthPercent={block.widthPercent}
           noRounding={noRounding}
           captions={block.captions}
+          gap={block.gap}
         />
       )
 

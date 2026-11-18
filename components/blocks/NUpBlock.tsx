@@ -20,6 +20,7 @@ export function NUpBlock({
   widthPercent = 75,
   noRounding = false,
   captions,
+  gap = 'none',
 }: {
   images: ManifestImage[]
   columns: 2 | 3 | 4
@@ -27,6 +28,7 @@ export function NUpBlock({
   widthPercent?: number
   noRounding?: boolean
   captions?: string[]
+  gap?: 'none' | 'md'
 }) {
   const present = images.filter((image) => !image.missing)
   if (present.length === 0) return null
@@ -40,7 +42,7 @@ export function NUpBlock({
       style={size === 'contained' ? { width: vw, maxWidth: vw } : undefined}
     >
       <div
-        className={`grid grid-cols-1 items-start gap-0 ${
+        className={`grid grid-cols-1 items-start ${gap === 'md' ? 'gap-4 md:gap-6' : 'gap-0'} ${
           cols === 4
             ? 'md:grid-cols-4'
             : cols === 3
