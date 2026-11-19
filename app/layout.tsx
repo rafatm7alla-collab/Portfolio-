@@ -77,7 +77,7 @@ const themeBootScript = `
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={tajawal.variable}>
+    <html lang="en" className={tajawal.variable} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
         <noscript>

@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { profile } from '@/data/profile'
 import { Page } from '@/components/primitives/Layout'
 import { Reveal } from '@/components/primitives/Reveal'
-import { Meta, Micro } from '@/components/type/Type'
 import { ContactForm } from '@/components/contact/ContactForm'
 import { ShaderBackground } from '@/components/ui/plasma-shader'
 
@@ -13,138 +12,98 @@ export const metadata: Metadata = {
 }
 
 /**
- * DRAFT — Frosted glass form on plasma
+ * CONTACT — Light plasma panel
  *
- * The page background runs the same slow plasma shader used on the homepage
- * banner. The form card is a frosted-glass panel over it — thin hairline
- * border, large radius, strong backdrop blur. The darkness comes from the
- * plasma, not from a heavy black fill, so the whole page feels lighter and
- * more premium.
+ * The plasma stays, but inverted to a pale silver and held inside a rounded
+ * panel within the page margins — a signature moment, not a black page.
+ * The email address is the headline call to action. Below, on white, the
+ * form takes the wide column and the details sit in a sticky sidebar.
  */
-export default function ContactGlass() {
+export default function ContactPage() {
   return (
-    <section
-      data-invert
-      data-nav="dark"
-      className="relative min-h-screen pt-[clamp(80px,12vh,180px)] pb-[clamp(64px,8vh,120px)] overflow-hidden"
-      style={{ background: '#050505', color: '#fff' }}
-    >
-      {/* Plasma background — soft, slow, filling the whole viewport. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{ zIndex: 0 }}
-      >
-        <ShaderBackground className="h-full w-full" />
-      </div>
+    <section className="cb pt-[clamp(96px,14vh,150px)] pb-[clamp(80px,12vh,160px)]">
+      <Page>
+        {/* ── Plasma panel ─── */}
+        <Reveal>
+          <div className="cb-panel">
+            <div aria-hidden="true" className="cb-plasma">
+              <ShaderBackground className="h-full w-full" />
+            </div>
+            <div className="cb-panel-inner">
+              <div className="flex items-center justify-between gap-4">
+                <p className="cb-eyebrow">Contact</p>
+                <p className="cb-status">
+                  <span className="cb-dot" aria-hidden="true" />
+                  Open for collaborations
+                </p>
+              </div>
 
-      {/* A gentle dark vignette so the type stays readable over the plasma. */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0"
-        style={{
-          zIndex: 1,
-          background:
-            'radial-gradient(60% 50% at 50% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 70%, rgba(0,0,0,0.55) 100%)',
-        }}
-      />
-
-      <div className="relative" style={{ zIndex: 2 }}><Page>
-        <div className="grid-page gap-y-[clamp(48px,8vh,96px)]">
-          {/* ── LEFT: statement + direct details ─── */}
-          <div className="col-span-4 md:col-span-8 lg:col-span-5">
-            <Reveal>
-              <Micro as="p" secondary className="uppercase" style={{ letterSpacing: '0.28em', opacity: 0.6 }}>
-                Contact
-              </Micro>
-              <h1
-                className="mt-6 font-bold"
-                style={{
-                  fontSize: 'clamp(34px, 4.6vw, 64px)',
-                  letterSpacing: '-0.025em',
-                  lineHeight: 1.02,
-                  maxWidth: '14ch',
-                }}
-              >
-                Every strong brand starts with one conversation.
-              </h1>
-            </Reveal>
-
-            <Reveal delay={80}>
-              <p
-                className="mt-[clamp(20px,3vw,32px)] font-light"
-                style={{
-                  fontSize: 'clamp(14px, 1.1vw, 16px)',
-                  lineHeight: 1.55,
-                  maxWidth: '40ch',
-                  color: 'rgba(255,255,255,0.65)',
-                }}
-              >
-                A commission, a brand build, or an idea that has not started
-                yet — send it over and let's shape it together.
-              </p>
-            </Reveal>
-
-            <div className="mt-[clamp(40px,6vh,72px)] space-y-7">
-              {[
-                ['Email', <a key="e" href={`mailto:${profile.email}`} className="link">{profile.email}</a>],
-                ['Based in', 'Belgrade, Serbia  ·  Erbil, Iraq'],
-                ['Available for', profile.availableFor.join(' · ')],
-                [
-                  'Elsewhere',
-                  <span key="s" className="inline-flex flex-wrap gap-x-5">
-                    {profile.social.map((s) => (
-                      <a key={s.label} className="link" href={s.href} target="_blank" rel="noreferrer">
-                        {s.label}
-                      </a>
-                    ))}
-                  </span>,
-                ],
-              ].map(([label, value], i) => (
-                <Reveal key={String(label)} delay={160 + i * 50}>
-                  <div>
-                    <Micro secondary className="uppercase" style={{ letterSpacing: '0.22em', opacity: 0.55 }}>
-                      {label}
-                    </Micro>
-                    <div className="mt-2" style={{ fontSize: 'clamp(15px,1.15vw,17px)' }}>
-                      {value}
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
+              <div>
+                <h1 className="cb-title">
+                  Every strong brand starts with one conversation.
+                </h1>
+                <a href={`mailto:${profile.email}`} className="cb-mail">
+                  {profile.email}
+                  <span aria-hidden="true" className="cb-mail-arrow">→</span>
+                </a>
+              </div>
             </div>
           </div>
+        </Reveal>
 
-          {/* ── RIGHT: frosted glass form card ─── */}
-          <div className="col-span-4 md:col-span-8 lg:col-span-6 lg:col-start-7">
+        {/* ── Form + details ─── */}
+        <div className="grid-page mt-[clamp(56px,9vh,112px)] gap-y-14">
+          <div className="col-span-4 md:col-span-8 lg:col-span-7">
+            <Reveal>
+              <div className="cb-form-card">
+              <p className="cb-label">Or write it here</p>
+              <p className="cb-sub mt-3">
+                A commission, a brand build, or an idea that has not started yet.
+                A few lines are enough — I&apos;ll reply within a day or two.
+              </p>
+              <div className="mt-[clamp(32px,5vw,56px)]">
+                <ContactForm />
+              </div>
+              </div>
+            </Reveal>
+          </div>
+
+          <aside className="col-span-4 md:col-span-8 lg:col-span-4 lg:col-start-9">
             <div className="lg:sticky lg:top-[120px]">
-              <Reveal delay={120}>
-                <div
-                  className="contact-glass p-[clamp(28px,3.5vw,48px)]"
-                  style={{ ['--hairline' as string]: 'rgba(255,255,255,0.22)' }}
-                >
-                  <Meta as="p" secondary className="uppercase" style={{ letterSpacing: '0.22em', opacity: 0.65 }}>
-                    Start a project
-                  </Meta>
-                  <p
-                    className="mt-3 font-bold"
-                    style={{
-                      fontSize: 'clamp(22px, 2.2vw, 30px)',
-                      letterSpacing: '-0.015em',
-                      lineHeight: 1.15,
-                    }}
-                  >
-                    A few lines are enough. I'll reply within a day or two.
-                  </p>
-                  <div className="mt-[clamp(28px,4vw,48px)]">
-                    <ContactForm />
+              <Reveal delay={100}>
+                <div className="cb-side">
+                  <div>
+                    <p className="cb-label">Based in</p>
+                    <p className="cb-value">Belgrade, Serbia</p>
+                    <p className="cb-value">Erbil, Iraq</p>
+                  </div>
+                  <div>
+                    <p className="cb-label">Available for</p>
+                    <ul className="cb-tags">
+                      {profile.availableFor.map((a) => (
+                        <li key={a}>{a}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <p className="cb-label">Elsewhere</p>
+                    <ul className="mt-2">
+                      {profile.social.map((s) => (
+                        <li key={s.label}>
+                          <a className="cb-social" href={s.href} target="_blank" rel="noreferrer">
+                            <span>{s.label}</span>
+                            <span aria-hidden="true">↗</span>
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </Reveal>
             </div>
-          </div>
+          </aside>
         </div>
-      </Page></div>
+      </Page>
     </section>
   )
 }
