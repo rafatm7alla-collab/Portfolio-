@@ -81,8 +81,8 @@ export function WorkWarpSection({ items }: { items: WarpItem[] }) {
           {mode === 'auto' && <p className="ww-meta">Swipe to browse</p>}
         </div>
 
-        {/* Same frame as the homepage banner: page margins, radius, height. */}
-        <div className="page ww-canvas-wrap">
+        {/* Full-bleed: the carousel runs edge to edge of the window. */}
+        <div className="ww-canvas-wrap">
           <div className="ww-frame">
             {mode && (
               <WarpCarousel
