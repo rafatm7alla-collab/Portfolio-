@@ -43,10 +43,11 @@ export function ImageVideoPairBlock({
   return (
     <figure>
       <div
-        className={size === 'contained' ? 'mx-auto' : 'bleed'}
-        style={size === 'contained' ? { width: vw, maxWidth: vw } : undefined}
+        // MEDIA RULE: every media block sits in the page column, sharing
+        // the text's left and right edges (see globals.css).
+        className="page"
       >
-        <div className="grid grid-cols-1 items-start gap-0 md:grid-cols-2">
+        <div className="grid grid-cols-1 items-start gap-[var(--media-gap)] md:grid-cols-2">
           <BlockImage
             image={image}
             sizes={size === 'contained' ? `(max-width: 768px) 100vw, ${widthPercent / 2}vw` : '(max-width: 768px) 100vw, 50vw'}
@@ -80,7 +81,7 @@ export function ImageVideoPairBlock({
 
       {(caption || title) && (
         <Page>
-          <div className="mt-4 grid grid-cols-1 gap-0 md:grid-cols-2">
+          <div className="mt-4 grid grid-cols-1 gap-[var(--media-gap)] md:grid-cols-2">
             <Micro secondary as="figcaption" {...directionProps(caption ?? '')}>
               {caption}
             </Micro>

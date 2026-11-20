@@ -67,14 +67,21 @@ export function MosaicBlock({
   layout: MosaicLayout
   noRounding?: boolean
 }) {
-  const template = TEMPLATES[layout]
+  const all = images
+  images = all.filter((image) => !image.missing)
+  if (images.length === 0) return null
+  const known = TEMPLATES[layout]
+  // A template needs every cell filled; with files missing, fall back to
+  // the plain even grid of whatever is present.
+  const template = known && images.length >= known.cells ? known : undefined
 
-  // Unknown layout: render as a plain even grid rather than nothing. A
-  // mistyped layout name should cost the arrangement, not the images.
+  // Unknown layout (or missing files): render as a plain even grid rather
+  // than nothing. A mistyped layout name should cost the arrangement, not
+  // the images.
   if (!template) {
     return (
       <Page>
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+        <div className="grid grid-cols-2 gap-[var(--media-gap)] md:grid-cols-3">
           {images.map((image, i) => (
             <BlockImage
               key={image.filename + i}
@@ -97,7 +104,7 @@ export function MosaicBlock({
     <Page>
       {/* Below md the template collapses to two even columns — a five-column
           mosaic at 375px is a row of stamps. */}
-      <div className="grid grid-cols-2 gap-4 md:hidden">
+      <div className="grid grid-cols-2 gap-[var(--media-gap)] md:hidden">
         {used.map((image, i) => (
           <BlockImage
             key={image.filename + i}
@@ -112,7 +119,7 @@ export function MosaicBlock({
       </div>
 
       <div
-        className="hidden gap-4 md:grid"
+        className="hidden gap-[var(--media-gap)] md:grid"
         style={{
           gridTemplateAreas: template.areas.map((row) => `"${row}"`).join(' '),
           gridTemplateColumns: `repeat(${template.columns}, minmax(0, 1fr))`,

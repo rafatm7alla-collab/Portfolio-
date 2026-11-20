@@ -55,7 +55,7 @@ export default function AboutPage() {
       <section className="pt-[var(--section-gap)]">
         <Page>
           <div className="grid-page">
-            <Reveal className="col-span-4 md:col-span-6 md:col-start-2 lg:col-span-8 lg:col-start-4">
+            <Reveal className="col-span-4 md:col-span-7 lg:col-span-8">
               {profile.aboutBody.map((paragraph, i) => (
                 <p
                   key={i}

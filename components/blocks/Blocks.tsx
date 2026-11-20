@@ -51,10 +51,30 @@ export function Blocks({
     )
   }
 
+  // A media block whose files are not on disk renders nothing at all —
+  // no grey placeholder, and no empty gap where it would have been.
+  const hasMedia = (b: Block): boolean => {
+    const present = (file: string) => !manifestImage(slug, file).missing
+    switch (b.type) {
+      case 'fullBleed':
+        return present(b.image)
+      case 'grid':
+      case 'twoUp':
+      case 'threeUp':
+      case 'fourUp':
+      case 'mosaic':
+      case 'album':
+        return b.images.some(present)
+      default:
+        return true
+    }
+  }
+  const visible = blocks.filter(hasMedia)
+
   return (
     <div>
-      {blocks.map((block, i) => {
-        const previous = blocks[i - 1]
+      {visible.map((block, i) => {
+        const previous = visible[i - 1]
         const isFirst = i === 0
 
         // Spacing rules:
@@ -74,12 +94,12 @@ export function Blocks({
         // text-to-banner breathing room always wins.
         const effectiveNoGap = noGap && !isProseBlock(previous) && !isProseBlock(block)
 
-        // Media next to media always sits flush — banners and image pairs
-        // read as one continuous run, never separated by white bands.
-        const spacing = isFirst || effectiveNoGap || bothMedia
+        // Media next to media: one consistent gutter (--media-gap), so
+        // stacked frames read as a set without touching.
+        const spacing = isFirst
           ? ''
-          : noBlockGaps && bothMedia
-            ? 'pt-1'
+          : bothMedia || effectiveNoGap
+            ? 'pt-[var(--media-gap)]'
             : block.type === 'sectionHeader'
               ? 'pt-[var(--block-gap-lg)]'
               : previous?.type === 'sectionHeader'
@@ -172,6 +192,21 @@ function render(slug: string, block: Block, index: number, noRounding?: boolean)
       )
 
     case 'imageVideoPair':
+      // Portrait not on disk: show the film on its own rather than beside
+      // an empty frame.
+      if (manifestImage(slug, block.image).missing) {
+        return (
+          <VideoEmbedBlock
+            provider={block.provider}
+            id={block.id}
+            title={block.title}
+            poster={manifestImage(slug, `${block.id}-poster.jpg`)}
+            size={block.size}
+            widthPercent={block.widthPercent}
+            noRounding={noRounding}
+          />
+        )
+      }
       return (
         <ImageVideoPairBlock
           image={manifestImage(slug, block.image, block.caption)}
@@ -256,6 +291,10 @@ function render(slug: string, block: Block, index: number, noRounding?: boolean)
       )
 
     case 'sideBySide':
+      // Image not on disk: keep the copy, drop the empty frame.
+      if (manifestImage(slug, block.image).missing) {
+        return <TextBlock body={block.body} heading={block.heading} />
+      }
       return (
         <SideBySideBlock
           image={manifestImage(slug, block.image)}

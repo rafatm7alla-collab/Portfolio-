@@ -1,6 +1,5 @@
 import type { ManifestImage } from '@/lib/manifest'
 import { BlockImage } from '@/components/blocks/BlockImage'
-import { Page } from '@/components/primitives/Layout'
 import { Reveal } from '@/components/primitives/Reveal'
 import { directionProps } from '@/lib/rtl'
 
@@ -20,17 +19,19 @@ export function HeroBlock({
   subtitle?: string
 }) {
   return (
-    <div className="bleed relative">
-      <BlockImage
-        image={image}
-        sizes="100vw"
-        fit="natural"
-        priority
-        noRounding
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0" />
-      <div className="absolute inset-x-0 bottom-0">
-        <Page className="pb-[clamp(24px,5vw,56px)]">
+    // Opening image framed in the page column with the same rounded
+    // corners as the homepage banner; title set over its lower edge.
+    <div className="page">
+      <div className="relative overflow-hidden" style={{ borderRadius: 'clamp(20px, 2.4vw, 32px)' }}>
+        <BlockImage
+          image={image}
+          sizes="(max-width: 768px) 100vw, 92vw"
+          fit="natural"
+          priority
+          noRounding
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0" />
+        <div className="absolute inset-x-0 bottom-0 p-[clamp(20px,3.6vw,56px)]">
           <Reveal>
             <h1 className="t-display-l text-white" {...directionProps(title)}>
               {title}
@@ -43,7 +44,7 @@ export function HeroBlock({
               </p>
             </Reveal>
           )}
-        </Page>
+        </div>
       </div>
     </div>
   )

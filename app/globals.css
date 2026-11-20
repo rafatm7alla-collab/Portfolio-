@@ -112,6 +112,8 @@
   /* Breathing room when prose meets a banner / video — about three
      lines of body text, so the copy never touches the frame edge. */
   --block-gap-prose-media: clamp(72px, 10vh, 144px);
+  /* One gutter for all media: between stacked images and inside rows. */
+  --media-gap: clamp(12px, 1.25vw, 24px);
 
   /* Contextual colour — flipped wholesale by [data-invert] */
   --paper: var(--color-paper);
@@ -143,6 +145,7 @@
     --block-gap-lg: 36px;
     --block-gap-sm: 10px;
     --block-gap-prose-media: 56px;
+    --media-gap: 8px;
     --section-gap: 40px;
   }
 
@@ -363,6 +366,18 @@ html.theme-ready [data-invert] {
 
   /* ─── GRID ─────────────────────────────────────────────────────── */
 
+  /* ALIGNMENT RULE — every heading, paragraph, label and link starts
+     on the page's left margin (column 1) and is set ragged-right. No
+     centred, right-aligned or indented text, no text starting on an
+     inner column. Body copy is capped at ~65ch. Exceptions: tabular
+     rows (credits, service lists) align to their own columns, and the
+     hero lockup and full-screen overlays stay centred.
+
+     MEDIA RULE — every image, video and row of images inside a project
+     sits in the same page column as the text (left and right edges on
+     the page margin). No per-block widths, no edge-to-edge bleeds.
+     Stacked media and images within a row are separated by one gutter,
+     --media-gap. Rows are justified: equal heights, no cropping. */
   .page {
     width: 100%;
     max-width: var(--page-max);
@@ -988,3 +1003,8 @@ html[data-theme="dark"] .cb-form-card {
   box-shadow: 0 0 0 1px rgba(255,255,255,0.02), 0 24px 60px -30px rgba(0,0,0,0.8);
 }
 @media (prefers-reduced-motion: reduce) { .cb-form-card:focus-within { transform: none; } }
+
+/* Justified media rows (twoUp/threeUp/fourUp): see NUpBlock. */
+@media (min-width: 768px) {
+  .nup-item { flex: var(--r) 1 0%; min-width: 0; }
+}

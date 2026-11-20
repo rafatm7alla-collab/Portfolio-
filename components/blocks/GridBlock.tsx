@@ -24,12 +24,19 @@ export function GridBlock({
   columns: 2 | 3
   noRounding?: boolean
 }) {
-  const isThree = columns === 3
+  const present = images.filter((image) => !image.missing)
+  if (present.length === 0) return null
+  // One image fills the column; otherwise keep the authored column count.
+  const single = present.length === 1
+  const isThree = columns === 3 && !single
+  // An odd image out in a 2-column grid spans the full row at double
+  // width and half the relative height, so the grid stays a clean block.
+  const orphan = !isThree && !single && present.length % 2 === 1
 
   return (
     <Page>
-      <div className={`grid grid-cols-2 gap-0 ${isThree ? 'md:grid-cols-3' : ''}`}>
-        {images.map((image, i) => (
+      <div className={`grid gap-[var(--media-gap)] ${single ? 'grid-cols-1' : 'grid-cols-2'} ${isThree ? 'md:grid-cols-3' : ''}`}>
+        {present.map((image, i) => (
           <BlockImage
             key={image.filename + i}
             image={image}
@@ -39,7 +46,8 @@ export function GridBlock({
                 : '(max-width: 768px) 50vw, 50vw'
             }
             fit="cover"
-            aspect="4 / 3"
+            aspect={orphan && i === present.length - 1 ? '8 / 3' : '4 / 3'}
+            className={orphan && i === present.length - 1 ? 'col-span-2' : ''}
             // Capped at 6 so a long grid does not stagger for two seconds.
             delay={Math.min(i, 5) * 100}
             noRounding={noRounding}

@@ -101,7 +101,7 @@ function AboutBlock() {
         </Reveal>
 
         <Reveal delay={200} className="mt-[clamp(48px,8vw,120px)]">
-          <div className="flex justify-end">
+          <div className="flex justify-start">
             <Link href="/about" className="t-meta link">
               Read more →
             </Link>

@@ -65,7 +65,7 @@ export function Micro({
  * The signature pair: BOLD word over light word.
  *
  *   SELECTED     ← 700
- *   work         ← 300, indented
+ *   work         ← 300, same left edge
  */
 export function SectionHeader({
   bold,
@@ -87,9 +87,9 @@ export function SectionHeader({
         <Reveal as="span" className="block uppercase">
           {bold}
         </Reveal>
-        {/* The light half is set as authored — no transform. The weight
-            and the indent carry the contrast, not a case change. */}
-        <Reveal as="span" delay={80} className="t-light block pl-[0.32em]">
+        {/* The light half is set as authored — no transform. Weight alone
+            carries the contrast; both lines share the left margin. */}
+        <Reveal as="span" delay={80} className="t-light block">
           {highlightLight ? <span className="hl-accent">{light}</span> : light}
         </Reveal>
       </Tag>

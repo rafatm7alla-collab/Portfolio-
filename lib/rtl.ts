@@ -38,12 +38,14 @@ export function textDirection(text: string): 'rtl' | 'ltr' {
 
 /**
  * Props to spread onto the element wrapping a string of unknown script.
- * `textAlign` follows direction so an RTL paragraph is not left-ragged
- * against a left margin it does not belong to.
+ * `dir` keeps Arabic shaping and punctuation correct, but the line is
+ * still set on the page's left margin: the site is an English layout and
+ * every line of text shares one left edge (see ALIGNMENT RULE in
+ * globals.css). The Arabic strings here are short taglines, not prose.
  */
 export function directionProps(text: string) {
   const dir = textDirection(text)
   return dir === 'rtl'
-    ? { dir, style: { textAlign: 'right' as const } }
+    ? { dir, style: { textAlign: 'left' as const } }
     : { dir }
 }

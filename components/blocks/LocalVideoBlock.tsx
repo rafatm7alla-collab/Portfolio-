@@ -69,8 +69,9 @@ export function LocalVideoBlock({
   return (
     <figure>
       <div
-        className={size === 'contained' ? 'mx-auto' : 'bleed'}
-        style={size === 'contained' ? { width: vw, maxWidth: vw } : undefined}
+        // MEDIA RULE: every media block sits in the page column, sharing
+        // the text's left and right edges (see globals.css).
+        className="page"
       >
         <MediaReveal className={noRounding ? '' : 'rounded-2xl'} style={{ aspectRatio: aspect }}>
           {missing ? (

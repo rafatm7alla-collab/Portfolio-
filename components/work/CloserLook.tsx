@@ -72,7 +72,7 @@ export function CloserLook({
         <header className="flex items-end justify-between gap-6">
           <h2 id="closer-look" className="t-display-l">
             <span className="block uppercase">A closer</span>
-            <span className="t-light block pl-[0.32em]">look</span>
+            <span className="t-light block">look</span>
           </h2>
           <div className="shrink-0 text-right">
             <Meta as="p">{title}</Meta>

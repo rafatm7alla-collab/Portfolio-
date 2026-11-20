@@ -8,7 +8,7 @@ export function PullQuoteBlock({ text }: { text: string }) {
     <Page>
       <Reveal>
         <p
-          className="t-display-m mx-auto max-w-[20ch] text-center"
+          className="t-display-m max-w-[20ch]"
           {...directionProps(text)}
         >
           {text}

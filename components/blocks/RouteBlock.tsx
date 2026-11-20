@@ -63,7 +63,7 @@ export function RouteBlock({
         </Reveal>
       </Page>
 
-      <div className="bleed mt-[var(--block-gap-sm)]">
+      <div className="page mt-[var(--block-gap-sm)]">
         <BlockImage
           image={leadImage}
           sizes="100vw"
@@ -72,7 +72,7 @@ export function RouteBlock({
         />
       </div>
 
-      <div className="bleed mt-4 grid grid-cols-1 gap-0 md:grid-cols-2">
+      <div className="page mt-[var(--media-gap)] grid grid-cols-1 gap-[var(--media-gap)] md:grid-cols-2">
         {pairImages.map((image, i) => (
           <BlockImage
             key={image.filename + i}

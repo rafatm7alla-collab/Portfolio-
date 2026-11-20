@@ -38,22 +38,20 @@ export function NUpBlock({
 
   return (
     <div
-      className={size === 'contained' ? 'mx-auto' : 'bleed'}
-      style={size === 'contained' ? { width: vw, maxWidth: vw } : undefined}
+      // MEDIA RULE: every media block sits in the page column, sharing
+      // the text's left and right edges (see globals.css).
+      className="page"
     >
-      <div
-        className={`grid grid-cols-1 items-start ${gap === 'md' ? 'gap-4 md:gap-6' : 'gap-0'} ${
-          cols === 4
-            ? 'md:grid-cols-4'
-            : cols === 3
-              ? 'md:grid-cols-3'
-              : cols === 2
-                ? 'md:grid-cols-2'
-                : ''
-        }`}
-      >
+      {/* Justified row: each frame grows in proportion to its own aspect
+          ratio, so every image in the row ends at the same height with no
+          cropping and the row fills the column exactly. Stacks below md. */}
+      <div className="flex flex-col gap-[var(--media-gap)] md:flex-row md:items-start">
         {present.map((image, i) => (
-          <figure key={image.filename + i}>
+          <figure
+            key={image.filename + i}
+            className="nup-item"
+            style={{ ['--r' as string]: image.width / image.height }}
+          >
             <BlockImage
               image={image}
               sizes={

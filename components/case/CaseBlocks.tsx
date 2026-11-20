@@ -59,7 +59,7 @@ export function CaseLede({ text }: { text: string }) {
     <section className="py-[var(--section-gap)]">
       <Page>
         <div className="grid-page">
-          <Reveal className="col-span-4 md:col-span-7 md:col-start-2 lg:col-span-8 lg:col-start-3">
+          <Reveal className="col-span-4 md:col-span-7 lg:col-span-8">
             <p className="t-headline">{text}</p>
           </Reveal>
         </div>
@@ -81,13 +81,13 @@ export function CaseText({ label, body }: { label: string; body: string }) {
   return (
     <section className="pb-[var(--section-gap)]">
       <Page>
-        <div className="grid-page gap-y-6">
-          <Reveal className="col-span-4 md:col-span-2 lg:col-span-3">
+        <div className="max-w-[65ch]">
+          <Reveal>
             <Meta secondary as="h2">
               {label}
             </Meta>
           </Reveal>
-          <Reveal delay={80} className="col-span-4 md:col-span-6 lg:col-span-7 lg:col-start-5">
+          <Reveal delay={80} className="mt-6">
             {paragraphs.map((paragraph, i) => (
               <p key={i} className={i === 0 ? 't-body' : 't-body mt-6'}>
                 {paragraph}
@@ -107,13 +107,13 @@ export function CaseRole({ project }: { project: Project }) {
     <section className="pb-[var(--section-gap)]">
       <Page>
         <Rule />
-        <div className="grid-page gap-y-6 pt-8">
-          <Reveal className="col-span-4 md:col-span-2 lg:col-span-3">
+        <div className="max-w-[65ch] pt-8">
+          <Reveal>
             <Meta secondary as="h2">
               Role
             </Meta>
           </Reveal>
-          <Reveal delay={80} className="col-span-4 md:col-span-6 lg:col-span-7 lg:col-start-5">
+          <Reveal delay={80} className="mt-6">
             <ul>
               {project.services.map((s) => (
                 <li
@@ -164,7 +164,7 @@ export function CaseIdea({
         )}
 
         <div className="grid-page mt-[clamp(40px,6vw,88px)]">
-          <Reveal delay={160} className="col-span-4 md:col-span-5 md:col-start-4 lg:col-span-5 lg:col-start-7">
+          <Reveal delay={160} className="col-span-4 md:col-span-6 lg:col-span-7">
             <p className="t-lede">{body}</p>
           </Reveal>
         </div>

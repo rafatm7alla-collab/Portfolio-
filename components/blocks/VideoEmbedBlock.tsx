@@ -41,8 +41,9 @@ export function VideoEmbedBlock({
   return (
     <figure>
       <div
-        className={size === 'contained' ? 'mx-auto' : 'bleed'}
-        style={size === 'contained' ? { width: vw, maxWidth: vw } : undefined}
+        // MEDIA RULE: every media block sits in the page column, sharing
+        // the text's left and right edges (see globals.css).
+        className="page"
       >
         {/* Identical treatment to images, so a film does not snap in
             beside media that settles. */}
