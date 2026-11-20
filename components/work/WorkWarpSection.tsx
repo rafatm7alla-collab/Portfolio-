@@ -12,7 +12,7 @@ import { WarpCarousel, type WarpItem } from '@/components/work/WarpCarousel'
  * next. When the last project has passed, the pin releases and the page
  * scrolls on, so nothing traps the reader.
  * Phone: no pin (pinned sections feel broken on touch); the carousel plays
- * by itself (one still card under reduced motion).
+ * by itself and can be swiped / dragged with a finger (one still card under reduced motion).
  */
 /** Scroll per project, in % of the viewport — higher = slower. */
 const PER_CARD_VH = 38
@@ -76,6 +76,7 @@ export function WorkWarpSection({ items }: { items: WarpItem[] }) {
               <span className="ww-hint">Scroll to browse</span>
             </p>
           )}
+          {mode === 'auto' && <p className="ww-meta">Swipe to browse</p>}
         </div>
 
         {/* Same frame as the homepage banner: page margins, radius, height. */}

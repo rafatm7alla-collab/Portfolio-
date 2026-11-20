@@ -142,7 +142,7 @@ export const profile = {
 } as const
 
 export const navigation = [
-  { label: 'Work', href: '/work' },
+  { label: 'Projects', href: '/work' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ] as const

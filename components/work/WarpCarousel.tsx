@@ -167,6 +167,9 @@ export function WarpCarousel({
   const centre = useRef(0)
   /** true while a card is settled in the middle (not mid-move) */
   const settled = useRef(true)
+  /** set when a finger/pointer drag moved the carousel, so the release
+   *  is not also treated as a tap on the middle card */
+  const dragged = useRef(false)
   const [overCard, setOverCard] = useState(false)
   const router = useRouter()
 
@@ -376,6 +379,19 @@ export function WarpCarousel({
     // playback: rAF while on screen; reduced motion = one still
     let raf = 0
     let prevNow = 0
+    // swipe (self-playing mode only): drag follows the finger 1:1, release
+    // eases to the nearest card (a quick flick carries it one card on)
+    let touch: 'auto' | 'drag' | 'settle' = 'auto'
+    let dragO = 0,
+      dragX0 = 0,
+      dragO0 = 0,
+      lastX = 0,
+      lastMoveT = 0,
+      vel = 0,
+      settleFrom = 0,
+      settleTo = 0,
+      settleT0 = 0,
+      pointerId = -1
     let t0: number | null = null
     let visible = true
     const frame = (now: number) => {
@@ -396,6 +412,23 @@ export function WarpCarousel({
         }
         return
       }
+      if (touch === 'drag') {
+        render(dragO)
+        return
+      }
+      if (touch === 'settle') {
+        const p = Math.min((now - settleT0) / 520, 1)
+        render(settleFrom + (settleTo - settleFrom) * (1 - Math.pow(1 - p, 3)))
+        if (p < 1) return
+        // land on the card and resume the clock at the start of its hold
+        touch = 'auto'
+        lastT = settleTo * PERIOD
+        t0 = null
+        if (still) {
+          cancelAnimationFrame(raf)
+          return
+        }
+      }
       if (t0 === null) t0 = now - lastT * 1000
       draw((now - t0) / 1000)
     }
@@ -410,6 +443,51 @@ export function WarpCarousel({
         raf = requestAnimationFrame(frame)
       }
     }
+    // one card step in CSS px — the same maths as the shader's placement
+    const pxPerCard = () => SPACING * (canvas.getBoundingClientRect().height / 1080) * zoom()
+    const onDown = (e: PointerEvent) => {
+      if (progress || (e.pointerType === 'mouse' && e.button !== 0)) return
+      pointerId = e.pointerId
+      canvas.setPointerCapture(e.pointerId)
+      touch = 'drag'
+      dragged.current = false
+      dragX0 = lastX = e.clientX
+      lastMoveT = e.timeStamp
+      vel = 0
+      dragO0 = dragO = lastO
+      if (still) {
+        cancelAnimationFrame(raf)
+        raf = requestAnimationFrame(frame)
+      }
+    }
+    const onMove = (e: PointerEvent) => {
+      if (touch !== 'drag' || e.pointerId !== pointerId) return
+      const dx = e.clientX - dragX0
+      if (Math.abs(dx) > 6) dragged.current = true
+      const dt = Math.max(e.timeStamp - lastMoveT, 1)
+      vel = 0.8 * ((e.clientX - lastX) / dt) + 0.2 * vel // px per ms, smoothed
+      lastX = e.clientX
+      lastMoveT = e.timeStamp
+      // finger right → previous card comes in from the left
+      dragO = dragO0 - dx / pxPerCard()
+    }
+    const onUp = (e: PointerEvent) => {
+      if (touch !== 'drag' || e.pointerId !== pointerId) return
+      pointerId = -1
+      const flick = Math.max(-0.6, Math.min(0.6, (-vel * 220) / pxPerCard()))
+      settleFrom = dragO
+      settleTo = Math.round(dragO + flick)
+      settleT0 = performance.now()
+      touch = 'settle'
+    }
+    if (!progress) {
+      canvas.style.touchAction = 'pan-y' // vertical swipes still scroll the page
+      canvas.addEventListener('pointerdown', onDown)
+      canvas.addEventListener('pointermove', onMove)
+      canvas.addEventListener('pointerup', onUp)
+      canvas.addEventListener('pointercancel', onUp)
+    }
+
     const io = new IntersectionObserver(([e]) => (visible = e.isIntersecting))
     io.observe(canvas)
     const lost = (e: Event) => e.preventDefault()
@@ -427,6 +505,10 @@ export function WarpCarousel({
       ro.disconnect()
       io.disconnect()
       reduce.removeEventListener('change', start)
+      canvas.removeEventListener('pointerdown', onDown)
+      canvas.removeEventListener('pointermove', onMove)
+      canvas.removeEventListener('pointerup', onUp)
+      canvas.removeEventListener('pointercancel', onUp)
       canvas.removeEventListener('webglcontextlost', lost)
       canvas.removeEventListener('webglcontextrestored', restored)
       imgs.forEach((im) => (im.onload = null))
@@ -461,6 +543,10 @@ export function WarpCarousel({
         }}
         onMouseLeave={() => setOverCard(false)}
         onClick={(e) => {
+          if (dragged.current) {
+            dragged.current = false
+            return
+          }
           if (!onMiddle(e)) return
           const it = items[centre.current]
           if (it) router.push(it.href)
