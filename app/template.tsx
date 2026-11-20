@@ -1,28 +1,19 @@
-'use client'
-
-import { motion } from 'motion/react'
-
 /**
  * PAGE TRANSITION
  *
  * template.tsx remounts on every navigation, so the enter animation runs
  * without any router interception. 520ms opacity + 16px rise.
  *
- * The exit half of the transition is deliberately omitted: App Router
- * unmounts the outgoing tree before an exit animation can play, and every
- * workaround for that (freezing the router, shadow-rendering the old page)
- * costs more in fragility than 380ms of fade is worth. Enter-only reads as
- * clean rather than missing — total transition stays inside the 900ms
- * budget either way.
+ * Done as a CSS animation (see .page-enter in globals.css) rather than a
+ * motion component: once it finishes it leaves NO transform on the
+ * wrapper. A leftover transform — even an identity matrix — turns the
+ * wrapper into the containing block for position: fixed, which breaks
+ * pinned scroll sections (they fall back to per-frame transforms, one
+ * frame behind smooth scrolling, and stutter).
+ *
+ * The exit half is deliberately omitted: App Router unmounts the outgoing
+ * tree before an exit animation can play.
  */
 export default function Template({ children }: { children: React.ReactNode }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.52, ease: [0.16, 1, 0.3, 1] }}
-    >
-      {children}
-    </motion.div>
-  )
+  return <div className="page-enter">{children}</div>
 }

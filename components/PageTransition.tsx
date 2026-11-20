@@ -30,10 +30,13 @@ export function PageTransition({ children }: { children: ReactNode }) {
     <div
       style={{
         opacity: phase === 'entering' ? 0 : 1,
+        // 'none' (not translateY(0)) once settled: any transform left on
+        // this wrapper makes it the containing block for position: fixed
+        // and breaks pinned scroll sections. It still animates from 8px.
         transform:
           phase === 'entering'
             ? 'translateY(8px)'
-            : 'translateY(0)',
+            : 'none',
         transition:
           phase === 'visible'
             ? 'opacity 350ms var(--ease-out), transform 350ms var(--ease-out)'

@@ -14,12 +14,24 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
   useEffect(() => {
     let timer = 0
     let lastHeight = document.body.scrollHeight
+    let refreshing = false
     const ro = new ResizeObserver(() => {
+      // A refresh briefly removes pin spacers and puts them back; that is
+      // a height change we caused ourselves, not new content. Reacting to
+      // it re-triggered refresh forever (page height flip-flopping, the
+      // scroll position dragged with it) on any page with a pinned section.
+      if (refreshing) return
       const h = document.body.scrollHeight
       if (Math.abs(h - lastHeight) < 2) return
       lastHeight = h
       window.clearTimeout(timer)
-      timer = window.setTimeout(() => ScrollTrigger.refresh(), 150)
+      timer = window.setTimeout(() => {
+        refreshing = true
+        ScrollTrigger.refresh()
+        lastHeight = document.body.scrollHeight
+        // Let the observer's callback for this refresh's own layout pass go by.
+        requestAnimationFrame(() => requestAnimationFrame(() => (refreshing = false)))
+      }, 150)
     })
     ro.observe(document.body)
     return () => {

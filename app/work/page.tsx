@@ -5,6 +5,8 @@ import { Page } from '@/components/primitives/Layout'
 import { SectionHeader } from '@/components/type/Type'
 import { WorkBrowserDraft } from '@/components/work/WorkBrowserDraft'
 import { ContactBlock } from '@/components/chrome/ContactBlock'
+import { WorkHeroPanel } from '@/components/work/WorkHeroPanel'
+import { WorkWarpSection } from '@/components/work/WorkWarpSection'
 
 export const metadata: Metadata = {
   title: 'Work',
@@ -12,6 +14,16 @@ export const metadata: Metadata = {
     'Branding, campaigns, packaging, film and art direction by Rafat Mhalla.',
   alternates: { canonical: '/work' },
 }
+
+// The warp carousel's cards: every project with a still cover (no GIFs).
+const warpItems = projects
+  .filter((p) => p.cover && !p.cover.endsWith('.gif'))
+  .map((p) => ({
+    title: p.title,
+    meta: [categories.find((c) => c.id === p.categories[0])?.label, p.year].filter(Boolean).join(' · '),
+    href: p.href,
+    cover: p.cover!,
+  }))
 
 export default function WorkPage() {
   return (
@@ -25,18 +37,17 @@ export default function WorkPage() {
         headline. The floor here is above the nav's own height, so the
         headline starts below it at every breakpoint.
       */}
-      {/* HERO — plain white; the plasma is reserved for the homepage banner. */}
-      <section className="relative pt-[clamp(100px,26vh,300px)] pb-[clamp(40px,6vh,80px)]">
-        <div className="relative">
-          <Page>
-            <SectionHeader
-              bold="Project"
-              light="categories"
-              as="h1"
-            />
-          </Page>
-        </div>
+      {/* HERO — the contact page's silver plasma panel, shorter, title only. */}
+      <section className="pt-[clamp(96px,14vh,150px)] pb-[clamp(40px,6vh,80px)]">
+        <Page>
+          <WorkHeroPanel>
+            <SectionHeader bold="Project" light="categories" as="h1" />
+          </WorkHeroPanel>
+        </Page>
       </section>
+
+      {/* PROJECT PREVIEW — scroll drives the warp carousel (desktop). */}
+      <WorkWarpSection items={warpItems} />
 
       {/* CATEGORIES — solid white, black text and icons, no shader. */}
       <section style={{ background: 'var(--color-paper)', color: 'var(--color-ink)' }}>
