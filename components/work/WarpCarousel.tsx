@@ -45,6 +45,20 @@ function place(p: number) {
   return { x, s }
 }
 
+/** Two-up track (wide frames): the middle pair sits flat at full size
+ *  either side of centre (p = ±0.5, a 40 px gap); the rest step outward. */
+const PAIR_STEP = 440 // stage px between the two middle cards' centres
+const OUT_STEP = 460 // stage px between cards beyond the pair
+function placePair(p: number) {
+  const ap = Math.abs(p)
+  if (ap <= 0.5) return { x: p * PAIR_STEP, s: 1 }
+  const out = ap - 0.5
+  return {
+    x: Math.sign(p) * (PAIR_STEP / 2 + out * OUT_STEP),
+    s: 1 - 0.14 * Math.min(out, 1) - 0.05 * Math.max(out - 1, 0),
+  }
+}
+
 const VERTEX = `#version 300 es
 in vec2 aP;
 uniform float uX, uS, uAsp, uZ;
@@ -56,10 +70,10 @@ void main() {
   vec2 lp = aP;
   float sx = uX + lp.x * uS, sy = lp.y * uS;
   float u = abs(sx) / 540.;
-  float w = smoothstep(.56, 1.16, u);
+  float w = smoothstep(.8, 1.3, u);
   float w2 = w * w;
-  sx = sign(sx) * (abs(sx) + 420. * w2 * w);
-  sy *= 1. + 2.4 * w2;
+  sx = sign(sx) * (abs(sx) + 240. * w2 * w);
+  sy *= 1. + 1.1 * w2;
   vL = lp;
   vW = w2;
   vD = sign(sx);
@@ -83,11 +97,11 @@ float sdf(vec2 p) {
 }
 void main() {
   float d = sdf(vL);
-  float aa = fwidth(d) * .9 + vW * 150.;
+  float aa = fwidth(d) * .9 + vW * 110.;
   float a = 1. - smoothstep(-aa * .35, aa, d);
   if (a <= 0.002) discard;
   vec2 uv = vL / (uH * 2.) + .5;
-  float sm = vW * .30, ca = vW * .022, vy = vW * .025;
+  float sm = vW * .18, ca = vW * .014, vy = vW * .015;
   vec3 c = vec3(0.);
   for (int i = 0; i < 32; i++) {
     float f = float(i) / 31.;
@@ -167,6 +181,8 @@ export function WarpCarousel({
   const centre = useRef(0)
   /** true while a card is settled in the middle (not mid-move) */
   const settled = useRef(true)
+  /** true when two covers share the middle (wide frames) */
+  const pairMode = useRef(false)
   /** set when a finger/pointer drag moved the carousel, so the release
    *  is not also treated as a tap on the middle card */
   const dragged = useRef(false)
@@ -189,8 +205,9 @@ export function WarpCarousel({
     }
     // scroll progress → carousel position, with a hold on every card
     const fromScroll = (p: number) => {
-      const x = Math.min(Math.max(p, 0), 1) * (n - 1)
-      const k = Math.min(Math.floor(x), n - 1),
+      const steps = pair() ? n - 2 : n - 1
+      const x = Math.min(Math.max(p, 0), 1) * steps
+      const k = Math.min(Math.floor(x), steps),
         f = x - k
       return k + ease(Math.min(Math.max((f - 0.2) / 0.8, 0), 1))
     }
@@ -315,8 +332,10 @@ export function WarpCarousel({
     // a little less on narrow (phone) boxes so the neighbours still show.
     const zoom = () => {
       const asp = canvas.width / canvas.height
-      return asp < 1.2 ? 1.25 : 1.62
+      return asp < 1.2 ? 1.25 : 1.5
     }
+    // two covers in the middle when the frame is wide enough
+    const pair = () => canvas.width / canvas.height >= 1.2
 
     let lastT = 0
     let lastO = 0
@@ -330,8 +349,12 @@ export function WarpCarousel({
       lastO = o
       centre.current = ((Math.round(o) % n) + n) % n
       settled.current = Math.abs(o - Math.round(o)) < 0.2
+      const two = pair()
+      pairMode.current = two
+      const at = two ? placePair : place
+      // pair mode: card k sits at −0.5 (left of centre), k+1 at +0.5
       const list = items
-        .map((_, i) => ({ i, p: slot(i, o) }))
+        .map((_, i) => ({ i, p: slot(i, o) - (two ? 0.5 : 0) }))
         .filter((e) => Math.abs(e.p) < VISIBLE)
         .sort((a, b) => Math.abs(b.p) - Math.abs(a.p))
 
@@ -350,7 +373,7 @@ export function WarpCarousel({
             gl.generateMipmap(gl.TEXTURE_2D)
             dirty[e.i] = false
           }
-          const g = place(e.p)
+          const g = at(e.p)
           gl.uniform1f(u.uX, g.x)
           gl.uniform1f(u.uS, g.s)
           gl.drawElements(gl.TRIANGLES, count, gl.UNSIGNED_INT, 0)
@@ -361,7 +384,7 @@ export function WarpCarousel({
         c.clearRect(0, 0, canvas!.width, canvas!.height)
         const k = (canvas!.height / 1080) * zoom()
         for (const e of list) {
-          const g = place(e.p)
+          const g = at(e.p)
           const w = CARD_W * g.s * k,
             h = CARD_H * g.s * k,
             left = canvas!.width / 2 + g.x * k - w / 2,
@@ -444,7 +467,8 @@ export function WarpCarousel({
       }
     }
     // one card step in CSS px — the same maths as the shader's placement
-    const pxPerCard = () => SPACING * (canvas.getBoundingClientRect().height / 1080) * zoom()
+    const pxPerCard = () =>
+      (pair() ? PAIR_STEP : SPACING) * (canvas.getBoundingClientRect().height / 1080) * zoom()
     const onDown = (e: PointerEvent) => {
       if (progress || (e.pointerType === 'mouse' && e.button !== 0)) return
       pointerId = e.pointerId
@@ -519,16 +543,21 @@ export function WarpCarousel({
     }
   }, [items, progress])
 
-  /** Is the pointer over the middle card? Same maths as the shader:
+  /** Which middle card is under the pointer: 0 = the (left) middle card,
+   *  1 = the right one in pair mode, -1 = none. Same maths as the shader:
    *  a card spans 400 × 520 stage px, scaled by uZ, 1080 stage px = height. */
-  const onMiddle = (e: React.MouseEvent<HTMLCanvasElement>) => {
+  const middleHit = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    if (!settled.current) return -1
     const r = e.currentTarget.getBoundingClientRect()
-    const z = r.width / r.height < 1.2 ? 1.25 : 1.62
+    const z = r.width / r.height < 1.2 ? 1.25 : 1.5
     const k = (r.height / 1080) * z
     const x = e.clientX - r.left - r.width / 2,
       y = e.clientY - r.top - r.height / 2
-    return settled.current && Math.abs(x) <= (CARD_W / 2) * k && Math.abs(y) <= (CARD_H / 2) * k
+    if (Math.abs(y) > (CARD_H / 2) * k) return -1
+    const centres = pairMode.current ? [-PAIR_STEP / 2, PAIR_STEP / 2] : [0]
+    return centres.findIndex((c) => Math.abs(x - c * k) <= (CARD_W / 2) * k)
   }
+  const onMiddle = (e: React.MouseEvent<HTMLCanvasElement>) => middleHit(e) >= 0
 
   return (
     <>
@@ -547,8 +576,9 @@ export function WarpCarousel({
             dragged.current = false
             return
           }
-          if (!onMiddle(e)) return
-          const it = items[centre.current]
+          const hit = middleHit(e)
+          if (hit < 0) return
+          const it = items[(centre.current + hit) % items.length]
           if (it) router.push(it.href)
         }}
         style={{ cursor: overCard ? 'pointer' : 'default' }}

@@ -1034,15 +1034,14 @@ html[data-theme="dark"] .cb-form-card {
 .ww-meta { display: flex; gap: 20px; font-variant-numeric: tabular-nums; }
 .ww-meta > span:first-child { color: var(--ink); }
 .ww-canvas-wrap { margin: clamp(12px, 2vh, 20px) auto; }
-/* The homepage banner's frame: same radius and height, on the warp
-   piece's own warm light-grey stage colour. */
+/* The homepage banner's frame: same radius and height, on the page colour. */
 .ww-frame {
   position: relative; overflow: hidden; isolation: isolate;
   border-radius: clamp(20px, 2.4vw, 32px);
   height: clamp(420px, 64vh, 680px);
-  background: #e2e0db;
+  /* the page's own colour: white, black in dark mode */
+  background: var(--paper);
 }
-html[data-theme="dark"] .ww-frame { background: #141414; }
 .ww-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
 .ww-track { display: block; height: 1px; background: var(--hairline); overflow: hidden; }
 .ww-bar {

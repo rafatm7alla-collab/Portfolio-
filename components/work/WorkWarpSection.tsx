@@ -54,8 +54,10 @@ export function WorkWarpSection({ items }: { items: WarpItem[] }) {
       end: () => `+=${runway.current?.offsetHeight ?? 0}`,
       onUpdate: (self) => {
         progress.current = self.progress
-        const i = Math.round(self.progress * (n - 1)) + 1
-        if (counter.current) counter.current.textContent = `${String(i).padStart(2, '0')} / ${String(n).padStart(2, '0')}`
+        // two covers share the middle on desktop: show the pair, e.g. 03–04 / 14
+        const i = Math.round(self.progress * (n - 2)) + 1
+        const pad = (v: number) => String(v).padStart(2, '0')
+        if (counter.current) counter.current.textContent = `${pad(i)}–${pad(i + 1)} / ${pad(n)}`
         if (bar.current) bar.current.style.transform = `scaleX(${self.progress})`
       },
     })
@@ -72,7 +74,7 @@ export function WorkWarpSection({ items }: { items: WarpItem[] }) {
           <p className="ww-label">Selected projects</p>
           {mode === 'scroll' && (
             <p className="ww-meta">
-              <span ref={counter}>01 / {String(n).padStart(2, '0')}</span>
+              <span ref={counter}>01–02 / {String(n).padStart(2, '0')}</span>
               <span className="ww-hint">Scroll to browse</span>
             </p>
           )}
@@ -102,7 +104,7 @@ export function WorkWarpSection({ items }: { items: WarpItem[] }) {
       </div>
       {/* The scroll distance the stage stays stuck for: one step per project. */}
       {mode === 'scroll' && (
-        <div ref={runway} aria-hidden="true" style={{ height: `${(n - 1) * PER_CARD_VH}vh` }} />
+        <div ref={runway} aria-hidden="true" style={{ height: `${(n - 2) * PER_CARD_VH}vh` }} />
       )}
     </section>
   )
