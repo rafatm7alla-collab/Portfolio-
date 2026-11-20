@@ -120,13 +120,24 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
     }
   }, [isClicked, handleClickAway])
 
+  // Ink on the banner: white on the dark liquid plasma, dark on the bare
+  // photo once clicked. Same in light and dark site themes.
+  const darkInk = isClicked
+  const ink = darkInk ? '#0a0a0a' : '#ffffff'
+
   return (
     <>
+      <div className="page mt-[clamp(96px,14vh,150px)]">
       <div
         ref={bannerRef}
         onClick={handleClick}
-        className="relative mt-[clamp(72px,9vh,104px)] overflow-hidden cursor-pointer"
-        style={{ minHeight: 'clamp(440px, 62vh, 700px)' }}
+        className="relative overflow-hidden cursor-pointer"
+        style={{
+          minHeight: 'clamp(460px, 68vh, 720px)',
+          borderRadius: 'clamp(20px, 2.4vw, 32px)',
+          isolation: 'isolate',
+          background: '#000',
+        }}
       >
         {/* Portrait layer — always behind */}
         {!isMobile && (
@@ -162,8 +173,8 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
         {/* Banner layer — solid black by default (no shader), transparent
             when clicked, transparent while the shader is running. */}
         <section
-          data-invert={!isClicked}
-          data-nav={isClicked ? "light" : "dark"}
+          data-invert={!darkInk}
+          data-nav={darkInk ? "light" : "dark"}
           className="absolute inset-0 z-[3] flex flex-col justify-center overflow-hidden transition-all duration-300"
           style={{
             backgroundColor:
@@ -176,7 +187,7 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
                 as="p"
                 style={{
                   letterSpacing: '0.18em',
-                  color: isClicked ? 'black' : 'white',
+                  color: ink,
                 }}
               >
                 Creative Director · Art Director
@@ -201,7 +212,7 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
                       sizes="(max-width: 768px) 40vw, 17vw"
                       className="object-contain"
                       style={{
-                        filter: isClicked ? 'invert(1)' : 'none',
+                        filter: darkInk ? 'invert(1)' : 'none',
                       }}
                     />
                   </div>
@@ -212,7 +223,7 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
                 aria-hidden="true"
                 className="w-px shrink-0"
                 style={{
-                  backgroundColor: 'rgba(255,255,255,0.45)',
+                  backgroundColor: darkInk ? 'rgba(0,0,0,0.35)' : 'rgba(255,255,255,0.45)',
                   height: 'clamp(80px, 22vw, 180px)',
                   alignSelf: 'center',
                   opacity: isClicked ? 0 : 1,
@@ -220,7 +231,7 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
                 }}
               />
 
-              <div className="shrink-0" style={{ color: 'white', opacity: isClicked ? 0 : 1, visibility: isClicked ? 'hidden' : 'visible' }}>
+              <div className="shrink-0" style={{ color: ink, opacity: isClicked ? 0 : 1, visibility: isClicked ? 'hidden' : 'visible' }}>
                 <DisplayStack
                   as="h1"
                   lines={profile.heroName}
@@ -231,6 +242,7 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
             </div>
           </Page>
         </section>
+      </div>
       </div>
 
       {/* Lede section below */}
