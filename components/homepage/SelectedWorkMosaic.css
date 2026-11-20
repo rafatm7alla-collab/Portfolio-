@@ -5,15 +5,18 @@
    ───────────────────────────────────────────────────────────── */
 
 .swm-root {
+  /* Same column as the homepage banner: page margins left and right. */
   width: 100%;
-  padding: 0;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--page-margin);
   box-sizing: border-box;
 }
 
 .swm-grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  gap: 0;
+  gap: var(--media-gap);
 }
 
 /* Rhythm: full · pair · full · pair · full · pair.
@@ -85,6 +88,8 @@
   color: #fff;
   text-decoration: none;
   isolation: isolate;
+  /* Same corner radius as the homepage banner. */
+  border-radius: clamp(20px, 2.4vw, 32px);
 }
 
 .swm-tile--placeholder {
