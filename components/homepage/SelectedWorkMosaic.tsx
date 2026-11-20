@@ -15,6 +15,7 @@
 import Link from 'next/link'
 import NextImage from 'next/image'
 import type { Project } from '@/types/project'
+import { ShaderBackground } from '@/components/ui/plasma-shader'
 import './SelectedWorkMosaic.css'
 
 const manifestHrefs: Record<string, string> = {
@@ -172,10 +173,14 @@ function AllWorkTile({ slot }: { slot: string }) {
       href="/work"
       className="swm-tile swm-tile--placeholder swm-tile--allwork"
       data-slot={slot}
-      aria-label="View all work"
+      aria-label="View all projects"
     >
+      {/* The homepage banner's dark liquid plasma, behind the label. */}
+      <div aria-hidden="true" className="swm-plasma">
+        <ShaderBackground className="h-full w-full" />
+      </div>
       <div className="swm-placeholder-inner">
-        <span className="swm-placeholder-label">All work →</span>
+        <span className="swm-placeholder-label">All projects →</span>
       </div>
     </Link>
   )
