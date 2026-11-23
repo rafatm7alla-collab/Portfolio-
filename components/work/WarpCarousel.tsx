@@ -35,28 +35,20 @@ const TEX = 2.4
 const COLS = 96
 const ROWS = 28
 const MARGIN = 90
-const SPACING = 474
-const VISIBLE = 2.2
+/* Flat thumbnail strip: every card the same size, evenly spaced in one
+   straight row — no bend, no stretch (the warp is switched off below). */
+const SPACING = 440 // stage px between card centres (400 card + 40 gap)
+const VISIBLE = 3.2 // wide frames show more than two cards either side
 
 function place(p: number) {
-  const ap = Math.abs(p),
-    s = 1 - 0.16 * Math.min(ap, 1) - 0.06 * Math.max(ap - 1, 0)
-  const x = Math.sign(p) * (SPACING * Math.min(ap, 1) + (ap > 1 ? (ap - 1) * SPACING * 1.05 : 0))
-  return { x, s }
+  return { x: p * SPACING, s: 1 }
 }
 
-/** Two-up track (wide frames): the middle pair sits flat at full size
- *  either side of centre (p = ±0.5, a 40 px gap); the rest step outward. */
-const PAIR_STEP = 440 // stage px between the two middle cards' centres
-const OUT_STEP = 460 // stage px between cards beyond the pair
+/** Two-up track (wide frames): same flat row, shifted half a step so two
+ *  cards share the middle (p = ±0.5). */
+const PAIR_STEP = SPACING
 function placePair(p: number) {
-  const ap = Math.abs(p)
-  if (ap <= 0.5) return { x: p * PAIR_STEP, s: 1 }
-  const out = ap - 0.5
-  return {
-    x: Math.sign(p) * (PAIR_STEP / 2 + out * OUT_STEP),
-    s: 1 - 0.14 * Math.min(out, 1) - 0.05 * Math.max(out - 1, 0),
-  }
+  return { x: p * PAIR_STEP, s: 1 }
 }
 
 const VERTEX = `#version 300 es
@@ -70,7 +62,7 @@ void main() {
   vec2 lp = aP;
   float sx = uX + lp.x * uS, sy = lp.y * uS;
   float u = abs(sx) / 540.;
-  float w = smoothstep(.8, 1.3, u);
+  float w = 0.; // warp off: flat cards, no stretch, smear or colour split
   float w2 = w * w;
   sx = sign(sx) * (abs(sx) + 240. * w2 * w);
   sy *= 1. + 1.1 * w2;
