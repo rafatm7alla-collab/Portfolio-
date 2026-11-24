@@ -6,7 +6,7 @@ import { getManifest } from '@/lib/manifest'
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = profile.siteUrl
 
-  const staticRoutes = ['', '/work', '/about', '/contact'].map((route) => ({
+  const staticRoutes = ['', '/work', '/framework', '/about', '/contact'].map((route) => ({
     url: `${base}${route}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
