@@ -1010,7 +1010,7 @@ html[data-theme="dark"] .cb-form-card {
 }
 
 /* ─── WORK HEADER PANEL — shorter silver plasma, title only ──── */
-.wh-panel { min-height: clamp(260px, 36vh, 400px); }
+.wh-panel { min-height: clamp(338px, 47vh, 520px); } /* +30 % */
 .wh-inner {
   position: relative; z-index: 2; min-height: inherit;
   display: flex; flex-direction: column; justify-content: flex-end;
@@ -1037,7 +1037,9 @@ html[data-theme="dark"] .cb-form-card {
 /* Edge to edge, no corners, on the page colour. */
 .ww-frame {
   position: relative; overflow: hidden; isolation: isolate;
-  height: clamp(420px, 64vh, 680px);
+  /* +30 % (was 420 / 64vh / 680); the cards scale with this height.
+     Capped so the sticky stage (10vh top + head + bar) still fits the window. */
+  height: clamp(546px, min(83vh, 90vh - 120px), 884px);
   /* the page's own colour: white, black in dark mode */
   background: var(--paper);
 }
@@ -1049,7 +1051,7 @@ html[data-theme="dark"] .cb-form-card {
 }
 @media (max-width: 767px) {
   .ww-stage { padding: 40px 0 16px; }
-  .ww-frame { height: 56vh; min-height: 380px; }
+  .ww-frame { height: 73vh; min-height: 494px; }
   .ww-hint { display: none; }
 }
 
