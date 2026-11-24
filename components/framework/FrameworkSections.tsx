@@ -194,7 +194,6 @@ export function FinalCtaSection() {
         <BookingTrigger className="fw-btn">
           Book a Discovery Call <Arrow direction="up-right" />
         </BookingTrigger>
-        <p className="t-micro ink-secondary">30-minute introductory conversation. No commitment.</p>
       </Reveal>
     </section>
   )
