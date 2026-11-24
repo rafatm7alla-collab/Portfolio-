@@ -2,6 +2,7 @@
 
 import { Reveal } from '@/components/primitives/Reveal'
 import { HeroFigure } from './HeroFigure'
+import { Arrow } from '@/components/ui/Arrow'
 import { scrollToId } from './scrollTo'
 
 /**
@@ -52,7 +53,7 @@ export function FrameworkHero() {
                 scrollToId('framework')
               }}
             >
-              Explore the Framework <span aria-hidden="true" className="fw-arrow-down">↘</span>
+              Explore the Framework <Arrow direction="down-right" className="fw-arrow-down" />
             </a>
           </Reveal>
         </div>

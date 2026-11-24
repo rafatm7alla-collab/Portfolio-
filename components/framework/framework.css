@@ -130,12 +130,18 @@
   /* subgrid: every row (title, tagline, description, Services toggle)
      lines up across the five columns whatever the copy length */
   .fw-stage {
-    display: grid; grid-row: span 7; grid-template-rows: subgrid;
+    display: grid; grid-row: span 8; grid-template-rows: subgrid;
     grid-template-columns: none; padding-bottom: 0;
   }
   .fw-stage-body { display: contents; }
   .fw-stage-body > :first-child { margin-top: 32px; }
   .fw-toggle { align-self: end; }
+  /* Open services join the subgrid too: the list is one row and the
+     client outcome the next, so every "Client outcome" line starts at
+     the same height across the five columns, whatever the list length. */
+  .fw-services:not([hidden]) { display: contents; }
+  .fw-services > ul { padding-top: 16px; animation: fw-in var(--dur-base) var(--ease-out); }
+  .fw-outcome-block { align-self: start; animation: fw-in var(--dur-base) var(--ease-out); }
   .fw-rail {
     top: calc(var(--node) / 2); bottom: auto; height: 1px; width: auto;
     left: calc(var(--node) / 2);
@@ -158,14 +164,27 @@
 }
 .fw-plus::before { left: 0; right: 0; top: 5px; height: 1px; }
 .fw-plus::after { top: 0; bottom: 0; left: 5px; width: 1px; }
-.fw-toggle[aria-expanded='true'] .fw-plus::after { transform: scaleY(0); }
+.fw-toggle[aria-expanded='true'] .fw-plus::after,
+.fw-expand-all[aria-expanded='true'] .fw-plus::after { transform: scaleY(0); }
+
+/* "Expand all services": a slim outlined pill with + / − */
+.fw-expand-all {
+  display: inline-flex; align-items: center; gap: 14px;
+  padding: 12px 18px 11px 20px;
+  border: 1px solid var(--ink); border-radius: 999px;
+  transition: background-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .fw-expand-all:hover { background: var(--ink); color: var(--paper); }
+}
 
 .fw-services { padding-top: 16px; animation: fw-in var(--dur-base) var(--ease-out); }
 .fw-services li {
   padding: 9px 0; font-size: 0.9375rem; line-height: 1.4;
   border-bottom: 1px solid var(--hairline);
 }
-.fw-outcome { margin-top: 6px; font-size: 1rem; line-height: 1.45; }
+.fw-outcome-block { margin-top: 28px; padding-top: 16px; border-top: 1px solid var(--ink); }
+.fw-outcome { margin-top: 8px; font-size: 1rem; line-height: 1.45; }
 @keyframes fw-in { from { opacity: 0; transform: translateY(8px); } }
 
 /* ─── ONE VISION — capabilities as an index ──────────────────── */

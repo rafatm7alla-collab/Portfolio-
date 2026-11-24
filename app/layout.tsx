@@ -22,20 +22,23 @@ import { SmoothScroll } from '@/components/SmoothScroll'
 import { PageTransition } from '@/components/PageTransition'
 import FloatingContact from '@/components/FloatingContact'
 
+/** The title used for the browser tab and link previews (WhatsApp etc.). */
+const SHARE_TITLE = `${profile.name} — Creative Director`
+const SHARE_DESCRIPTION =
+  'Rafat Mhalla is a Creative Director working across branding, visual systems, campaigns and digital experiences.'
+
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),
   title: {
-    default: `${profile.name} — ${profile.title}`,
+    default: SHARE_TITLE,
     template: `%s — ${profile.name}`,
   },
-  description:
-    'Rafat Mhalla is a Creative Director and Art Director working across branding, visual systems, campaigns and digital experiences.',
+  description: SHARE_DESCRIPTION,
   openGraph: {
     type: 'website',
     siteName: profile.name,
-    title: `${profile.name} — ${profile.title}`,
-    description:
-      'Rafat Mhalla is a Creative Director and Art Director working across branding, visual systems, campaigns and digital experiences.',
+    title: SHARE_TITLE,
+    description: SHARE_DESCRIPTION,
     locale: 'en_GB',
   },
   twitter: { card: 'summary_large_image' },

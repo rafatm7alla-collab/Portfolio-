@@ -66,13 +66,15 @@ export function FrameworkStages() {
         <Reveal delay={160}>
           <button
             type="button"
-            className="t-meta link"
+            className="fw-expand-all t-meta"
+            aria-expanded={allOpen}
             aria-controls={stages.map((s) => `fw-services-${s.id}`).join(' ')}
             onClick={() =>
               setOpen(Object.fromEntries(stages.map((s) => [s.id, !allOpen])))
             }
           >
-            {allOpen ? 'Collapse all services' : 'Expand all services'}
+            <span>{allOpen ? 'Collapse all services' : 'Expand all services'}</span>
+            <span className="fw-plus" aria-hidden="true" />
           </button>
         </Reveal>
       </div>
@@ -115,8 +117,10 @@ export function FrameworkStages() {
                       <li key={svc}>{svc}</li>
                     ))}
                   </ul>
-                  <p className="t-micro ink-secondary mt-6">Client outcome</p>
-                  <p className="fw-outcome">{s.outcome}</p>
+                  <div className="fw-outcome-block">
+                    <p className="t-micro ink-secondary">Client outcome</p>
+                    <p className="fw-outcome">{s.outcome}</p>
+                  </div>
                 </div>
               </div>
             </li>

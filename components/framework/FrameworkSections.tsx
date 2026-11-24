@@ -12,6 +12,7 @@ import {
 } from '@/data/framework'
 import { FrameworkSymbol } from './FrameworkSymbol'
 import { BookingTrigger } from './BookingContext'
+import { Arrow } from '@/components/ui/Arrow'
 
 const stageTitle = (id: StageId) => stages.find((s) => s.id === id)!.title
 
@@ -191,7 +192,7 @@ export function FinalCtaSection() {
       </Reveal>
       <Reveal delay={240} className="fw-final-actions">
         <BookingTrigger className="fw-btn">
-          Book a Discovery Call <span aria-hidden="true">↗</span>
+          Book a Discovery Call <Arrow direction="up-right" />
         </BookingTrigger>
         <p className="t-micro ink-secondary">30-minute introductory conversation. No commitment.</p>
       </Reveal>

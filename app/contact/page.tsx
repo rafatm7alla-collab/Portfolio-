@@ -4,6 +4,7 @@ import { Page } from '@/components/primitives/Layout'
 import { Reveal } from '@/components/primitives/Reveal'
 import { ContactForm } from '@/components/contact/ContactForm'
 import { ShaderBackground } from '@/components/ui/plasma-shader'
+import { Arrow } from '@/components/ui/Arrow'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -92,7 +93,7 @@ export default function ContactPage() {
                         <li key={s.label}>
                           <a className="cb-social" href={s.href} target="_blank" rel="noreferrer">
                             <span>{s.label}</span>
-                            <span aria-hidden="true">↗</span>
+                            <Arrow direction="up-right" />
                           </a>
                         </li>
                       ))}
