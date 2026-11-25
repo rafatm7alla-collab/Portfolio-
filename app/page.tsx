@@ -26,8 +26,8 @@ export default function Home() {
     <>
       <HeroBanner hasLogo={hasLogo} />
       <SelectedWork />
-      <ClientStrip />
       <AboutBlock />
+      <ClientStrip />
       <ContactBlock />
     </>
   )
@@ -89,7 +89,7 @@ function ClientStrip() {
 
 function AboutBlock() {
   return (
-    <section data-invert data-nav="dark" className="py-[var(--section-gap)]">
+    <section data-invert data-nav="dark" className="mt-[clamp(48px,8vh,112px)] py-[var(--section-gap)]">
       <Page>
         <Reveal delay={80}>
           <div className="grid-page">
