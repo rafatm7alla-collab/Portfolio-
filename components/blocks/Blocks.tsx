@@ -137,6 +137,7 @@ function render(slug: string, block: Block, index: number, noRounding?: boolean)
           caption={block.caption}
           size={block.size}
           widthPercent={block.widthPercent}
+          noParallax={block.noParallax}
           // Only the very first block may load eagerly; everything else is
           // below the fold by definition.
           priority={index === 0}

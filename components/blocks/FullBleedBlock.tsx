@@ -12,6 +12,7 @@ export function FullBleedBlock({
   size = 'full',
   widthPercent = 75,
   noRounding = false,
+  noParallax = false,
 }: {
   image: ManifestImage
   caption?: string
@@ -19,9 +20,11 @@ export function FullBleedBlock({
   size?: 'full' | 'contained'
   widthPercent?: number
   noRounding?: boolean
+  /** The parallax frame crops ~10% of the height; turn it off to show every pixel. */
+  noParallax?: boolean
 }) {
   const vw = `${widthPercent}vw`
-  const useParallax = size === 'full' && !priority
+  const useParallax = size === 'full' && !priority && !noParallax
 
   const imageElement = (
     <BlockImage

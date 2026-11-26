@@ -8,6 +8,9 @@ import { Meta, Micro } from '@/components/type/Type'
 import { directionProps } from '@/lib/rtl'
 import { projects as workProjects } from '@/data/work'
 import { MastheadEntrance } from '@/components/blocks/MastheadEntrance'
+import { ZaytounGuidelines } from '@/components/guidelines/ZaytounGuidelines'
+import { SLUG as GUIDELINES_SLUG } from '@/data/zaytoun-guidelines'
+import '@/components/guidelines/guidelines.css'
 
 type Params = { params: Promise<{ slug: string }> }
 
@@ -37,6 +40,9 @@ export default async function ManifestProjectPage({ params }: Params) {
   const { slug } = await params
   const manifest = getManifest(slug)
   if (!manifest) notFound()
+
+  // Al Zaytoun Terraces is laid out as brand guidelines (data/zaytoun-guidelines.ts).
+  if (slug === GUIDELINES_SLUG) return <ZaytounGuidelines />
 
   const cover = manifest.cover ? manifestImage(slug, manifest.cover, manifest.title) : null
 

@@ -77,7 +77,7 @@
     { "type": "text",
       "body": "The tree and circular emblem is a botanical illustration representing heritage, permanence, and natural integration. It carries the brand across signage, collateral, and environmental design." },
 
-    { "type": "fullBleed", "image": "logo-main.jpg",
+    { "type": "fullBleed", "image": "logo-main.jpg", "noParallax": true,
       "caption": "Primary logo — full lockup" },
 
     { "type": "twoUp",

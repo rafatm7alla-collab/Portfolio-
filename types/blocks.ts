@@ -34,6 +34,8 @@ export type Block =
       widthPercent?: number
       /** Sits flush against the block above it — no vertical gap. */
       noGap?: boolean
+      /** Show the whole image, uncropped: no parallax drift on scroll. */
+      noParallax?: boolean
     }
   | { type: 'grid'; columns: 2 | 3; images: string[] }
   /**
