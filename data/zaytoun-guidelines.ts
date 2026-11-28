@@ -190,104 +190,19 @@ export const chapters: GuideChapter[] = [
           },
           {
             kind: 'banners',
-            items: [{ id: '03.3', title: 'Construction grid of the emblem and lockup', file: 'logo-construction.jpg' }],
-          },
-        ],
-      },
-      {
-        num: '03.4',
-        title: 'Logo variations',
-        blocks: [
-          {
-            kind: 'banners',
             items: [
-              { id: '03.4-A', title: 'Horizontal and stacked lockups', file: 'logo-variation-01.jpg' },
-              { id: '03.4-B', title: 'Emblem and wordmark alone', file: 'logo-variation-02.jpg' },
+              { id: '03.3-A', title: 'Clear space — the exclusion zone', file: 'logo-clear-space.jpg' },
+              { id: '03.3-B', title: 'Logo grid', file: 'logo-grid.jpg' },
+              { id: '03.3-C', title: 'Rotation — horizontal and vertical', file: 'logo-rotation.jpg' },
+              { id: '03.3-D', title: 'Logo variations', file: 'logo-variations.jpg' },
+              { id: '03.3-E', title: 'Partners & sponsors', file: 'logo-partners.jpg' },
+              { id: '03.3-F', title: 'Black & white', file: 'logo-black-white.jpg' },
+              { id: '03.3-G', title: 'Slogan', file: 'logo-slogan.jpg' },
+              { id: '03.3-H', title: 'Logo on backgrounds', file: 'logo-backgrounds.jpg' },
+              { id: '03.3-I', title: 'Logo placement', file: 'logo-placement.jpg' },
+              { id: '03.3-J', title: 'Incorrect usage', file: 'logo-incorrect-usage.jpg' },
+              { id: '03.3-K', title: 'Misuse', file: 'logo-misuse.jpg' },
             ],
-          },
-        ],
-      },
-      {
-        num: '03.5',
-        title: 'Colour versions',
-        blocks: [
-          {
-            kind: 'banners',
-            items: [{ id: '03.5', title: 'All approved colour versions', file: 'logo-colour-versions.jpg' }],
-          },
-        ],
-      },
-      {
-        num: '03.6',
-        title: 'Clear space & minimum size',
-        blocks: [
-          {
-            kind: 'banners',
-            items: [{ id: '03.6', title: 'Clear space and minimum sizes', file: 'logo-clear-space.jpg' }],
-          },
-        ],
-      },
-      {
-        num: '03.7',
-        title: 'Orientation & rotation',
-        blocks: [
-          {
-            kind: 'text',
-            body: 'The logo always stands upright at 0°. It is never rotated, tilted, mirrored, or set on an angle or a curve to fit a layout. On tall, narrow formats such as flags, poles and spines, use the stacked lockup instead of turning the horizontal one on its side. {{In approved motion graphics only, the emblem may turn as part of the logo reveal and must come to rest upright.}}',
-          },
-          {
-            kind: 'banners',
-            items: [{ id: '03.7', title: 'Orientation — correct vs rotated, tilted, mirrored', file: 'logo-orientation.jpg' }],
-          },
-        ],
-      },
-      {
-        num: '03.8',
-        title: 'Logo on backgrounds',
-        blocks: [
-          {
-            kind: 'rules',
-            do: [
-              'Bleu Oxford, Verde Selva, Areia Fina or Perola grounds.',
-              'Calm, even areas of photography, such as sky, wall or water.',
-              'Enough contrast to read the tagline.',
-            ],
-            dont: [
-              'Busy areas of a photo, such as leaves, people or patterns.',
-              'Terracotta logo on Terracotta or Sable Doux.',
-              'Mid-tone grounds where neither light nor dark version reads.',
-            ],
-          },
-          {
-            kind: 'banners',
-            items: [{ id: '03.8', title: 'Approved and unapproved backgrounds', file: 'logo-backgrounds.jpg' }],
-          },
-        ],
-      },
-      {
-        num: '03.9',
-        title: 'Do’s & don’ts',
-        blocks: [
-          {
-            kind: 'banners',
-            items: [
-              { id: '03.9-A', title: 'Correct use — four examples', file: 'logo-usage-do.jpg' },
-              { id: '03.9-B', title: 'Misuse — eight examples crossed out', file: 'logo-usage-rules.jpg' },
-            ],
-          },
-        ],
-      },
-      {
-        num: '03.10',
-        title: 'Co-branding',
-        blocks: [
-          {
-            kind: 'text',
-            body: 'Al Zaytoon Residences leads. The “Powered by Mövenpick Hotels & Resorts” endorsement sits {{to the right, after a thin vertical rule}}, at {{no more than 60%}} of the Al Zaytoun logo’s height, and always follows Mövenpick’s own brand rules.',
-          },
-          {
-            kind: 'banners',
-            items: [{ id: '03.10', title: 'Co-branding lockup with Mövenpick', file: 'logo-cobranding.jpg' }],
           },
         ],
       },
@@ -358,39 +273,35 @@ export const chapters: GuideChapter[] = [
     sections: [
       {
         num: '05.1',
-        title: 'Primary typeface — Playfair Display',
+        title: 'Typefaces — Playfair Display & Inter',
         blocks: [
           {
             kind: 'text',
-            body: 'A high-contrast serif that carries the heritage connection. Used for ultra headlines (Black) and headlines (Medium).',
+            body: 'Two typefaces carry the brand. Playfair Display, a high-contrast serif, carries the heritage connection and sets ultra headlines (Black) and headlines (Medium). Inter, a clear and accessible sans-serif, handles sub-headlines (Medium), body copy, UI and supporting text (Regular, SemiBold, Bold).',
           },
-          { kind: 'banners', items: [{ id: '05.1', title: 'Playfair Display specimen', file: 'type-primary.jpg' }] },
+          {
+            kind: 'banners',
+            items: [
+              { id: '05.1-A', title: 'Playfair Display specimen', file: 'type-primary.jpg' },
+              { id: '05.1-B', title: 'Type style', file: 'type-style.jpg' },
+              { id: '05.1-C', title: 'Inter specimen', file: 'type-secondary.jpg' },
+            ],
+          },
         ],
       },
       {
         num: '05.2',
-        title: 'Secondary typeface — Inter',
-        blocks: [
-          {
-            kind: 'text',
-            body: 'A clear, accessible sans-serif for sub-headlines (Medium), body copy, UI and supporting text (Regular, SemiBold, Bold).',
-          },
-          { kind: 'banners', items: [{ id: '05.2', title: 'Inter specimen', file: 'type-secondary.jpg' }] },
-        ],
-      },
-      {
-        num: '05.3',
         title: 'Arabic typeface',
         blocks: [
           {
             kind: 'text',
             body: 'Arabic is set in {{Arabic typeface to confirm}}, chosen to match Playfair’s contrast in headlines and Inter’s clarity in text. Arabic and English never mix in one line; in bilingual layouts the two languages mirror each other.',
           },
-          { kind: 'banners', items: [{ id: '05.3', title: 'Arabic typeface and bilingual layout', file: 'type-arabic.jpg' }] },
+          { kind: 'banners', items: [{ id: '05.2', title: 'Arabic typeface and bilingual layout', file: 'type-arabic.jpg' }] },
         ],
       },
       {
-        num: '05.4',
+        num: '05.3',
         title: 'Do’s & don’ts',
         blocks: [
           {

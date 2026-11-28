@@ -1,4 +1,4 @@
-import { openSync, readSync, closeSync } from 'node:fs'
+import { openSync, readSync, closeSync, readFileSync } from 'node:fs'
 
 /**
  * Intrinsic dimensions, read straight from the file header.
@@ -33,6 +33,10 @@ export function imageSize(absPath: string): Dimensions {
     const bytes = readSync(fd, buf, 0, 65536, 0)
     closeSync(fd)
     result = parse(buf.subarray(0, bytes))
+    // Exported JPEGs can carry megabytes of metadata (XMP, thumbnails, ICC)
+    // before the frame header. If the header isn't in the first 64kB, read
+    // the whole file rather than fall back to a wrong ratio and crop it.
+    if (!result && bytes === buf.length) result = parse(readFileSync(absPath))
   } catch {
     result = null
   }
