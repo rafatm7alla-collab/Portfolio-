@@ -2,6 +2,8 @@ import { profile } from '@/data/profile'
 import { Page } from '@/components/primitives/Layout'
 import { Reveal } from '@/components/primitives/Reveal'
 import { DisplayPair, Meta } from '@/components/type/Type'
+import { getLocale } from '@/lib/i18n-server'
+import { t } from '@/data/i18n'
 
 /**
  * The closing statement. Black type on white at display-xl.
@@ -10,15 +12,16 @@ import { DisplayPair, Meta } from '@/components/type/Type'
  * About block above is already inverted, and two black fields in a row
  * make neither of them an event.
  */
-export function ContactBlock({ label = 'Contact' }: { label?: string }) {
+export async function ContactBlock({ label = 'Contact' }: { label?: string }) {
+  const d = t(await getLocale())
   return (
     <section className="pb-[64px] pt-[var(--section-gap)]">
       <Page>
         {/* Closes on the bold half — the light line sets it up. */}
         <div>
           <DisplayPair
-            bold={profile.contactStatement.bold}
-            light={profile.contactStatement.light}
+            bold={d.contactStatement.bold}
+            light={d.contactStatement.light}
             boldFirst={false}
             uppercaseBold={false}
           />
@@ -28,6 +31,7 @@ export function ContactBlock({ label = 'Contact' }: { label?: string }) {
           <a
             href={`mailto:${profile.email}`}
             className="link inline-block"
+            dir="ltr"
             style={{
               fontSize: 'clamp(1.25rem, 2.4vw, 2rem)',
               fontWeight: 300,

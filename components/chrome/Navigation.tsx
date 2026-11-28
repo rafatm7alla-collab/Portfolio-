@@ -6,9 +6,15 @@ import { usePathname } from 'next/navigation'
 import { profile, navigation } from '@/data/profile'
 import { MobileMenu } from './MobileMenu'
 import { ThemeToggle } from './ThemeToggle'
+import { LanguageSwitch } from './LanguageSwitch'
+import { useLocale } from '@/components/i18n/LocaleProvider'
+import { navLabel } from '@/components/i18n/navLabels'
+import { localeHref, stripLocale } from '@/lib/i18n'
+import { t } from '@/data/i18n'
 
 export function Navigation() {
-  const pathname = usePathname()
+  const locale = useLocale()
+  const pathname = stripLocale(usePathname() || '/')
   const headerRef = useRef<HTMLElement>(null)
   const [scrolled, setScrolled] = useState(false)
 
@@ -37,7 +43,8 @@ export function Navigation() {
       >
         <div className="page flex items-center justify-between py-[28px] md:py-[32px]">
           <Link
-            href="/"
+            href={localeHref('/', locale)}
+            lang="en"
             className="pointer-events-auto t-meta link"
             style={{ letterSpacing: '0.18em' }}
           >
@@ -57,20 +64,22 @@ export function Navigation() {
               return (
                 <Link
                   key={item.href}
-                  href={item.href}
+                  href={localeHref(item.href, locale)}
                   aria-current={active ? 'page' : undefined}
                   className={`t-meta link ${active ? 'link-active' : ''}`}
                   style={{ letterSpacing: '0.18em' }}
                 >
-                  {item.label}
+                  {navLabel(item.href, locale, item.label)}
                 </Link>
               )
             })}
-            <ThemeToggle className="ml-2" />
+            <LanguageSwitch className="ms-2" />
+            <ThemeToggle className="ms-2" />
           </nav>
 
           {/* Mobile */}
           <div className="pointer-events-auto flex items-center gap-4 md:hidden">
+            <LanguageSwitch />
             <ThemeToggle />
             <MobileMenu />
           </div>
@@ -81,7 +90,7 @@ export function Navigation() {
         href="#main"
         className="t-meta sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-black focus:px-4 focus:py-3 focus:text-white"
       >
-        Skip to content
+        {t(locale).nav.skip}
       </a>
     </>
   )

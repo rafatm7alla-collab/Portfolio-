@@ -3,6 +3,8 @@
 import { useCallback, useMemo, useState } from 'react'
 import Link from 'next/link'
 import type { Category, CategoryId, WorkProject } from '@/data/work'
+import { useLocale } from '@/components/i18n/LocaleProvider'
+import { t } from '@/data/i18n'
 import { CategorySymbol } from '@/components/work/CategorySymbol'
 import { Micro } from '@/components/type/Type'
 import { useInView } from '@/lib/useInView'
@@ -58,6 +60,7 @@ function EmptyThumb() {
 function Thumbnail({ src, alt }: { src: string | null; alt: string }) {
   const { ref, visible } = useInView<HTMLDivElement>()
   const [errored, setErrored] = useState(false)
+  const w = t(useLocale()).work
 
   if (!src || errored) {
     return (
@@ -79,7 +82,7 @@ function Thumbnail({ src, alt }: { src: string | null; alt: string }) {
         onError={() => setErrored(true)}
       />
       <div className="wbd-thumb-label">
-        <span>VIEW</span>
+        <span>{w.view}</span>
       </div>
     </div>
   )
@@ -175,6 +178,7 @@ function CategoryRow({
   onToggle: () => void
   featuredCover: string | null
 }) {
+  const w = t(useLocale()).work
   return (
     <div className="wbd-row">
       <button
@@ -197,7 +201,7 @@ function CategoryRow({
           <div className="wbd-title">{category.label}</div>
           <Micro as="div" className="wbd-count tabular-nums">
             {String(count).padStart(2, '0')}{' '}
-            {count === 1 ? 'PROJECT' : 'PROJECTS'}
+            {count === 1 ? w.projectOne : w.projectMany}
           </Micro>
         </Stagger>
 
@@ -218,7 +222,7 @@ function CategoryRow({
             </div>
           ) : (
             <div className="wbd-empty">
-              <Micro as="p">No projects yet.</Micro>
+              <Micro as="p">{w.empty}</Micro>
             </div>
           )}
         </div>

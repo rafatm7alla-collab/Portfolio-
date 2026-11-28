@@ -3,6 +3,8 @@
 import { useState } from 'react'
 import { profile } from '@/data/profile'
 import { Meta, Micro } from '@/components/type/Type'
+import { useLocale } from '@/components/i18n/LocaleProvider'
+import { t } from '@/data/i18n'
 
 type Status = 'idle' | 'sending' | 'sent' | 'error'
 
@@ -19,6 +21,8 @@ type Status = 'idle' | 'sending' | 'sent' | 'error'
  * a message is never silently swallowed.
  */
 export function ContactForm() {
+  const f = t(useLocale()).form
+  const arrow = t(useLocale()).arrow
   const [status, setStatus] = useState<Status>('idle')
   const [error, setError] = useState<string | null>(null)
   const [errors, setErrors] = useState<Record<string, string>>({})
@@ -29,12 +33,12 @@ export function ContactForm() {
     const data = Object.fromEntries(new FormData(form)) as Record<string, string>
 
     const nextErrors: Record<string, string> = {}
-    if (!data.name?.trim()) nextErrors.name = 'Required'
-    if (!data.email?.trim()) nextErrors.email = 'Required'
+    if (!data.name?.trim()) nextErrors.name = f.required
+    if (!data.email?.trim()) nextErrors.email = f.required
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-      nextErrors.email = 'Not a valid address'
+      nextErrors.email = f.badEmail
     }
-    if (!data.message?.trim()) nextErrors.message = 'Required'
+    if (!data.message?.trim()) nextErrors.message = f.required
 
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length > 0) return
@@ -52,7 +56,7 @@ export function ContactForm() {
 
       if (!response.ok) {
         setStatus('error')
-        setError(body.error ?? 'Something went wrong.')
+        setError(body.error ?? f.failed)
         return
       }
 
@@ -60,23 +64,23 @@ export function ContactForm() {
       form.reset()
     } catch {
       setStatus('error')
-      setError('Could not reach the server.')
+      setError(f.offline)
     }
   }
 
   if (status === 'sent') {
     return (
       <div className="border-t pt-8" style={{ borderColor: 'var(--hairline)' }}>
-        <p className="t-headline">Message sent.</p>
+        <p className="t-headline">{f.sent}</p>
         <Meta as="p" secondary className="mt-6">
-          Thank you — I&apos;ll come back to you shortly.
+          {f.thanks}
         </Meta>
         <button
           type="button"
           onClick={() => setStatus('idle')}
           className="t-meta link mt-8"
         >
-          Send another →
+          {f.another} {arrow}
         </button>
       </div>
     )
@@ -93,14 +97,14 @@ export function ContactForm() {
       <div className="grid grid-cols-1 gap-x-6 gap-y-10 md:grid-cols-2">
         <Field
           name="name"
-          label="Name"
-          placeholder="Your name"
+          label={f.name}
+          placeholder={f.namePh}
           error={errors.name}
           autoComplete="name"
         />
         <Field
           name="email"
-          label="Email"
+          label={f.email}
           type="email"
           placeholder="your@email.com"
           error={errors.email}
@@ -111,7 +115,7 @@ export function ContactForm() {
       <div className="mt-10">
         <label htmlFor="subject" className="block">
           <Meta as="span" secondary>
-            Subject
+            {f.subject}
           </Meta>
         </label>
         <select
@@ -123,11 +127,11 @@ export function ContactForm() {
           style={{ borderColor: 'var(--hairline)', borderRadius: 0 }}
         >
           <option value="" disabled>
-            Choose a subject…
+            {f.subjectPh}
           </option>
           {profile.enquiryTypes.map((type) => (
             <option key={type} value={type}>
-              {type}
+              {f.subjects[type] ?? type}
             </option>
           ))}
         </select>
@@ -136,14 +140,14 @@ export function ContactForm() {
       <div className="mt-10">
         <label htmlFor="message" className="block">
           <Meta as="span" secondary>
-            Message
+            {f.message}
           </Meta>
         </label>
         <textarea
           id="message"
           name="message"
           rows={5}
-          placeholder="Tell me about your project…"
+          placeholder={f.messagePh}
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? 'message-error' : undefined}
           className="mt-4 w-full resize-y border-0 border-b bg-transparent pb-3 text-[clamp(1rem,1.4vw,1.125rem)] outline-none placeholder:text-[color:var(--ink-secondary)] focus-visible:border-current"
@@ -162,7 +166,7 @@ export function ContactForm() {
           disabled={status === 'sending'}
           className="t-meta w-full border border-current bg-[color:var(--ink)] px-10 py-5 text-[color:var(--paper)] transition-opacity duration-300 hover:opacity-85 disabled:opacity-40 md:w-auto"
         >
-          {status === 'sending' ? 'Sending…' : 'Send message'}
+          {status === 'sending' ? f.sending : f.send}
         </button>
 
         {status === 'error' && error && (
@@ -207,6 +211,7 @@ function Field({
         name={name}
         type={type}
         placeholder={placeholder}
+        dir={type === 'email' ? 'ltr' : undefined}
         autoComplete={autoComplete}
         aria-invalid={Boolean(error)}
         aria-describedby={error ? `${name}-error` : undefined}

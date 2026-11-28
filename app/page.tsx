@@ -12,6 +12,9 @@ import { PortfolioShowcase } from '@/components/homepage/PortfolioShowcase'
 import { SelectedWorkMosaic } from '@/components/homepage/SelectedWorkMosaic'
 import { ClientTicker } from '@/components/homepage/ClientTicker'
 import '@/components/homepage/SelectedWorkHeader.css'
+import { getLocale } from '@/lib/i18n-server'
+import { localeHref, type Locale } from '@/lib/i18n'
+import { t } from '@/data/i18n'
 
 /**
  * EXPERIMENT TOGGLE — flip to 'original' to restore the previous
@@ -19,15 +22,16 @@ import '@/components/homepage/SelectedWorkHeader.css'
  */
 const SELECTED_WORK_VARIANT: 'original' | 'mosaic' = 'mosaic'
 
-export default function Home() {
+export default async function Home() {
+  const locale = await getLocale()
   const hasLogo = publicAssetExists(profile.heroLogo.src)
 
   return (
     <>
       <HeroBanner hasLogo={hasLogo} />
-      <SelectedWork />
-      <AboutBlock />
-      <ClientStrip />
+      <SelectedWork locale={locale} />
+      <AboutBlock locale={locale} />
+      <ClientStrip locale={locale} />
       <ContactBlock />
     </>
   )
@@ -35,15 +39,16 @@ export default function Home() {
 
 /* ─── SELECTED WORK ──────────────────────────────────────────────── */
 
-function SelectedWork() {
+function SelectedWork({ locale }: { locale: Locale }) {
+  const d = t(locale).home
   return (
     <section aria-labelledby="selected-work">
       <div className="sw-header-stack-wrapper">
         <div className="sw-header-sticky">
           <Page>
             <SectionHeader
-              bold="Selected"
-              light="projects"
+              bold={d.selectedBold}
+              light={d.selectedLight}
             />
             <Rule className="mt-[clamp(20px,3vw,40px)]" />
           </Page>
@@ -77,9 +82,9 @@ const CLIENTS = [
   'FM Power',
 ] as const
 
-function ClientStrip() {
+function ClientStrip({ locale }: { locale: Locale }) {
   return (
-    <section aria-label="Selected clients" className="py-[clamp(14px,2.2vh,24px)]">
+    <section aria-label={t(locale).home.clients} className="py-[clamp(14px,2.2vh,24px)]">
       <ClientTicker names={CLIENTS} />
     </section>
   )
@@ -87,23 +92,24 @@ function ClientStrip() {
 
 /* ─── ABOUT ──────────────────────────────────────────────────────── */
 
-function AboutBlock() {
+function AboutBlock({ locale }: { locale: Locale }) {
+  const d = t(locale)
   return (
     <section data-invert data-nav="dark" className="mt-[clamp(48px,8vh,112px)] py-[var(--section-gap)]">
       <Page>
         <Reveal delay={80}>
           <div className="grid-page">
             <p className="t-headline col-span-4 md:col-span-7 lg:col-span-8">
-              <strong className="font-bold">Over twelve years</strong> of shaping
-              brand identities, integrated campaigns, and digital experiences.
+              <strong className="font-bold">{d.home.aboutStrong}</strong>
+              {d.home.aboutRest}
             </p>
           </div>
         </Reveal>
 
         <Reveal delay={200} className="mt-[clamp(48px,8vw,120px)]">
           <div className="flex justify-start">
-            <Link href="/about" className="t-meta link">
-              Read more →
+            <Link href={localeHref('/about', locale)} className="t-meta link">
+              {d.home.readMore} {d.arrow}
             </Link>
           </div>
         </Reveal>

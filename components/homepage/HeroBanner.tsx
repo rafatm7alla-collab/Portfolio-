@@ -7,12 +7,15 @@ import { Page } from '@/components/primitives/Layout'
 import { DisplayStack, Meta, Micro } from '@/components/type/Type'
 import { gsap } from '@/lib/gsap'
 import { ShaderBackground } from '@/components/ui/plasma-shader'
+import { useLocale } from '@/components/i18n/LocaleProvider'
+import { t } from '@/data/i18n'
 
 /** DRAFT — flip to false to restore the solid-black banner. */
 const SHADER_HERO = true
 
 export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
   const [isClicked, setIsClicked] = useState(false)
+  const d = t(useLocale()).hero
   const [isMobile, setIsMobile] = useState(false)
   const bannerRef = useRef<HTMLDivElement>(null)
   const subtitleRef = useRef<HTMLDivElement>(null)
@@ -190,7 +193,7 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
                   color: ink,
                 }}
               >
-                Creative Director · Art Director
+                {d.role}
               </Meta>
             </div>
           </Page>
@@ -198,6 +201,8 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
           <Page>
             <div
               ref={titleRef}
+              dir="ltr"
+              lang="en"
               className="flex flex-col items-center gap-8 md:flex-row md:items-center md:justify-center md:gap-[clamp(20px,4vw,72px)]"
             >
               {hasLogo && (
@@ -250,7 +255,7 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
         <Page>
           <div className="grid-page">
             <div ref={ledeRef} className="col-span-4 md:col-span-5 lg:col-span-5">
-              <p className="t-lede">{profile.heroSupporting}</p>
+              <p className="t-lede">{d.lede}</p>
             </div>
             <div
               ref={ledeMetaRef}
@@ -258,10 +263,10 @@ export function HeroBanner({ hasLogo }: { hasLogo: boolean }) {
             >
               <div className="flex items-baseline justify-between md:justify-end md:gap-10">
                 <Micro as="p" secondary>
-                  BASED IN BELGRADE · WORKING INTERNATIONALLY · OPEN FOR COLLABORATIONS
+                  {d.meta}
                 </Micro>
                 <Micro as="p" secondary>
-                  ({profile.yearsExperience}+ Years)
+                  {d.years(profile.yearsExperience)}
                 </Micro>
               </div>
             </div>

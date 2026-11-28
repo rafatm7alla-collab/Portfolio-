@@ -3,6 +3,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { ScrollTrigger } from '@/lib/gsap'
 import { WarpCarousel, type WarpItem } from '@/components/work/WarpCarousel'
+import { useLocale } from '@/components/i18n/LocaleProvider'
+import { t } from '@/data/i18n'
 
 /**
  * Project preview between the Work banner and the category list.
@@ -21,6 +23,7 @@ export function WorkWarpSection({ items }: { items: WarpItem[] }) {
   const section = useRef<HTMLElement>(null)
   const stage = useRef<HTMLDivElement>(null)
   const counter = useRef<HTMLSpanElement>(null)
+  const w = t(useLocale()).work
   const bar = useRef<HTMLSpanElement>(null)
   const progress = useRef(0)
   const runway = useRef<HTMLDivElement>(null)
@@ -71,14 +74,14 @@ export function WorkWarpSection({ items }: { items: WarpItem[] }) {
     <section ref={section} className="ww-section" aria-label="Project preview">
       <div ref={stage} className={`ww-stage ${mode === 'scroll' ? 'ww-stage--sticky' : ''}`}>
         <div className="page ww-head">
-          <p className="ww-label">Selected projects</p>
+          <p className="ww-label">{w.selected}</p>
           {mode === 'scroll' && (
             <p className="ww-meta">
               <span ref={counter}>01–02 / {String(n).padStart(2, '0')}</span>
-              <span className="ww-hint">Scroll to browse</span>
+              <span className="ww-hint">{w.scrollHint}</span>
             </p>
           )}
-          {mode === 'auto' && <p className="ww-meta">Swipe to browse</p>}
+          {mode === 'auto' && <p className="ww-meta">{w.swipeHint}</p>}
         </div>
 
         {/* Full-bleed: the carousel runs edge to edge of the window. */}

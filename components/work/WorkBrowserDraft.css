@@ -34,7 +34,7 @@
   gap: clamp(12px, 2vw, 24px);
   width: 100%;
   padding: clamp(20px, 3.5vh, 40px) 0;
-  text-align: left;
+  text-align: start;
   cursor: pointer;
   background: none;
   border: none;

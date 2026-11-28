@@ -4,6 +4,8 @@ import { Reveal } from '@/components/primitives/Reveal'
 import { HeroFigure } from './HeroFigure'
 import { Arrow } from '@/components/ui/Arrow'
 import { scrollToId } from './scrollTo'
+import { useLocale } from '@/components/i18n/LocaleProvider'
+import { frameworkText } from '@/data/framework-i18n'
 
 /**
  * The hero. Type on the left margin; on the right, the five stage marks
@@ -12,35 +14,33 @@ import { scrollToId } from './scrollTo'
  * rolling round the ring, the small one trying to climb.
  */
 export function FrameworkHero() {
+  const x = frameworkText(useLocale())
   return (
     <section className="fw-hero page">
       <div className="fw-hero-grid">
         <div className="fw-hero-copy">
           <Reveal>
-            <p className="t-meta">Brand Framework — 01</p>
+            <p className="t-meta">{x.heroEyebrow}</p>
           </Reveal>
 
           <h1 className="fw-hero-title">
             <Reveal as="span" delay={80} className="block uppercase">
-              Beyond Design.
+              {x.heroTitle[0]}
             </Reveal>
             <Reveal as="span" delay={160} className="t-light block">
-              Building Brands
+              {x.heroTitle[1]}
             </Reveal>
             <Reveal as="span" delay={240} className="t-light block">
-              with Purpose.
+              {x.heroTitle[2]}
             </Reveal>
           </h1>
 
           <Reveal delay={320} className="fw-hero-text">
             <p className="t-lede">
-              I combine strategic thinking, creative direction and integrated execution to build
-              distinctive brands that create meaningful value for people, businesses and
-              long-term growth.
+              {x.heroLede}
             </p>
             <p className="t-body ink-secondary mt-6">
-              From the first strategic conversation to the final brand experience, every
-              creative decision is connected to a bigger purpose.
+              {x.heroBody}
             </p>
           </Reveal>
 
@@ -53,7 +53,7 @@ export function FrameworkHero() {
                 scrollToId('framework')
               }}
             >
-              Explore the Framework <Arrow direction="down-right" className="fw-arrow-down" />
+              {x.explore} <Arrow direction="down-right" className="fw-arrow-down" />
             </a>
           </Reveal>
         </div>

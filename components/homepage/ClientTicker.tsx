@@ -98,7 +98,7 @@ export function ClientTicker({ names }: { names: readonly string[] }) {
 
   const items = [...names, ...names]
   return (
-    <div ref={wrapRef} className="client-ticker" aria-label="Selected clients">
+    <div ref={wrapRef} dir="ltr" lang="en" className="client-ticker" aria-label="Selected clients">
       <ul ref={trackRef} className="client-ticker__track">
         {items.map((name, i) => (
           <li key={i} aria-hidden={i >= names.length || undefined}>

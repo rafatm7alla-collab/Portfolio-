@@ -16,7 +16,8 @@ export type PortraitConfig = {
  *
  * Composition rules, learned the hard way on the homepage:
  *
- * · The panel is exactly the right half. Everything left of centre stays
+ * · The panel is exactly the right half (the left half on Arabic pages —
+ *   `end-0` mirrors it so the type stays on the white side). Everything left of centre stays
  *   white so display type never sits on the photograph. A full-bleed
  *   background was tried and rejected — the hero is ~1.7:1 and the source is
  *   3.06:1, so `cover` crops away the empty side the type needs and drops the
@@ -39,7 +40,7 @@ export function PortraitPanel({
   const contain = portrait.fit === 'contain'
 
   return (
-    <div className="absolute bottom-0 right-0 top-[clamp(80px,10vh,104px)] hidden w-1/2 md:block">
+    <div className="absolute bottom-0 end-0 top-[clamp(80px,10vh,104px)] hidden w-1/2 md:block">
       <NextImage
         src={portrait.src}
         alt={portrait.alt}

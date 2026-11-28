@@ -9,6 +9,8 @@ import {
   emailRequestProvider as provider,
   type Slot,
 } from '@/lib/booking/availability'
+import { useLocale } from '@/components/i18n/LocaleProvider'
+import { frameworkText, optionLabel, type FrameworkText } from '@/data/framework-i18n'
 
 /**
  * DISCOVERY CALL — three steps and a confirmation, in one dialog.
@@ -54,9 +56,12 @@ const EMPTY: Form = {
 }
 
 type Errors = Partial<Record<keyof Form, string>>
-const STEPS = ['About you', 'Your project', 'Schedule'] as const
+const STEP_COUNT = 3
 
 export function DiscoveryCallModal({ model, onClose }: { model?: string; onClose: () => void }) {
+  const locale = useLocale()
+  const x = frameworkText(locale)
+  const STEPS = x.steps
   const [mounted, setMounted] = useState(false)
   const [closing, setClosing] = useState(false)
   const [step, setStep] = useState(0) // 0,1,2 → 3 = confirmation
@@ -134,17 +139,17 @@ export function DiscoveryCallModal({ model, onClose }: { model?: string; onClose
   const next = () => {
     const errs: Errors = {}
     if (step === 0) {
-      if (!form.name.trim()) errs.name = 'Please add your full name.'
-      if (!/^\S+@\S+\.\S+$/.test(form.email.trim())) errs.email = 'Please add a valid email address.'
-      if (!form.company.trim()) errs.company = 'Please add your company or brand name.'
+      if (!form.name.trim()) errs.name = x.errName
+      if (!/^\S+@\S+\.\S+$/.test(form.email.trim())) errs.email = x.errEmail
+      if (!form.company.trim()) errs.company = x.errCompany
     }
     if (step === 1) {
-      if (!form.types.length) errs.types = 'Choose at least one project type.'
-      if (!form.budget) errs.budget = 'Choose an estimated budget.'
-      if (!form.timeline) errs.timeline = 'Choose a preferred timeline.'
+      if (!form.types.length) errs.types = x.errTypes
+      if (!form.budget) errs.budget = x.errBudget
+      if (!form.timeline) errs.timeline = x.errTimeline
     }
     if (step === 2) {
-      if (!form.slot) errs.slot = 'Choose a date and time.'
+      if (!form.slot) errs.slot = x.errSlot
     }
     setErrors(errs)
     if (Object.keys(errs).length) return focusFirstError(errs)
@@ -195,16 +200,16 @@ export function DiscoveryCallModal({ model, onClose }: { model?: string; onClose
         aria-labelledby={titleId}
       >
         <div className="fwm-top">
-          <span className="t-micro ink-secondary">Discovery call · {MEETING_MINUTES} min</span>
+          <span className="t-micro ink-secondary">{x.callTitle(MEETING_MINUTES)}</span>
           <button type="button" className="fwm-close t-meta link" onClick={requestClose}>
-            Close <span aria-hidden="true">×</span>
+            {x.close} <span aria-hidden="true">×</span>
           </button>
         </div>
 
         {step < 3 && (
-          <div className="fwm-progress" aria-label={`Step ${step + 1} of 3: ${STEPS[step]}`}>
+          <div className="fwm-progress" aria-label={x.stepOf(step + 1, STEPS[step])}>
             <p className="t-micro ink-secondary" aria-hidden="true">
-              Step {String(step + 1).padStart(2, '0')} / 03 — {STEPS[step]}
+              {x.stepLabel} {String(step + 1).padStart(2, '0')} / {String(STEP_COUNT).padStart(2, '0')} — {STEPS[step]}
             </p>
             <div className="fwm-bars" aria-hidden="true">
               {STEPS.map((s, i) => (
@@ -217,26 +222,27 @@ export function DiscoveryCallModal({ model, onClose }: { model?: string; onClose
         <div key={step} className="fwm-step">
           {step === 0 && (
             <>
-              <StepTitle id={titleId}>Let&rsquo;s Get to Know Each Other.</StepTitle>
+              <StepTitle id={titleId}>{x.titleAbout}</StepTitle>
               <div className="fwm-grid">
-                <Field label="Full name" name="name" value={form.name} onChange={(v) => set('name', v)} error={errors.name} autoComplete="name" required />
-                <Field label="Email address" name="email" type="email" value={form.email} onChange={(v) => set('email', v)} error={errors.email} autoComplete="email" required />
-                <Field label="Company or brand name" name="company" value={form.company} onChange={(v) => set('company', v)} error={errors.company} autoComplete="organization" required />
-                <Field label="Company website" optional name="website" type="url" value={form.website} onChange={(v) => set('website', v)} autoComplete="url" placeholder="https://" />
-                <Field label="Country" optional name="country" value={form.country} onChange={(v) => set('country', v)} autoComplete="country-name" />
+                <Field x={x} label={x.fullName} name="name" value={form.name} onChange={(v) => set('name', v)} error={errors.name} autoComplete="name" required />
+                <Field x={x} label={x.email} name="email" type="email" value={form.email} onChange={(v) => set('email', v)} error={errors.email} autoComplete="email" required />
+                <Field x={x} label={x.company} name="company" value={form.company} onChange={(v) => set('company', v)} error={errors.company} autoComplete="organization" required />
+                <Field x={x} label={x.website} optional name="website" type="url" value={form.website} onChange={(v) => set('website', v)} autoComplete="url" placeholder="https://" />
+                <Field x={x} label={x.country} optional name="country" value={form.country} onChange={(v) => set('country', v)} autoComplete="country-name" />
               </div>
             </>
           )}
 
           {step === 1 && (
             <>
-              <StepTitle id={titleId}>What Are We Building?</StepTitle>
+              <StepTitle id={titleId}>{x.titleProject}</StepTitle>
               {model && (
-                <p className="t-micro ink-secondary mb-8">Interested in: {model}</p>
+                <p className="t-micro ink-secondary mb-8">{x.interested} {optionLabel(model, locale)}</p>
               )}
               <Choice
-                legend="Project type"
-                hint="Select all that apply"
+                legend={x.projectType}
+                hint={x.selectAll}
+                label={(o) => optionLabel(o, locale)}
                 name="types"
                 multiple
                 options={projectTypes}
@@ -245,7 +251,8 @@ export function DiscoveryCallModal({ model, onClose }: { model?: string; onClose
                 onChange={(v) => set('types', v as string[])}
               />
               <Choice
-                legend="Estimated project budget"
+                legend={x.budget}
+                label={(o) => optionLabel(o, locale)}
                 name="budget"
                 options={budgets}
                 value={form.budget}
@@ -253,7 +260,8 @@ export function DiscoveryCallModal({ model, onClose }: { model?: string; onClose
                 onChange={(v) => set('budget', v as string)}
               />
               <Choice
-                legend="Preferred project timeline"
+                legend={x.timeline}
+                label={(o) => optionLabel(o, locale)}
                 name="timeline"
                 options={timelines}
                 value={form.timeline}
@@ -262,13 +270,13 @@ export function DiscoveryCallModal({ model, onClose }: { model?: string; onClose
               />
               <div className="fwm-field">
                 <label htmlFor="fwm-notes" className="t-meta">
-                  Additional information <span className="ink-secondary">— optional</span>
+                  {x.notes} <span className="ink-secondary">— {x.optional}</span>
                 </label>
                 <textarea
                   id="fwm-notes"
                   rows={4}
                   className="fwm-input"
-                  placeholder="Tell me briefly about your business, your challenges and what you would like to achieve."
+                  placeholder={x.notesPh}
                   value={form.notes}
                   onChange={(e) => set('notes', e.target.value)}
                 />
@@ -278,29 +286,28 @@ export function DiscoveryCallModal({ model, onClose }: { model?: string; onClose
 
           {step === 2 && (
             <>
-              <StepTitle id={titleId}>Let&rsquo;s Find a Time to Talk.</StepTitle>
-              <Scheduler value={form.slot} onChange={(s) => set('slot', s)} error={errors.slot} />
+              <StepTitle id={titleId}>{x.titleSchedule}</StepTitle>
+              <Scheduler x={x} value={form.slot} onChange={(s) => set('slot', s)} error={errors.slot} />
             </>
           )}
 
           {step === 3 && (
             <div className="fwm-done">
-              <StepTitle id={titleId}>The Conversation Starts Here.</StepTitle>
+              <StepTitle id={titleId}>{x.titleDone}</StepTitle>
               <p className="t-lede">
-                Thank you, {form.name.trim().split(/\s+/)[0]}. Your request has been sent.
+                {x.thanks(form.name.trim().split(/\s+/)[0])}
               </p>
               {form.slot && (
                 <p className="fwm-done-slot">
-                  {fmtDay(form.slot.start)} · {fmtTime(form.slot.start)}–{fmtTime(form.slot.end)} · Google Meet
+                  {fmtDay(form.slot.start, x)} · {fmtTime(form.slot.start, x)}–{fmtTime(form.slot.end, x)} · Google Meet
                 </p>
               )}
               <p className="fwm-notice t-body">
-                I&rsquo;ll confirm this time by email at {form.email.trim()} and send you the
-                Google Meet invitation.
+                {x.confirmNote(form.email.trim())}
               </p>
               <div className="fwm-actions">
                 <button type="button" className="fw-btn" onClick={requestClose}>
-                  Back to Website
+                  {x.backToSite}
                 </button>
               </div>
             </div>
@@ -308,8 +315,7 @@ export function DiscoveryCallModal({ model, onClose }: { model?: string; onClose
 
           {step === 2 && sendError && (
             <p className="fwm-send-error t-body" role="alert">
-              Your request could not be sent ({sendError.split(' Please write')[0].replace(/\.$/, '')}).
-              Nothing you typed is lost: try again, or write to{' '}
+              {x.sendFailed(sendError.split(' Please write')[0].replace(/\.$/, ''))}{' '}
               <a href={`mailto:${profile.email}`} className="link">
                 {profile.email}
               </a>
@@ -327,13 +333,13 @@ export function DiscoveryCallModal({ model, onClose }: { model?: string; onClose
             <div className="fwm-actions">
               {step > 0 ? (
                 <button type="button" className="t-meta link" onClick={() => setStep(step - 1)}>
-                  ← Back
+                  {x.back}
                 </button>
               ) : (
                 <span />
               )}
               <button type="button" className="fw-btn" onClick={next} disabled={sending} aria-busy={sending || undefined}>
-                {step === 2 ? (sending ? 'Sending…' : 'Confirm Discovery Call') : 'Continue →'}
+                {step === 2 ? (sending ? x.sending : x.confirm) : x.next}
               </button>
             </div>
           )}
@@ -355,6 +361,7 @@ function StepTitle({ id, children }: { id: string; children: ReactNode }) {
 }
 
 function Field({
+  x,
   label,
   name,
   value,
@@ -366,6 +373,7 @@ function Field({
   autoComplete,
   placeholder,
 }: {
+  x: FrameworkText
   label: string
   name: string
   value: string
@@ -381,7 +389,7 @@ function Field({
   return (
     <div className="fwm-field">
       <label htmlFor={id} className="t-meta">
-        {label} {optional && <span className="ink-secondary">— optional</span>}
+        {label} {optional && <span className="ink-secondary">— {x.optional}</span>}
       </label>
       <input
         id={id}
@@ -390,6 +398,7 @@ function Field({
         className="fwm-input"
         value={value}
         onChange={(e) => onChange(e.target.value)}
+        dir={type === 'email' || type === 'url' ? 'ltr' : undefined}
         aria-invalid={!!error || undefined}
         aria-describedby={error ? `${id}-err` : undefined}
         aria-required={required || undefined}
@@ -406,6 +415,7 @@ function Field({
 }
 
 function Choice({
+  label = (o: string) => o,
   legend,
   hint,
   name,
@@ -415,6 +425,7 @@ function Choice({
   error,
   multiple,
 }: {
+  label?: (option: string) => string
   legend: string
   hint?: string
   name: string
@@ -448,7 +459,7 @@ function Choice({
                   onChange(checked ? arr.filter((x) => x !== o) : [...arr, o])
                 }}
               />
-              <span>{o}</span>
+              <span>{label(o)}</span>
             </label>
           )
         })}
@@ -465,15 +476,18 @@ function Choice({
 /* ─── scheduler ──────────────────────────────────────────────────── */
 
 const dayKey = (d: Date) => `${d.getFullYear()}-${d.getMonth()}-${d.getDate()}`
-const fmtTime = (d: Date) => d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })
-const fmtDay = (d: Date) =>
-  d.toLocaleDateString(undefined, { weekday: 'long', day: 'numeric', month: 'long' })
+const fmtTime = (d: Date, x: FrameworkText) =>
+  d.toLocaleTimeString(x.dateLocale, { hour: '2-digit', minute: '2-digit' })
+const fmtDay = (d: Date, x: FrameworkText) =>
+  d.toLocaleDateString(x.dateLocale, { weekday: 'long', day: 'numeric', month: 'long' })
 
 function Scheduler({
+  x,
   value,
   onChange,
   error,
 }: {
+  x: FrameworkText
   value: Slot | null
   onChange: (s: Slot) => void
   error?: string
@@ -515,7 +529,7 @@ function Scheduler({
 
   const canPrev = month > new Date(today.getFullYear(), today.getMonth(), 1)
   const canNext = new Date(month.getFullYear(), month.getMonth() + 1, 1) <= horizon
-  const tzLabel = new Intl.DateTimeFormat(undefined, { timeZoneName: 'short' })
+  const tzLabel = new Intl.DateTimeFormat(x.dateLocale, { timeZoneName: 'short' })
     .formatToParts(new Date())
     .find((p) => p.type === 'timeZoneName')?.value
 
@@ -524,34 +538,33 @@ function Scheduler({
   return (
     <div className="fwm-sched">
       <div className="fwm-sched-info">
-        <p className="t-micro ink-secondary">Duration</p>
-        <p className="fwm-sched-val">{MEETING_MINUTES} minutes</p>
-        <p className="t-micro ink-secondary">Platform</p>
+        <p className="t-micro ink-secondary">{x.duration}</p>
+        <p className="fwm-sched-val">{x.minutes(MEETING_MINUTES)}</p>
+        <p className="t-micro ink-secondary">{x.platform}</p>
         <p className="fwm-sched-val">Google Meet</p>
-        <p className="t-micro ink-secondary">Your time zone</p>
+        <p className="t-micro ink-secondary">{x.timeZone}</p>
         <p className="fwm-sched-val">
           {tz.replace(/_/g, ' ')} {tzLabel && <span className="ink-secondary">({tzLabel})</span>}
         </p>
         <p className="t-micro ink-secondary fwm-sim">
-          Your chosen time is sent as a request. I confirm by email with the Google Meet
-          invitation.
+          {x.requestNote}
         </p>
       </div>
 
       <div className="fwm-cal">
         <div className="fwm-cal-head">
-          <button type="button" className="t-meta link" disabled={!canPrev} onClick={() => setMonth(new Date(month.getFullYear(), month.getMonth() - 1, 1))} aria-label="Previous month">
-            ←
+          <button type="button" className="t-meta link" disabled={!canPrev} onClick={() => setMonth(new Date(month.getFullYear(), month.getMonth() - 1, 1))} aria-label={x.prevMonth}>
+            {x.prevArrow}
           </button>
           <p className="t-meta" aria-live="polite">
-            {month.toLocaleDateString(undefined, { month: 'long', year: 'numeric' })}
+            {month.toLocaleDateString(x.dateLocale, { month: 'long', year: 'numeric' })}
           </p>
-          <button type="button" className="t-meta link" disabled={!canNext} onClick={() => setMonth(new Date(month.getFullYear(), month.getMonth() + 1, 1))} aria-label="Next month">
-            →
+          <button type="button" className="t-meta link" disabled={!canNext} onClick={() => setMonth(new Date(month.getFullYear(), month.getMonth() + 1, 1))} aria-label={x.nextMonth}>
+            {x.nextArrow}
           </button>
         </div>
-        <div className="fwm-cal-grid" role="group" aria-label="Choose a date">
-          {['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'].map((d) => (
+        <div className="fwm-cal-grid" role="group" aria-label={x.chooseDate}>
+          {x.dows.map((d) => (
             <span key={d} className="fwm-cal-dow t-micro ink-secondary" aria-hidden="true">
               {d}
             </span>
@@ -569,7 +582,7 @@ function Scheduler({
                 data-selected={day === k || undefined}
                 data-field={i === cells.findIndex((c) => c && byDay.has(dayKey(c))) ? 'slot' : undefined}
                 aria-pressed={day === k}
-                aria-label={`${fmtDay(d)}${has ? `, ${byDay.get(k)!.length} times available` : ', unavailable'}`}
+                aria-label={`${fmtDay(d, x)}${has ? x.timesAvailable(byDay.get(k)!.length) : x.unavailable}`}
                 onClick={() => setDay(k)}
               >
                 {d.getDate()}
@@ -581,10 +594,10 @@ function Scheduler({
 
       <div className="fwm-times">
         <p className="t-micro ink-secondary">
-          {day ? fmtDay(daySlots[0]?.start ?? new Date()) : 'Choose a date'}
+          {day ? fmtDay(daySlots[0]?.start ?? new Date(), x) : x.chooseDate}
         </p>
         {day && (
-          <div className="fwm-time-list" role="group" aria-label="Available times">
+          <div className="fwm-time-list" role="group" aria-label={x.availableTimes}>
             {daySlots.map((s) => {
               const sel = value?.start.getTime() === s.start.getTime()
               return (
@@ -596,7 +609,7 @@ function Scheduler({
                   aria-pressed={sel}
                   onClick={() => onChange(s)}
                 >
-                  {fmtTime(s.start)}
+                  {fmtTime(s.start, x)}
                 </button>
               )
             })}

@@ -21,6 +21,10 @@ import './globals.css'
 import { SmoothScroll } from '@/components/SmoothScroll'
 import { PageTransition } from '@/components/PageTransition'
 import FloatingContact from '@/components/FloatingContact'
+import { getLocale } from '@/lib/i18n-server'
+import { dirOf } from '@/lib/i18n'
+import { LocaleProvider } from '@/components/i18n/LocaleProvider'
+import { arabicFontClasses } from '@/lib/arabicFonts'
 
 /** The title used for the browser tab and link previews (WhatsApp etc.). */
 const SHARE_TITLE = `${profile.name} — Creative Director`
@@ -78,9 +82,15 @@ const themeBootScript = `
   } catch (e) {}
 `
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const locale = await getLocale()
   return (
-    <html lang="en" className={tajawal.variable} suppressHydrationWarning>
+    <html
+      lang={locale}
+      dir={dirOf(locale)}
+      className={`${tajawal.variable} ${arabicFontClasses}`}
+      suppressHydrationWarning
+    >
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />
         <noscript>
@@ -88,6 +98,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </noscript>
       </head>
       <body>
+        <LocaleProvider initial={locale}>
         <SmoothScroll>
           <Navigation />
           <PageTransition>
@@ -96,6 +107,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Footer />
           <FloatingContact />
         </SmoothScroll>
+        </LocaleProvider>
       </body>
     </html>
   )

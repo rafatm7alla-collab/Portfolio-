@@ -1,5 +1,9 @@
 'use client'
 
+import { useLocale } from '@/components/i18n/LocaleProvider'
+import { localeHref } from '@/lib/i18n'
+import { t } from '@/data/i18n'
+
 /**
  * EXPERIMENTAL — editorial mosaic version of "Selected Work".
  *
@@ -168,9 +172,11 @@ function ManualTile({ data }: { data: ManualTileData }) {
 }
 
 function AllWorkTile({ slot }: { slot: string }) {
+  const locale = useLocale()
+  const d = t(locale)
   return (
     <Link
-      href="/work"
+      href={localeHref('/work', locale)}
       className="swm-tile swm-tile--placeholder swm-tile--allwork"
       data-slot={slot}
       aria-label="View all projects"
@@ -180,7 +186,7 @@ function AllWorkTile({ slot }: { slot: string }) {
         <ShaderBackground className="h-full w-full" />
       </div>
       <div className="swm-placeholder-inner">
-        <span className="swm-placeholder-label">All projects →</span>
+        <span className="swm-placeholder-label">{d.home.allProjects} {d.arrow}</span>
       </div>
     </Link>
   )
@@ -195,7 +201,7 @@ export function SelectedWorkMosaic({ projects }: { projects: Project[] }) {
   const extras = projects.filter((p) => !slotOrder.includes(p.slug))
 
   return (
-    <div className="swm-root">
+    <div className="swm-root" dir="ltr">
       <div className="swm-grid">
         {[...ordered, ...extras].map((p) => (
           <Tile key={p.slug} project={p} />

@@ -1064,3 +1064,33 @@ html[data-theme="dark"] .cb-form-card {
   .page-enter { animation: page-enter-fade 120ms linear backwards; }
   @keyframes page-enter-fade { from { opacity: 0; } }
 }
+
+/* ─────────────────────────────────────────────────────────────────
+   ARABIC (/ar) — DRAFT
+   Text runs right-to-left; project designs stay as they are.
+   Arabic letters join, so tracking must be zero (tracked Arabic breaks
+   apart), and its tall ascenders/descenders need more line-height than
+   the tight Latin display settings. :lang(ar) skips anything marked
+   lang="en" (the name, brand names), which keeps its Latin tracking.
+   ───────────────────────────────────────────────────────────────── */
+/* Arial carries its own Arabic glyphs on macOS/Windows, so on Arabic pages
+   the Arabic family must come before it or Arial's Arabic wins. */
+html[lang='ar'] {
+  --font-sans:
+    'Helvetica Neue', Helvetica, var(--font-arabic-ui), Arial, 'Liberation Sans',
+    'SF Arabic', 'Geeza Pro', 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+}
+html[lang='ar'] :lang(ar) { letter-spacing: 0 !important; }
+html[lang='ar'] .t-display-xl:lang(ar) { line-height: 1.12; }
+html[lang='ar'] .t-display-l:lang(ar) { line-height: 1.15; padding-bottom: 0.12em; }
+html[lang='ar'] .t-display-m:lang(ar),
+html[lang='ar'] .t-display-s:lang(ar) { line-height: 1.2; }
+html[lang='ar'] .t-headline:lang(ar) { line-height: 1.35; }
+html[lang='ar'] .t-lede:lang(ar) { line-height: 1.75; }
+html[lang='ar'] .t-meta:lang(ar),
+html[lang='ar'] .t-micro:lang(ar) { font-size: 0.8125rem; line-height: 1.6; }
+html[lang='ar'] .cb-title:lang(ar) { line-height: 1.2; max-width: 16ch; }
+html[lang='ar'] .cb-sub:lang(ar) { line-height: 1.75; }
+html[lang='ar'] .cb-eyebrow:lang(ar),
+html[lang='ar'] .cb-status:lang(ar),
+html[lang='ar'] .cb-label:lang(ar) { font-size: 13px; }

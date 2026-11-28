@@ -6,11 +6,17 @@ import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { AnimatePresence, motion } from 'motion/react'
 import { profile, navigation } from '@/data/profile'
+import { useLocale } from '@/components/i18n/LocaleProvider'
+import { navLabel } from '@/components/i18n/navLabels'
+import { localeHref } from '@/lib/i18n'
+import { t } from '@/data/i18n'
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
   const pathname = usePathname()
+  const locale = useLocale()
+  const d = t(locale).nav
 
   useEffect(() => setMounted(true), [])
   useEffect(() => setOpen(false), [pathname])
@@ -43,7 +49,7 @@ export function MobileMenu() {
           style={{ paddingInline: 'var(--page-margin)' }}
         >
           <div className="flex items-center justify-between py-[28px]">
-            <span className="t-meta" style={{ letterSpacing: '0.18em' }}>
+            <span className="t-meta" lang="en" style={{ letterSpacing: '0.18em' }}>
               {profile.name}
             </span>
             <button
@@ -53,7 +59,7 @@ export function MobileMenu() {
               className="t-meta"
               style={{ letterSpacing: '0.18em' }}
             >
-              Close
+              {d.close}
             </button>
           </div>
 
@@ -75,7 +81,7 @@ export function MobileMenu() {
                 }
               >
                 <Link
-                  href={item.href}
+                  href={localeHref(item.href, locale)}
                   className="block font-bold uppercase"
                   style={{
                     fontSize: 'clamp(3rem, 14vw, 5rem)',
@@ -85,7 +91,7 @@ export function MobileMenu() {
                     paddingBottom: 'clamp(20px, 4vw, 32px)',
                   }}
                 >
-                  {item.label}
+                  {navLabel(item.href, locale, item.label)}
                 </Link>
               </motion.div>
             ))}
@@ -125,7 +131,7 @@ export function MobileMenu() {
         className="t-meta"
         style={{ letterSpacing: '0.18em' }}
       >
-        Menu
+        {d.menu}
       </button>
 
       {mounted && createPortal(overlay, document.body)}

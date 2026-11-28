@@ -418,3 +418,32 @@ textarea.fwm-input { resize: vertical; min-height: 110px; line-height: 1.5; }
   .fw-services, .fwm-step, .fwm-panel { animation: fwm-fade 120ms linear; }
   .fwm-overlay[data-closing], .fwm-overlay[data-closing] .fwm-panel { animation: none; }
 }
+
+/* ─── ARABIC (/ar) ───────────────────────────────────────────────
+   The journey reads right to left: the rail sits on the right on mobile
+   and fills from the right on desktop. Arabic display type needs more
+   line-height than the tight Latin settings. */
+[dir='rtl'] .fw-rail { left: auto; right: calc(var(--node) / 2); }
+@media (min-width: 1024px) {
+  [dir='rtl'] .fw-rail {
+    right: calc(var(--node) / 2);
+    left: calc((100% - 4 * var(--grid-gutter)) / 5 - var(--node) / 2);
+  }
+  [dir='rtl'] .fw-rail-fill { transform-origin: 100% 50%; }
+}
+[dir='rtl'] .fwm-bars span::after { transform-origin: 100% 50%; }
+@keyframes fwm-step-rtl { from { opacity: 0; transform: translateX(-16px); } }
+[dir='rtl'] .fwm-step { animation-name: fwm-step-rtl; }
+@media (hover: hover) and (pointer: fine) {
+  [dir='rtl'] .fw-cap:hover .fw-cap-title { transform: translateX(-10px); }
+}
+[dir='rtl'] .fwm-actions .fw-btn { text-align: right; }
+
+html[lang='ar'] .fw-hero-title:lang(ar),
+html[lang='ar'] .fw-cta-title:lang(ar) { line-height: 1.35; }
+html[lang='ar'] .fw-h2:lang(ar),
+html[lang='ar'] .fw-cap-title:lang(ar),
+html[lang='ar'] .fw-stage-title:lang(ar),
+html[lang='ar'] .fwm-title:lang(ar) { line-height: 1.25; }
+html[lang='ar'] .fw-stage-tagline:lang(ar) { line-height: 1.5; }
+html[lang='ar'] .fw-btn:lang(ar) { font-size: 0.875rem; }

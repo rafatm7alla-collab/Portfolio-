@@ -3,7 +3,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { Reveal } from '@/components/primitives/Reveal'
 import { ScrollTrigger } from '@/lib/gsap'
-import { stages } from '@/data/framework'
+import { useLocale } from '@/components/i18n/LocaleProvider'
+import { frameworkText, localStages } from '@/data/framework-i18n'
 import { FrameworkSymbol } from './FrameworkSymbol'
 
 /**
@@ -20,6 +21,9 @@ import { FrameworkSymbol } from './FrameworkSymbol'
  * is in the DOM from the start (hidden), so it is readable without JS.
  */
 export function FrameworkStages() {
+  const locale = useLocale()
+  const stages = localStages(locale)
+  const x = frameworkText(locale)
   const rail = useRef<HTMLOListElement>(null)
   const [reached, setReached] = useState(0)
   const [open, setOpen] = useState<Record<string, boolean>>({})
@@ -48,7 +52,7 @@ export function FrameworkStages() {
       },
     })
     return () => st.kill()
-  }, [])
+  }, [stages.length])
 
   const allOpen = stages.every((s) => open[s.id])
 
@@ -57,10 +61,10 @@ export function FrameworkStages() {
       <div className="fw-section-head">
         <h2 id="framework-title" className="fw-h2">
           <Reveal as="span" className="block uppercase">
-            The Framework.
+            {x.stagesBold}
           </Reveal>
           <Reveal as="span" delay={80} className="t-light block">
-            Five stages, one journey.
+            {x.stagesLight}
           </Reveal>
         </h2>
         <Reveal delay={160}>
@@ -73,7 +77,7 @@ export function FrameworkStages() {
               setOpen(Object.fromEntries(stages.map((s) => [s.id, !allOpen])))
             }
           >
-            <span>{allOpen ? 'Collapse all services' : 'Expand all services'}</span>
+            <span>{allOpen ? x.collapseAll : x.expandAll}</span>
             <span className="fw-plus" aria-hidden="true" />
           </button>
         </Reveal>
@@ -107,7 +111,7 @@ export function FrameworkStages() {
                   aria-controls={`fw-services-${s.id}`}
                   onClick={() => setOpen((o) => ({ ...o, [s.id]: !o[s.id] }))}
                 >
-                  <span>Services</span>
+                  <span>{x.services}</span>
                   <span className="fw-plus" aria-hidden="true" />
                 </button>
 
@@ -118,7 +122,7 @@ export function FrameworkStages() {
                     ))}
                   </ul>
                   <div className="fw-outcome-block">
-                    <p className="t-micro ink-secondary">Client outcome</p>
+                    <p className="t-micro ink-secondary">{x.outcome}</p>
                     <p className="fw-outcome">{s.outcome}</p>
                   </div>
                 </div>
