@@ -90,6 +90,27 @@ function contrast(a: string, b: string) {
 }
 const hexOf = (name: string) => swatches.find((s) => s.name === name)!.hex
 
+/** Mix a hex colour toward white (amount > 0) or black (amount < 0). */
+function mix(hex: string, amount: number) {
+  const target = amount > 0 ? 255 : 0
+  const t = Math.abs(amount)
+  return (
+    '#' +
+    [1, 3, 5]
+      .map((i) => {
+        const c = parseInt(hex.slice(i, i + 2), 16)
+        return Math.round(c + (target - c) * t)
+          .toString(16)
+          .padStart(2, '0')
+      })
+      .join('')
+  )
+}
+/** Three tints, the base, three shades. */
+const TONAL_STEPS = [0.66, 0.4, 0.18, 0, -0.2, -0.43, -0.67]
+/** Ink or white, whichever reads better on the chip. */
+const labelOn = (hex: string) => (contrast(hex, '#111111') >= contrast(hex, '#ffffff') ? '#111111' : '#ffffff')
+
 /* ─── banners ─────────────────────────────────────────────────────────
  * Full page width, square corners, no captions between them. Banners in
  * one set sit flush against each other so a run of mockups reads as one
@@ -258,6 +279,54 @@ function BlockView({ block }: { block: GuideBlock }) {
               )
             })}
           </ul>
+        </div>
+      )
+    case 'tonal':
+      return (
+        <div className="page">
+          {/* One solid block: a column per colour, tints above the base, shades below. */}
+          <div className="gl-tonal">
+            {swatches.map((s) => (
+              <ul key={s.name} className="gl-tonal-col" aria-label={`${s.name} tonal range`}>
+                {TONAL_STEPS.map((step) => {
+                  const base = step === 0
+                  const hex = base ? s.hex.toUpperCase() : mix(s.hex, step).toUpperCase()
+                  return (
+                    <li
+                      key={step}
+                      className={base ? 'gl-tone gl-tone--base' : 'gl-tone'}
+                      style={{ background: hex, color: labelOn(hex) }}
+                    >
+                      {base && <span className="gl-tone-name">{s.name}</span>}
+                      <span className="gl-tone-hex">{hex}</span>
+                    </li>
+                  )
+                })}
+              </ul>
+            ))}
+          </div>
+        </div>
+      )
+    case 'proportion':
+      return (
+        <div className="page">
+          <div className="gl-proportion">
+            <div className="gl-proportion-bar" aria-hidden="true">
+              {block.parts.map(([name, pct]) => (
+                <span key={name} style={{ flexGrow: pct, background: hexOf(name) }} />
+              ))}
+            </div>
+            <ul className="gl-proportion-legend">
+              {block.parts.map(([name, pct]) => (
+                <li key={name} style={{ flexGrow: pct }}>
+                  <span className="gl-proportion-pct">{pct}%</span>
+                  <span className="t-micro ink-secondary">
+                    {name} · {hexOf(name)}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       )
   }

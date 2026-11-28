@@ -75,6 +75,35 @@
 .gl-pairing { display: flex; flex-direction: column; gap: 6px; padding: clamp(20px, 2.4vw, 32px); }
 .gl-pairing-aa { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 700; line-height: 1; margin-bottom: 12px; }
 
+/* ── tonal range: one solid block, a column per colour, no gaps ── */
+.gl-tonal { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; }
+@media (max-width: 639px) { .gl-tonal { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.gl-tonal-col { display: flex; flex-direction: column; }
+.gl-tone {
+  display: flex; align-items: flex-end;
+  height: clamp(34px, 3.4vw, 48px); padding: 0 clamp(8px, 1vw, 16px) clamp(6px, 0.6vw, 10px);
+}
+.gl-tone-hex {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: clamp(0.5625rem, 0.75vw, 0.6875rem); letter-spacing: 0.02em; white-space: nowrap; opacity: 0.72;
+}
+.gl-tone--base {
+  flex-direction: column; align-items: flex-start; justify-content: space-between;
+  height: clamp(120px, 12vw, 184px); padding-top: clamp(10px, 1.2vw, 18px); padding-bottom: clamp(10px, 1.2vw, 18px);
+}
+.gl-tone--base .gl-tone-hex { opacity: 1; font-size: clamp(0.6875rem, 0.9vw, 0.8125rem); }
+.gl-tone-name { font-weight: 700; font-size: clamp(0.8125rem, 1.25vw, 1.125rem); line-height: 1.15; letter-spacing: -0.005em; }
+
+/* ── proportion: one bar, legend under each part ── */
+.gl-proportion-bar { display: flex; height: clamp(56px, 8vw, 120px); }
+.gl-proportion-legend { display: flex; margin-top: 16px; }
+.gl-proportion-legend li { flex-basis: 0; min-width: 0; display: flex; flex-direction: column; gap: 6px; padding-right: 12px; }
+.gl-proportion-pct { font-size: clamp(1.75rem, 3.6vw, 3.25rem); font-weight: 700; line-height: 1; letter-spacing: -0.02em; }
+@media (max-width: 639px) {
+  .gl-proportion-legend { flex-direction: column; gap: 16px; }
+  .gl-proportion-legend li { flex-direction: row; align-items: baseline; gap: 12px; }
+}
+
 /* ── project facts: fixed 4-column grid ── */
 .gl-meta {
   display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));

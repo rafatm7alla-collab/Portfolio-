@@ -31,6 +31,10 @@ export type GuideBlock =
   | { kind: 'cards'; items: { title: string; body: string }[] }
   | { kind: 'swatches'; group: Swatch['group'] }
   | { kind: 'contrast'; pairs: [fg: string, bg: string][] }
+  /** Tints and shades of every brand colour, worked out from its hex. */
+  | { kind: 'tonal' }
+  /** The colour balance as one bar, e.g. 60 / 30 / 10. */
+  | { kind: 'proportion'; parts: [name: string, percent: number][] }
 
 export type GuideSection = { num: string; title: string; blocks: GuideBlock[] }
 export type GuideChapter = { num: string; title: string; intro: string; sections: GuideSection[] }
@@ -84,11 +88,11 @@ export const chapters: GuideChapter[] = [
       },
       {
         num: '01.2',
-        title: 'Project film',
+        title: 'Project teaser',
         blocks: [
           {
             kind: 'banners',
-            items: [{ id: '01.2', title: 'Project teaser film', file: 'alzaytoon-teaser.mp4' }],
+            items: [{ id: '01.2', title: 'Project teaser', file: 'alzaytoon-teaser.mp4' }],
           },
         ],
       },
@@ -127,29 +131,6 @@ export const chapters: GuideChapter[] = [
               { title: 'Refinement', body: 'Quiet luxury. Detail over decoration.' },
               { title: 'Privacy', body: 'Calm, secure, and personal.' },
               { title: 'Permanence', body: 'Built to last for generations, like the olive tree.' },
-            ],
-          },
-        ],
-      },
-      {
-        num: '02.3',
-        title: 'Tone of voice',
-        blocks: [
-          {
-            kind: 'text',
-            body: 'Calm, assured and warm. The brand never shouts and never oversells. It speaks about how life feels, not about square metres.',
-          },
-          {
-            kind: 'rules',
-            do: [
-              'Short, confident sentences.',
-              'Speak about feeling, light, gardens and time.',
-              'Use the unit names in full: The Avenue Suite, The Crown Penthouse.',
-            ],
-            dont: [
-              'Exclamation marks, “best ever”, “once in a lifetime”.',
-              'Lead with price or discounts.',
-              'Technical jargon in headlines.',
             ],
           },
         ],
@@ -335,10 +316,6 @@ export const chapters: GuideChapter[] = [
         title: 'Secondary palette',
         blocks: [
           { kind: 'swatches', group: 'secondary' },
-          {
-            kind: 'banners',
-            items: [{ id: '04.2', title: 'Secondary palette', file: 'colour-secondary.jpg' }],
-          },
         ],
       },
       {
@@ -346,9 +323,10 @@ export const chapters: GuideChapter[] = [
         title: 'Colour values',
         blocks: [
           {
-            kind: 'banners',
-            items: [{ id: '04.3', title: 'Tonal range — tints and shades of each colour', file: 'colour-supporting.jpg' }],
+            kind: 'text',
+            body: 'Each brand colour extends into a controlled tonal scale for backgrounds, type, UI states and depth. Use tints and shades for hierarchy; never introduce hues outside these ramps.',
           },
+          { kind: 'tonal' },
         ],
       },
       {
@@ -357,27 +335,14 @@ export const chapters: GuideChapter[] = [
         blocks: [
           {
             kind: 'text',
-            body: 'Every layout follows a 60 / 30 / 10 balance: {{60% light neutrals (Areia Fina, Perola), 30% deep colour (Bleu Oxford or Verde Selva), 10% Terracotta accent}}. Terracotta is precious. Use it for the logo, rules and highlights, never as a large flat field.',
+            body: 'Every layout follows a 60 / 30 / 10 balance: 60% Verde Selva, 30% Bleu Oxford, 10% Terracotta. Terracotta is precious. Use it for the logo, rules and highlights, never as a large flat field.',
           },
           {
-            kind: 'banners',
-            items: [{ id: '04.4', title: 'Colour proportion 60 / 30 / 10', file: 'colour-usage.jpg' }],
-          },
-        ],
-      },
-      {
-        num: '04.5',
-        title: 'Combinations & legibility',
-        blocks: [
-          {
-            kind: 'contrast',
-            pairs: [
-              ['Areia Fina', 'Bleu Oxford'],
-              ['Terracotta', 'Bleu Oxford'],
-              ['Areia Fina', 'Verde Selva'],
-              ['Terracotta', 'Verde Selva'],
-              ['Bleu Oxford', 'Perola'],
-              ['Terracotta', 'Areia Fina'],
+            kind: 'proportion',
+            parts: [
+              ['Verde Selva', 60],
+              ['Bleu Oxford', 30],
+              ['Terracotta', 10],
             ],
           },
         ],
@@ -426,23 +391,6 @@ export const chapters: GuideChapter[] = [
       },
       {
         num: '05.4',
-        title: 'Hierarchy',
-        blocks: [
-          {
-            kind: 'specs',
-            rows: [
-              ['Ultra headline', 'Playfair Display Black'],
-              ['Headline', 'Playfair Display Medium'],
-              ['Sub-headline', 'Inter Medium'],
-              ['Body', 'Inter Regular'],
-              ['Labels & captions', '{{Inter SemiBold, uppercase, tracked}}'],
-            ],
-          },
-          { kind: 'banners', items: [{ id: '05.4', title: 'Type hierarchy in use', file: 'type-hierarchy.jpg' }] },
-        ],
-      },
-      {
-        num: '05.5',
         title: 'Do’s & don’ts',
         blocks: [
           {
