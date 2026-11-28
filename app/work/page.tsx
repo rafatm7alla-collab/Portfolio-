@@ -9,6 +9,7 @@ import { WorkHeroPanel } from '@/components/work/WorkHeroPanel'
 import { WorkWarpSection } from '@/components/work/WorkWarpSection'
 import { getLocale } from '@/lib/i18n-server'
 import { t } from '@/data/i18n'
+import { localeHref } from '@/lib/i18n'
 
 export const metadata: Metadata = {
   title: 'Work',
@@ -18,7 +19,8 @@ export const metadata: Metadata = {
 }
 
 export default async function WorkPage() {
-  const w = t(await getLocale()).work
+  const locale = await getLocale()
+  const w = t(locale).work
   // Category names in the page language; project names and designs stay English.
   const localCategories = categories.map((c) => ({
     ...c,
@@ -32,7 +34,7 @@ export default async function WorkPage() {
     .map((p) => ({
       title: p.title,
       meta: [localCategories.find((c) => c.id === p.categories[0])?.label, p.year].filter(Boolean).join(' · '),
-      href: p.href,
+      href: localeHref(p.href, locale),
       cover: p.cover!,
     }))
 

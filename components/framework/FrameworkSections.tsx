@@ -155,7 +155,7 @@ export async function SelectedWorkSection() {
           const st = Array.from(new Set(p.categories.flatMap((c) => categoryStages[c] ?? [])))
           return (
             <Reveal as="li" key={p.id} delay={(i % 2) * 80}>
-              <Link href={p.href} className="group fw-work-card">
+              <Link href={localeHref(p.href, locale)} className="group fw-work-card">
                 <span className="fw-work-media">
                   <NextImage
                     src={p.cover!}

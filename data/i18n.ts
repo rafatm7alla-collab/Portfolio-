@@ -98,6 +98,17 @@ const en = {
     /** Category id → [label, descriptor] */
     categories: Object.fromEntries(categories.map((c) => [c.id, [c.label, c.descriptor]])) as Record<string, [string, string]>,
   },
+  project: {
+    client: 'Client',
+    role: 'Role',
+    year: 'Year',
+    location: 'Location',
+    tags: 'Tags',
+    next: 'Next:',
+    all: 'View all projects',
+    soon: 'Soon',
+    soonNote: 'Full case study coming soon.',
+  },
   float: { email: 'Email', whatsapp: 'WhatsApp', emailLabel: 'Send Email', whatsappLabel: 'Chat on WhatsApp' },
 }
 
@@ -205,6 +216,17 @@ const ar: Dict = {
       tvc: ['الإعلانات التلفزيونية', 'أفلام وإخراج ومونتاج.'],
       art: ['فن', 'أعمال صُنعت لذاتها.'],
     },
+  },
+  project: {
+    client: 'العميل',
+    role: 'الدور',
+    year: 'السنة',
+    location: 'الموقع',
+    tags: 'الوسوم',
+    next: 'التالي:',
+    all: 'كل المشاريع',
+    soon: 'قريباً',
+    soonNote: 'دراسة الحالة الكاملة قريباً.',
   },
   float: { email: 'البريد', whatsapp: 'واتساب', emailLabel: 'أرسل بريداً إلكترونياً', whatsappLabel: 'تواصل عبر واتساب' },
 }

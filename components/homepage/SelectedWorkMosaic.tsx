@@ -98,12 +98,13 @@ const PLACEHOLDER_SLOTS = ['placeholder-b'] as const
 
 function Tile({ project }: { project: Project }) {
   const slot = slotBySlug[project.slug] ?? 'praline'
+  const locale = useLocale()
   const img = project.hero.image
   const category = project.category ?? 'Project'
 
   return (
     <Link
-      href={projectHref(project.slug)}
+      href={localeHref(projectHref(project.slug), locale)}
       className="swm-tile"
       data-slot={slot}
       aria-label={`${project.title} — ${category}`}
@@ -140,9 +141,10 @@ function Tile({ project }: { project: Project }) {
 }
 
 function ManualTile({ data }: { data: ManualTileData }) {
+  const locale = useLocale()
   return (
     <Link
-      href={data.href}
+      href={localeHref(data.href, locale)}
       className="swm-tile"
       data-slot={data.slot}
       aria-label={`${data.title} — ${data.category}`}

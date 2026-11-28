@@ -5,6 +5,7 @@ import Link from 'next/link'
 import type { Category, CategoryId, WorkProject } from '@/data/work'
 import { useLocale } from '@/components/i18n/LocaleProvider'
 import { t } from '@/data/i18n'
+import { localeHref } from '@/lib/i18n'
 import { CategorySymbol } from '@/components/work/CategorySymbol'
 import { Micro } from '@/components/type/Type'
 import { useInView } from '@/lib/useInView'
@@ -93,10 +94,11 @@ function Thumbnail({ src, alt }: { src: string | null; alt: string }) {
 function ProjectCard({ project }: { project: WorkProject }) {
   const [imgErr, setImgErr] = useState(false)
   const [hover, setHover] = useState(false)
+  const locale = useLocale()
 
   return (
     <Link
-      href={project.href}
+      href={localeHref(project.href, locale)}
       className="wbd-project-card group"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}

@@ -55,6 +55,64 @@ export function getManifest(slug: string): Manifest | null {
   }
 }
 
+/* ─── Arabic ──────────────────────────────────────────────────────
+ * content/projects/ar/{slug}.json is a plain English → Arabic phrase list
+ * for that project; content/projects/ar/_common.json holds phrases shared
+ * by every project (Client, Role, Year…). On /ar pages every text field is
+ * looked up in those lists; anything not listed (brand names, people,
+ * filenames) stays exactly as written. The project title stays English.
+ * A list keyed by phrase, not by block position, survives reordering and
+ * adding banners: a new banner simply has no caption to translate.
+ */
+const AR_DIR = join(CONTENT_DIR, 'ar')
+const TEXT_KEYS = new Set([
+  'summary', 'role', 'location', 'tags', 'subtitle', 'body', 'heading', 'list',
+  'caption', 'captions', 'text', 'label', 'value', 'description', 'name',
+  'subheadline', 'descriptor', 'intro', 'title',
+])
+
+function phraseList(name: string): Record<string, string> {
+  const path = join(AR_DIR, `${name}.json`)
+  if (!existsSync(path)) return {}
+  try {
+    return JSON.parse(readFileSync(path, 'utf8')) as Record<string, string>
+  } catch (cause) {
+    console.error(`[manifest] ar/${name}.json could not be parsed —`, cause)
+    return {}
+  }
+}
+
+/** The English → Arabic phrases for one project, shared phrases included. */
+export function arPhrases(slug: string): Record<string, string> {
+  return { ...phraseList('_common'), ...phraseList(slug) }
+}
+
+/**
+ * Swaps every string found under one of `keys` for its phrase-list entry.
+ * Arrays and objects are walked; `items`/`blocks`/`sections`/`chapters` are
+ * containers, so their children are judged by their own keys.
+ */
+export function translateStrings<T>(value: T, map: Record<string, string>, keys: Set<string>): T {
+  const CONTAINERS = new Set(['items', 'blocks', 'sections', 'chapters'])
+  const tr = (v: unknown, key?: string): unknown => {
+    if (typeof v === 'string') return key && keys.has(key) ? map[v] ?? v : v
+    if (Array.isArray(v)) return v.map((x) => tr(x, key))
+    if (v && typeof v === 'object') {
+      return Object.fromEntries(
+        Object.entries(v).map(([k, x]) => [k, CONTAINERS.has(k) ? tr(x) : tr(x, k)]),
+      )
+    }
+    return v
+  }
+  return tr(value) as T
+}
+
+export function localizeManifest(slug: string, manifest: Manifest, locale: 'en' | 'ar'): Manifest {
+  if (locale !== 'ar') return manifest
+  const { title, ...rest } = manifest
+  return { ...translateStrings(rest, arPhrases(slug), TEXT_KEYS), title }
+}
+
 export function getAllManifests(): Manifest[] {
   return manifestSlugs()
     .map(getManifest)

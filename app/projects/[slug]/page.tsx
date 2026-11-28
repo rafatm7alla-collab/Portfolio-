@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { getManifest, manifestSlugs, manifestImage } from '@/lib/manifest'
+import { getManifest, localizeManifest, manifestSlugs, manifestImage } from '@/lib/manifest'
+import { getLocale } from '@/lib/i18n-server'
+import { localeHref } from '@/lib/i18n'
+import { t } from '@/data/i18n'
 import { Blocks } from '@/components/blocks/Blocks'
 import { Page, Rule } from '@/components/primitives/Layout'
 import { Meta, Micro } from '@/components/type/Type'
@@ -38,11 +41,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
 export default async function ManifestProjectPage({ params }: Params) {
   const { slug } = await params
-  const manifest = getManifest(slug)
-  if (!manifest) notFound()
+  const locale = await getLocale()
+  const d = t(locale)
+  const source = getManifest(slug)
+  if (!source) notFound()
+  const manifest = localizeManifest(slug, source, locale)
 
   // Al Zaytoun Terraces is laid out as brand guidelines (data/zaytoun-guidelines.ts).
-  if (slug === GUIDELINES_SLUG) return <ZaytounGuidelines />
+  if (slug === GUIDELINES_SLUG) return <ZaytounGuidelines locale={locale} />
 
   const cover = manifest.cover ? manifestImage(slug, manifest.cover, manifest.title) : null
 
@@ -53,11 +59,11 @@ export default async function ManifestProjectPage({ params }: Params) {
 
   const metaFields = (
     [
-      ['Client', manifest.client],
-      ['Role', manifest.role],
-      ['Year', manifest.year],
-      ['Location', manifest.location],
-      ['Tags', manifest.tags?.join(' · ')],
+      [d.project.client, manifest.client],
+      [d.project.role, manifest.role],
+      [d.project.year, manifest.year],
+      [d.project.location, manifest.location],
+      [d.project.tags, manifest.tags?.join(' · ')],
     ] as const
   ).filter(([, value]) => Boolean(value))
 
@@ -113,7 +119,7 @@ export default async function ManifestProjectPage({ params }: Params) {
                 lineHeight: 0.92,
               }}
             >
-              Soon
+              {d.project.soon}
             </div>
             <div
               className="mt-6 uppercase text-white/65"
@@ -122,7 +128,7 @@ export default async function ManifestProjectPage({ params }: Params) {
                 letterSpacing: '0.3em',
               }}
             >
-              Full case study coming soon.
+              {d.project.soonNote}
             </div>
           </div>
         </div>
@@ -190,14 +196,14 @@ export default async function ManifestProjectPage({ params }: Params) {
           <Rule />
           <div className="flex flex-col gap-4 pt-6 md:flex-row md:items-baseline md:justify-between">
             {nextProject ? (
-              <Link href={nextProject.href} className="all-projects-cta__link">
-                Next: {nextProject.title} →
+              <Link href={localeHref(nextProject.href, locale)} className="all-projects-cta__link">
+                {d.project.next} {nextProject.title} {d.arrow}
               </Link>
             ) : (
               <span />
             )}
-            <Link href="/work" className="all-projects-cta__link">
-              View all projects →
+            <Link href={localeHref('/work', locale)} className="all-projects-cta__link">
+              {d.project.all} {d.arrow}
             </Link>
           </div>
         </div>

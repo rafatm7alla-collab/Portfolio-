@@ -1081,6 +1081,13 @@ html[lang='ar'] {
     'SF Arabic', 'Geeza Pro', 'Noto Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
 }
 html[lang='ar'] :lang(ar) { letter-spacing: 0 !important; }
+/* lib/rtl.ts pins Arabic strings to the left edge of the English layout;
+   on Arabic pages they belong on the right like everything else. */
+html[lang='ar'] [dir='rtl'][style*='text-align:left'],
+html[lang='ar'] [dir='rtl'][style*='text-align: left'] { text-align: start !important; }
+/* English-only strings (project titles, brand names) keep their Latin
+   direction but sit on the right edge with the rest of the Arabic page. */
+html[lang='ar'] :is(h1, h2, h3, h4, p, figcaption, dd)[dir='ltr'] { text-align: right; }
 html[lang='ar'] .t-display-xl:lang(ar) { line-height: 1.12; }
 html[lang='ar'] .t-display-l:lang(ar) { line-height: 1.15; padding-bottom: 0.12em; }
 html[lang='ar'] .t-display-m:lang(ar),

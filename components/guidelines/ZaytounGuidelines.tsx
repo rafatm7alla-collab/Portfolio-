@@ -1,7 +1,9 @@
 import { existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { Fragment } from 'react'
-import { manifestImage } from '@/lib/manifest'
+import { arPhrases, manifestImage, translateStrings } from '@/lib/manifest'
+import { localeHref, type Locale } from '@/lib/i18n'
+import { t } from '@/data/i18n'
 import { BlockImage } from '@/components/blocks/BlockImage'
 import { FullBleedBlock } from '@/components/blocks/FullBleedBlock'
 import { LocalVideoBlock } from '@/components/blocks/LocalVideoBlock'
@@ -11,10 +13,11 @@ import { Page, Rule } from '@/components/primitives/Layout'
 import { projects as workProjects } from '@/data/work'
 import {
   SLUG,
-  chapters,
+  chapters as sourceChapters,
   cover,
-  swatches,
+  swatches as sourceSwatches,
   type Banner,
+  type Swatch,
   type GuideBlock,
   type GuideChapter,
 } from '@/data/zaytoun-guidelines'
@@ -41,7 +44,7 @@ const anchor = (id: string) => `b-${id.replace(/\./g, '-')}`
  */
 const LIVE = process.env.NODE_ENV === 'production'
 
-function visibleChapters(): GuideChapter[] {
+function visibleChapters(chapters: GuideChapter[]): GuideChapter[] {
   if (!LIVE) return chapters
   return chapters
     .map((c) => ({
@@ -89,7 +92,7 @@ function contrast(a: string, b: string) {
   const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x)
   return (hi + 0.05) / (lo + 0.05)
 }
-const hexOf = (name: string) => swatches.find((s) => s.name === name)!.hex
+const hexOf = (name: string) => sourceSwatches.find((s) => s.name === name)!.hex
 
 /** Mix a hex colour toward white (amount > 0) or black (amount < 0). */
 function mix(hex: string, amount: number) {
@@ -174,7 +177,7 @@ function MetaGrid({ rows }: { rows: [string, string][] }) {
 
 /* ─── blocks ──────────────────────────────────────────────────────── */
 
-function BlockView({ block }: { block: GuideBlock }) {
+function BlockView({ block, swatches }: { block: GuideBlock; swatches: Swatch[] }) {
   switch (block.kind) {
     case 'banners':
       return (
@@ -336,7 +339,15 @@ function BlockView({ block }: { block: GuideBlock }) {
 
 /* ─── page ────────────────────────────────────────────────────────── */
 
-export function ZaytounGuidelines() {
+/** Guideline fields that hold readable text (swatch names, ids and files stay as they are). */
+const GUIDE_TEXT = new Set(['title', 'intro', 'body', 'rows', 'role'])
+
+export function ZaytounGuidelines({ locale = 'en' }: { locale?: Locale }) {
+  const d = t(locale)
+  const map = locale === 'ar' ? arPhrases(SLUG) : {}
+  const tx = (s: string) => map[s] ?? s
+  const chapters = locale === 'ar' ? translateStrings(sourceChapters, map, GUIDE_TEXT) : sourceChapters
+  const swatches = locale === 'ar' ? translateStrings(sourceSwatches, map, GUIDE_TEXT) : sourceSwatches
   const workIndex = workProjects.findIndex((p) => p.href === `/projects/${SLUG}`)
   const nextProject =
     workIndex >= 0 && workProjects.length > 1
@@ -362,14 +373,14 @@ export function ZaytounGuidelines() {
             </Reveal>
             <Reveal delay={80} className="mt-4">
               <p className="t-lede max-w-[60ch] text-white/80">
-                Brand Guidelines — Where contemporary design meets heritage
+                {tx('Brand Guidelines — Where contemporary design meets heritage')}
               </p>
             </Reveal>
           </div>
         </div>
       </div>
 
-      {visibleChapters().map((c) => (
+      {visibleChapters(chapters).map((c) => (
         <section key={c.num} className="gl-chapter" aria-labelledby={`ch-${c.num}`}>
           <header className="page">
             <Reveal>
@@ -397,7 +408,7 @@ export function ZaytounGuidelines() {
               </header>
               {s.blocks.map((b, i) => (
                 <Reveal key={i} className="gl-block">
-                  <BlockView block={b} />
+                  <BlockView block={b} swatches={swatches} />
                 </Reveal>
               ))}
             </section>
@@ -407,12 +418,14 @@ export function ZaytounGuidelines() {
 
       <section className="gl-chapter">
         <MetaGrid
-          rows={[
-            ['Brand identity & art direction', 'Rafat Mhalla'],
-            ['Client', 'Al Zaytoon Residences · Powered by Mövenpick Hotels & Resorts'],
-            ['Developer', 'International Free Company (IFC)'],
-            ['Architect', 'Manhal Habboubi Architectural Office'],
-          ]}
+          rows={(
+            [
+              ['Brand identity & art direction', 'Rafat Mhalla'],
+              ['Client', 'Al Zaytoon Residences · Powered by Mövenpick Hotels & Resorts'],
+              ['Developer', 'International Free Company (IFC)'],
+              ['Architect', 'Manhal Habboubi Architectural Office'],
+            ] as [string, string][]
+          ).map(([k, v]) => [tx(k), tx(v)])}
         />
       </section>
 
@@ -422,14 +435,14 @@ export function ZaytounGuidelines() {
           <Rule />
           <div className="flex flex-col gap-4 pt-6 md:flex-row md:items-baseline md:justify-between">
             {nextProject ? (
-              <Link href={nextProject.href} className="all-projects-cta__link">
-                Next: {nextProject.title} →
+              <Link href={localeHref(nextProject.href, locale)} className="all-projects-cta__link">
+                {d.project.next} {nextProject.title} {d.arrow}
               </Link>
             ) : (
               <span />
             )}
-            <Link href="/work" className="all-projects-cta__link">
-              View all projects →
+            <Link href={localeHref('/work', locale)} className="all-projects-cta__link">
+              {d.project.all} {d.arrow}
             </Link>
           </div>
         </div>
