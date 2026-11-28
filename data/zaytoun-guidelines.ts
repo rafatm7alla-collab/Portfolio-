@@ -289,36 +289,6 @@ export const chapters: GuideChapter[] = [
           },
         ],
       },
-      {
-        num: '05.2',
-        title: 'Arabic typeface',
-        blocks: [
-          {
-            kind: 'text',
-            body: 'Arabic is set in {{Arabic typeface to confirm}}, chosen to match Playfair’s contrast in headlines and Inter’s clarity in text. Arabic and English never mix in one line; in bilingual layouts the two languages mirror each other.',
-          },
-          { kind: 'banners', items: [{ id: '05.2', title: 'Arabic typeface and bilingual layout', file: 'type-arabic.jpg' }] },
-        ],
-      },
-      {
-        num: '05.3',
-        title: 'Do’s & don’ts',
-        blocks: [
-          {
-            kind: 'rules',
-            do: [
-              'Use Playfair for emotion, Inter for information.',
-              'Generous line spacing and margins.',
-              'Sentence case for headlines and body.',
-            ],
-            dont: [
-              'Any other typeface.',
-              'Playfair for long body text or small sizes.',
-              'Stretch, outline or add effects to type.',
-            ],
-          },
-        ],
-      },
     ],
   },
 
@@ -329,7 +299,6 @@ export const chapters: GuideChapter[] = [
     sections: [
       { num: '06.1', title: 'Pattern & texture', blocks: [{ kind: 'banners', items: [{ id: '06.1', title: 'Olive-leaf pattern and textures', file: 'pattern-textures.jpg' }] }] },
       { num: '06.2', title: 'Iconography', blocks: [{ kind: 'banners', items: [{ id: '06.2', title: 'Amenity icon set', file: 'icons.jpg' }] }] },
-      { num: '06.3', title: 'Dividers & ornaments', blocks: [{ kind: 'banners', items: [{ id: '06.3', title: 'Dividers and ornamental details', file: 'dividers-ornaments.jpg' }] }] },
     ],
   },
 
@@ -376,101 +345,91 @@ export const chapters: GuideChapter[] = [
 
   {
     num: '08',
-    title: 'Layout',
-    intro: 'A calm grid with generous margins. Space is part of the luxury.',
-    sections: [
-      { num: '08.1', title: 'Grid system', blocks: [{ kind: 'banners', items: [{ id: '08.1', title: 'Grid for print and digital', file: 'grid-system.jpg' }] }] },
-      { num: '08.2', title: 'Spacing & proportions', blocks: [{ kind: 'banners', items: [{ id: '08.2', title: 'Spacing and proportions', file: 'spacing-proportions.jpg' }] }] },
-    ],
-  },
-
-  {
-    num: '09',
     title: 'Applications',
     intro: 'The identity in use, from the business card to the building. Each set runs as one continuous strip of mockups.',
     sections: [
       {
-        num: '09.1',
+        num: '08.1',
         title: 'Stationery',
         blocks: [
           {
             kind: 'banners',
             items: [
-              { id: '09.1-A', title: 'Stationery suite overview', file: 'stationery-overview.jpg' },
-              { id: '09.1-B', title: 'Business card — front and back', file: 'stationery-card.jpg' },
-              { id: '09.1-C', title: 'Letterhead', file: 'stationery-letterhead.jpg' },
-              { id: '09.1-D', title: 'Envelope', file: 'stationery-envelope.jpg' },
-              { id: '09.1-E', title: 'Compliment card', file: 'stationery-compliment.jpg' },
-              { id: '09.1-F', title: 'Presentation folder', file: 'stationery-folder.jpg' },
-              { id: '09.1-G', title: 'Notebook', file: 'stationery-notebook.jpg' },
-              { id: '09.1-H', title: 'Stationery detail — foil and emboss', file: 'stationery-detail.jpg' },
+              { id: '08.1-A', title: 'Stationery suite overview', file: 'stationery-overview.jpg' },
+              { id: '08.1-B', title: 'Business card — front and back', file: 'stationery-card.jpg' },
+              { id: '08.1-C', title: 'Letterhead', file: 'stationery-letterhead.jpg' },
+              { id: '08.1-D', title: 'Envelope', file: 'stationery-envelope.jpg' },
+              { id: '08.1-E', title: 'Compliment card', file: 'stationery-compliment.jpg' },
+              { id: '08.1-F', title: 'Presentation folder', file: 'stationery-folder.jpg' },
+              { id: '08.1-G', title: 'Notebook', file: 'stationery-notebook.jpg' },
+              { id: '08.1-H', title: 'Stationery detail — foil and emboss', file: 'stationery-detail.jpg' },
             ],
           },
         ],
       },
       {
-        num: '09.2',
+        num: '08.2',
         title: 'Brochure',
         blocks: [
           {
             kind: 'banners',
             items: [
-              { id: '09.2-A', title: 'Brochure cover', file: 'brochure-cover.jpg' },
-              { id: '09.2-B', title: 'Brochure spread 01', file: 'brochure-spread-01.jpg' },
-              { id: '09.2-C', title: 'Brochure spread 02', file: 'brochure-spread-02.jpg' },
-              { id: '09.2-D', title: 'Brochure spread 03', file: 'brochure-spread-03.jpg' },
-              { id: '09.2-E', title: 'Brochure spread 04', file: 'brochure-spread-04.jpg' },
-              { id: '09.2-F', title: 'Brochure spread 05', file: 'brochure-spread-05.jpg' },
+              { id: '08.2-A', title: 'Brochure cover', file: 'brochure-cover.jpg' },
+              { id: '08.2-B', title: 'Brochure spread 01', file: 'brochure-spread-01.jpg' },
+              { id: '08.2-C', title: 'Brochure spread 02', file: 'brochure-spread-02.jpg' },
+              { id: '08.2-D', title: 'Brochure spread 03', file: 'brochure-spread-03.jpg' },
+              { id: '08.2-E', title: 'Brochure spread 04', file: 'brochure-spread-04.jpg' },
+              { id: '08.2-F', title: 'Brochure spread 05', file: 'brochure-spread-05.jpg' },
             ],
           },
         ],
       },
       {
-        num: '09.3',
+        num: '08.3',
         title: 'Signage & wayfinding',
         blocks: [
           {
             kind: 'banners',
             items: [
-              { id: '09.3-A', title: 'Building signage', file: 'env-signage.jpg' },
-              { id: '09.3-B', title: 'Entrance and lobby', file: 'env-lobby.jpg' },
-              { id: '09.3-C', title: 'Wayfinding 01', file: 'env-wayfinding-01.jpg' },
-              { id: '09.3-D', title: 'Wayfinding 02', file: 'env-wayfinding-02.jpg' },
-              { id: '09.3-E', title: 'Site hoarding', file: 'env-hoarding.jpg' },
-              { id: '09.3-F', title: 'Environmental installation', file: 'env-installation.jpg' },
+              { id: '08.3-A', title: 'Building signage', file: 'env-signage.jpg' },
+              { id: '08.3-B', title: 'Entrance and lobby', file: 'env-lobby.jpg' },
+              { id: '08.3-C', title: 'Wayfinding 01', file: 'env-wayfinding-01.jpg' },
+              { id: '08.3-D', title: 'Wayfinding 02', file: 'env-wayfinding-02.jpg' },
+              { id: '08.3-E', title: 'Site hoarding', file: 'env-hoarding.jpg' },
+              { id: '08.3-F', title: 'Environmental installation', file: 'env-installation.jpg' },
             ],
           },
         ],
       },
       {
-        num: '09.4',
+        num: '08.4',
         title: 'Digital',
         blocks: [
           {
             kind: 'banners',
             items: [
-              { id: '09.4-A', title: 'Website — desktop', file: 'app-website.jpg' },
-              { id: '09.4-B', title: 'Website — mobile', file: 'app-website-mobile.jpg' },
-              { id: '09.4-C', title: 'Social media grid', file: 'app-social-grid.jpg' },
-              { id: '09.4-D', title: 'Instagram posts', file: 'app-social-instagram.jpg' },
-              { id: '09.4-E', title: 'LinkedIn and Facebook', file: 'app-social-linkedin.jpg' },
-              { id: '09.4-F', title: 'Email template', file: 'app-email-template.jpg' },
+              { id: '08.4-A', title: 'Website — desktop', file: 'app-website.jpg' },
+              { id: '08.4-B', title: 'Website — mobile', file: 'app-website-mobile.jpg' },
+              { id: '08.4-C', title: 'Social media grid', file: 'app-social-grid.jpg' },
+              { id: '08.4-D', title: 'Instagram posts', file: 'app-social-instagram.jpg' },
+              { id: '08.4-E', title: 'LinkedIn and Facebook', file: 'app-social-linkedin.jpg' },
+              { id: '08.4-F', title: 'Email template', file: 'app-email-template.jpg' },
             ],
           },
         ],
       },
       {
-        num: '09.5',
+        num: '08.5',
         title: 'Merchandise',
         blocks: [
           {
             kind: 'banners',
             items: [
-              { id: '09.5-A', title: 'T-shirt', file: 'merch-tshirt.jpg' },
-              { id: '09.5-B', title: 'Hoodie', file: 'merch-hoodie.jpg' },
-              { id: '09.5-C', title: 'Cap', file: 'merch-cap.jpg' },
-              { id: '09.5-D', title: 'Accessories', file: 'merch-accessories.jpg' },
-              { id: '09.5-E', title: 'Branded packaging', file: 'merch-packaging.jpg' },
+              { id: '08.5-A', title: 'T-shirt', file: 'merch-tshirt.jpg' },
+              { id: '08.5-B', title: 'Hoodie', file: 'merch-hoodie.jpg' },
+              { id: '08.5-C', title: 'Cap', file: 'merch-cap.jpg' },
+              { id: '08.5-D', title: 'Accessories', file: 'merch-accessories.jpg' },
+              { id: '08.5-E', title: 'Branded packaging', file: 'merch-packaging.jpg' },
             ],
           },
         ],
@@ -479,20 +438,20 @@ export const chapters: GuideChapter[] = [
   },
 
   {
-    num: '10',
+    num: '09',
     title: 'The development',
     intro:
       'Two residential towers joined by bridges, cascading terraces and green spaces, directly behind the Mövenpick Zaitoun Hotel in the Green Zone.',
     sections: [
-      { num: '10.1', title: 'Architecture', blocks: [{ kind: 'banners', items: [{ id: '10.1', title: 'Twin towers and connecting bridges', file: 'arch-towers.jpg' }] }] },
+      { num: '09.1', title: 'Architecture', blocks: [{ kind: 'banners', items: [{ id: '09.1', title: 'Twin towers and connecting bridges', file: 'arch-towers.jpg' }] }] },
       {
-        num: '10.2',
+        num: '09.2',
         title: 'Residences',
         blocks: [
-          { kind: 'banners', items: [{ id: '10.2', title: 'The six residences', file: 'unit-portfolio.jpg' }] },
+          { kind: 'banners', items: [{ id: '09.2', title: 'The six residences', file: 'unit-portfolio.jpg' }] },
         ],
       },
-      { num: '10.3', title: 'Location', blocks: [{ kind: 'banners', items: [{ id: '10.3', title: 'Location map — Green Zone, Baghdad', file: 'location-map.jpg' }] }] },
+      { num: '09.3', title: 'Location', blocks: [{ kind: 'banners', items: [{ id: '09.3', title: 'Location map — Green Zone, Baghdad', file: 'location-map.jpg' }] }] },
     ],
   },
 ]
