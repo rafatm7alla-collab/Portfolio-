@@ -335,30 +335,36 @@ export const chapters: GuideChapter[] = [
 
   {
     num: '07',
-    title: 'Photography',
-    intro: 'Images show life between gardens: natural light, greenery, architecture and calm people living well.',
+    title: 'Lifestyle',
+    intro:
+      'Life at Al Zaytoun moves at its own pace: mornings on a private terrace, afternoons among the gardens, evenings above the lights of Baghdad.',
     sections: [
       {
         num: '07.1',
-        title: 'Photography style',
+        title: 'Life at Al Zaytoun',
         blocks: [
           {
-            kind: 'rules',
-            do: [
-              'Warm, natural daylight and golden hour.',
-              'Greenery and architecture in the same frame.',
-              'People in calm, real moments.',
-            ],
-            dont: [
-              'Hard flash, cold blue grading, heavy saturation.',
-              'Generic stock clichés.',
-              'Crowded, busy compositions.',
+            kind: 'text',
+            body: 'Al Zaytoun is designed around how people live, not only where they live. Hanging gardens soften every level, terraces open each home to light and air, and the calm of the Green Zone sets the rhythm of the day.',
+          },
+          {
+            kind: 'text',
+            body: 'With hotel-grade service powered by Mövenpick Hotels & Resorts, everyday life feels effortless. Families, couples and professionals share one private address where privacy, comfort and community sit side by side. This is the quality of life the residence promises, and every image of the brand should feel like it.',
+          },
+          {
+            kind: 'banners',
+            items: [
+              { id: '07.1-A', title: 'Morning on the terrace', file: 'lifestyle-01.jpg' },
+              { id: '07.1-B', title: 'Family time in the gardens', file: 'lifestyle-02.jpg' },
+              { id: '07.1-C', title: 'Wellness & leisure', file: 'lifestyle-03.jpg' },
+              { id: '07.1-D', title: 'Interiors in daily use', file: 'lifestyle-04.jpg' },
+              { id: '07.1-E', title: 'Fitness & gym', file: 'lifestyle-05.jpg' },
+              { id: '07.1-F', title: 'Dining & hospitality', file: 'lifestyle-06.jpg' },
+              { id: '07.1-G', title: 'Evening above the city', file: 'lifestyle-07.jpg' },
             ],
           },
-          { kind: 'banners', items: [{ id: '07.1', title: 'Photography style guide', file: 'photo-style-guide.jpg' }] },
         ],
       },
-      { num: '07.2', title: 'Image treatment', blocks: [{ kind: 'banners', items: [{ id: '07.2', title: 'Colour grading and treatment', file: 'photo-treatment.jpg' }] }] },
     ],
   },
 
