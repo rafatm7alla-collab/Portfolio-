@@ -4,6 +4,7 @@ import { Fragment } from 'react'
 import { manifestImage } from '@/lib/manifest'
 import { BlockImage } from '@/components/blocks/BlockImage'
 import { FullBleedBlock } from '@/components/blocks/FullBleedBlock'
+import { LocalVideoBlock } from '@/components/blocks/LocalVideoBlock'
 import { Reveal } from '@/components/primitives/Reveal'
 import Link from 'next/link'
 import { Page, Rule } from '@/components/primitives/Layout'
@@ -120,15 +121,16 @@ const labelOn = (hex: string) => (contrast(hex, '#111111') >= contrast(hex, '#ff
 
 function BannerView({ banner }: { banner: Banner }) {
   if (isReady(banner) && isVideo(banner)) {
+    // Same player as the other project pages: muted, looping, starts as it
+    // scrolls into view, on a dark ground — never a blank white frame.
     return (
-      <div id={anchor(banner.id)} className="gl-anchor page">
-        <video
-          className="block w-full"
+      <div id={anchor(banner.id)} className="gl-anchor">
+        <LocalVideoBlock
           src={`/projects/${SLUG}/${banner.file}`}
-          controls
-          muted
-          playsInline
-          preload="metadata"
+          title=""
+          missing={false}
+          aspect="1920 / 1080"
+          noRounding
         />
       </div>
     )
